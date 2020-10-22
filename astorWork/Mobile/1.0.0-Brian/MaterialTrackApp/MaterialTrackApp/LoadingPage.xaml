@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.LoadingPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid x:Name="layoutMaster" Padding="5">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" x:Name="layoutResult" Scale="0">
+                <Label StyleClass="Header" HorizontalTextAlignment="Center" Text="" x:Name="lblResultMessage" TextColor="OrangeRed" Margin="0, 0, 0, 20"/>
+                <Button x:Name="btnBack" Clicked="btnBack_Clicked" Text="Back" Margin="50, 0, 50, 0"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" x:Name="layoutLoading">
+                <Label StyleClass="Header" HorizontalTextAlignment="Center" Text="" x:Name="lblLoadingMessage" Margin="0, 0, 0, 20"/>
+                <ActivityIndicator IsRunning="True" Color="LightBlue" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

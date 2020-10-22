@@ -1,0 +1,17 @@
+/*
+@import url("https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css");
+*/
+#viewerContainer{
+    width: 100%;
+    height: 85vh !important;
+    text-align: center;
+}
+
+#mainContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.viewerControls{
+    margin-top: 5px;
+}

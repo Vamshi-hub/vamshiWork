@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.Shared.Views.ToggleQC">
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+            <Button x:Name="btnToggleChecked" WidthRequest="50" HeightRequest="50" BorderRadius="25" Clicked="OnCheckBoxTapped"
+                    Image="{Binding StatusIcon}" BackgroundColor="{Binding StatusIconColor}">
+            </Button>
+            <Label x:Name="lblToggleChecked" StyleClass="Subheader" VerticalTextAlignment="Center"
+                   Text="{Binding StatusLabel}" TextColor="Black"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

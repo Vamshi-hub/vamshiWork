@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="astorWorkMobile.JobTrack.Pages.Cells.OutgoingViewCell">
+    <Frame BackgroundColor="#e2ffc7"
+           Padding="5,10"
+           HasShadow="False"
+           Margin="80,10,10,10">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--<Grid RowSpacing="0" 
+           ColumnSpacing="0">-->
+            <!--<Grid VerticalOptions="Start">-->
+            <!--<Label x:Name="UserName" Text="{Binding UserName}" TextColor="Black" Grid.Row="1" HorizontalOptions="Start" TextColor="Gre" />-->
+            <Label x:Name="Timestamp" Text="{Binding DisplayTimestamp}" TextColor="Gray" VerticalOptions="Start" HorizontalOptions="End" FontSize="Small"/>
+            <!--</Grid>-->
+            <ff:CachedImage Source="{Binding Image.Image}" IsVisible="{Binding HasImage}" ErrorPlaceholder="ic_warning.png" HeightRequest="300" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Grid.Row="0">
+                <ff:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowImageCommand}"/>
+                </ff:CachedImage.GestureRecognizers>
+            </ff:CachedImage>
+            <!--<Image x:Name="Image" Source="{Binding Image.Image}" IsVisible="{Binding HasImage}" HeightRequest="300" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowImageCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>-->
+            <Label Text="{Binding Message}" TextColor="Black" VerticalOptions="End"/>
+            <!--</Grid>-->
+        </StackLayout>
+    </Frame>
+    <!--<ViewCell.View>
+      <StackLayout>
+          <Label Text="Hello Xamarin.Forms!" />
+      </StackLayout>
+  </ViewCell.View>-->
+</ViewCell>

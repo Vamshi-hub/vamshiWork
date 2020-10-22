@@ -1,0 +1,10 @@
+﻿Dear Sir/Madam,
+
+A new job, {0} has been assigned to you. Please view below for more details.
+
+Material: {1}
+Planned Start Date: {2} {4}
+Planned End Date: {3} {4}
+
+Regards,
+astorWork Team

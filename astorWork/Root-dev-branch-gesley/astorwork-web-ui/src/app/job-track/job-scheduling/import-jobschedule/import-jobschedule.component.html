@@ -1,0 +1,93 @@
+
+<div fxLayout="row" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row no-print">
+  <h1 class="mat-h1">Import PPVC Schedule</h1>
+</div>
+<div class="no-print">  
+    <mat-card class="info-card">
+        <mat-card-content>
+            <form  (ngSubmit)="uploadFile()" [formGroup]="importForm">
+                <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="15px">
+                  <div class="important-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                    <h5 mat-line style="color: red"> &nbsp; !Important:</h5> 
+                    <p>Please upload file with csv format only. And it is mandatory to follow the 
+                      <a href="assets/template/jobschedule-Template.csv" download="jobschedule-Template.csv" matTooltip="Download CheckList Template">template</a> structure.
+                      For reference, please go through the
+                      <a (click)="sampleTemplate();" matTooltip="View JobSchedule Template" class="download-template">sample</a>.</p>
+
+                </div> 
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">   
+
+                  <!-- <mat-form-field>
+                    <mat-select matInput placeholder="Import Type" [(value)]="importType" formControlName="importType" required>
+                      <mat-option value="TRADE">PPVC Schedule</mat-option>
+                    </mat-select>
+                  </mat-form-field> -->
+        
+                  <div fxLayout="row" fxLayoutAlign="start center">
+                     <input type="file" id="importFile" accept=".csv" #fileInput (change)="onFileChange($event)" hidden="false" />
+                     <mat-form-field flex class="mat-block">
+                      <input matInput type="text"  placeholder="Choose your .csv file" formControlName="fileName" pattern=".*\.([c][s][v])$"
+                        (click)="attach();" readonly>
+                    </mat-form-field>
+                    <button mat-mini-fab id="attach" type="button" (click)="attach();">
+                      <mat-icon class="material-icons">attach_file</mat-icon>
+                    </button>
+                  </div>
+                  <button mat-raised-button color="primary" [disabled]="uploadbutton"> 
+                   <!-- || accessRight < 2" -->
+                    <mat-icon class="material-icons">
+                        cloud_upload
+                    </mat-icon>
+                    Upload</button>
+                </div>
+              </div>
+                </form>
+    </mat-card-content>
+  </mat-card>
+   
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div class="info-card" *ngIf="dataSource" [ngStyle]="{'display':isLoading ? 'none' : 'block' }"> 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="block">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Block </th>
+          <td mat-cell *matCellDef="let element"> {{element.block}} </td>
+        </ng-container>
+        <ng-container matColumnDef="level">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Level </th>
+            <td mat-cell *matCellDef="let element"> {{element.level}} </td>
+          </ng-container>
+          <ng-container matColumnDef="zone">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Zone </th>
+              <td mat-cell *matCellDef="let element"> {{element.zone}} </td>
+            </ng-container>
+            <ng-container matColumnDef="materialType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> MaterialType </th>
+                <td mat-cell *matCellDef="let element"> {{element.materialType}} </td>
+              </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Trade </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+      <td mat-cell *matCellDef="let element"> {{importType}} </td>
+    </ng-container> -->
+    <ng-container matColumnDef="message">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Error Message </th>
+      <td mat-cell *matCellDef="let element">
+        <div fxLayoutAlign="start center">
+          <mat-icon style="color: red">
+            error
+          </mat-icon>
+          <p>{{element.message}} </p>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.id}}"></tr>
+  </table>
+</div>

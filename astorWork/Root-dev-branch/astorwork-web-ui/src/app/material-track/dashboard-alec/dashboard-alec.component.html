@@ -1,0 +1,34 @@
+<div fxLayout="row" fxLayoutAlign="start center" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">Alec Dashboard</h1>
+  </div>
+</div>
+
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+
+<div fxLayout="column" fxLayoutAlign="space-around stretch" [style.display]="isLoading ? 'none' : 'block'">
+  <div fxLayout="row" fxLayout.xs="column">
+    <mat-card fxFlex class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list cols="30" rowHeight="2:1" style="font-weight:bold; width:2000px">
+          <mat-grid-tile [colspan]="14" [rowspan]="2" [style.color]="textColour" style="font-size: 20px">{{drawingNo}}</mat-grid-tile>
+          <mat-grid-tile
+              *ngFor="let cell of cells"
+              [colspan]="cell.cols"
+              [rowspan]="cell.rows"
+              [style.background]="cell.color"
+              [style.color]="cell.textcolor"
+              style="font-size: 10px"
+              >
+            {{cell.text}}
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <div #target></div>
+  </div>
+</div>

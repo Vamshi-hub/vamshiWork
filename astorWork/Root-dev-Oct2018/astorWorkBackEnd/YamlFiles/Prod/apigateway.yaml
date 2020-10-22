@@ -1,0 +1,40 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: apigateway
+  namespace: production
+  labels:
+    app: apigateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apigateway
+  template:
+    metadata:
+      labels:
+        app: apigateway
+    spec:
+      containers:
+      - name: astorwork
+        image: astorwork.azurecr.io/apigateway:105
+        
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: extensions/v1beta1
+kind: Service
+apiVersion: v1
+metadata:
+  name: apigateway
+  namespace: production
+spec:
+  selector:
+    app: apigateway
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+  - name: https
+    protocol: TCP
+    port: 443

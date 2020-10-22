@@ -1,0 +1,64 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: auth-server
+  namespace: prod
+  labels:
+    app: auth-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-server
+  template:
+    metadata:
+      labels:
+        app: auth-server
+    spec:
+      containers:
+      - name: astorwork
+        image: astorwork.azurecr.io/user-manage-2019:1009
+        env:
+        - name: TENANT_INFO_TBL
+          value: TenantInfoProd
+
+        - name: SENDGRID_KEY
+          value: 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
+          
+        - name: IMAGE_CONTAINER
+          value: prod-image-repo
+
+        - name: AW_REDIS_CACHE_CONNECTION
+          value: astorworkProd.redis.cache.windows.net:6380,password=NgCdNUSdyraWS1GL19C6MRVaAlyM9115iAlkd0z9c+c=,ssl=True,abortConnect=False
+
+        - name: POWERBI_TENANT_ID
+          value: 3156e991-a773-429e-a59a-df6faa02e474
+
+        - name: POWERBI_CLIENT_ID
+          value: 1d67d1a2-09ba-4994-b019-a926d4150004
+        - name: POWERBI_CLIENT_SECRET
+          value: 8qpSgFNpj/YFd4viPXqEzdklEuH8v6/mRl3VkP0nvfM=
+        - name: POWERBI_USER_NAME
+          value: powerbiadmin@astoriasolutions.com
+        - name: POWERBI_USER_PASSWORD
+          value: P@werbi@dmin123#
+
+      imagePullSecrets:
+      - name: acr-auth
+---
+apiVersion: extensions/v1beta1
+kind: Service
+apiVersion: v1
+metadata:
+  name: auth-server
+  namespace: prod
+spec:
+  selector:
+    app: auth-server
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+  - name: https
+    protocol: TCP
+    port: 443

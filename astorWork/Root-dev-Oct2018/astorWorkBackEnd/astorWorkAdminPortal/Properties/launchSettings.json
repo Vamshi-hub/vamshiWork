@@ -1,0 +1,56 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:64755",
+      "sslPort": 44335
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "HOST_NAME": "astorworkqa.com",
+        "SENDGRID_KEY": "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",
+        "AW_REDIS_CACHE_CONNECTION": "astorwork-dev.redis.cache.windows.net:6380,password=0EJ/NfXOQuCua+UgT8IXDTcGI5kz8MoDoUb05LcRifc=,ssl=True,abortConnect=False",
+        "FORGE_CLIENT_SECRET": "4d0ba5cav1AuU9sk",
+        "BLOB_STORAGE_HOST": "https://astorwork.blob.core.windows.net",
+        "SQL_SERVER_USER": "astoria",
+        "SQL_SERVER_PASSWORD": "aspla5t0rWork",
+        "FORGE_CLIENT_ID": "8sVrLSRk4HEJ5dmG0uXQcCVU5LvfuH0G",
+        "IMAGE_CONTAINER": "dev-image-repo",
+        "VIDEO_CONTAINER": "dev-video-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoDev"
+      }
+    },
+    "IIS Express Dev": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "HOST_NAME": "astorworkqa.com",
+        "SENDGRID_KEY": "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",
+        "AW_REDIS_CACHE_CONNECTION": "astorwork-dev.redis.cache.windows.net:6380,password=0EJ/NfXOQuCua+UgT8IXDTcGI5kz8MoDoUb05LcRifc=,ssl=True,abortConnect=False",
+        "FORGE_CLIENT_SECRET": "4d0ba5cav1AuU9sk",
+        "BLOB_STORAGE_HOST": "https://astorwork.blob.core.windows.net",
+        "SQL_SERVER_USER": "sa",
+        "SQL_SERVER_PASSWORD": "acpl5QLSA",
+        "FORGE_CLIENT_ID": "8sVrLSRk4HEJ5dmG0uXQcCVU5LvfuH0G",
+        "IMAGE_CONTAINER": "dev-image-repo",
+        "VIDEO_CONTAINER": "dev-video-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoDev"
+      }
+    },
+    "astorWorkAdminPortal": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+  }
+}

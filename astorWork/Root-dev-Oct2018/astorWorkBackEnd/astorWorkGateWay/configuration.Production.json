@@ -1,0 +1,79 @@
+﻿{
+  "Audience": {
+    "Secret": "Y2F0Y2hlciUyMHdvbmclMjBsb3ZlJTIwLm5ldA==",
+    "Iss": "astorwork",
+    "Aud": "astorwork"
+  },
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Error",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "material-tracking",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/material-tracking/{everything}",
+      "UpstreamHttpMethod": [ "Get", "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/authentication/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-server",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/authentication/{everything}",
+      "UpstreamHttpMethod": [ "Get", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/user/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-server",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/user/{everything}",
+      "UpstreamHttpMethod": [ "Get", "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/powerbi/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-server",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/powerbi/{everything}",
+      "UpstreamHttpMethod": [ "Get", "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+  }
+}

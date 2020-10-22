@@ -1,0 +1,63 @@
+<mat-card class="info-card" *ngIf="!isLoading">
+  <mat-card-content>
+    <form  class="example-form" [formGroup]="importForm">
+      <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="15px">
+        <div class="important-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <h5 mat-line style="color: red"> &nbsp; !Important:</h5>
+          <p>Please upload file with csv format only. And it is mandatory to follow the
+            <a href="assets/template/material_Template.csv" download="material_Template.csv" matTooltip="Download Material Template" >template</a> 
+            structure. For reference, please go through the 
+            <a (click)="sampleTemplate();" matTooltip="Download Material Template" class="download-template">sample</a>. </p>
+        </div> 
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Block" aria-label="Number" matInput formControlName="block" 
+            [matAutocomplete]="autoblock" required>
+            <mat-autocomplete #autoblock="matAutocomplete">
+              <mat-option *ngFor="let option of filteredBlocks | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Material Type" aria-label="Number" matInput formControlName="materialType" 
+            [matAutocomplete]="automaterailtype" required>
+            <mat-autocomplete #automaterailtype="matAutocomplete">
+              <mat-option *ngFor="let option of filteredMaterailTypes | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select matInput placeholder="Vendor" formControlName="vendor" required>
+              <mat-option *ngFor="let vendordata of allVendors" [value]='vendordata.id'>
+                {{ vendordata.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <input type="file" id="importFile" accept=".csv, text/csv" #fileInput (change)="onFileChange($event)" hidden="false" />
+            <mat-form-field flex class="mat-block">
+              <input matInput type="text" formControlName="fileName" placeholder="Choose your .csv file" pattern=".*\.([c][s][v])$" matTooltip={{fileName}}
+                (click)="attach();" readonly>
+            </mat-form-field>
+            <button mat-mini-fab id="attach" type="button" (click)="attach();">
+              <mat-icon class="material-icons">attach_file</mat-icon>
+            </button>
+          </div>
+          <!--[disabled]="importForm.status=='INVALID' || accessRight < 2" -->
+          <button mat-raised-button color="primary" type="button" (click)="uploadFile();" [disabled]="importForm.status=='INVALID' || accessRight < 2">
+            <mat-icon class="material-icons">
+              cloud_upload
+            </mat-icon>
+            Upload</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

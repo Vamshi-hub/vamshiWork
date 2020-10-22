@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="astorTrackP.EnrollRFIDMarkingNo"
+    xmlns:local="clr-namespace:astorTrackP;assembly=astorTrackP"    
+	Title="Enrollment" BackgroundColor="#e6e6e6">
+    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="{Binding scanOperation, Mode=TwoWay}" Command="{Binding ScanCommand, Mode=TwoWay}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="5,5,5,5">
+                <TableView x:Name="uxScanPage" Intent="Form" HasUnevenRows="true" HeightRequest="700" BindingContext="{Binding MaterialMasterMarkingNo, Mode=TwoWay}" BackgroundColor="White">
+                    <TableRoot>
+                    <TableSection Title="{Binding MaterialType}"  >
+                            <ViewCell>
+                                <ViewCell.View>                                    
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5,0,5,0"  Spacing="0">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" HeightRequest="50"  Spacing="0">
+                                            <Label Text="Marking No"  VerticalOptions="FillAndExpand" FontSize="Small"></Label>
+                                            <Label Text="{Binding MarkingNo}" VerticalOptions="FillAndExpand" TextColor="#002ec6" FontSize="Large"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="End" HeightRequest="50"  Spacing="0">
+                                            <Label Text="Project" HorizontalOptions="End" VerticalOptions="Center" FontSize="Small"></Label>
+                                            <Label Text="{Binding Project}" HorizontalOptions="End" VerticalOptions="Center" TextColor="Black" FontSize="Medium"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="60">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" HeightRequest="60"  Spacing="0">
+                                                <Label Text="Lot No" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Small"></Label>
+                                                <!--<Label x:Name="uxLotNo" Text="{Binding LotNo, Mode=TwoWay}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="White" FontSize="Large" ></Label>-->
+                                                <Entry x:Name="uxLotNo" Text="{Binding LotNo, Mode=TwoWay}" HorizontalOptions="StartAndExpand" VerticalOptions="End"  TextColor="Black" FontSize="Large" WidthRequest="80" HorizontalTextAlignment="Center"></Entry>
+                                            </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="End" HeightRequest="60"  Spacing="0">
+                                                <Label Text="Casting Date" HorizontalOptions="End" VerticalOptions="Center" TextColor="Silver" FontSize="Small"></Label>
+                                                <DatePicker x:Name="uxCastingDate" Date="{Binding CastingDate, Mode=TwoWay}" HorizontalOptions="End" VerticalOptions="End" TextColor="Black" />
+                                            </StackLayout>                                            
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="90" Spacing="0">
+                                            <Label Text="RFID Tag" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Small"></Label>
+                                        <Label x:Name="uxRFIDTagID" Text="{Binding RFIDTagID, Mode=TwoWay}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Large" TextColor="Black" HeightRequest="60"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            <StackLayout>
+                <ListView x:Name="uxItems" ItemsSource="{Binding MaterialMasterMarkingNos, Mode=TwoWay}" HasUnevenRows="true"  BackgroundColor="White"
+			        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsPullToRefreshEnabled="False" IsEnabled="False" SeparatorVisibility="Default" SeparatorColor="Gray" >                   
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0"  Padding="5,5,5,5">
+                                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                                            <Label Text="{Binding MarkingNo}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Medium"  TextColor="#3498db"></Label>
+                                            <Label Text="{Binding MaterialType}" TextColor="Silver" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                                        </StackLayout>-->
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                                            <Label Text="Lot No: " HorizontalOptions="Start" VerticalOptions="Center" TextColor="Silver" FontSize="Small"></Label>
+                                            <Label Text="{Binding LotNo}" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Black" FontSize="Medium"></Label>
+                                            <Label Text="Casting Date: " HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Small"></Label>
+                                            <Label Text="{Binding CastingDate, StringFormat='{0:d}'}" HorizontalOptions="End" VerticalOptions="Center" TextColor="Black" FontSize="Medium"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" HeightRequest="60"  Spacing="0">
+                                            <Label Text="RFID Tag" HorizontalOptions="Start" VerticalOptions="Start" TextColor="Silver" FontSize="Small"></Label>
+                                            <Label Text="{Binding RFIDTagID}" HorizontalOptions="EndAndExpand" VerticalOptions="Start" FontSize="Medium" TextColor="Black"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout  Padding="5,5,5,5" RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}" RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}" BackgroundColor="White">
+                <Button x:Name="uxSave" BackgroundColor="#3498db" Text="{Binding ScanSaveText}" Command="{Binding SaveCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

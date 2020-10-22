@@ -1,0 +1,99 @@
+﻿@model IEnumerable<astorWorkMVC.Models.BIMSyncHist>
+
+@{
+    ViewBag.Title = "List of BIM Sync Sessions";
+    Layout = "~/Views/Shared/_Layout_NoNav.cshtml";
+}
+
+<h2>List of BIM Sync Sessions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Sync Date Time
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Synced Components Count
+            </th>
+            <th>
+                Missed Components Count
+            </th>
+            <th>
+                Visulization
+            </th>
+            <th>
+                Model File
+            </th>
+            <th>
+                User
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.LastSyncDate.Value.ToLocalTime()
+                </td>
+                @if (item.Status == 0)
+                {
+                    <td>Full</td>
+                }
+                else if (item.Status == 1)
+                {
+                    <td>Partial</td>
+                }
+                else
+                {
+                    <td>Error</td>
+                }
+                <td>
+                    @item.SyncedMaterialIds.Split(',').Count()
+                </td>
+                <td>
+                    @item.MissingMaterialIds.Split(',').Count()
+                </td>
+                @if (string.IsNullOrEmpty(item.VisualizeURL))
+                {
+                    <td>N.A.</td>
+                }
+                else
+                {
+                    <td class="text-success">
+                        Yes
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BIMUserInfo.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            var currentLoadingPanel = $("#AjaxLoadingPanel1", window.parent.document);
+            console.log(currentLoadingPanel);
+            if (currentLoadingPanel != null)
+                currentLoadingPanel.hide("");
+            currentUpdatedControl = null;
+            currentLoadingPanel = null;
+
+        });
+    </script>
+}

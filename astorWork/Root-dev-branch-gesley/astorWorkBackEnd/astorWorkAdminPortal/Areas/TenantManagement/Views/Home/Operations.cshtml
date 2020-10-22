@@ -1,0 +1,145 @@
+﻿@model astorWorkShared.GlobalModels.TenantInfo
+
+@{
+    ViewData["Title"] = "Tenant Operations";
+}
+
+<h2>Tenant Operations</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <fieldset>
+            <legend>Edit/Create</legend>
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="PartitionKey" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="RowKey" class="control-label">Tenant Name</label>
+                    <input asp-for="RowKey" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="DBServer" class="control-label"></label>
+                    <input asp-for="DBServer" class="form-control" />
+                    <span asp-validation-for="DBServer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DBName" class="control-label"></label>
+                    <input asp-for="DBName" class="form-control" />
+                    <span asp-validation-for="DBName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DBUserID" class="control-label"></label>
+                    <input asp-for="DBUserID" class="form-control" />
+                    <span asp-validation-for="DBUserID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DBPassword" class="control-label"></label>
+                    <input asp-for="DBPassword" class="form-control" />
+                    <span asp-validation-for="DBPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BackgroundImageURL" class="control-label"></label>
+                    <input asp-for="BackgroundImageURL" class="form-control" />
+                    <span asp-validation-for="BackgroundImageURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LogoImageURL" class="control-label"></label>
+                    <input asp-for="LogoImageURL" class="form-control" />
+                    <span asp-validation-for="LogoImageURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PowerBIWorkSpaceGUID" class="control-label"></label>
+                    <input asp-for="PowerBIWorkSpaceGUID" class="form-control" />
+                    <span asp-validation-for="PowerBIWorkSpaceGUID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TimeZone" class="control-label"></label>
+                    <input asp-for="TimeZone" class="form-control" />
+                    <span asp-validation-for="TimeZone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EnabledModules" class="control-label"></label>
+                    <input asp-for="EnabledModules" class="form-control" />
+                    <span asp-validation-for="EnabledModules" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="Enabled" /> @Html.DisplayNameFor(model => model.Enabled)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="col-md-4">
+        <fieldset>
+            <legend>Database</legend>
+            <form asp-action="Database">
+                <input type="hidden" asp-for="RowKey" />
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Drop" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Migrate" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Add login" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Populate basic data" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Populate demo setup" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Populate demo materials" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Populate demo jobs & checklists" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Populate demo progress" class="btn btn-default" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="Op" value="Populate demo QC" class="btn btn-default" />
+                </div>
+            </form>
+            <footer><b>* Migrate and populate demo data may take several minutes</b></footer>
+        </fieldset>
+    </div>
+    <div class="col-md-4">
+        <fieldset>
+            <legend>Associate BIM models</legend>
+            <form asp-action="AssociateForge">
+                <input type="hidden" asp-for="RowKey" />
+                <div class="form-group">
+                    <label for="BucketKey" class="control-label">Forge Bucket</label>
+                    <input name="BucketKey" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Associate Forge" />
+                </div>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Redis cache</legend>
+            <form asp-action="RedisCache">
+                <input type="hidden" asp-for="RowKey" />
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" name="Op" value="Remove Key" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" name="Op" value="Get Value" />
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

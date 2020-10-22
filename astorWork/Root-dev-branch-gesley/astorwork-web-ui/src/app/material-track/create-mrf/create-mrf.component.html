@@ -1,0 +1,113 @@
+<div class="page-header-row">
+  <h1 class="mat-h1">Create MRF</h1>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="submitted">
+  <div fxLayout="column" fxlayoutAlign="space-around center">
+    <p>Creating MRF, please wait</p>
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<form (ngSubmit)="onSubmit()" [hidden]="submitted" [formGroup]="theForm">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Location</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <mat-select matInput placeholder="Block" (openedChange)="blockOpened($event)" formControlName="block" [(value)]="selectedBlocks" required>
+            <mat-option *ngFor="let blk of blocks" [value]="blk" class="option-blk">
+              {{ blk }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select matInput placeholder="Level" multiple formControlName="level"  #mylevelSel required>
+              <mat-option (click)="LevelAllSelection()"  [value]="0"  #alllevelSelected>All</mat-option>
+            <mat-option *ngFor="let level of levels" [value]="level" class="option-level" (click)="togglelevel(alllevelSelected.viewValue)">
+              {{ level}} 
+              
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select matInput placeholder="Zone" multiple formControlName="zone" #myzoneSel (openedChange)="zoneOpened($event)" required>
+              <mat-option (click)="ZoneAllSelection()"  [value]="0"  #allzoneSelected> All</mat-option>
+            <mat-option  *ngFor="let zone of zones" [value]="zone" class="option-zone" (click)=" togglezone(allzoneSelected.viewValue)">
+              {{ zone }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="info-card" *ngIf="theForm.controls.zone.value">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Vendor</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <mat-select matInput placeholder="Vendor" formControlName="organisation" required>
+            <mat-option *ngFor="let organisation of organisations" [value]='organisation' class='option-organisation'>
+              {{ organisation.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select matInput placeholder="Attention" multiple formControlName="officers" required>
+            <mat-option *ngFor="let user of theForm.controls.organisation.value?.contactPeople" [value]='user' class='option-officer'>
+              {{ user.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Module Type(s)" multiple formControlName="materialTypes"  #mymaterialtypeSel required>
+              <mat-option (click)="MaterialtypesAllSelection()" [value]="0"  #allmaterialtypeSelected> All</mat-option>
+            <mat-option *ngFor="let materialType of materialTypes" [value]='materialType' class="option-material-type" (click)="togglematerialtype(allmaterialtypeSelected.viewValue)">
+              {{ materialType }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="info-card" *ngIf="theForm.controls.materialTypes.value">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Schedule</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickOrderDate" placeholder="Date of Order" formControlName="orderDate" [min]="minOrderDate"
+            required>
+          <mat-datepicker-toggle matSuffix [for]="pickOrderDate" required></mat-datepicker-toggle>
+          <mat-datepicker #pickOrderDate touchUi="true"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickCastingDate" placeholder="Slab casting date" formControlName="plannedCastingDate">
+          <mat-datepicker-toggle matSuffix [for]="pickCastingDate"></mat-datepicker-toggle>
+          <mat-datepicker #pickCastingDate touchUi="true"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickDeliveryDate" placeholder="Estimated delivery date" formControlName="expectedDeliveryDate"
+            [min]="minExpectedDeliveryDate" required>
+          <mat-datepicker-toggle matSuffix [for]="pickDeliveryDate" required></mat-datepicker-toggle>
+          <mat-datepicker #pickDeliveryDate touchUi="true"></mat-datepicker>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center end">
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="submit" [disabled]="theForm.status=='INVALID' || accessRight < 2">Submit</button>
+    </div>
+    <div style="padding: 10px;"></div>
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="button" (click)="OnCancel()">Cancel</button>
+    </div>
+  </div>
+</form>

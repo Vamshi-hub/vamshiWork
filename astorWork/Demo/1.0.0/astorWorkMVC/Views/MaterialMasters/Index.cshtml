@@ -1,0 +1,108 @@
+﻿@model IEnumerable<astorWorkMVC.Models.MaterialMaster>
+
+@{
+    ViewBag.Title = "List of materials";
+}
+
+<h2>List of materials</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MarkingNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaterialType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RFIDTagID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeaconID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MRFNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Block)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zone)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarkingNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaterialType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RFIDTagID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeaconID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MRFNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Block)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zone)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaterialNo }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaterialNo }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaterialNo })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">{{profile}}</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<form (ngSubmit)="onSubmit()" [formGroup]="theForm" [hidden]="isLoading">
+  <mat-card class="form-card">
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
+      <mat-form-field>
+        <input matInput placeholder="Vendor Name" value="" formControlName="vendorName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Cycle Days" value="" min="1" formControlName="cycleDays" required>
+      </mat-form-field>
+     
+      <mat-list dense *ngIf="haveContactPerson">
+        <h3 matSubheader>Contact People</h3>
+        <mat-list-item *ngFor="let contactPerson of vendorDetails.contactPeople">{{contactPerson.personName}}</mat-list-item>
+      </mat-list>
+
+      <mat-list dense *ngIf="haveLocation">
+        <h3 matSubheader>Locations</h3>
+        <mat-list-item *ngFor="let location of vendorDetails.locations">{{location.name}}</mat-list-item>
+      </mat-list>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly end">
+        <div class="button-row" *ngIf="errorMsg!=''">
+          {{ errorMsg }}
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-evenly end" fxLayoutGap="20px">
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="theForm.status=='INVALID' || accessRight < 2">{{submit}}</button>
+          </div>
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="button" (click)="OnCancel()">Cancel</button>
+          </div>
+        </div>
+    </mat-card-content>
+   
+  </mat-card>
+</form>

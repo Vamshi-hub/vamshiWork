@@ -1,0 +1,17 @@
+.mat-mini-fab.mat-accent{
+    background-color: white!important;
+    color:black!important
+}
+
+.mat-column-markingNo {
+    flex: 0 0 10% !important;
+    white-space: unset !important;
+    word-break: break-all;
+    padding-right: 15px
+  }
+.mat-column-materialType {
+    flex: 0 0 10% !important;
+    white-space: unset !important;
+    word-break: break-all;
+    padding-right: 15px;
+  }

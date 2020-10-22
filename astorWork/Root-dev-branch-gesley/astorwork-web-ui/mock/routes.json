@@ -1,0 +1,4 @@
+{
+  "/material-tracking/*": "/$1",
+  "/projects/:id/materials/:id": "/MaterialDetails/:id"
+}

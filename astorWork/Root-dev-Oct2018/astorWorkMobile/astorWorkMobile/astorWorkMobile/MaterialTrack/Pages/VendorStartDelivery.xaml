@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.VendorStartDelivery"
+             BindingContext="{x:Static utilities:ViewModelLocator.vendorStartDeliveryVM}"
+             Title="Start Delivery"
+             Disappearing="OnPageDisappearing">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout IsVisible="{Binding ShowContent}">
+                <Frame HasShadow="True">
+                    <StackLayout>
+                        <Picker ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedLocation}" ItemDisplayBinding="{Binding Name}" Title="Select a location"/>
+                        <StackLayout IsVisible="{Binding ShowUpdateForm}">
+                        <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                            <Label FlexLayout.Basis="30%">MRF No.:</Label>
+                            <Picker Title="Select a MRF no." ItemsSource="{Binding ListMRF}"
+                                    ItemDisplayBinding="{Binding MrfNo}" FlexLayout.Grow="1"
+                                    SelectedItem="{Binding SelectedMRF}" IsEnabled="{Binding SelectMRFEnabled}"/>
+                        </FlexLayout>
+                        <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                            <Label FlexLayout.Basis="30%">Marking No.:</Label>
+                            <Label StyleClass="Subheader" Text="{Binding TrackerInfo.inventory.markingNo}"/>
+                            <Label StyleClass="Subheader" Text="{Binding TrackerInfo.material.markingNo}"/>
+                        </FlexLayout>
+                        <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                            <Label FlexLayout.Basis="30%">SN:</Label>
+                            <Label StyleClass="Subheader" Text="{Binding TrackerInfo.inventory.sn}"/>
+                            <Label StyleClass="Subheader" Text="{Binding TrackerInfo.material.sn}"/>
+                        </FlexLayout>
+                        <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                            <Label FlexLayout.Basis="30%">Casting Date:</Label>
+                            <Label StyleClass="Subheader" Text="{Binding TrackerInfo.inventory.castingDate, StringFormat='{0:MM/dd/yyyy}'}"/>
+                            <Label StyleClass="Subheader" Text="{Binding TrackerInfo.material.castingDate, StringFormat='{0:MM/dd/yyyy}'}"/>
+                        </FlexLayout>
+                        <StackLayout IsVisible="{Binding ShowQCField}">
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">QC Status:</Label>
+                                <views:ToggleQC BindingContext="{Binding TogglePass}"/>
+                            </FlexLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">QC Remarks:</Label>
+                                <Editor Text="{Binding QCRemarks}" HeightRequest="80" FlexLayout.Grow="1"/>
+                            </FlexLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Button Style="{StaticResource btnPrimaryStyle}" Text="Submit" IsEnabled="{Binding SubmitButtonEnabled}"
+                        Margin="0,10,0,0" Clicked="OnSubmitButtonClicked" HorizontalOptions="Center"/>
+            </StackLayout>
+            <views:LoadingView HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

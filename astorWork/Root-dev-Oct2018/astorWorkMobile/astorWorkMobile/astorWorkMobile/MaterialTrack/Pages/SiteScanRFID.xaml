@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.SiteScanRFID"
+             BindingContext="{x:Static utilities:ViewModelLocator.siteScanRFIDVM}"
+             Title="Scan RFID" Disappearing="OnDisappearing" Appearing="OnAppearing">
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <StackLayout>
+                <Button Text="{Binding ToggleScanButtonLabel}" Clicked="OnScanButtonClicked" />
+                <!--
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Image Source="ic_location_searching.png" x:Name="icoScan" IsVisible="False"
+                           WidthRequest="60" HeightRequest="60"/>
+                    <StackLayout VerticalOptions="Center" Margin="50,0,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Label StyleClass="Header" TextColor="Black"
+                       Text="{Binding CountTags}"
+                           VerticalTextAlignment="Center"/>
+                            <Label StyleClass="Subheader" VerticalTextAlignment="Center">tags found</Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label StyleClass="Header" TextColor="Black"
+                       Text="{Binding CountUpdated}"
+                           VerticalTextAlignment="Center"/>
+                            <Label StyleClass="Subheader" VerticalTextAlignment="Center">materials updated</Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                -->
+                <ListView ItemsSource="{Binding ListTracker}" VerticalOptions="FillAndExpand"
+                      SeparatorVisibility="None" IsVisible="{Binding ShowContent}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="5">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Vertical">
+                                            <Grid Margin="0, 5">
+                                                <Label VerticalTextAlignment="Center">Tracker:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Header" TextColor="Black"
+                                               Text="{Binding trackerLabel}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid Margin="0, 5">
+                                                <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding markingNo}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid Margin="0, 5">
+                                                <Label VerticalTextAlignment="Center">Status:</Label>
+                                                <Frame Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"
+                                       BackgroundColor="{Binding stageColor}" Padding="10,0">
+                                                    <Label StyleClass="Subheader" Text="{Binding stageName}" VerticalTextAlignment="Center"/>
+                                                </Frame>
+                                            </Grid>
+                                            <Grid Margin="0, 5" IsVisible="{Binding displayInventory}">
+                                                <Label VerticalTextAlignment="Center">Lot No.:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding sn}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid Margin="0, 5" IsVisible="{Binding displayInventory}">
+                                                <Label VerticalTextAlignment="Center">Casting Date:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding castingDate, StringFormat='{0:MM/dd/yyyy}'}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" IsVisible="{Binding displayMaterial}">
+                                            <Grid Margin="0, 5">
+                                                <Label VerticalTextAlignment="Center">Block:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding block}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid Margin="0, 5">
+                                                <Label VerticalTextAlignment="Center">Level:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding level}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid Margin="0, 5">
+                                                <Label VerticalTextAlignment="Center">Zone:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding zone}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid IsVisible="{Binding displayQC}" Margin="0, 5">
+                                                <Label Text="QC Status: "
+                                       VerticalOptions="Center" HorizontalOptions="Start"/>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" VerticalTextAlignment="Center"
+                                                       TextColor="Black" Text="{Binding qcRemarks}" />
+                                            </Grid>
+                                            <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                                                <Button StyleClass="Primary" Text="Update" IsVisible="{Binding allowUpdate}"
+                                                        Clicked="OnSelectButtonClicked"/>
+                                                <Button Text="BIM" IsEnabled="{Binding displayBIM}" 
+                                                        Clicked="OnBIMButtonClicked"/>
+                                            </FlexLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Image Source="ic_location_searching.png" x:Name="icoScan" IsVisible="False"
+                           WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

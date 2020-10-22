@@ -1,0 +1,40 @@
+﻿using astorWork_Navisworks.Controls;
+using Autodesk.Navisworks.Api.Plugins;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms.Integration;
+
+namespace astorWork_Navisworks
+{
+    [Plugin("Astoria.MaterialSyncPlugIn", "ASTR",
+       DisplayName = "Material Status Update",
+       ToolTip = "Sync the material status into TimeLiner")]
+
+    [DockPanePlugin(640, 480, FixedSize = true)]
+
+    public class PlugIn: DockPanePlugin
+    {
+        public override System.Windows.Forms.Control CreateControlPane()
+        {
+            //create an ElementHost
+            ElementHost eh = new ElementHost();
+
+            //assign the control
+            eh.AutoSize = true;
+            eh.Child = new MainWindow();
+
+            eh.CreateControl();
+
+            //return the ElementHost
+            return eh;
+        }
+
+        public override void DestroyControlPane(System.Windows.Forms.Control pane)
+        {
+            pane.Dispose();
+        }
+    }
+}

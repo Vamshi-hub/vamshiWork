@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: background-service
+  namespace: prod
+  labels:
+    app: background-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: background-service
+  template:
+    metadata:
+      labels:
+        app: background-service
+    spec:
+      containers:
+      - name: astorwork
+        image: astorwork.azurecr.io/background-service-2019:1021
+        env:
+        - name: TENANT_INFO_TBL
+          value: TenantInfoProd
+
+        - name: SENDGRID_KEY
+          value: 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
+          
+        - name: IMAGE_CONTAINER
+          value: prod-image-repo
+
+        - name: AW_REDIS_CACHE_CONNECTION
+          value: astorworkProd.redis.cache.windows.net:6380,password=NgCdNUSdyraWS1GL19C6MRVaAlyM9115iAlkd0z9c+c=,ssl=True,abortConnect=False
+
+        - name: HOST_NAME
+          value: astorwork.com
+        
+      imagePullSecrets:
+      - name: acr-auth

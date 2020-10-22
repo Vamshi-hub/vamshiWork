@@ -1,0 +1,62 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayout.xs="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1 page-header">BIM History</h1>
+  </div>
+  <div fxFlex="25">
+  </div>
+  <div fxFlex="25">
+    <mat-form-field>
+      <input matInput (keyup)="onFilterKeyIn($event)" placeholder="Filter" [(ngModel)]='filterBIM'>
+      <button mat-button *ngIf="filterBIM" matSuffix mat-icon-button aria-label="Clear" (click)="dataSource.filter = filterBIM = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div>
+<mat-table #table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="bimModelId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> BIM Model </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.bimModelId}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="personName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"> Synced By </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.personName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="countSyncedMaterials">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> No. Synced Materials </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <span class="cell-center"> {{element.countSyncedMaterials}}</span> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="countUnsyncedMaterials">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> No. Unsynced Materials </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <span class="cell-center"> {{element.countUnsyncedMaterials}}</span> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="videoURL">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Video </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-mini-fab *ngIf="element.videoURL; else noVideo" color="accent" (click)="$event.stopPropagation();playVideo(element)">
+        <mat-icon aria-label="Play button">play_arrow</mat-icon>
+      </button>
+      <ng-template #noVideo>
+        N.A.
+      </ng-template>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="syncTime">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Sync Time </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{element.syncTime | date:'M/d/yyyy, h:mm:ss a'}}
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable"></mat-row>
+</mat-table>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+</mat-paginator>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

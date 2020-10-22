@@ -1,0 +1,16 @@
+<div *ngIf="data; else noVideoData">
+  <h3 mat-dialog-title>
+    {{data.videoTitle}}
+  </h3>
+  <mat-dialog-content>
+    <video [width]="data.videoWidth" [height]="data.videoHeight" controls autoplay>
+      <source [src]="data.videoUrl" type="video/mp4"> Your browser does not support the video tag.
+    </video>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>
+<ng-template #noVideoData>
+  No video data
+</ng-template>

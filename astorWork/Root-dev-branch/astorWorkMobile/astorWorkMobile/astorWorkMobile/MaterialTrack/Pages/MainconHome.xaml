@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.MainconHome"
+             Title="Material Tracking">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid Padding="16">
+            <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly" AlignContent="Center">
+                <Frame Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle" WidthRequest="300"
+                       HeightRequest="70" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnScanQRCodeClicked"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout Direction="Row" AlignItems="Center">
+                        <Image Source="ic_qr_code_base.png" HeightRequest="60" WidthRequest="60"/>
+                        <Label Text="Scan QR Code" FontSize="Medium"/>
+                    </FlexLayout>
+                </Frame>
+                <!--<Frame Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle" WidthRequest="300"
+                       HeightRequest="70" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnScanRFIDClicked"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout Direction="Row" AlignItems="Center">
+                        <Image Source="ic_rfid_base.png" HeightRequest="60" WidthRequest="60"/>
+                        <Label Text="Scan RFID Tag" FontSize="Medium"/>
+                    </FlexLayout>
+                </Frame>-->
+                <Frame x:Name="btnQCInspection" Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle" WidthRequest="300"
+                       HeightRequest="70" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnQCInspectionClicked"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout Direction="Row" AlignItems="Center">
+                        <Image Source="ic_qc_inspection.png" HeightRequest="60" WidthRequest="60"/>
+                        <Label Text="QC Inspection" FontSize="Medium"/>
+                    </FlexLayout>
+                </Frame>
+            </FlexLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

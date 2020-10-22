@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.UpdateStatusPage"
+             Title="Update Material Status">
+    <StackLayout Margin="5">
+        <ListView x:Name="PendingList" Margin="0, 0, 0, 10"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+
+            <!--Built in Cells-->
+            <!--
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Path=BeaconId}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            -->
+
+            <!--Custom View Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Path=BeaconId}" Margin="5"/>
+                            <!--
+                            <Label Text="{Binding Path=MaterialNo}" Margin="5"/>
+                            <Label Text="{Binding Path=PrevStatus}" Margin="5"/>
+                            <Label Text="{Binding Path=NextStatus}" Margin="5"/>
+                            -->
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button StyleClass="Primary" Text="Submit" />
+            <Button Text="Undo" Margin="10, 0, 0, 0"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

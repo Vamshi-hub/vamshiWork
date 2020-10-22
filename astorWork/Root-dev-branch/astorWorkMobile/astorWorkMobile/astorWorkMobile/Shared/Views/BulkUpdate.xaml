@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             x:Class="astorWorkMobile.Shared.Views.BulkUpdate"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             BindingContext="{x:Static utilities:ViewModelLocator.bulkUpdateVM}"
+             Title="Update Materials"  Disappearing="OnPageDisappearing" Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <StackLayout  IsVisible="{Binding ShowContent}">
+                <Frame>
+                    <StackLayout>
+                        <Picker ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedLocation}" ItemDisplayBinding="{Binding Name}" Title="Select a location"/>
+                    </StackLayout>
+                </Frame>
+                <Grid IsVisible="{Binding ShowUpdateForm}">
+                    <Frame Padding="0,5">
+                        <StackLayout>
+                            <Frame  HorizontalOptions="Center" Padding="10,5">
+                                <Label StyleClass="Subheader" Text="{Binding CurrStage.Name}" TextColor="{Binding CurrStage.Colour}"
+                                            HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            </Frame>
+                            <Image Source="ic_arrow_downward1.png" HeightRequest="40" />
+                            <Frame  HorizontalOptions="Center" Padding="10,5">
+                                <Label StyleClass="Subheader" Text="{Binding NextStage.Name}" TextColor="{Binding NextStage.Colour}"
+                                           HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <Frame  IsVisible="{Binding ShowUpdateForm}">
+                    <Grid>
+                        <Label VerticalTextAlignment="Center">CastingDate:</Label>
+                        <DatePicker Margin="100,0,0,0" TextColor="Black"
+                                Date="{Binding CastingDate}" MaximumDate="{x:Static sys:DateTime.Today}" />
+                    </Grid>
+                </Frame>
+                <Button StyleClass="Primary" Text="Submit" Margin="0,10,0,0" HorizontalOptions="Center" Command="{Binding UpdateStageCommand}" 
+                        IsVisible="{Binding ShowUpdateForm}" CornerRadius="20" WidthRequest="90" />
+            </StackLayout>
+            <views:LoadingView HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+.top-nav-container {
+    background-color: #6182a3 !important;
+    color: white !important;
+    /*
+    background-color:white !important;
+    color: #6182a3 !important;
+    */
+    min-height: 60px;
+    position: fixed;
+    width: 100% !important;
+    top: 0;
+    z-index: 10;
+}
+
+.vertical-line {
+    height: 100% !important;
+    min-height: 50px;
+    width: 2px;
+    background-color: white !important;
+}
+
+.white-bg {
+    background-image: none;
+    background: #efefef!important;
+}

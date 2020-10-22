@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:widgets="clr-namespace:MaterialTrackApp.Widgets;assembly=MaterialTrackApp"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="MaterialTrackApp.PartialView.InstallTaskView">
+    <ContentView.Content>
+        <Frame OutlineColor="Silver" BackgroundColor="White" HasShadow="True" Margin="10">
+            <StackLayout Orientation="Vertical">
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Beacon:</Label>
+                    <Label Margin="100,0,0,0" VerticalTextAlignment="Center" StyleClass="Subheader"
+                           TextColor="Black" Text="{Binding BeaconName}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Project:</Label>
+                    <Label Margin="100,0,0,0" VerticalTextAlignment="Center" StyleClass="Subheader"
+                           TextColor="Black" Text="{Binding Project}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Block:</Label>
+                    <Label Margin="100,0,0,0" VerticalTextAlignment="Center" StyleClass="Subheader"
+                           TextColor="Black" Text="{Binding Block}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Level:</Label>
+                    <Label Margin="100,0,0,0" VerticalTextAlignment="Center" StyleClass="Subheader"
+                           TextColor="Black" Text="{Binding Level}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Zone:</Label>
+                    <Label Margin="100,0,0,0" VerticalTextAlignment="Center" StyleClass="Subheader"
+                           TextColor="Black" Text="{Binding Zone}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                    <Label Margin="100,0,0,0" VerticalTextAlignment="Center" StyleClass="Subheader"
+                           TextColor="Black" Text="{Binding MarkingNo}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">QC Status:</Label>
+                    <widgets:TogglePassed Checked="{Binding PassQC}"
+                                             HorizontalOptions="End" VerticalOptions="Center"/>
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Selected:</Label>
+                    <widgets:ToggleCheck Checked="{Binding Selected}"
+                                             HorizontalOptions="End" VerticalOptions="Center"/>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

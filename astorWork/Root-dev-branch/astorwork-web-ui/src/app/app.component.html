@@ -1,0 +1,13 @@
+<div *ngIf="navigating" fxLayout="row" fxLayoutAlign="center center" class="full-size mat-typography">
+        <app-common-loading fxFlex></app-common-loading>
+</div>
+<div *ngIf="!navigating" fxLayout="column" fxLayoutAlign="space-between stretch" class="full-size mat-typography"
+>
+    <div fxFlex [ngStyle]="{'background-image': backgroundImage}">
+        <router-outlet></router-outlet>
+    </div>
+    <footer fxFlex="45px" class="mobile-hidden" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px">
+        <img src="assets/Icons/logo-icon.png" alt="Logo">
+        <p>© Astoria Solutions {{ this_year }}</p>
+    </footer>
+</div>

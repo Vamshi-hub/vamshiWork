@@ -1,0 +1,70 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayout.sm="column" fxLayout.sm="column" class="page-header-row">
+    <div fxFlex>
+        <h1 class="mat-h1 page-header">Stages</h1>
+    </div>
+    <button mat-fab class="top-right-fab-button button" routerlink routerLink='create' *ngIf="accessRight >= 2">
+        <mat-icon aria-label="create Stage">add</mat-icon>
+    </button>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div [hidden]="isLoading">
+<div fxLayout="row" fxLayoutAlign="space-around center">
+    <kendo-sortable zone="default" [navigatable]="true" disabledItemClass="item col-xs-6 col-sm-3 mat-expansion-panel-header-disabled" *ngIf="stagemaster"
+        [animation]="true" [data]="stagemaster" [disabledIndexes]=disabledIndexes itemClass="item col-xs-6 col-sm-3" activeItemClass="item col-xs-6 col-sm-3 active"
+        (dataAdd)="onDataAdd(i, $event)" (dataRemove)="onDataRemove(i, $event)" (dragEnd)="onDragEnd(i, $event)" (dragOver)="onDragOver(i, $event)"
+        (dragStart)="onDragStart(i, $event)">
+        <ng-template let-item="item">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+                       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                            <mat-icon  [style.color]=item.colour>check_circle</mat-icon>
+
+                            <p  class="stage-name">{{item.name}}</p>
+                        </div>
+                        <div fxLayoutAlign="end center ">
+                            <mat-icon *ngIf="item.isQCStage" >assignment</mat-icon>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="column" fxLayoutAlign="space-between left" fxLayoutGap="10px">
+                    <mat-form-field>
+                        <input matInput placeholder="Name" value="{{item.name}}" [(ngModel)]="item.name" maxlength="30">
+                    </mat-form-field>
+
+                    <mat-slide-toggle class="button" [checked]=item.isQCStage *ngIf="item.isEditable" [(ngModel)]="item.isQCStage">
+                        QC
+                    </mat-slide-toggle>
+                    <div fxLayout="row" fxLayoutGap="10px">
+
+                        <mcc-color-picker fxFlex="15" colorPickerSelectorHeight="100" usedSizeColors="15" hideButtons class="mcc-cp-small" [hideHexForms]="true"
+                            mccConnectedColorPicker [mccConnectedColorPickerOrigin]="trigger">
+                        </mcc-color-picker>
+                        <input matInput placeholder="Stage Colour" fxFlex="25" style="margin-left: 1px" value="Colour" readonly>
+                        <input matInput mccColorPickerOrigin #trigger="mccColorPickerOrigin" [(ngModel)]="item.colour" hidden=true/>
+
+
+
+                    </div>
+                    <mat-form-field>
+                        <mat-select matInput placeholder="Material Types"  [(value)]="item.materialTypes" multiple>
+                          <mat-option *ngFor="let type of materilaTypes" [value]='type'>
+                            {{ type }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    <div fxLayout="row" fxLayoutAlign="space-evenly end" style="margin-top: 30px">
+                        <div class="button-row">
+                            <button mat-raised-button color="primary" *ngIf="accessRight >= 2" (click)="onSubmit(item)">Update</button>
+                        </div>
+
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </ng-template>
+    </kendo-sortable>
+</div>
+<div class="button-row" style="margin-top: 30px" fxLayout="row" fxLayoutAlign="space-around center">
+    <button mat-raised-button color="primary" (click)="SortSave()" [disabled]="accessRight < 2" [style.display]="isLoading ? 'none' : 'block'">Save Sorting</button>
+</div>
+</div>

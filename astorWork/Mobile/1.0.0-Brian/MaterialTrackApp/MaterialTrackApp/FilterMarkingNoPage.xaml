@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.FilterMarkingNoPage"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:utility="clr-namespace:MaterialTrackApp.Utility;assembly=MaterialTrackApp"
+             BindingContext="{x:Static utility:ViewModelLocator.filterMarkingNoVM}"
+             Title="Select Marking No.">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Grid HeightRequest="60">
+                <Label VerticalOptions="Center">Project:</Label>
+                <Picker VerticalOptions="Center" StyleClass="Subheader" Margin="150,0,0,0"  TextColor="Black"
+                        ItemsSource="{Binding Projects}" SelectedItem="{Binding Project}"/>
+            </Grid>
+            <Grid HeightRequest="60">
+                <Label VerticalOptions="Center">Component Type:</Label>
+                <Picker VerticalOptions="Center" StyleClass="Subheader" Margin="150,0,0,0"  TextColor="Black"
+                        ItemsSource="{Binding ComponentTypes}" SelectedItem="{Binding ComponentType}"/>
+            </Grid>
+            <Grid HeightRequest="60">
+                <Label VerticalOptions="Center">Marking No.:</Label>
+                <Picker VerticalOptions="Center" StyleClass="Subheader" Margin="150,0,0,0"  TextColor="Black"
+                        ItemsSource="{Binding ListMarkingNo}" SelectedItem="{Binding MarkingNo}"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged"/>
+            </Grid>
+            <!--
+            <StackLayout IsVisible="{Binding IsValueSelectionVisible}">
+                <BoxView HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Grid>
+                    <Label VerticalTextAlignment="Center">Select a Marking No.:</Label>
+                    <ListView x:Name="listTasks" ItemsSource="{Binding ListMarkingNo}" SelectedItem="{Binding MarkingNo}"
+                          ItemSelected="listTasks_ItemSelected" Margin="150,0,0,0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid HorizontalOptions="Center">
+                                        <Label Text="{Binding}" StyleClass="Subheader" VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackLayout>
+            -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

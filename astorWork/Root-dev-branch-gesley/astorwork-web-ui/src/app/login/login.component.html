@@ -1,0 +1,24 @@
+<div style="position: fixed">
+  <img *ngIf="logo" src="{{logo}}" alt="LHL" style="height: 100px;padding-top: 5px;">
+</div>
+<div class="b4-login-container" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-content>
+      <app-common-loading *ngIf="isLoading"></app-common-loading>
+      <div fxLayout="column" fxLayoutAlign="space-between stretch" [fxHide]="isLoading" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <img src="assets/Icons/astorWork.jpg" style="height: 50px;width: 200px" alt="Logo">
+          <!-- <span class="logo-text">astorWork</span> -->
+        </div>
+        <mat-form-field>
+          <input fxFlext matInput placeholder="User Name" [(ngModel)]="userName" autocapitalize="none" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input fxFlext matInput placeholder="Password" [(ngModel)]="password" type="password" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onSubmit()" type="submit">Login</button>
+        <a mat-button routerLink="/forget-password" class="link-button">Forgot Password?</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

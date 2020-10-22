@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.ScanBeaconPage"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             Title="Scan Beacons" Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <Grid x:Name="layoutMain">
+            <StackLayout Orientation="Vertical" Margin="5" HorizontalOptions="Center" VerticalOptions="Center">
+                <iconize:IconImage Icon="md-track-changes" x:Name="icoScan" WidthRequest="100" HeightRequest="100"
+                               HorizontalOptions="CenterAndExpand"/>
+                <StackLayout Orientation="Horizontal" Margin="0,50,0,50" HorizontalOptions="Center">
+                    <Label x:Name="lblCountBeacon" StyleClass="Header" FontSize="32">0</Label>
+                    <Label StyleClass="Subheader" VerticalTextAlignment="End">beacons found</Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="btnToggleScan" StyleClass="Primary"
+                    HorizontalOptions="Center" Text="Start" Margin="5"
+                    Clicked="btnToggleScan_Clicked" IsVisible="False"/>
+                        <Button x:Name="btnNext" StyleClass="Primary" Text="Next" IsVisible="False"
+                        HorizontalOptions="Center" Clicked="btnNext_Clicked" Margin="5"/>
+                    </StackLayout>
+                    <Label x:Name="promptBluetooth" Margin="5" IsVisible="False" TextColor="OrangeRed"
+                   HorizontalOptions="Center">Please enable Bluetooth</Label>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

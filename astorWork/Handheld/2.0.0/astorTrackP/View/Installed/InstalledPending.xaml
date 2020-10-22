@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:astorTrackP;assembly=astorTrackP"	
+	x:Class="astorTrackP.InstalledPending"
+  Title="Pending Installation" BackgroundColor="#e6e6e6">
+
+    <!--<ContentPage.ToolbarItems>		
+		<ToolbarItem Icon="{Binding scanOperation}" Command="{Binding ScanCommand, Mode=TwoWay}"></ToolbarItem>
+	</ContentPage.ToolbarItems>-->
+
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Search Marking No or MRF No" Text="{Binding SearchDocument, Mode=TwoWay}" SearchCommand ="{Binding SearchCommand}" BackgroundColor="White" ></SearchBar>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5,0,5,5">
+                <ListView x:Name="uxItems" ItemsSource="{Binding MRFModel, Mode=TwoWay}" HasUnevenRows="true"   IsGroupingEnabled="True"   SeparatorColor="Gray" SeparatorVisibility="Default"
+			SelectedItem="{Binding MaterialMaster, Mode=TwoWay}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="White"
+			IsPullToRefreshEnabled="False">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="5,0,5,0" HeightRequest="50"  Spacing="0" BackgroundColor="#002ec6" >
+                                    <Label Text="{Binding Location}" FontSize="Medium" TextColor="White" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Include" Command="{Binding Source={x:Reference uxItems}, Path=BindingContext.IncludeCommand}" Icon="add.png"   CommandParameter="{Binding .}" IsDestructive="true" ></MenuItem>
+                                </ViewCell.ContextActions>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="5,0,5,0" HeightRequest="90"  Spacing="3" >
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" Margin="5,0,0,0">
+                                            <Label Text="{Binding MarkingNo}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Large" TextColor="#002ec6"></Label>
+                                            <Label Text="{Binding DeliveredLocation}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium" TextColor="#4f4f4f"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

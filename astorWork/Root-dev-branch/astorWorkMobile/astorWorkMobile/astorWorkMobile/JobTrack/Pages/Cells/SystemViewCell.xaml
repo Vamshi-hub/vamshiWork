@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.JobTrack.Pages.Cells.SystemViewCell" IsEnabled="False">
+    <Frame BackgroundColor="#d3ebf5" Padding="5" HorizontalOptions="Center" Margin="10,5" HasShadow="False">
+        <StackLayout>
+            <Label Text="{Binding Message}" TextColor="Black" HorizontalOptions="Center"/>
+            <FlexLayout JustifyContent="Center" AlignItems="Center">
+                <Label Text="by " />
+                <Label Text="{Binding UserName}" TextColor="Black"/>
+                <Label Text=" at " />
+                <Label x:Name="Timestamp" Text="{Binding Timestamp,StringFormat='{0:MM/dd/yyyy hh:mm}'}" TextColor="Black"/>
+            </FlexLayout>
+        </StackLayout>
+    </Frame>
+</ViewCell>

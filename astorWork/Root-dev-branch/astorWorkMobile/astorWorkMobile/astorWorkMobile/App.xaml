@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.App">
+    <Application.Resources>
+        <StyleSheet Source="./Assets/StyleSheets/main.css"/>
+
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="NavigationPage.BarBackgroundColor" Value="#1669bb" />
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="Padding" Value="10" />
+            </Style>
+            <Style TargetType="Frame" x:Key="frameButtonStyle">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="CornerRadius" Value="5" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius" Value="5" />
+            </Style>
+            <Style TargetType="Button" x:Key="btnPrimaryStyle">
+                <Style.Triggers>
+                    <Trigger TargetType="Button"  Property="IsEnabled"  Value="False">
+                        <Setter Property="TextColor" Value="DarkGray" />
+                        <Setter Property="BackgroundColor" Value="LightGray" />
+                    </Trigger>
+                    <Trigger TargetType="Button"  Property="IsEnabled"  Value="True">
+                        <Setter Property="TextColor" Value="White" />
+                        <Setter Property="BackgroundColor" Value="#373b99" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,8 @@
+﻿Dear Sir/Madam,
+
+QC Inspection is accepted by RTO for material {1} under {0} job.
+
+please login into astorWork mobile app to view details.
+
+Regards,
+astorWork Team

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             x:Class="astorWorkMobile.MainContentPageMaster"
+             BindingContext="{x:Static utilities:ViewModelLocator.menuItem}">
+    <StackLayout WidthRequest="200">
+        <Grid HeightRequest="80" BackgroundColor="#373b99" Padding="5">
+            <Label Text="astorWork" StyleClass="Header" TextColor="White" FontSize="Large"
+                   VerticalOptions="Center"/>
+        </Grid>
+        <Button Text="Logout" Clicked="LogoutButton_Clicked" Margin="16"/>
+    </StackLayout>
+</ContentPage>

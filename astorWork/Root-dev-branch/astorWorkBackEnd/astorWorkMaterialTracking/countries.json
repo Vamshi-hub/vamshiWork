@@ -1,0 +1,2122 @@
+﻿[
+  {
+    "CountryCode": "AF",
+    "CountryName": "Afghanistan",
+    "Offset": "+04:30"
+  },
+  {
+    "CountryCode": "AX",
+    "CountryName": "Aland Islands",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "AL",
+    "CountryName": "Albania",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "DZ",
+    "CountryName": "Algeria",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "AS",
+    "CountryName": "American Samoa",
+    "Offset": "-11:00"
+  },
+  {
+    "CountryCode": "AD",
+    "CountryName": "Andorra",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "AO",
+    "CountryName": "Angola",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "AI",
+    "CountryName": "Anguilla",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "AQ",
+    "CountryName": "Antarctica",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "AG",
+    "CountryName": "Antigua and Barbuda",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AR",
+    "CountryName": "Argentina",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "AM",
+    "CountryName": "Armenia",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "AW",
+    "CountryName": "Aruba",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+09:30"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+09:30"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+09:30"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+08:45"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+10:30"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "AU",
+    "CountryName": "Australia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "AT",
+    "CountryName": "Austria",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "AZ",
+    "CountryName": "Azerbaijan",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "BS",
+    "CountryName": "Bahamas",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BH",
+    "CountryName": "Bahrain",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "BD",
+    "CountryName": "Bangladesh",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "BB",
+    "CountryName": "Barbados",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BY",
+    "CountryName": "Belarus",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "BE",
+    "CountryName": "Belgium",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "BZ",
+    "CountryName": "Belize",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "BJ",
+    "CountryName": "Benin",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "BM",
+    "CountryName": "Bermuda",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BT",
+    "CountryName": "Bhutan",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "BO",
+    "CountryName": "Bolivia",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BQ",
+    "CountryName": "Bonaire",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BA",
+    "CountryName": "Bosnia and Herzegovina",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "BW",
+    "CountryName": "Botswana",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-02:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "BR",
+    "CountryName": "Brazil",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "IO",
+    "CountryName": "British Indian Ocean Territory",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "VG",
+    "CountryName": "British Virgin Islands",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "BN",
+    "CountryName": "Brunei",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "BG",
+    "CountryName": "Bulgaria",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "BF",
+    "CountryName": "Burkina Faso",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "BI",
+    "CountryName": "Burundi",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "KH",
+    "CountryName": "Cambodia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "CM",
+    "CountryName": "Cameroon",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-02:30"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "CV",
+    "CountryName": "Cape Verde",
+    "Offset": "-01:00"
+  },
+  {
+    "CountryCode": "KY",
+    "CountryName": "Cayman Islands",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "CF",
+    "CountryName": "Central African Republic",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "TD",
+    "CountryName": "Chad",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "CL",
+    "CountryName": "Chile",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "CL",
+    "CountryName": "Chile",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "CL",
+    "CountryName": "Chile",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "CN",
+    "CountryName": "China",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "CN",
+    "CountryName": "China",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "CX",
+    "CountryName": "Christmas Island",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "CC",
+    "CountryName": "Cocos Islands",
+    "Offset": "+06:30"
+  },
+  {
+    "CountryCode": "CO",
+    "CountryName": "Colombia",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "KM",
+    "CountryName": "Comoros",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "CK",
+    "CountryName": "Cook Islands",
+    "Offset": "-10:00"
+  },
+  {
+    "CountryCode": "CR",
+    "CountryName": "Costa Rica",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "HR",
+    "CountryName": "Croatia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "CU",
+    "CountryName": "Cuba",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CW",
+    "CountryName": "Curaçao",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "CY",
+    "CountryName": "Cyprus",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "CY",
+    "CountryName": "Cyprus",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "CZ",
+    "CountryName": "Czech Republic",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "CD",
+    "CountryName": "Democratic Republic of the Congo",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "CD",
+    "CountryName": "Democratic Republic of the Congo",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "DK",
+    "CountryName": "Denmark",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "DJ",
+    "CountryName": "Djibouti",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "DM",
+    "CountryName": "Dominica",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "DO",
+    "CountryName": "Dominican Republic",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "TL",
+    "CountryName": "East Timor",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "EC",
+    "CountryName": "Ecuador",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "EC",
+    "CountryName": "Ecuador",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "EG",
+    "CountryName": "Egypt",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SV",
+    "CountryName": "El Salvador",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "GQ",
+    "CountryName": "Equatorial Guinea",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "ER",
+    "CountryName": "Eritrea",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "EE",
+    "CountryName": "Estonia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "ET",
+    "CountryName": "Ethiopia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "FK",
+    "CountryName": "Falkland Islands",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "FO",
+    "CountryName": "Faroe Islands",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "FJ",
+    "CountryName": "Fiji",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "FI",
+    "CountryName": "Finland",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "FR",
+    "CountryName": "France",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "GF",
+    "CountryName": "French Guiana",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "PF",
+    "CountryName": "French Polynesia",
+    "Offset": "-09:00"
+  },
+  {
+    "CountryCode": "PF",
+    "CountryName": "French Polynesia",
+    "Offset": "-09:30"
+  },
+  {
+    "CountryCode": "PF",
+    "CountryName": "French Polynesia",
+    "Offset": "-10:00"
+  },
+  {
+    "CountryCode": "TF",
+    "CountryName": "French Southern Territories",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "GA",
+    "CountryName": "Gabon",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "GM",
+    "CountryName": "Gambia",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "GE",
+    "CountryName": "Georgia",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "DE",
+    "CountryName": "Germany",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "DE",
+    "CountryName": "Germany",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "GH",
+    "CountryName": "Ghana",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "GI",
+    "CountryName": "Gibraltar",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "GR",
+    "CountryName": "Greece",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "GL",
+    "CountryName": "Greenland",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "GL",
+    "CountryName": "Greenland",
+    "Offset": "-02:00"
+  },
+  {
+    "CountryCode": "GL",
+    "CountryName": "Greenland",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "GL",
+    "CountryName": "Greenland",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "GD",
+    "CountryName": "Grenada",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "GP",
+    "CountryName": "Guadeloupe",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "GU",
+    "CountryName": "Guam",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "GT",
+    "CountryName": "Guatemala",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "GG",
+    "CountryName": "Guernsey",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "GN",
+    "CountryName": "Guinea",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "GW",
+    "CountryName": "Guinea-Bissau",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "GY",
+    "CountryName": "Guyana",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "HT",
+    "CountryName": "Haiti",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "HN",
+    "CountryName": "Honduras",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "HK",
+    "CountryName": "Hong Kong",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "HU",
+    "CountryName": "Hungary",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "IS",
+    "CountryName": "Iceland",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "IN",
+    "CountryName": "India",
+    "Offset": "+05:30"
+  },
+  {
+    "CountryCode": "ID",
+    "CountryName": "Indonesia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "ID",
+    "CountryName": "Indonesia",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "ID",
+    "CountryName": "Indonesia",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "ID",
+    "CountryName": "Indonesia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "IR",
+    "CountryName": "Iran",
+    "Offset": "+04:30"
+  },
+  {
+    "CountryCode": "IQ",
+    "CountryName": "Iraq",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "IE",
+    "CountryName": "Ireland",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "IM",
+    "CountryName": "Isle of Man",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "IL",
+    "CountryName": "Israel",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "IT",
+    "CountryName": "Italy",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "CI",
+    "CountryName": "Ivory Coast",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "JM",
+    "CountryName": "Jamaica",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "JP",
+    "CountryName": "Japan",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "JE",
+    "CountryName": "Jersey",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "JO",
+    "CountryName": "Jordan",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "KZ",
+    "CountryName": "Kazakhstan",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "KZ",
+    "CountryName": "Kazakhstan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "KZ",
+    "CountryName": "Kazakhstan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "KZ",
+    "CountryName": "Kazakhstan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "KZ",
+    "CountryName": "Kazakhstan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "KZ",
+    "CountryName": "Kazakhstan",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "KE",
+    "CountryName": "Kenya",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "KI",
+    "CountryName": "Kiribati",
+    "Offset": "+13:00"
+  },
+  {
+    "CountryCode": "KI",
+    "CountryName": "Kiribati",
+    "Offset": "+14:00"
+  },
+  {
+    "CountryCode": "KI",
+    "CountryName": "Kiribati",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "KW",
+    "CountryName": "Kuwait",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "KG",
+    "CountryName": "Kyrgyzstan",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "LA",
+    "CountryName": "Laos",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "LV",
+    "CountryName": "Latvia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "LB",
+    "CountryName": "Lebanon",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "LS",
+    "CountryName": "Lesotho",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "LR",
+    "CountryName": "Liberia",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "LY",
+    "CountryName": "Libya",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "LI",
+    "CountryName": "Liechtenstein",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "LT",
+    "CountryName": "Lithuania",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "LU",
+    "CountryName": "Luxembourg",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "MO",
+    "CountryName": "Macao",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "MK",
+    "CountryName": "Macedonia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "MG",
+    "CountryName": "Madagascar",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "MW",
+    "CountryName": "Malawi",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "MY",
+    "CountryName": "Malaysia",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "MY",
+    "CountryName": "Malaysia",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "MV",
+    "CountryName": "Maldives",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "ML",
+    "CountryName": "Mali",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "MT",
+    "CountryName": "Malta",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "MH",
+    "CountryName": "Marshall Islands",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "MH",
+    "CountryName": "Marshall Islands",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "MQ",
+    "CountryName": "Martinique",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "MR",
+    "CountryName": "Mauritania",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "MU",
+    "CountryName": "Mauritius",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "YT",
+    "CountryName": "Mayotte",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "MX",
+    "CountryName": "Mexico",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "FM",
+    "CountryName": "Micronesia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "FM",
+    "CountryName": "Micronesia",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "FM",
+    "CountryName": "Micronesia",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "MD",
+    "CountryName": "Moldova",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "MC",
+    "CountryName": "Monaco",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "MN",
+    "CountryName": "Mongolia",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "MN",
+    "CountryName": "Mongolia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "MN",
+    "CountryName": "Mongolia",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "ME",
+    "CountryName": "Montenegro",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "MS",
+    "CountryName": "Montserrat",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "MA",
+    "CountryName": "Morocco",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "MZ",
+    "CountryName": "Mozambique",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "MM",
+    "CountryName": "Myanmar",
+    "Offset": "+06:30"
+  },
+  {
+    "CountryCode": "NA",
+    "CountryName": "Namibia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "NR",
+    "CountryName": "Nauru",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "NP",
+    "CountryName": "Nepal",
+    "Offset": "+05:45"
+  },
+  {
+    "CountryCode": "NL",
+    "CountryName": "Netherlands",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "NC",
+    "CountryName": "New Caledonia",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "NZ",
+    "CountryName": "New Zealand",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "NZ",
+    "CountryName": "New Zealand",
+    "Offset": "+12:45"
+  },
+  {
+    "CountryCode": "NI",
+    "CountryName": "Nicaragua",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "NE",
+    "CountryName": "Niger",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "NG",
+    "CountryName": "Nigeria",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "NU",
+    "CountryName": "Niue",
+    "Offset": "-11:00"
+  },
+  {
+    "CountryCode": "NF",
+    "CountryName": "Norfolk Island",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "KP",
+    "CountryName": "North Korea",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "MP",
+    "CountryName": "Northern Mariana Islands",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "NO",
+    "CountryName": "Norway",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "OM",
+    "CountryName": "Oman",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "PK",
+    "CountryName": "Pakistan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "PW",
+    "CountryName": "Palau",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "PS",
+    "CountryName": "Palestinian Territory",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "PS",
+    "CountryName": "Palestinian Territory",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "PA",
+    "CountryName": "Panama",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "PG",
+    "CountryName": "Papua New Guinea",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "PG",
+    "CountryName": "Papua New Guinea",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "PY",
+    "CountryName": "Paraguay",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "PE",
+    "CountryName": "Peru",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "PH",
+    "CountryName": "Philippines",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "PN",
+    "CountryName": "Pitcairn",
+    "Offset": "-08:00"
+  },
+  {
+    "CountryCode": "PL",
+    "CountryName": "Poland",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "PT",
+    "CountryName": "Portugal",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "PT",
+    "CountryName": "Portugal",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "PT",
+    "CountryName": "Portugal",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "PR",
+    "CountryName": "Puerto Rico",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "QA",
+    "CountryName": "Qatar",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "CG",
+    "CountryName": "Republic of the Congo",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "RE",
+    "CountryName": "Reunion",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "RO",
+    "CountryName": "Romania",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+06:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+10:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "RU",
+    "CountryName": "Russia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "RW",
+    "CountryName": "Rwanda",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "BL",
+    "CountryName": "Saint Barthélemy",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "SH",
+    "CountryName": "Saint Helena",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "KN",
+    "CountryName": "Saint Kitts and Nevis",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "LC",
+    "CountryName": "Saint Lucia",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "MF",
+    "CountryName": "Saint Martin",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "PM",
+    "CountryName": "Saint Pierre and Miquelon",
+    "Offset": "-02:00"
+  },
+  {
+    "CountryCode": "VC",
+    "CountryName": "Saint Vincent and the Grenadines",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "WS",
+    "CountryName": "Samoa",
+    "Offset": "+13:00"
+  },
+  {
+    "CountryCode": "SM",
+    "CountryName": "San Marino",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "ST",
+    "CountryName": "Sao Tome and Principe",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "SA",
+    "CountryName": "Saudi Arabia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "SN",
+    "CountryName": "Senegal",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "RS",
+    "CountryName": "Serbia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SC",
+    "CountryName": "Seychelles",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "SL",
+    "CountryName": "Sierra Leone",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "SG",
+    "CountryName": "Singapore",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "SX",
+    "CountryName": "Sint Maarten",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "SK",
+    "CountryName": "Slovakia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SI",
+    "CountryName": "Slovenia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SB",
+    "CountryName": "Solomon Islands",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "SO",
+    "CountryName": "Somalia",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "ZA",
+    "CountryName": "South Africa",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "GS",
+    "CountryName": "South Georgia and the South Sandwich Islands",
+    "Offset": "-02:00"
+  },
+  {
+    "CountryCode": "KR",
+    "CountryName": "South Korea",
+    "Offset": "+09:00"
+  },
+  {
+    "CountryCode": "SS",
+    "CountryName": "South Sudan",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "ES",
+    "CountryName": "Spain",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "ES",
+    "CountryName": "Spain",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "ES",
+    "CountryName": "Spain",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "LK",
+    "CountryName": "Sri Lanka",
+    "Offset": "+05:30"
+  },
+  {
+    "CountryCode": "SD",
+    "CountryName": "Sudan",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SR",
+    "CountryName": "Suriname",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "SJ",
+    "CountryName": "Svalbard and Jan Mayen",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SZ",
+    "CountryName": "Swaziland",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SE",
+    "CountryName": "Sweden",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "CH",
+    "CountryName": "Switzerland",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "SY",
+    "CountryName": "Syria",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "TW",
+    "CountryName": "Taiwan",
+    "Offset": "+08:00"
+  },
+  {
+    "CountryCode": "TJ",
+    "CountryName": "Tajikistan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "TZ",
+    "CountryName": "Tanzania",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "TH",
+    "CountryName": "Thailand",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "TG",
+    "CountryName": "Togo",
+    "Offset": "+00:00"
+  },
+  {
+    "CountryCode": "TK",
+    "CountryName": "Tokelau",
+    "Offset": "+13:00"
+  },
+  {
+    "CountryCode": "TO",
+    "CountryName": "Tonga",
+    "Offset": "+13:00"
+  },
+  {
+    "CountryCode": "TT",
+    "CountryName": "Trinidad and Tobago",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "TN",
+    "CountryName": "Tunisia",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "TR",
+    "CountryName": "Turkey",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "TM",
+    "CountryName": "Turkmenistan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "TC",
+    "CountryName": "Turks and Caicos Islands",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "TV",
+    "CountryName": "Tuvalu",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "VI",
+    "CountryName": "U.S. Virgin Islands",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "UG",
+    "CountryName": "Uganda",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "UA",
+    "CountryName": "Ukraine",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "UA",
+    "CountryName": "Ukraine",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "UA",
+    "CountryName": "Ukraine",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "AE",
+    "CountryName": "United Arab Emirates",
+    "Offset": "+04:00"
+  },
+  {
+    "CountryCode": "GB",
+    "CountryName": "United Kingdom",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-09:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-08:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-06:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-08:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-08:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-08:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-05:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-07:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-08:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-08:00"
+  },
+  {
+    "CountryCode": "US",
+    "CountryName": "United States",
+    "Offset": "-10:00"
+  },
+  {
+    "CountryCode": "UM",
+    "CountryName": "United States Minor Outlying Islands",
+    "Offset": "-11:00"
+  },
+  {
+    "CountryCode": "UM",
+    "CountryName": "United States Minor Outlying Islands",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "UY",
+    "CountryName": "Uruguay",
+    "Offset": "-03:00"
+  },
+  {
+    "CountryCode": "UZ",
+    "CountryName": "Uzbekistan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "UZ",
+    "CountryName": "Uzbekistan",
+    "Offset": "+05:00"
+  },
+  {
+    "CountryCode": "VU",
+    "CountryName": "Vanuatu",
+    "Offset": "+11:00"
+  },
+  {
+    "CountryCode": "VA",
+    "CountryName": "Vatican",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "VE",
+    "CountryName": "Venezuela",
+    "Offset": "-04:00"
+  },
+  {
+    "CountryCode": "VN",
+    "CountryName": "Vietnam",
+    "Offset": "+07:00"
+  },
+  {
+    "CountryCode": "WF",
+    "CountryName": "Wallis and Futuna",
+    "Offset": "+12:00"
+  },
+  {
+    "CountryCode": "EH",
+    "CountryName": "Western Sahara",
+    "Offset": "+01:00"
+  },
+  {
+    "CountryCode": "YE",
+    "CountryName": "Yemen",
+    "Offset": "+03:00"
+  },
+  {
+    "CountryCode": "ZM",
+    "CountryName": "Zambia",
+    "Offset": "+02:00"
+  },
+  {
+    "CountryCode": "ZW",
+    "CountryName": "Zimbabwe",
+    "Offset": "+02:00"
+  }
+]

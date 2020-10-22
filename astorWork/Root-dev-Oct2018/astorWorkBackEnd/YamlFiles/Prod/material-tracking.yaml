@@ -1,0 +1,40 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: material-tracking
+  namespace: production
+  labels:
+    app: material-tracking
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: material-tracking
+  template:
+    metadata:
+      labels:
+        app: material-tracking
+    spec:
+      containers:
+      - name: astorwork
+        image: astorwork.azurecr.io/material-tracking:120
+        
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: extensions/v1beta1
+kind: Service
+apiVersion: v1
+metadata:
+  name: material-tracking
+  namespace: production
+spec:
+  selector:
+    app: material-tracking
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+  - name: https
+    protocol: TCP
+    port: 443

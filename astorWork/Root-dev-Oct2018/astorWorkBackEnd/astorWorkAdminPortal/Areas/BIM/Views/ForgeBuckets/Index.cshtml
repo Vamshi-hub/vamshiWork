@@ -1,0 +1,47 @@
+﻿@model IEnumerable<astorWorkShared.Models.ForgeBucket>
+
+@{
+    ViewData["Title"] = "BIM Management";
+}
+
+<h2> Forge Buckets </h2>
+<hr />
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Bucket Name
+            </th>
+            <th>
+                Policy
+            </th>
+            <th>
+                Created At
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.BucketKey)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDT)
+            </td>
+            <td>
+                <a asp-controller="ForgeObjects" asp-action="Index" asp-route-id="@item.BucketKey">Objects</a> |
+                <a asp-action="Delete" asp-route-id="@item.BucketKey">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

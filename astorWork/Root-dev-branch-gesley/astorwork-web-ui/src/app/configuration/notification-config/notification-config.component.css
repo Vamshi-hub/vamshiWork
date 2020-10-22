@@ -1,0 +1,13 @@
+
+@import url('https://cdn.jsdelivr.net/npm/@progress/kendo-theme-default@latest/dist/all.css');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+
+
+.vertical-line{
+    min-height: 30px;
+    height: 25%;
+    width:1px;
+    background: rgb(122, 120, 120);
+    display: block;
+    margin-top: -20px;
+}

@@ -1,0 +1,48 @@
+{
+  "/api-local/material-tracking": {
+    "target": "http://[::1]:9002",
+    "secure": false,
+    "pathRewrite": {
+      "^/api-local/material-tracking": ""
+    }
+  },
+  "/api-qa": {
+    "target": "http://abc.safe-smart.com/api",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-qa": ""
+    }
+  },
+  "/api": {
+    "target": "http://abc.safe-smart.com/api",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/gateway-local": {
+    "target": "http://[::1]:9000",
+    "secure": false,
+    "pathRewrite": {
+      "^/gateway-local": ""
+    }
+  },
+  "/dev": {
+    "target": "http://[::1]:55895",
+    "secure": false,
+    "pathRewrite": {
+      "^/dev": ""
+    }
+  },
+  "/api-autodesk": {
+    "target": "https://developer.api.autodesk.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-autodesk": ""
+    }
+  }
+}

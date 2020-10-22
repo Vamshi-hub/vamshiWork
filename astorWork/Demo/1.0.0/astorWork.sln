@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorWorkWeb", "astorWorkWeb\astorWorkWeb.csproj", "{E72BD8B2-8B52-496D-B7CE-66857B0B5BA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorWorkDAO", "astorWorkDAO\astorWorkDAO.csproj", "{8BD3E02A-D235-4277-A571-9CBA2B13AEEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CD8790B-2E61-4715-B796-7160755574A7}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "astorWorkCloud", "astorWorkCloud\astorWorkCloud.ccproj", "{97A03F9F-EEB6-4657-81C5-387E1EA8C43A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorWorkMVC", "astorWorkMVC\astorWorkMVC.csproj", "{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E72BD8B2-8B52-496D-B7CE-66857B0B5BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E72BD8B2-8B52-496D-B7CE-66857B0B5BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E72BD8B2-8B52-496D-B7CE-66857B0B5BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E72BD8B2-8B52-496D-B7CE-66857B0B5BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD3E02A-D235-4277-A571-9CBA2B13AEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD3E02A-D235-4277-A571-9CBA2B13AEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD3E02A-D235-4277-A571-9CBA2B13AEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD3E02A-D235-4277-A571-9CBA2B13AEEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97A03F9F-EEB6-4657-81C5-387E1EA8C43A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A03F9F-EEB6-4657-81C5-387E1EA8C43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A03F9F-EEB6-4657-81C5-387E1EA8C43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A03F9F-EEB6-4657-81C5-387E1EA8C43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF076636-B207-4FCB-BDF7-EB90E5436AE6}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.astoriasolutions.com:40445/tfs/astoria%20main%20collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = astorWorkCloud\\astorWorkCloud.ccproj
+		SccProjectName1 = astorWorkCloud
+		SccLocalPath1 = astorWorkCloud
+		SccProjectUniqueName2 = astorWorkDAO\\astorWorkDAO.csproj
+		SccProjectName2 = astorWorkDAO
+		SccLocalPath2 = astorWorkDAO
+		SccProjectUniqueName3 = astorWorkWeb\\astorWorkWeb.csproj
+		SccProjectName3 = astorWorkWeb
+		SccLocalPath3 = astorWorkWeb
+		SccProjectUniqueName4 = astorWorkMVC\\astorWorkMVC.csproj
+		SccProjectName4 = astorWorkMVC
+		SccLocalPath4 = astorWorkMVC
+	EndGlobalSection
+EndGlobal

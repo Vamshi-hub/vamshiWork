@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.JobTrack.Pages.Chat"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:local="clr-namespace:astorWorkMobile.JobTrack.Helpers"
+             xmlns:partials="clr-namespace:astorWorkMobile.JobTrack.Pages.Partials"
+             BindingContext="{x:Static utilities:ViewModelLocator.chatVM}"
+             Title="{Binding Header}" BackgroundColor="LightGray" Appearing="ContentPage_Appearing" Disappearing="ContentPage_Disappearing">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChatTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="ic_chat.png" Text="Send Chats" Priority="1" Order="Secondary" Command="{Binding SendChatAuditCommand}"/>-->
+        <ToolbarItem Icon="ic_photo_library_white.png" Text="Photos" Priority="1" Order="Primary" Command="{Binding ViewPhotosCommand}"/>
+    </ContentPage.ToolbarItems>
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" 
+                 ItemTemplate="{StaticResource MessageTemplateSelector}" 
+                 ItemsSource="{Binding Messages}" 
+                  ItemTapped="ChatList_ItemTapped"
+                  SelectionMode="None"
+                 Margin="0" 
+                 HasUnevenRows="True" 
+                 VerticalOptions="FillAndExpand" 
+                 SeparatorColor="Transparent"
+                  x:Name="ChatList">
+        </ListView>
+        <BoxView HorizontalOptions="FillAndExpand"
+                 HeightRequest="1"
+                 BackgroundColor="White"
+                 Grid.Row="1"/>
+        <partials:ChatInputBarView Grid.Row="2"
+                                   Margin="0,0,0,0" BackgroundColor="White"/>
+    </Grid>
+</ContentPage>

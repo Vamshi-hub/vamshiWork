@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.SiteScanRFIDDemo1"
+             BindingContext="{x:Static utilities:ViewModelLocator.siteScanDemoVM}"
+             Title="Scan RFID" Disappearing="OnDisappearing" Appearing="OnAppearing">
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <StackLayout>
+                <FlexLayout JustifyContent="SpaceEvenly" Direction="Row" IsVisible="{Binding ShowBox}">
+                    <Label Text="{Binding BoxName}" StyleClass="Header" VerticalTextAlignment="Center"/>
+                    <Button Text="Confirm" Clicked="confirmDelivery_Clicked"
+                            StyleClass="Primary" IsVisible="{Binding ShowBoxConfirm}"/>
+                </FlexLayout>
+                <ListView ItemsSource="{Binding Materials}" SeparatorVisibility="None" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame OutlineColor="Silver" BackgroundColor="White" HasShadow="True" Margin="5">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Label Text="Name: " StyleClass="Subheader" VerticalTextAlignment="Center"/>
+                                            <Label Margin="100, 0, 0, 0" Text="{Binding markingNo}" StyleClass="Header"/>
+                                        </Grid>
+                                        <BoxView HeightRequest="1" Color="Gray"/>
+                                        <Grid>
+                                            <Label Text="Stage: " StyleClass="Subheader" VerticalTextAlignment="Center"/>
+                                            <Frame Margin="100, 0, 0, 0" BackgroundColor="{Binding stageColour}" Padding="5"
+                                   HorizontalOptions="Start">
+                                                <Label Text="{Binding stageName}" StyleClass="Subheader"/>
+                                            </Frame>
+                                        </Grid>
+                                        <BoxView HeightRequest="1" Color="Gray"/>
+                                        <Grid>
+                                            <Label Text="Updated: " StyleClass="Subheader" VerticalTextAlignment="Center"/>
+                                            <Label Margin="100,0,0,0" StyleClass="Header"
+                                               Text="{Binding UpdateTime, StringFormat='{0:MM/dd/yyyy hh:mm}'}"/>
+                                        </Grid>
+
+                                        <BoxView HeightRequest="1" Color="Gray" IsVisible="{Binding ShowUtiliseButton}" />
+                                        <Button 
+                                                IsVisible="{Binding ShowUtiliseButton}" Clicked="btnUtilise_Clicked" Text="Utilize" StyleClass="Primary"/>
+
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="{Binding ToggleScanButtonLabel}" Clicked="OnScanButtonClicked" />
+            </StackLayout>
+            <Image Source="ic_location_searching.png" x:Name="icoScan" IsVisible="False"
+                           WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label Text="{Binding ErrorMessage}" VerticalOptions="Center" HorizontalOptions="Center"
+                   StyleClass="Header" TextColor="Orange"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

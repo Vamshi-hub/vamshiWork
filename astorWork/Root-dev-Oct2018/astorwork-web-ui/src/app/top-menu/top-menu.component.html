@@ -1,0 +1,135 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch" class="full-size">
+  <div fxLayout="row" class="mat-elevation-z6 top-nav-container no-print" fxLayoutAlign="space-between center"
+    fxLayoutGap="10px" (click)="onMenuButtonClicked()" fxFlex="60px">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <img src="assets/Icons/logo-icon.png" alt="astorWork">
+      <span class="logo-text">astorWork</span>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" fxHide.xs="true">
+      <div *ngIf="showProjects">
+        <button mat-button [matMenuTriggerFor]="projectMenu" class="nav-menu-important">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span *ngIf="selectedProject else elseProject">{{selectedProject.name}}</span>
+            <ng-template #elseProject>
+              <span style="color: lightred;" fxLayout="row" fxLayoutAlign="start center">Select a project</span>
+            </ng-template>
+            <mat-icon>arrow_drop_down</mat-icon>
+          </div>
+        </button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" *ngIf="showMenu">
+        <button mat-button routerLink='/material-tracking/dashboard' routerLinkActive="nav-menu-active">
+          Dashboard
+        </button>
+        <button mat-button routerLink='/material-tracking/list-reports' routerLinkActive="nav-menu-active">
+          Reports
+        </button>
+        <button mat-button routerLink='/material-tracking/materials' routerLinkActive="nav-menu-active">
+          Material
+        </button>
+        <button mat-button routerLink='/material-tracking/mrfs' routerLinkActive="nav-menu-active">
+          MRF
+        </button>
+        <button mat-button routerLink='/material-tracking/bim-syncs' routerLinkActive="nav-menu-active">
+          BIM
+        </button>
+        <button mat-button routerLink='/material-tracking/qc-defects/0' routerLinkActive="nav-menu-active">
+          QC
+        </button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+        <div class="vertical-line"></div>
+        <button mat-icon-button [matMenuTriggerFor]="configuration">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #configuration="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item routerLink='/configuration/project-master'>Projects</button>
+          <button mat-menu-item routerLink='/configuration/stage-master'>Stages</button>
+          <hr>
+          <button mat-menu-item routerLink='/configuration/vendor-master'>Vendors</button>
+          <button mat-menu-item routerLink='/configuration/site-master'>Sites</button>
+          <button mat-menu-item routerLink='/configuration/location-master'>Locations</button>
+          <hr>
+          <button mat-menu-item routerLink='/configuration/user-master'>Users</button>
+          <button mat-menu-item routerLink='/configuration/role-master'>Roles</button>
+          <hr>
+          <button mat-menu-item routerLink='/configuration/generate-qr-code'>Import/Generate Tag</button>
+          <button mat-menu-item routerLink='/configuration/notification-config'>Notifications</button>
+        </mat-menu>
+      </div>
+    </div>
+    <div fxHide.xs="true">
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="10px">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+      </button>
+    </div>
+    <div fxHide fxShow.xs="true">
+      <button mat-icon-button [matMenuTriggerFor]="mobileMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #mobileMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="projectMenu">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span *ngIf="selectedProject else elseProject">{{selectedProject.name}}</span>
+            <ng-template #elseProject>
+              <span style="color: lightred;" fxLayout="row" fxLayoutAlign="start center">Select a project</span>
+            </ng-template>
+          </div>
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="mtMenu" *ngIf="showMenu">
+          Material Tracking
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="userMenu">
+          <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="10px">
+            <mat-icon>account_circle</mat-icon>
+            <span> {{personName}}</span>
+          </div>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div fxFlex fxFlexOffset="70px">
+    <router-outlet *ngIf="!errorMessage"></router-outlet>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center" *ngIf="errorMessage" fxFlex>
+    <h2 style="color: red" class="mat-h2">{{errorMessage}}</h2>
+  </div>
+</div>
+<mat-menu #projectMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item *ngFor="let project of projects" (click)="onProjectSelected(project)">{{project.name}}</button>
+</mat-menu>
+
+<mat-menu #mtMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item routerLink='/material-tracking/dashboard' routerLinkActive="nav-menu-active">
+    Dashboard
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/materials' routerLinkActive="nav-menu-active">
+    Material
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/mrfs' routerLinkActive="nav-menu-active">
+    MRF
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/bim-syncs' routerLinkActive="nav-menu-active">
+    BIM
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/qc-defects/0' routerLinkActive="nav-menu-active">
+    QC
+  </button>
+</mat-menu>
+
+<mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item (click)="onProfileClicked()">
+    <mat-icon>person</mat-icon>
+    <span> {{personName}}</span>
+  </button>
+  <button mat-menu-item routerLink='/user-account/change-password'>
+    <mat-icon>create</mat-icon>
+    <span>Change Password</span>
+  </button>
+  <button mat-menu-item (click)="onLogoutClicked()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

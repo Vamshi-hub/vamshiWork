@@ -1,0 +1,17 @@
+﻿@model Uri
+
+@{
+    ViewBag.Title = "Visualization";
+}
+
+<h2>Visualization</h2>
+
+<div style="width">
+    <video width="640" height="480" controls>
+        <source src="@Html.DisplayForModel()" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-default" })
+</p>

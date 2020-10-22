@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.JobTrack.Pages.JobQCDefect"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             BindingContext="{x:Static utilities:ViewModelLocator.qcDefectVM}" 
+             Title="QC Defect">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <ScrollView>
+                <StackLayout>
+                    <Frame OutlineColor="Silver" BackgroundColor="White">
+                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label StyleClass="Header" Text="Photos" />
+                            <Button WidthRequest="60" HeightRequest="60" BorderRadius="30"
+                                HorizontalOptions="Center" Image="ic_photo_base.png" 
+                                Clicked="OnViewPhotoClicked" IsVisible="{Binding ShowViewPhotoButton}"/>
+                            <Button WidthRequest="60" HeightRequest="60" BorderRadius="30"
+                                HorizontalOptions="Center" Image="ic_photo_camera_base.png"
+                                Clicked="OnCapturePhotoClicked" IsVisible="{Binding ShowCapturePhotoButton}"/>
+                        </FlexLayout>
+                    </Frame>
+                    <Frame OutlineColor="Silver" BackgroundColor="White">
+                        <StackLayout>
+                            <Label StyleClass="Header" Text="Job Information" />
+                            <BoxView Color="Black" HeightRequest="2"/>
+                            <FlexLayout Direction="Column">
+                                <Label Text="Module: "/>
+                                <Label Text="{Binding Job.ModuleName}" StyleClass="Subheader" />
+                            </FlexLayout>
+                            <BoxView Color="Silver" HeightRequest="1"/>
+                            <FlexLayout Direction="Column">
+                                <Label Text="Job: "/>
+                                <Label Text="{Binding Job.JobName}" StyleClass="Subheader"/>
+                            </FlexLayout>
+                            <BoxView Color="Silver" HeightRequest="1"/>
+                            <FlexLayout Direction="Column">
+                                <Label Text="Planned Date: "/>
+                                <Label Text="{Binding Job.Start, StringFormat='{0:MM/dd/yyyy}'}" StyleClass="Subheader" />
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Silver" BackgroundColor="White" IsVisible="{Binding ShowDefectInfo}">
+                        <StackLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label StyleClass="Header" Text="Defect Information" FlexLayout.Basis="70%"/>
+                                <Label TextColor="{Binding QCDefectDetails.StatusColor}"
+                                       StyleClass="Subheader" Text="{Binding QCDefectDetails.StatusText}" />
+                            </FlexLayout>
+                            <BoxView Color="Gray" HeightRequest="1"/>
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Created by:</Label>
+                                <Label Text="{Binding QCDefectDetails.CreatedBy}" StyleClass="Subheader" />
+                            </FlexLayout>
+
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Created Date:</Label>
+                                <Label Text="{Binding QCDefectDetails.CreatedDate, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" StyleClass="Subheader"/>
+                            </FlexLayout>
+
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Updated by:</Label>
+                                <Label Text="{Binding QCDefectDetails.UpdatedBy}" StyleClass="Subheader" />
+                            </FlexLayout>
+
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Updated Date:</Label>
+                                <Label Text="{Binding QCDefectDetails.UpdatedDate, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" StyleClass="Subheader"/>
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Grid>
+                        <Label VerticalTextAlignment="Center">Remarks:</Label>
+                        <Editor Margin="60,0,0,0" HeightRequest="80" Text="{Binding QCDefectDetails.Remarks}"/>
+                    </Grid>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button StyleClass="Primary" Text="{Binding UpdateButtonLabel}" Clicked="OnSubmitClickedAsync" CornerRadius="20" WidthRequest="150"
+                                IsVisible="{Binding ShowSubmitButton}" Style="{StaticResource btnPrimaryStyle}" />
+                        <Button StyleClass="Primary" Text="Rectify" CornerRadius="20" WidthRequest="100" Command="{Binding QCRectifyCommand}" 
+                                IsVisible="{Binding ShowRectifyButton}" Margin="10,0,0,0"></Button>
+                        <Button StyleClass="Primary" Text="Close Defect" CornerRadius="20" WidthRequest="150" Clicked="OnCloseClickedAsync"
+                                IsVisible="{Binding ShowCloseButton}" Margin="10,0,0,0"></Button>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+            <views:LoadingView HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

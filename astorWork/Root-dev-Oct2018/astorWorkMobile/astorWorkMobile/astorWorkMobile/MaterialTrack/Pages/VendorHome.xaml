@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.VendorInventory"
+             BindingContext="{x:Static utilities:ViewModelLocator.vendorInventoryVM}"
+             Title="Inventory">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Frame OutlineColor="Silver">
+                    <Picker x:Name="pickProject" Title="Select a project" Margin="0,10,0,20"
+                    ItemsSource="{Binding Projects}"
+                    ItemDisplayBinding="{Binding name}"
+                    SelectedItem="{Binding SelectedProject}"/>
+                </Frame>
+                <ListView ItemsSource="{Binding Inventories}" VerticalOptions="FillAndExpand"
+                      SeparatorVisibility="None" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="5">
+                                    <StackLayout Orientation="Vertical">
+                                        <Grid HeightRequest="40">
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnRowTapped" />
+                                            </Grid.GestureRecognizers>
+                                            <Label VerticalTextAlignment="Center">Tracker:</Label>
+                                            <Label Margin="100,0,0,0" StyleClass="Header" TextColor="Black"
+                                               Text="{Binding trackerLabel}" VerticalTextAlignment="Center"/>
+                                            <Image Source="{Binding ExpansionIcon}" VerticalOptions="Center"
+                                                   HorizontalOptions="End"/>
+                                        </Grid>
+                                        <StackLayout Orientation="Vertical" IsVisible="{Binding Expanded}">
+                                            <Grid HeightRequest="40">
+                                                <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding markingNo}"  VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid HeightRequest="40">
+                                                <Label VerticalTextAlignment="Center">Lot No.:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding sn}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                            <Grid HeightRequest="40">
+                                                <Label VerticalTextAlignment="Center">Casting Date:</Label>
+                                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding castingDate, StringFormat='{0:MM/dd/yyyy}'}" VerticalTextAlignment="Center"/>
+                                            </Grid>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <FlexLayout Direction="Column" AlignItems="Stretch" JustifyContent="SpaceAround"
+                            VerticalOptions="End" HorizontalOptions="End" HeightRequest="180" WidthRequest="160"
+                            Margin="0,0,5,70" IsVisible="{Binding ScanMenuVisible}">
+                <Frame Style="{StaticResource frameButtonStyle}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnQRCodeScanButtonClicked"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout Direction="Row" AlignItems="Center" HeightRequest="40">
+                        <Image Source="ic_qr_code_black.png" HeightRequest="40" WidthRequest="40"/>
+                        <Label Text="QR Code" FontSize="Medium" TextColor="Black"/>
+                    </FlexLayout>
+                </Frame>
+                <Frame Style="{StaticResource frameButtonStyle}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnRFIDScanButtonClicked"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout Direction="Row" AlignItems="Center" HeightRequest="40">
+                        <Image Source="ic_rfid_black.png" HeightRequest="40" WidthRequest="40"/>
+                        <Label Text="RFID Tag" FontSize="Medium" TextColor="Black"/>
+                    </FlexLayout>
+                </Frame>
+            </FlexLayout>
+            <Button StyleClass="Primary" HorizontalOptions="End" VerticalOptions="End"
+                    WidthRequest="60" HeightRequest="60" BorderRadius="30" Image="ic_my_location_white.png"
+                    IsVisible="{Binding ShowScanButton}" Clicked="OnScanButtonClicked" Margin="0,0,5,5"/>
+            <views:LoadingView HorizontalOptions="Fill" VerticalOptions="Fill"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,12 @@
+﻿Dear Sir/Madam,
+
+A new job, {0} has been completed by {1}. Please view below for more details.
+
+Material: {2}
+Planned Start Date: {3}
+Planned End Date: {4}
+Actual Start Date: {5}
+Actual End Date: {6}
+
+Regards,
+astorWork Team

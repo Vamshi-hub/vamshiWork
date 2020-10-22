@@ -1,0 +1,81 @@
+.mat-card-class {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 6px;
+    border-radius: 5px;
+    color: #615e5e;
+  }
+
+#clockdiv{
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 25px;
+}
+
+#clockdiv > div{
+    padding: 0px 4px;
+    border-radius: 2px;
+    background: rgb(210, 212, 212);
+    display: inline-block;
+    /* opacity: 0.6; */
+  filter: alpha(opacity=60)
+}
+
+#clockdiv div > span{
+    padding: 5px 10px;
+    border-radius: 2px;
+    background: rgb(15, 223, 185);
+    display: inline-block;
+}
+
+.smalltext{
+    padding-top: 5px;
+    font-size: 14px;
+    color: black;
+}
+
+.vertical-line{
+    min-height: 50px;
+    height: 50px;
+    width:1px;
+    background: black;
+    display: block;
+}
+
+.vertical-white-line{
+    min-height: 20px;
+    height: 30px;
+    width:2px;
+    background: whitesmoke;
+    display: block;
+}
+
+.curvedBorder{
+    padding: 2px 2px;
+    border: 1px;
+    border-color: #65eb8d;
+    border-style: outset;
+    border-radius: 15px;
+}
+.innerBorder{
+    padding: 15px 20px;
+    border: 1px;
+    border-color: #ffffff;
+    border-style: outset;
+    height: 60px;
+}
+.innerText{
+    font-family: arial, Nova, Cond;
+    font-size: 10;
+}
+
+.tableClass{
+ background: none; 
+ border-radius: 0%;
+ border: 0px; 
+ padding:0px; 
+}

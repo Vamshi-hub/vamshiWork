@@ -1,0 +1,34 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:9003/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "Project",
+      "launchUrl": "api/values",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "astorWorkJobTracking": {
+      "commandName": "Project",
+      "launchUrl": "api/values",
+      "environmentVariables": {
+        "SENDGRID_KEY": "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",
+        "AW_REDIS_CACHE_CONNECTION": "astorwork-dev.redis.cache.windows.net:6379,password=0EJ/NfXOQuCua+UgT8IXDTcGI5kz8MoDoUb05LcRifc=,ssl=False,abortConnect=False",
+        "FORGE_CLIENT_SECRET": "zVqsakG4x46EpD8V",
+        "FORGE_CLIENT_ID": "6AumZPf6sBW6pOvwpQkfXlq86I8l9JGl",
+        "IMAGE_CONTAINER": "qa-image-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoDev",
+        "VIDEO_CONTAINER": "dev-video-repo"
+      },
+      "applicationUrl": "http://localhost:9003/"
+    }
+  }
+}

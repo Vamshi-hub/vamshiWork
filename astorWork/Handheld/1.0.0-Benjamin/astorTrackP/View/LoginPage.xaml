@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			x:Class="astorTrackP.LoginPage"
+			Title="astorTrackP Login" BackgroundColor="White">
+<!--	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="settings.png"/>
+	</ContentPage.ToolbarItems>-->
+	<ContentPage.Content>
+<!--	<StackLayout Orientation="Vertical"
+		BackgroundColor="#2579BF">
+		<StackLayout.Children>
+			<StackLayout VerticalOptions="CenterAndExpand"
+						 HorizontalOptions="Center">
+				<Entry x:Name="uxUserName" Placeholder="User Name" BackgroundColor="White" VerticalOptions="CenterAndExpand" />
+				<Entry x:Name="uxPassword" Placeholder="Password" IsPassword="true" BackgroundColor="White"/>
+				<Button x:Name="uxLogin" Text="Login"/>
+			</StackLayout>
+		</StackLayout.Children>
+	</StackLayout>-->
+	<RelativeLayout>
+        <BoxView Color="#F0F2F7" HeightRequest="320" Opacity="0.7"
+        	RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=100}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.05, Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.90}"/>
+        <Image Source="logo.png" HeightRequest="120" WidthRequest="120" 
+        	RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.4, Constant = -35}" 
+        	RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=40}" >
+			<Image.GestureRecognizers>
+				<TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" />
+	  	    </Image.GestureRecognizers>
+			</Image>
+<!--        <Button BorderRadius="35" x:Name="imageCircleBack" >
+            BackgroundColor="Maroon" HeightRequest="70" WidthRequest="70" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.5, Constant = -35}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=70}" />        
+        <Button BorderRadius="30" HeightRequest="60" Image="Logo.png" 
+            WidthRequest="60" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=imageCircleBack, Property=X, Factor=1,Constant=5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=75}" />-->
+<!--        <Label Text="astorTrackP" FontAttributes="Bold" FontSize="26"
+            HorizontalTextAlignment="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=140}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />        
+        <RelativeLayout BackgroundColor="White" Padding="5,5,0,0" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=220}" HeightRequest="180" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+            <BoxView BackgroundColor="Black" WidthRequest="50"
+                HeightRequest="50" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=5}" />
+            <BoxView BackgroundColor="Maroon" WidthRequest="50"
+                HeightRequest="50" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=}" />            
+        </RelativeLayout>-->
+
+	 	<Entry x:Name="uxUserName" Placeholder="User Name" BackgroundColor="White" TextColor="#A9A9A9" Text="{Binding UserName, Mode=TwoWay}"
+        	RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=190}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1, Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.80,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />           
+     	<Entry x:Name="uxPassword" Placeholder="Password" IsPassword="true" BackgroundColor="White" TextColor="#A9A9A9" Text="{Binding Password, Mode=TwoWay}"
+         	RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=242}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1, Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.80,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}"/>    
+		<Label Text="Remember Me" 
+			RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=313}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1, Constant=30}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.80,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}"/>
+        <Switch x:Name="uxRememberMe" IsToggled="{Binding RememberMe, Mode=TwoWay}"
+			RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=300}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1, Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.80,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}"/>
+			<!--Clicked="OnLoginClicked"-->
+            <Button x:Name="uxLogin" Text="Login" BackgroundColor="#3498db" Command="{Binding LoginCommand}" IsEnabled="{Binding IsEnabledProperty}"
+        	RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=350}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1, Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.80,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
+		
+       	<Label Text="Copyright @2017 Astoria Solutions Pte Ltd"
+       		RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=475}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.07, Constant=0}"
+       	></Label>
+<!--      	<BoxView Color="#2872dd" HeightRequest="100"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=320}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1, Constant=0}"/>-->        
+        </RelativeLayout>
+	</ContentPage.Content>
+</ContentPage>

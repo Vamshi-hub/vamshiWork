@@ -1,0 +1,212 @@
+<div class="page-header-row">
+  <h1>Material Details</h1>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="column" fxLayoutAlign="start stretch" *ngIf="materialDetail" [style.display]="isLoading ? 'none' : 'block'">
+  <mat-card class="info-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Information</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between start">
+        <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex fxFlex.xs="160px">
+          <mat-form-field>
+            <input matInput placeholder="Marking No." value="{{materialDetail?.markingNo}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Module Type" value="{{materialDetail?.materialType}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Slab Casting Date" value="{{ ((materialDetail?.castingDate | date:'M/d/yyyy') !== '1/1/0001') ? (materialDetail?.castingDate | date:'M/d/yyyy') : ''}}" readonly="true">
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex fxFlex.xs="160px">
+          <mat-form-field>
+            <input matInput placeholder="Block" value="{{materialDetail?.block}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Level" value="{{materialDetail?.level}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Zone" value="{{materialDetail?.zone}}" readonly="true">
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex fxFlex.xs="160px" *ngIf="materialDetail?.drawing">
+          <mat-form-field>
+            <input matInput placeholder="Drawing No." value="{{materialDetail?.drawing.drawingNo}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Revision No." value="{{materialDetail?.drawing.revisionNo}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Drawing Issue Date" value="{{materialDetail?.drawing.drawingIssueDate | date:'M/d/yyyy'}}" readonly="true">
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex fxFlex.xs="160px">
+          <mat-form-field>
+            <input matInput placeholder="Organisation" value="{{materialDetail?.organisationName}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Tracker Type" value="{{materialDetail?.trackerType}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Tracker No." value="{{materialDetail?.trackerLabel}}" readonly="true">
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex fxFlex.xs="160px" *ngIf="isShow">
+          <mat-form-field>
+            <input matInput placeholder="Area" value="{{materialDetail?.area}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Length" value="{{materialDetail?.length}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Dimensions" value="{{materialDetail?.dimensions}}" readonly="true">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="info-card" *ngIf="!materialDetail.orderDate">
+    <mat-card-content fxLayout="row" fxLayoutAlign="center center">
+      <h2 class="mat-h2">Unplanned</h2>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="info-card" *ngIf="materialDetail?.orderDate">
+    <mat-card-header>
+      <mat-card-title>
+        <h2 class="mat-h2">Schedule</h2>
+        <button mat-icon-button *ngIf="accessRight >= 2 && canEdit && !editing" (click)="onEditScheduleClicked()">
+          <mat-icon aria-label="Edit">mode_edit</mat-icon>
+        </button>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+      <mat-form-field style="width: 200px;">
+        <input matInput [matDatepicker]="pickExpectedDeliveryDate" placeholder="Expected delivery date" [(ngModel)]="materialDetail.expectedDeliveryDate"
+          [readonly]="true" [min]="minExpectedDeliveryDate" required>
+        <mat-datepicker-toggle matSuffix [for]="pickExpectedDeliveryDate" *ngIf="editing"></mat-datepicker-toggle>
+        <mat-datepicker #pickExpectedDeliveryDate touchUi="true"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Remarks" [(ngModel)]="materialDetail.remarks" [readonly]="!editing"></textarea>
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="space-between start" style="width: 200px !important">
+        <button mat-raised-button type="submit" (click)="onSaveScheduleClicked()" *ngIf="editing" style="max-width: 200px;" color="primary">Save</button>
+        <button mat-raised-button type="cancel" (click)="onCancelClicked()" *ngIf="editing" style="max-width: 200px;" color="primary">Cancel</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="info-card" *ngIf="materialDetail?.orderDate">
+    <mat-card-header>
+      <mat-card-title>
+        <h2 class="mat-h2">Timeline</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+          <div fxFlex="200px" class="mobile-hidden" style="text-align: center">{{materialDetail.orderDate | date:'M/d/yyyy HH:mm'}}</div>
+          <div fxFlex="80px" style="text-align: center;">
+            <mat-icon style="color: green;">check_circle</mat-icon>
+            <div class="vertical-line"></div>
+          </div>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p class="stage-name">Ordered</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column" fxLayoutAlign="center stretch">
+              <mat-form-field>
+                <input matInput placeholder="Organisation" value="{{materialDetail.organisationName}}" readonly="readonly">
+              </mat-form-field>
+              <mat-form-field class="desktop-hidden">
+                <input matInput placeholder="Ordered At" value="{{materialDetail.orderDate | date:'M/d/yyyy HH:mm'}}" readonly="readonly">
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </div>
+        <div *ngFor="let stage of materialDetail?.trackingHistory let last=last;" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px"
+          style="margin: 10px 0;">
+          <div fxFlex="200px" fxLayout="column" fxLayoutGap="5px" class="mobile-hidden" style="text-align: center">
+          <div *ngIf="!stage.isQCStage" class="mobile-hidden" style="text-align: center">
+              {{stage.createdDate | date:'M/d/yyyy HH:mm'}}
+              <!-- <p> 0">Closed/Total QC Defect: {{stage.stageStatus===1?stage.countQCCase : stage.countQCCase-1}}/{{stage.countQCCase}}</p> -->
+            </div>
+          <div *ngIf="stage.countQCCase" class="mobile-hidden" style="text-align: center">
+            {{stage.createdDate | date:'M/d/yyyy HH:mm'}}
+            <p> Closed/Total QC Defect:<a (click)="QcPage(stage,1);" class="download-template"> {{stage.stageStatus===1?stage.countQCCase : stage.countQCCase-1}}/{{stage.countQCCase}}</a></p>
+          </div>
+          <div *ngIf="stage.totalStructChecklistCount" class="mobile-hidden" style="text-align: center">
+            {{stage.structQCLastUpdatedDate | date:'M/d/yyyy HH:mm'}}
+            <p>Closed/Total Struct QC:<a (click)="QcPage(stage,2);" class="download-template"> {{stage.totalStructPassCount}}/{{stage.totalStructChecklistCount}}</a></p>
+          </div>
+          <div *ngIf="stage.totalArchiChecklistCount" class="mobile-hidden" style="text-align: center">
+            {{stage.structQCLastUpdatedDate | date:'M/d/yyyy HH:mm'}}
+            <p>Closed/Total Archi QC:<a (click)="QcPage(stage,3);" class="download-template"> {{stage.totalArchiPassCount}}/{{stage.totalArchiChecklistCount}}</a></p>
+          </div>
+        </div>
+          <div *ngIf="!stage.isQCStage" [ngSwitch]="stage.stageStatus" fxFlexAlign="stretch" fxFlex="80px" style="text-align: center;">
+            <mat-icon *ngSwitchCase="0" style="color: grey;">location_searching</mat-icon>
+            <mat-icon *ngSwitchCase="1" style="color: green;">check_circle</mat-icon>
+            <mat-icon *ngSwitchCase="3" style="color: orange;">error</mat-icon>
+            <div class="vertical-line" *ngIf="!last"></div>
+          </div>
+          <div *ngIf="stage.isQCStage" [ngSwitch]="stage.stageStatus" fxFlexAlign="stretch" fxFlex="80px" style="text-align: center;">
+            <button mat-mini-fab *ngSwitchCase="1" style="background: green">QC</button>
+            <!-- (click)="showCoursel(stage.openQCCaseIds);" -->
+            <button mat-mini-fab *ngSwitchCase="2" style="background: red">QC</button>
+            <button mat-mini-fab *ngSwitchCase="3" style="background: orange">QC</button>
+            <!-- (click)="showCoursel(stage.openQCCaseIds);" -->
+            <div class="vertical-line" *ngIf="!last"></div>
+          </div>
+          <mat-expansion-panel *ngIf="!stage.isQCStage">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p class="stage-name">{{stage.stageName}}</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column" fxLayoutAlign="center stretch">
+              <mat-form-field>
+                <input matInput placeholder="Officer in Charge" value="{{stage.createdBy}}" readonly="readonly">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Location" value="{{stage.location}}" readonly="readonly">
+              </mat-form-field>
+              <mat-form-field *ngIf="stage.remarks">
+                <textarea matInput placeholder="Remarks" value="{{stage.remarks}}" readonly="readonly"></textarea>
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <!--
+  <mat-vertical-stepper #stepper="matVerticalStepper">
+      <mat-step-header>Location</mat-step-header>
+    <mat-step *ngFor="let stage of materialDetail?.TrackingHistory" completed="true" editable="false" label="{{stage.StageName}}">
+      <mat-list>
+        <mat-list-item>
+          <mat-form-field> 
+            <input matInput placeholder="Location" value="{{stage.Location}}" readonly="readonly">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <input matInput placeholder="Updated By" value="{{stage.UpdatedBy}}" readonly="readonly">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <input matInput placeholder="Updated Date" value="{{stage.UpdatedDate}}" readonly="readonly">
+          </mat-form-field>
+        </mat-list-item>
+      </mat-list>
+    </mat-step>
+  </mat-vertical-stepper>
+-->
+</div>

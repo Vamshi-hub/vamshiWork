@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.JobTrack.Pages.JobChecklist"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             BindingContext="{x:Static utilities:ViewModelLocator.jobChecklistVM}"
+             Title="Inspection Checklist" Appearing="ContentPage_Appearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout BackgroundColor="Transparent" Padding="5">
+                <StackLayout BackgroundColor="#f5f7f7">
+                    <Label Text="{Binding CheckListHeader}" StyleClass="Header" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                    <Label Text="{Binding CheckListSubHeader}" StyleClass="Subheader" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                </StackLayout>
+                <ListView x:Name="lstChecklist" HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Checklists}" IsVisible="{Binding ShowChecklist}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="3" Orientation="Horizontal"  IsEnabled="{Binding IsEnabled}">
+                                    <BoxView BackgroundColor="{Binding StatusColor}"  WidthRequest="6"></BoxView>
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                        <Label Text="{Binding Status}" StyleClass="Heading" TextColor="{Binding StatusColor}"/>
+                                    </StackLayout>
+                                    <Image WidthRequest="20" HeightRequest="20"
+                                            HorizontalOptions="EndAndExpand" VerticalOptions="Center"           Source="ic_keyboard_arrow_right.png">
+                                    </Image>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChecklistItemCommand}" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <views:LoadingView />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

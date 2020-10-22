@@ -1,0 +1,18 @@
+table {
+  width: 100%;
+}
+
+#printContainer {
+  display: none;
+}
+
+.print-qr-title {
+  font-size: 48px;
+  font-weight: bold;
+}
+.mat-column-materialTypes {
+  width: 10% !important;
+  white-space: unset !important;
+  word-break: break-all;
+  padding-right: 15px;
+}

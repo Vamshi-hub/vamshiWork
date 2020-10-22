@@ -1,0 +1,21 @@
+<h3 mat-dialog-title>
+  <span *ngIf="data.success; else elseTitle">Done</span>
+  <ng-template #elseTitle>Failed</ng-template>
+</h3>
+<mat-dialog-content class="mat-typography">
+  <div fxLayout="column" fxLayoutAlign="space-between center">
+    <div *ngIf="data.success; else elseBlock">
+      <p>
+        <b class="mrf-number">{{data.mrfNo}}</b> has been created with
+        <a [routerLink]="['/material-tracking/materials', {blk: data.blk, mrfNo: data.mrfNo}]" class="material-count">{{data.materialCount}}
+          materials</a>
+      </p>
+    </div>
+    <ng-template #elseBlock>
+      <p>{{data.message}}</p>
+    </ng-template>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>  
+    <a mat-button routerLink="/material-tracking/mrfs" mat-dialog-close>Ok</a>
+</mat-dialog-actions>

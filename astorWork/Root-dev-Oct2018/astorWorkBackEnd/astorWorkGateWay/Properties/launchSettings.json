@@ -1,0 +1,26 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/astorWorkGateWay",
+      "sslPort": 0
+    },
+    "iisExpress": {
+      "applicationUrl": "http://localhost:49610",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "astorWorkGateWay": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AW_REDIS_CACHE_CONNECTION": "astorwork-dev.redis.cache.windows.net:6380,password=0EJ/NfXOQuCua+UgT8IXDTcGI5kz8MoDoUb05LcRifc=,ssl=True,abortConnect=False",
+        "IMAGE_CONTAINER": "dev-image-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoDev"
+      },
+      "applicationUrl": "http://localhost:9000"
+    }
+  }
+}

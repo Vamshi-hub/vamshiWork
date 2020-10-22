@@ -1,0 +1,60 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayout.sm="column" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1 page-header">Users</h1>
+  </div>
+  <button mat-fab class="top-right-fab-button button" (click)="profile()" *ngIf="accessRight >= 2">
+    <mat-icon aria-label="Create User">add</mat-icon>
+  </button>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
+
+  <!-- <ng-container matColumnDef="userID">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.userID}} </td>
+  </ng-container> -->
+
+  <ng-container matColumnDef="userName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> User </th>
+    <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="projectName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Project </th>
+    <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+    <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="site">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Site </th>
+    <td mat-cell *matCellDef="let element"> {{element.site}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="organisationName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Organisation </th>
+    <td mat-cell *matCellDef="let element"> {{element.organisationName}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="isActive">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Is Active </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon color="{{element.isActive ? '' : 'warn'}}">
+        {{element.isActive ? 'check_circle_outline' : 'highlight_off'}}
+      </mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.id}}"></tr>
+</table>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+</mat-paginator>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

@@ -1,0 +1,546 @@
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="row" fxLayoutAlign="start center" class="page-header-row">
+  <div fxFlex >
+    <h1 class="mat-h1">Material Dashboard</h1>
+  </div>
+  <div fxFlex="24%" fxHide.xs="true">
+    <mat-label class="mat-h3">Project StartDate :</mat-label>
+    <mat-label class="mat-h3" style="padding-left: 2%;">{{startdate | date: 'dd/MM/yyyy'}}</mat-label>
+  </div>
+  <div  fxFlex="23%" fxHide.xs="true" >
+    <mat-label class="mat-h3" >Project EndDate :</mat-label>
+    <mat-label class="mat-h3" style="padding-left: 2%;">{{enddate | date: 'dd/MM/yyyy'}}</mat-label>
+  </div>
+  <div  fxFlex="23%" fxHide.xs="true" >
+    <mat-label class="mat-h3">Project Manager :</mat-label>
+    <mat-label class="mat-h3" style="padding-left: 2%;">{{projectManagerName}}</mat-label>
+  </div>
+  <div class="settings" fxHide.xs="true">
+    <button mat-icon-button [matMenuTriggerFor]="tilesMenu" >
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
+  
+  <mat-menu #tilesMenu="matMenu">
+   <mat-card   style="width: 240px;box-shadow: none;" >
+      <mat-card-title >
+         <div   fxlayout="row wrap" fxlayoutalign="space-between center" style="flex-flow: row wrap;display: flex;max-height: 100%;place-content: center;align-items: center;">
+            <button  class="mat-flat-button mat-primary">
+                <span class="mat-button-wrapper">Configuration Settings</span>
+             </button>
+             <span  style="flex: 1 1 0%; box-sizing: border-box;"></span>
+          
+             <span style="flex: 1 1 0%; box-sizing: border-box;"></span>
+             <button  class="card-control mat-icon-button" mat-icon-button="">
+                <span class="mat-button-wrapper">
+                   <mat-icon class="material-icons">close</mat-icon>
+                </span>
+             </button>
+             <div fxFlexLayout="column" fxlayoutalign="space-between center">
+              <mat-label class="mat-h3" style="padding-right: 86px;">Change Theme</mat-label>
+               <span (click)="toggleDesign()" (click)="$event.stopPropagation();"><mat-slide-toggle></mat-slide-toggle></span>
+             </div>
+             
+         </div>
+      </mat-card-title>
+      <!----><!---->
+      <mat-card-content   (click)="$event.stopPropagation();">
+         <div>
+            <h4>Tiles:</h4>
+             <mat-form-field>
+              <mat-select  matInput placeholder="Tile1"   [(value)]="tile1stageid" (selectionChange)="changeClienttile1($event.value)">
+                  <mat-option *ngFor="let stg of stages" [value]='stg.id' [disabled]="stg.id==tile2stageid || stg.id==tile3stageid" >
+                      {{stg.name }}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+          <div fxFlexLayout="column" fxlayoutalign="space-between center">
+              <mat-label class="mat-h3" style="padding-right: 20px;">QC</mat-label>
+                 <mat-slide-toggle   [(ngModel)]="ischecked1"  (change)="changedtile1QC()" [disabled]="istile1qccount"></mat-slide-toggle>
+             </div>
+         </div>
+         <div >
+            <mat-form-field>
+              <mat-select matInput placeholder="Tile2" [(value)]="tile2stageid" (selectionChange)="changeClienttile2($event.value)">
+                  <mat-option *ngFor="let stg of stages" [value]='stg.id' [disabled]="stg.id==tile1stageid || stg.id==tile3stageid">
+                      {{stg.name }}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+          <div fxFlexLayout="column" fxlayoutalign="space-between center">
+              <mat-label class="mat-h3" style="padding-right: 20px;">QC</mat-label>
+              <mat-slide-toggle  [(ngModel)]="ischecked2"  (change)="changedtile2QC()" [disabled]="istile2qccount"></mat-slide-toggle>
+             </div> 
+         </div>
+         <div>
+            <mat-form-field>
+              <mat-select matInput placeholder="Tile3"  [(value)]="tile3stageid" (selectionChange)="changeClienttile3($event.value)">
+                  <mat-option *ngFor="let stg of stages" [value]='stg.id' [disabled]="stg.id==tile2stageid || stg.id==tile1stageid">
+                      {{stg.name }}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+          <div fxFlexLayout="column" fxlayoutalign="space-between center">
+              <mat-label class="mat-h3" style="padding-right: 20px;">QC</mat-label>
+             <mat-slide-toggle  [(ngModel)]="ischecked3"  (change)="changedtile3QC()" [disabled]="istile3qccount"></mat-slide-toggle>
+             </div>
+         </div>
+      </mat-card-content>
+   </mat-card>
+  </mat-menu>
+
+
+  
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" style="margin: 10px;" [style.display]="isLoading ? 'none' : 'block'">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" fxLayoutGap.xs="15px">
+    <mat-card fxFlex="25%" (click)='ontile1click(target)' class="mat-card-class card-pointer"  [ngStyle]="{'background':ToggleView? tile1color:'white','color':ToggleView?'white':''}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar  [style.background-color]="tile1color" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+              <img src="assets/Icons/request-icon.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <!-- [ngStyle]="{'background':ToggleView? '#3399ff':'white','color':ToggleView?'white':''}"> -->
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3" >{{tile1stagename}}/Requested</h4>
+          <h3 mat-h3 >
+            {{tile1MaterialCount}}/{{projectStats?.requestedMaterialsCount}}
+          </h3>
+          <span  *ngIf="ischecked1" style="margin-top: -9%;font-size: 16px;
+          font-weight: 400;" >QC {{tile1QCcount}}/{{tile1MaterialCount}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="5px" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{((tile1MaterialCount/projectStats?.requestedMaterialsCount)*100).toFixed(2)}}" disabled="true"></mat-progress-bar>
+          <span  *ngIf="projectStats?.requestedMaterialsCount">{{((tile1MaterialCount/projectStats?.requestedMaterialsCount)*100).toFixed(2)}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="25%" (click)='ontile2click(target)' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? tile2color:'white','color':ToggleView?'white':''}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar [style.background-color]="tile2color" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+          <img src="assets/Icons/delivery.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3">{{tile2stagename}}/Requested</h4>
+          <h3 mat-h3 >
+            {{tile2MaterialCount}}/{{projectStats?.requestedMaterialsCount}}
+          </h3>
+         <span  *ngIf="ischecked2"  style="margin-top: -8%;font-size: 16px;
+         font-weight: 400;" >QC {{tile2QCcount}}/{{tile2MaterialCount}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{((tile2MaterialCount/projectStats?.requestedMaterialsCount)*100).toFixed(2)}}"></mat-progress-bar>
+          <span  *ngIf="projectStats?.requestedMaterialsCount">
+            {{((tile2MaterialCount/projectStats?.requestedMaterialsCount)*100).toFixed(2)}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="25%" (click)='ontile3click(target)' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? tile3color:'white','color':ToggleView?'white':''}" >
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar [style.background-color]="tile3color" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+          <img src="assets/Icons/installed.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3">{{tile3stagename}}/Total</h4>
+          <h3 mat-h3 >
+            {{tile3MaterialCount}}/{{projectStats?.totalMaterialsCount}}
+          </h3>
+          <span  *ngIf="ischecked3"   style="margin-top: -12%;font-size: 16px;
+          font-weight: 400;">QC {{tile3QCcount}}/{{tile3MaterialCount}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{((tile3MaterialCount/projectStats?.totalMaterialsCount)*100).toFixed(2)}}"></mat-progress-bar>
+          <span *ngIf="projectStats?.totalMaterialsCount">
+            {{((tile3MaterialCount/projectStats?.totalMaterialsCount)*100).toFixed(2)}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card fxFlex="25%" (click)='onQCOpenClick(target)' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? 'rgb(251, 74, 70)':'white','color':ToggleView?'white':''}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar style="background: rgb(251, 74, 70)" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+          <img src="assets/Icons/QC-open.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3">Open/Total QC </h4>
+          <h3 mat-h3>
+            {{projectStats?.qcFailedCount + QCFailedJobsDatasource.data.length + QCFailedstrctDatasource.data.length}}/{{projectStats?.qcTotalCount}}
+          </h3>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{projectStats?.qcFailedProgress}}" disabled="true"></mat-progress-bar>
+          <span>{{projectStats?.qcFailedProgress}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Daily Status</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding: 20px">
+        <div *ngIf="doughnutChart" id="chartContainer">
+          <canvas *ngIf="!noData" id="canDoughnutChart" width="30" height="30">{{chart}}</canvas>
+          <h1 *ngIf="noData" style="padding: 30%;text-align: center;">No Progress Today</h1>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="50%" class="mat-card-class">
+      <mat-card-content>
+        <mat-tab-group (selectedTabChange)="tabClick($event)">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="mat-icon">show_chart</mat-icon>
+              Overall Progress
+            </ng-template>
+            <div *ngIf="lineChart" style="margin-top: 10px;">
+              <canvas id="canLineChart" width="320" height="150">{{chart}}</canvas>
+            </div>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="mat-icon">hourglass_empty</mat-icon>
+              In Progress
+            </ng-template>
+            <div fxLayout="column" fxLayoutAlign="space-around center" style="margin-top: 10px;" fxLayoutGap="10px">
+              <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+                <mat-form-field fxFlex>
+                  <mat-select placeholder="Block" [(value)]="selectedBlock">
+                    <mat-option *ngFor="let blk of blocks" [value]='blk'>
+                      {{ blk }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <p>(Latest 3 levels)</p>
+              </div>
+              <mat-card fxFlex *ngFor="let ip of filterAndOrderInProgress()">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutGap="5px">
+                  <mat-form-field>
+                    <input matInput placeholder="Level" value="{{ip.level}}" readonly="true">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Installed / Total" value="{{ip.installedMaterialCount}}/{{ip.totalMaterialCount}}"
+                      readonly="true">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Progress" value="{{ip.progress}}%" readonly="true">
+                  </mat-form-field>
+                </div>
+              </mat-card>
+            </div>
+          </mat-tab>
+          <mat-tab label="3">
+            <ng-template mat-tab-label>
+              <mat-icon class="mat-icon">hourglass_empty</mat-icon>
+              Material Stage Progress
+            </ng-template>
+            <div  *ngIf="lineChart" style="margin-top: 10px;">
+              <canvas id="barchart"  width="320" height="150">{{ BarChart }}</canvas>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Latest BIM Update</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="bimVideoUrl; else bimVideoNA">
+          <video controls width="100%" height="auto">
+            <source [src]="bimVideoUrl"  type="video/mp4"> Your browser does not support the video tag.
+          </video>
+        </div>
+        <ng-template #bimVideoNA>
+          <h1 style="padding: 30%;text-align: center;">BIM  video not available</h1>
+        </ng-template>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button color="primary" *ngIf="bimVideoUrl" routerLink='/material-tracking/bim-syncs'>more BIM updates</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div #target fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+  
+          <mat-card  *ngIf="cardClicked=='QCOpen'" fxFlex="100%" class="mat-card-class">
+            <mat-card-content>
+
+              <mat-tab-group   *ngIf="cardClicked=='QCOpen'" >
+                <mat-tab  >
+                    <ng-template mat-tab-label>
+                        QC Defects ({{projectStats?.qcFailedCount}})
+                      </ng-template>
+                  <h2 class="mat-h2" style="color: rgb(217, 83, 80);"> QC Open <small>(latest 10 records)</small>
+                    <a [routerLink]="['/material-tracking/qc-defects', {filter: 'open'}]" *ngIf="qcDataSource.data.length"
+                      class="material-count" style="padding-left: 13px;font-size: small;">View all</a></h2>
+                      <mat-table #table *ngIf="cardClicked=='QCOpen'"  [dataSource]="qcDataSource" >
+                        <ng-container matColumnDef="markingNo">
+                          <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+                        </ng-container>
+              
+                        <ng-container matColumnDef="caseName">
+                          <mat-header-cell *matHeaderCellDef> Case </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.caseName}} </mat-cell>
+                        </ng-container>
+              
+                        <ng-container matColumnDef="materialDescription">
+                          <mat-header-cell *matHeaderCellDef> Material Description </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.materialDescription}} </mat-cell>
+                        </ng-container>
+              
+                        <ng-container matColumnDef="createdOn">
+                          <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Created On </mat-header-cell>
+                          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.createdOn | date:'M/d/yyyy hh:mm:ss
+                            a'}}
+                          </mat-cell>
+                        </ng-container>
+                        
+              
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+                      </mat-table>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        Structural QC({{QCFailedstrctDatasource.data.length}}) 
+                    </ng-template>
+                    <h2 class="mat-h2" style="color: rgb(217, 83, 80);"> Structural QC  <small>(latest 10 records)</small>
+                      <a [routerLink]="['/material-tracking/material-qc', {filter: 'QC failed by Maincon'}]" *ngIf="QCFailedstrctDatasource.data.length"
+                      style="padding-left: 13px;font-size: small;">View all</a></h2>
+                    <mat-table #table   [dataSource]="QCFailedstrctDatasource"  matSort >
+                      <ng-container matColumnDef="type">
+                        <mat-header-cell *matHeaderCellDef> Type(s) </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="markingNo">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Module  </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+                      </ng-container>
+                        <ng-container matColumnDef="checkListName">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Checklist  </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.checkListName}} </mat-cell>
+                        </ng-container>
+                       
+                        <ng-container matColumnDef="qcFailedBy">
+                          <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header>QC Failed By </mat-header-cell>
+                          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qcFailedBy}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="qcStartDate">
+                          <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header> Last Modified Date </mat-header-cell>
+                          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qcStartDate | date: 'dd/MM/yyyy'}}
+                           
+                          </mat-cell>
+                        </ng-container>
+                       <mat-header-row *matHeaderRowDef="QCFailedstrctDisplayedColumns"></mat-header-row>
+                       <mat-row *matRowDef="let row; columns: QCFailedstrctDisplayedColumns;" class="row_clicable" (click)="selectStructuralRow(row)" id="row_{{row.stageID}}"></mat-row>
+                       <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                      </mat-paginator>
+                     </mat-table>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label> 
+                        Architectural QC({{QCFailedJobsDatasource.data.length}})
+                    </ng-template>
+                    <h2 class="mat-h2" style="color: rgb(217, 83, 80);">Architectural QC  <small>(latest 10 records)</small>
+                      <a [routerLink]="['/job-tracking/job-qc', {filter: 'QC failed by Maincon'}]" *ngIf="QCFailedJobsDatasource.data.length"
+                      style="padding-left: 13px;font-size: small;">View all</a></h2>
+                    <mat-table #table   [dataSource]="QCFailedJobsDatasource" matSort >
+                      <ng-container matColumnDef="tradeName">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Job  </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.tradeName}} </mat-cell>
+                        </ng-container>
+                
+                        <ng-container matColumnDef="markingNo">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Module  </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="checkListName">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header > Checklist  </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.checkListName}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="subConName">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden">Assigned To </mat-header-cell>
+                          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.subConName}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="qcFailedBy">
+                          <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header>QC Failed By </mat-header-cell>
+                          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qcFailedBy}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="qcStartDate">
+                          <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header> Last Modified Date </mat-header-cell>
+                          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qcStartDate | date: 'dd/MM/yyyy'}}
+                           
+                          </mat-cell>
+                        </ng-container>
+                       <mat-header-row *matHeaderRowDef="QCFailedDisplayedColumns"></mat-header-row>
+                       <mat-row *matRowDef="let row; columns: QCFailedDisplayedColumns;" class="row_clicable" (click)="selectArchiRow(row)" id="row_{{row.stageID}}"></mat-row>
+                       <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                      </mat-paginator>
+                     </mat-table>
+                </mat-tab>
+                </mat-tab-group>
+            </mat-card-content>
+          </mat-card>
+              
+           
+          <mat-card fxFlex class="mat-card-class" *ngIf="cardClicked!='QCOpen'">
+            <mat-card-header>
+              <mat-card-title>
+               
+           <div *ngIf="istile1click" >
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">{{tile1stagename}}  Materials<small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking', 'materials', {stagenum: satgeorder}]"
+                class="material-count" style="padding-left: 13px;font-size: small;" *ngIf="tile1MaterialDatasource.data.length > 0">View all</a>
+                
+              </h2>
+          </div>
+          <div *ngIf="istile2click">
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">{{tile2stagename}} Materials <small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking', 'materials', {stagenum: satgeorder}]"
+                class="material-count" style="padding-left: 13px;font-size: small;" *ngIf="tile2MaterialDatasource.data.length > 0" >View all</a></h2>
+          </div>
+          <div *ngIf="istile3click">
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">{{tile3stagename}} Materials<small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking', 'materials', {stagenum: satgeorder}]" style="padding-left: 13px;font-size: small;" *ngIf="tile3MaterialDatasource.data.length > 0">View
+                all</a></h2>
+          </div> 
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+      
+        <mat-table #table *ngIf="istile1click" [dataSource]="tile1MaterialDatasource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.type}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mrfNo">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> MRF No. </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.mrfNo}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="qcstatus">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> QC Status </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qCStatus}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="tiledisplayedcolumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: tiledisplayedcolumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+          <mat-paginator #paginator [pageSize]="10" >
+          </mat-paginator>
+        </mat-table>
+
+        <mat-table #table *ngIf="istile2click"[dataSource]="tile2MaterialDatasource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.type}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mrfNo">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> MRF No. </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.mrfNo}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="qcstatus">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> QC Status </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qCStatus}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="tiledisplayedcolumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: tiledisplayedcolumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+          <mat-paginator #paginator [pageSize]="10">
+          </mat-paginator>
+        </mat-table>
+
+        <mat-table #table *ngIf="istile3click" [dataSource]="tile3MaterialDatasource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.type}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mrfNo">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> MRF No. </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.mrfNo}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="qcstatus">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> QC Status </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qCStatus}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="tiledisplayedcolumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: tiledisplayedcolumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+          <mat-paginator #paginator [pageSize]="10" >
+          </mat-paginator>
+        </mat-table>
+      
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

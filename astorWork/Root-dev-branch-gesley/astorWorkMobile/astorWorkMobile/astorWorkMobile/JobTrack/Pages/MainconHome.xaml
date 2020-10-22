@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             x:Class="astorWorkMobile.JobTrack.Pages.MainconHome"
+             BindingContext="{x:Static utilities:ViewModelLocator.mainconHomeVM}"
+             Title="Job Dashboard" Appearing="ContentPage_Appearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <!--<Grid>
+            <FlexLayout Direction="Column" Padding="20" IsVisible="{Binding ShowContent}"
+                    JustifyContent="SpaceAround" AlignItems="Stretch">
+                <Frame Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle"
+                       HeightRequest="70" Padding="5" BackgroundColor="#9e9e9e" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="0"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout JustifyContent="SpaceAround" AlignItems="Center">
+                        <Label FontSize="Large" FontAttributes="Bold" Text="{Binding CountUnassignedJobs}" TextColor="White"/>
+                        <Label FontSize="Medium" Text="Un-assigned Jobs" TextColor="White"/>
+                    </FlexLayout>
+                </Frame>
+                <Frame Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle"
+                       HeightRequest="70" Padding="5" BackgroundColor="#4caf50" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="4"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout JustifyContent="SpaceAround" AlignItems="Center">
+                        <Label FontSize="Large" FontAttributes="Bold" Text="{Binding CountOngoingJobs}" TextColor="White" />
+                        <Label FontSize="Medium" Text="Ongoing Jobs"  TextColor="White"/>
+                    </FlexLayout>
+                </Frame>
+                <Frame Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle"
+                       HeightRequest="70" Padding="5" BackgroundColor="#ff9800" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="3"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout JustifyContent="SpaceAround" AlignItems="Center">
+                        <Label FontSize="Large" FontAttributes="Bold" Text="{Binding CountDelayedJobs}" TextColor="White"/>
+                        <Label FontSize="Medium" Text="Delayed Jobs" TextColor="White" />
+                    </FlexLayout>
+                </Frame>
+                <Frame Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle"
+                       HeightRequest="70" Padding="5" BackgroundColor="#2196f3" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="5"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout JustifyContent="SpaceAround" AlignItems="Center">
+                        <Label FontSize="Large" FontAttributes="Bold"  Text="{Binding CountQCPendingJobs}" TextColor="White"/>
+                        <Label FontSize="Medium" Text="Completed Jobs" TextColor="White"/>
+                    </FlexLayout>
+                </Frame>
+                <Frame Style="{StaticResource frameButtonStyle}" StyleClass="ButtonStyle"
+                       HeightRequest="70" Padding="5" BackgroundColor="OrangeRed" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="6"/>
+                    </Frame.GestureRecognizers>
+                    <FlexLayout JustifyContent="SpaceAround" AlignItems="Center">
+                        <Label FontSize="Large" FontAttributes="Bold"  Text="{Binding CountQCJobs}" TextColor="White"/>
+                        <Label FontSize="Medium" Text="Jobs in QC" TextColor="White"/>
+                    </FlexLayout>
+                </Frame>
+            </FlexLayout>
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>-->
+
+        <Grid Padding="20,10,10,20">
+            <!--<ScrollView>-->
+                <StackLayout Spacing="10"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal"  Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" >
+                            <Frame Padding="0" StyleClass="Tile" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="Gainsboro">
+                                <StackLayout  >
+                                    <BoxView HeightRequest="10" BackgroundColor="#9e9e9e" CornerRadius="20,20,0,0"></BoxView>
+                                    <Label Text="{Binding CountUnassignedJobs}"  FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="150" TextColor="#9e9e9e" FontSize="60" />
+                                    <Label Text="Un-assigned Jobs"  TextColor="Black" HeightRequest="40" WidthRequest="150"  LineBreakMode="WordWrap" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="0"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" >
+                            <Frame Padding="0" StyleClass="Tile" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="Gainsboro">
+                                <StackLayout  >
+                                    <BoxView HeightRequest="10" BackgroundColor="#4caf50" CornerRadius="20,20,0,0"></BoxView>
+                                    <Label Text="{Binding CountOngoingJobs}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="150" TextColor="#4caf50" FontSize="60" />
+                                    <Label Text="Ongoing Jobs"  TextColor="Black" HeightRequest="40" WidthRequest="150"  LineBreakMode="WordWrap" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="4"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"  Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" >
+                            <Frame Padding="0" StyleClass="Tile" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="Gainsboro">
+                                <StackLayout  >
+                                    <BoxView HeightRequest="10" BackgroundColor="#CEA051" CornerRadius="20,20,0,0"></BoxView>
+                                    <Label Text="{Binding CountDelayedJobs}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="150" TextColor="#CEA051" FontSize="60" />
+                                    <Label Text="Delayed Jobs"  TextColor="Black" HeightRequest="40" WidthRequest="150"  LineBreakMode="WordWrap" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="3"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" >
+                            <Frame Padding="0" StyleClass="Tile" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="Gainsboro">
+                                <StackLayout  >
+                                    <BoxView HeightRequest="10" BackgroundColor="#00008B" CornerRadius="20,20,0,0"></BoxView>
+                                    <Label Text="{Binding CountQCPendingJobs}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="150" TextColor="#00008B" FontSize="60" />
+                                    <Label Text="QC Pending Jobs"  TextColor="Black" HeightRequest="40" WidthRequest="150"  LineBreakMode="WordWrap" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="5"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"  Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" >
+                            <Frame Padding="0" StyleClass="Tile" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="Gainsboro">
+                                <StackLayout  >
+                                    <BoxView HeightRequest="10" BackgroundColor="#FF7F50" CornerRadius="20,20,0,0"></BoxView>
+                                    <Label Text="{Binding CountQCJobs}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="150" TextColor="#FF7F50" FontSize="60" />
+                                    <Label Text="Jobs in QC"  TextColor="Black" HeightRequest="40" WidthRequest="150"  LineBreakMode="WordWrap" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="6"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" >
+                            <Frame Padding="0" StyleClass="Tile" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="Gainsboro">
+                                <StackLayout  >
+                                    <BoxView HeightRequest="10" BackgroundColor="#00BFFF" CornerRadius="20,20,0,0"></BoxView>
+                                    <Label Text="{Binding CountQCCompletedJobs}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="150" TextColor="#00BFFF" FontSize="60" />
+                                    <Label Text="QC Completed Jobs"  TextColor="Black" HeightRequest="40" WidthRequest="150"  LineBreakMode="WordWrap" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding FigureCommand}"
+                                          CommandParameter="12"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="End" HorizontalOptions="Center" Orientation="Horizontal">
+                        <ImageButton x:Name="btnQRScan"  Source="ic_qr_code_base.png" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Command="{Binding ScanQRFABCommand}"/>
+                        <!--<ImageButton x:Name="btnRFIDScan"  Source="ic_rfid_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanRFIDFABCommand}"/>-->
+                        <!--<ImageButton x:Name="btnScan"  Source="ic_scan_base.png" BackgroundColor="Transparent" HeightRequest="60" WidthRequest="60" Clicked="BtnScan_Clicked" />-->
+                    </StackLayout>
+                </StackLayout>
+            <!--</ScrollView>-->
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

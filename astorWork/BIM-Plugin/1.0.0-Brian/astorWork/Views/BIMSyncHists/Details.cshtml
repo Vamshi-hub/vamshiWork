@@ -1,0 +1,82 @@
+﻿@model astorWork.Models.BIMSyncHist
+
+@{
+    ViewBag.Title = "Details";
+    var syncDT = Model.LastSyncDate.Value.ToLocalTime();
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BIMSyncHist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastSyncDate)
+        </dt>
+
+        <dd>
+            @syncDT
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SyncedMaterialIds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SyncedMaterialIds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MissingMaterialIds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MissingMaterialIds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BIMProjectID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIMProjectID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisualizeURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisualizeURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BIMUserInfo.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIMUserInfo.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-default" })
+</p>

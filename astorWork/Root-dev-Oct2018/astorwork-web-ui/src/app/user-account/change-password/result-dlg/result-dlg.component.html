@@ -1,0 +1,18 @@
+<h3 mat-h3 mat-dialog-title>
+  <span *ngIf="data.success; else elseTitle">Done</span>
+  <ng-template #elseTitle>Failed</ng-template>
+</h3>
+<mat-divider></mat-divider>
+<div mat-dialog-content style="padding: 10px;">
+  <div fxLayout="column" fxLayoutAlign="space-between center">
+    <div *ngIf="data.success; else elseBlock">
+      <p>
+        {{data.message}}
+      </p>
+    </div>
+    <ng-template #elseBlock>
+      <p>{{data.message}}</p>
+    </ng-template>
+    <a mat-raised-button routerLink="{{data.url}}">Ok</a>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">{{title}}</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<form (ngSubmit)="onSubmit()" [formGroup]="theForm" [hidden]="isLoading">
+  <mat-card class="form-card">
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
+      <mat-form-field>
+        <input matInput class="form-control" formControlName="name" placeholder="Site Name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput class="form-control" formControlName="description" placeholder="Site Description"></textarea>
+      </mat-form-field>
+      <mat-slide-toggle [checked]="showOrganisationSelection" [(ngModel)]="showOrganisationSelection"  [ngModelOptions]="{standalone: true}" ngDefaultControl 
+      (change)="toggle()" [disabled]="disabled">
+          Is Vendor Site ?
+      </mat-slide-toggle>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field *ngIf="showOrganisationSelection" style="width: 70%">
+        <mat-select matInput placeholder="Country" formControlName="country" (selectionChange)="onCountryChanged($event)" [disabled]="disabled" required>
+          <mat-option *ngFor="let country of countries" [value]='country.countryCode'>{{country.countryName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="showOrganisationSelection" style="width: 20%">
+        <mat-select matInput placeholder="Time Zone" formControlName="timeZone" [disabled]="disabled" required>
+          <mat-option *ngFor="let country of TimeZones" [value]='country.offsetInMinutes'>{{country.offset}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+      <mat-form-field *ngIf="showOrganisationSelection" >
+        <mat-select matInput placeholder="Vendor" formControlName="organisationID" [disabled]="disabled" required>
+          <mat-option *ngFor="let organisation of allOrganisations" [value]='organisation.id'>{{organisation.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="center end" fxLayoutGap="20px">
+          <button mat-raised-button color="primary" type="submit" [disabled]="theForm.status=='INVALID' || accessRight < 2">{{submit}}</button>
+          <button mat-raised-button color="primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+    </mat-card-content>
+  </mat-card>
+</form>

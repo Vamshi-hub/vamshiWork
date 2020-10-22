@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Hackfest.Controls.TestCustomVision"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hackfest.Controls"
+             xmlns:camera="clr-namespace:Camera_NET.Public;assembly=Camera_NET"
+             mc:Ignorable="d" Unloaded="UserControl_Unloaded" Loaded="UserControl_Loaded"
+             d:DesignHeight="800" d:DesignWidth="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <camera:CameraControlWpf Grid.Row="0" Grid.Column="0" Name="controlCamera" />
+        <ScrollViewer Grid.Row="0" Grid.Column="1" Margin="5,0,0,0">
+            <TextBlock Name="txtOutput" Text=""/>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2">
+            <Button Content="Predict" Name="btnPredict" Margin="5" Click="btnPredict_Click"/>
+            <Button Content="Cancel" Name="btnCancel" Margin="5" 
+                    Style="{StaticResource MaterialDesignFlatButton}" Click="btnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

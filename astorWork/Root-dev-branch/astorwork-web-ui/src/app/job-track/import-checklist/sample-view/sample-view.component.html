@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+  <h3 *ngIf="!data.isstages && data.ischecklisttemplate">Sample View of Architectural Checklist template</h3>
+  <h3 *ngIf="data.istradeMastertemplate">Sample View of TradeMaster template</h3>
+  <h3 *ngIf="data.isstages && data.tradeid==0">Sample View of Structural Checklist  template</h3>
+  <h3 *ngIf="data.ismaterialtype">Sample View of MaterialType template</h3>
+  <button mat-icon-button color="warn" (click)="close();">
+    <mat-icon>highlight_off</mat-icon>
+  </button>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center start" class="mat-typography" *ngIf="!data.isstages && data.ischecklisttemplate">
+      <img src="assets/Icons/Sample_Archi_Checklist.png" width="100%" height="100%">
+</div>
+<div fxLayout="row" fxLayoutAlign="center start" class="mat-typography" *ngIf="data.istradeMastertemplate">
+  <img src="assets/Icons/Import-JobMaster-Template.png" width="100%" height="100%">
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center start" class="mat-typography" *ngIf="data.isstages && data.tradeid==0">
+  <img src="assets/Icons/Sample_Structural_checklist_Template.png" width="100%" height="100%">
+</div>
+<div fxLayout="row" fxLayoutAlign="center start" class="mat-typography" *ngIf="data.ismaterialtype">
+<img src="assets/Icons/Sample_Import_Master_Template.png" width="100%" height="100%">
+</div>

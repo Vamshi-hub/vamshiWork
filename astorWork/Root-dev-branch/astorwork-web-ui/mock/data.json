@@ -1,0 +1,4715 @@
+{
+  "locations": [
+    {
+      "name": "Organisation 2 factory",
+      "description": "",
+      "type": 0,
+      "organisationID": 2,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Organisation 1 delivery",
+      "type": 0,
+      "organisationName": "Organisation One",
+      "organisationID": 1
+    },
+    {
+      "id": 3,
+      "name": "Organisation 2 factory",
+      "type": 0,
+      "organisationName": "Organisation Two",
+      "organisationID": 2
+    },
+    {
+      "id": 4,
+      "name": "Organisation 2 delivery",
+      "type": 0,
+      "organisationName": "Organisation Two",
+      "organisationID": 2
+    },
+    {
+      "id": 5,
+      "name": "Storage Area 1",
+      "type": 1
+    },
+    {
+      "id": 6,
+      "name": "Storage Area 2",
+      "type": 1
+    },
+    {
+      "id": 7,
+      "name": "Installation Area",
+      "type": 2
+    },
+    {
+      "name": "dsf",
+      "description": "",
+      "type": 0,
+      "organisationID": 1,
+      "id": 8
+    },
+    {
+      "name": "asd",
+      "description": "",
+      "type": 0,
+      "organisationID": 1,
+      "id": 9
+    },
+    {
+      "name": "asd",
+      "description": "",
+      "type": 0,
+      "organisationID": 1,
+      "id": 10
+    },
+    {
+      "name": "fdg",
+      "description": "",
+      "type": 0,
+      "organisationID": 1,
+      "id": 11
+    },
+    {
+      "name": "asd",
+      "description": "asd",
+      "type": 1,
+      "organisationID": null,
+      "id": 12
+    }
+  ],
+  "user":[
+    {
+      "id": 7,
+      "projectID": 1
+    }
+  ],
+  "organisations": [
+    {
+      "id": 1,
+      "name": "Organisation 1",
+      "cycleDays": 7,
+      "contactPeople": [
+        {
+          "id": 1,
+          "name": "User 1"
+        },
+        {
+          "id": 2,
+          "name": "User 2"
+        }
+      ],
+      "locations": [
+        {
+          "id": 1,
+          "name": "Location 1"
+        },
+        {
+          "id": 2,
+          "name": "Location 2"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Organisation 2",
+      "cycleDays": 10,
+      "contactPeople": [
+        {
+          "id": 3,
+          "name": "User 3"
+        },
+        {
+          "id": 4,
+          "name": "User 4"
+        }
+      ],
+      "locations": [
+        {
+          "id": 3,
+          "name": "Location 3"
+        },
+        {
+          "id": 4,
+          "name": "Location 4"
+        }
+      ]
+    }
+  ],
+  "materialTypes": [
+    "Slab",
+    "Rebar",
+    "Beam",
+    "Plank",
+    "Façade",
+    "Wall Panel"
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Demo Project",
+      "country": "SG",
+      "timeZoneOffset":"08:00",
+      "startDate": "2018-01-12T00:00:00",
+    "endDate": "2020-03-25T00:00:00",
+      "materialTypes": [
+        "Slab",
+        "Rebar",
+        "Beam",
+        "Plank",
+        "Façade",
+        "Wall Panel"
+      ],
+      "blocks": [
+        "BLK 1",
+        "BLK 2"
+      ],
+      "mrfs": [
+        "MRF-2018-00002",
+        "MRF-2018-00001",
+        "MRF-2018-00004",
+        "MRF-2018-00003"
+      ]
+    }
+  ],
+  "reporting": {
+    "projectId": 1,
+    "totalMaterials": 1000,
+    "location": [
+      {
+        "name": "640A - Level 1",
+        "countProduced": 10
+      }
+    ],
+    "daily": [
+      {
+        "day": "2018-01-01",
+        "countProduced": 5,
+        "countDelivered": 3,
+        "countInstalled": 2
+      },
+      {
+        "day": "2018-01-02",
+        "countProduced": 4,
+        "countDelivered": 8,
+        "countInstalled": 2
+      },
+      {
+        "day": "2018-01-03",
+        "countProduced": 3,
+        "countDelivered": 3,
+        "countInstalled": 1
+      },
+      {
+        "day": "2018-01-04",
+        "countProduced": 4,
+        "countDelivered": 8,
+        "countInstalled": 3
+      },
+      {
+        "day": "2018-01-05",
+        "countProduced": 20,
+        "countDelivered": 8,
+        "countInstalled": 30
+      },
+      {
+        "day": "2018-01-06",
+        "countProduced": 40,
+        "countDelivered": 8,
+        "countInstalled": 10
+      }
+    ]
+  },
+  "mrfLocations": [
+    {
+      "projectId": 1,
+      "block": "BLK 1",
+      "level": "1",
+      "zones": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 1",
+      "level": "2",
+      "zones": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 1",
+      "level": "3",
+      "zones": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 2",
+      "level": "1",
+      "zones": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 2",
+      "level": "2",
+      "zones": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 2",
+      "level": "3",
+      "zones": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 2",
+      "level": "4",
+      "zones": [
+        "A"
+      ]
+    }
+  ],
+  "mrfComponents": [
+    {
+      "projectId": 1,
+      "block": "BLK 1",
+      "level": "1",
+      "zone": "A",
+      "organisationID": 1,
+      "materialTypes": [
+        "Rebar",
+        "Slab"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 1",
+      "level": "1",
+      "zone": "B",
+      "organisationID": 1,
+      "materialTypes": [
+        "Plank",
+        "Beam"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 1",
+      "level": "1",
+      "zone": "C",
+      "organisationID": 1,
+      "materialTypes": [
+        "Plank",
+        "Beam"
+      ]
+    },
+    {
+      "projectId": 1,
+      "block": "BLK 1",
+      "level": "1",
+      "zone": "C",
+      "organisationID": 2,
+      "materialTypes": [
+        "Façade",
+        "Wall Panel"
+      ]
+    }
+  ],
+  "mrfs": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "mrfNo": "MRF-2018-0001",
+      "block": "BLK 1",
+      "level": "10",
+      "zone": "A",
+      "materialTypes": [
+        "Beam",
+        "Façade"
+      ],
+      "orderDate": "2018-03-25T00:00:00",
+      "plannedCastingDate": "2018-04-13T00:00:00",
+      "organisationName": "Organisation One",
+      "progress": 0.01
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "mrfNo": "MRF-2018-0002",
+      "block": "BLK 1",
+      "level": "10",
+      "zone": "B",
+      "materialTypes": [
+        "Slab",
+        "Façade"
+      ],
+      "orderDate": "2018-03-25T00:00:00",
+      "plannedCastingDate": "2018-04-13T00:00:00",
+      "organisationName": "Organisation One",
+      "progress": 0.04
+    },
+    {
+      "id": 3,
+      "projectId": 1,
+      "mrfNo": "MRF-2018-0003",
+      "block": "BLK 2",
+      "level": "2",
+      "zone": "A",
+      "materialTypes": [
+        "Slab",
+        "Rebar"
+      ],
+      "orderDate": "2018-03-25T00:00:00",
+      "plannedCastingDate": "2018-04-14T00:00:00",
+      "organisationName": "Organisation Two",
+      "progress": 0.5
+    },
+    {
+      "id": 4,
+      "projectId": 1,
+      "mrfNo": "MRF-2018-0004",
+      "block": "BLK 2",
+      "level": "2",
+      "zone": "B",
+      "materialTypes": [
+        "Façade",
+        "Plank"
+      ],
+      "orderDate": "2018-03-25T00:00:00",
+      "plannedCastingDate": "2018-04-16T00:00:00",
+      "organisationName": "Organisation Two",
+      "progress": 0.2
+    }
+  ],
+  "materials": [
+    {
+      "id": 6175,
+      "markingNo": "A1R4B",
+      "block": "BLK 1",
+      "level": "1",
+      "zone": "A",
+      "materialType": "Rebar",
+      "mrfNo": "MRF-2018-00001",
+      "stageName": "Installed",
+      "stageColour": "#3399ff"
+    },
+    {
+      "id": 37504,
+      "markingNo": "K1S32",
+      "block": "BLK 1",
+      "level": "11",
+      "zone": "C",
+      "materialType": "Slab",
+      "stageName": "Produced-QC",
+      "stageColour": "#FFFF007F"
+    },
+    {
+      "id": 37505,
+      "markingNo": "K1R32",
+      "block": "BLK 1",
+      "level": "12",
+      "zone": "D",
+      "materialType": "Rebar",
+      "stageName": "Produced",
+      "stageColour": "#FFFF003F"
+    },
+    {
+      "id": 37506,
+      "markingNo": "K1F32",
+      "block": "BLK 1",
+      "level": "13",
+      "zone": "A",
+      "materialType": "Façade",
+      "stageName": "Delivered",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37507,
+      "markingNo": "K1B32",
+      "block": "BLK 1",
+      "level": "14",
+      "zone": "B",
+      "materialType": "Beam",
+      "stageName": "Delivered",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37508,
+      "markingNo": "K1B32",
+      "block": "BLK 1",
+      "level": "15",
+      "zone": "C",
+      "materialType": "Beam",
+      "stageName": "Installed",
+      "stageColour": "#0000FF7F"
+    },
+    {
+      "id": 37509,
+      "markingNo": "K1R32",
+      "block": "BLK 1",
+      "level": "16",
+      "zone": "D",
+      "materialType": "Rebar",
+      "stageName": "Pending",
+      "stageColour": "#0000003F"
+    },
+    {
+      "id": 37510,
+      "markingNo": "K1W32",
+      "block": "BLK 1",
+      "level": "17",
+      "zone": "A",
+      "materialType": "Wall Panel",
+      "stageName": "Produced-QC",
+      "stageColour": "#FFFF007F"
+    },
+    {
+      "id": 37511,
+      "markingNo": "K1B32",
+      "block": "BLK 1",
+      "level": "18",
+      "zone": "B",
+      "materialType": "Beam",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37512,
+      "markingNo": "K1F32",
+      "block": "BLK 1",
+      "level": "19",
+      "zone": "C",
+      "materialType": "Façade",
+      "stageName": "Delivered",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37513,
+      "markingNo": "K1P32",
+      "block": "BLK 1",
+      "level": "20",
+      "zone": "D",
+      "materialType": "Plank",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37514,
+      "markingNo": "K1P32",
+      "block": "BLK 1",
+      "level": "1",
+      "zone": "A",
+      "materialType": "Plank",
+      "stageName": "Produced",
+      "stageColour": "#FFFF003F"
+    },
+    {
+      "id": 37515,
+      "markingNo": "K1P32",
+      "block": "BLK 1",
+      "level": "2",
+      "zone": "B",
+      "materialType": "Plank",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37516,
+      "markingNo": "K1P32",
+      "block": "BLK 1",
+      "level": "3",
+      "zone": "C",
+      "materialType": "Plank",
+      "stageName": "Installed",
+      "stageColour": "#0000FF7F"
+    },
+    {
+      "id": 37517,
+      "markingNo": "K1R32",
+      "block": "BLK 1",
+      "level": "4",
+      "zone": "D",
+      "materialType": "Rebar",
+      "stageName": "Produced-QC",
+      "stageColour": "#FFFF007F"
+    },
+    {
+      "id": 37518,
+      "markingNo": "K1B32",
+      "block": "BLK 1",
+      "level": "5",
+      "zone": "A",
+      "materialType": "Beam",
+      "stageName": "Delivered",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37519,
+      "markingNo": "K1F32",
+      "block": "BLK 1",
+      "level": "6",
+      "zone": "B",
+      "materialType": "Façade",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37520,
+      "markingNo": "K1B32",
+      "block": "BLK 1",
+      "level": "7",
+      "zone": "C",
+      "materialType": "Beam",
+      "stageName": "Delivered",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37521,
+      "markingNo": "K1R32",
+      "block": "BLK 1",
+      "level": "8",
+      "zone": "D",
+      "materialType": "Rebar",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 37522,
+      "markingNo": "K1W32",
+      "block": "BLK 1",
+      "level": "9",
+      "zone": "A",
+      "materialType": "Wall Panel",
+      "stageName": "Produced",
+      "stageColour": "#FFFF003F"
+    },
+    {
+      "id": 37523,
+      "markingNo": "K1F32",
+      "block": "BLK 1",
+      "level": "10",
+      "zone": "B",
+      "materialType": "Façade",
+      "stageName": "Pending",
+      "stageColour": "#0000003F"
+    },
+    {
+      "id": 30004,
+      "markingNo": "K2B50",
+      "block": "BLK 2",
+      "level": "11",
+      "zone": "C",
+      "materialType": "Beam",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 30005,
+      "markingNo": "K2S50",
+      "block": "BLK 2",
+      "level": "12",
+      "zone": "D",
+      "materialType": "Slab",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 30006,
+      "markingNo": "K2W50",
+      "block": "BLK 2",
+      "level": "13",
+      "zone": "A",
+      "materialType": "Wall Panel",
+      "stageName": "Produced-QC",
+      "stageColour": "#FFFF007F"
+    },
+    {
+      "id": 30007,
+      "markingNo": "K2B50",
+      "block": "BLK 2",
+      "level": "14",
+      "zone": "B",
+      "materialType": "Beam",
+      "stageName": "Installed",
+      "stageColour": "#0000FF7F"
+    },
+    {
+      "id": 30008,
+      "markingNo": "K2F50",
+      "block": "BLK 2",
+      "level": "15",
+      "zone": "C",
+      "materialType": "Façade",
+      "stageName": "Produced",
+      "stageColour": "#FFFF003F"
+    },
+    {
+      "id": 30009,
+      "markingNo": "K2F50",
+      "block": "BLK 2",
+      "level": "16",
+      "zone": "D",
+      "materialType": "Façade",
+      "stageName": "Produced",
+      "stageColour": "#FFFF003F"
+    },
+    {
+      "id": 30010,
+      "markingNo": "K2R50",
+      "block": "BLK 2",
+      "level": "17",
+      "zone": "A",
+      "materialType": "Rebar",
+      "stageName": "Produced-QC",
+      "stageColour": "#FFFF007F"
+    },
+    {
+      "id": 30011,
+      "markingNo": "K2F50",
+      "block": "BLK 2",
+      "level": "18",
+      "zone": "B",
+      "materialType": "Façade",
+      "stageName": "Produced-QC",
+      "stageColour": "#FFFF007F"
+    },
+    {
+      "id": 30012,
+      "markingNo": "K2P50",
+      "block": "BLK 2",
+      "level": "19",
+      "zone": "C",
+      "materialType": "Plank",
+      "stageName": "Installed",
+      "stageColour": "#0000FF7F"
+    },
+    {
+      "id": 30013,
+      "markingNo": "K2F50",
+      "block": "BLK 2",
+      "level": "20",
+      "zone": "D",
+      "materialType": "Façade",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    },
+    {
+      "id": 30014,
+      "markingNo": "K2R51",
+      "block": "BLK 2",
+      "level": "1",
+      "zone": "A",
+      "materialType": "Rebar",
+      "stageName": "Delivered-QC",
+      "stageColour": "#00FF007F"
+    }
+  ],
+  "materialDetails": [
+    {
+      "id": 37509,
+      "markingNo": "K1R32",
+      "block": "BLK 1",
+      "level": "16",
+      "zone": "D",
+      "materialType": "Rebar",
+      "organisationName": "OrganisationTwo",
+      "remarks": "New design for Facade",
+      "expectedDeliveryDate": "2018-04-01T00:00:00",
+      "castingDate": "2018-04-01T00:00:00",
+      "trackerType": "RFID",
+      "trackerTag": "a044e9f0-57c2-4da2-af57-fb6ec890b392",
+      "trackingHistory": [
+        {
+          "id": 1,
+          "stageName": "Produced",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 2,
+          "stageName": "Produced-QC",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 3,
+          "stageName": "Delivered",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 4,
+          "stageName": "Delivered-QC",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 5,
+          "stageName": "Installed",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 6,
+          "stageName": "Installed-QC",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": 37504,
+      "markingNo": "K1S32",
+      "block": "BLK 1",
+      "level": "11",
+      "zone": "C",
+      "materialType": "Slab",
+      "organisationName": "OrganisationTwo",
+      "remarks": "New design for Facade",
+      "orderDate": "2018-03-25T00:00:00",
+      "expectedDeliveryDate": "2018-04-01T00:00:00",
+      "castingDate": "2018-04-01T00:00:00",
+      "trackerType": "Beacon",
+      "trackerTag": "805ec059-7e21-4b9c-b49d-4b5090a497f0",
+      "trackingHistory": [
+        {
+          "id": 1,
+          "stageName": "Produced-QC",
+          "stageStatus": 1,
+          "createdBy": "OrganisationTwo - QC",
+          "createdDate": "2018-04-01T00:00:00",
+          "location": "VenorTwo's Factory"
+        },
+        {
+          "id": 2,
+          "stageName": "Pending",
+          "stageStatus": 1,
+          "createdBy": "Admin",
+          "createdDate": "2018-03-30T00:00:00",
+          "location": null
+        },
+        {
+          "id": 3,
+          "stageName": "Delivered",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 4,
+          "stageName": "Delivered-QC",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 5,
+          "stageName": "Installed",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        },
+        {
+          "id": 6,
+          "stageName": "Installed-QC",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null
+        }
+      ],
+      "drawing": {
+        "drawingNo": "PFT-K1F-LP-03",
+        "revisionNo": 3,
+        "drawingIssueDate": "2018-05-02T00:00:00"
+      }
+    },
+    {
+      "id": 30004,
+      "markingNo": "K2B50",
+      "block": "BLK 2",
+      "level": "11",
+      "zone": "C",
+      "materialType": "Beam",
+      "organisationName": "OrganisationOne",
+      "remarks": "上善若水。水善利万物而不争，处众人之所恶，故几於道。居善地，心善渊，与善仁，言善信，正善治，事善能，动善时。夫唯不争，故无尤。",
+      "orderDate": "2018-03-25T00:00:00",
+      "expectedDeliveryDate": "2018-04-01T00:00:00",
+      "castingDate": "2018-04-01T00:00:00",
+      "trackerType": "RFID",
+      "trackerTag": "59b527fb-07dd-4cb5-a340-c588b8f2d679",
+      "trackingHistory": [
+        {
+          "id": 1,
+          "stageName": "Produced",
+          "stageStatus": 1,
+          "createdBy": "OrganisationOne - Officer",
+          "createdDate": "2018-03-24T00:00:00",
+          "location": "VenorOne's Factory",
+          "isQCStage": false
+        },
+        {
+          "id": 2,
+          "stageName": "Produced-QC",
+          "stageStatus": 1,
+          "createdBy": "OrganisationOne - QC",
+          "createdDate": "2018-03-25T00:00:00",
+          "location": "VenorOne's Factory",
+          "remarks": "damaged",
+          "isQCStage": true
+        },
+        {
+          "id": 3,
+          "stageName": "Delivered",
+          "stageStatus": 1,
+          "createdBy": "Site - Supervisor",
+          "createdDate": "2018-03-26T00:00:00",
+          "location": "Storage Area 1",
+          "isQCStage": false
+        },
+        {
+          "id": 4,
+          "stageName": "Delivered-QC",
+          "stageStatus": 2,
+          "createdBy": "Site - QC",
+          "createdDate": "2018-03-27T00:00:00",
+          "location": "Storage Area 1",
+          "remarks": "damaged",
+          "isQCStage": true
+        },
+        {
+          "id": 5,
+          "stageName": "Delivered-QC",
+          "stageStatus": 1,
+          "createdBy": "Site - QC",
+          "createdDate": "2018-03-27T00:00:00",
+          "location": "Storage Area 1",
+          "remarks": "fixed",
+          "isQCStage": true
+        },
+        {
+          "id": 6,
+          "stageName": "Before Installed-QC",
+          "stageStatus": 2,
+          "createdBy": "Site - QC",
+          "createdDate": "0001-01-01T00:00:00",
+          "location": "installation Area 1",
+          "remarks": "damaged",
+          "isQCStage": true
+        },
+        {
+          "id": 7,
+          "stageName": "Before Installed-QC",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null,
+          "isQCStage": true
+        },
+        {
+          "id": 8,
+          "stageName": "Installed",
+          "stageStatus": 0,
+          "createdBy": null,
+          "createdDate": "0001-01-01T00:00:00",
+          "location": null,
+          "isQCStage": false
+        }
+      ],
+      "drawing": {
+        "drawingNo": "PFT-K1F-LP-03",
+        "revisionNo": 3,
+        "drawingIssueDate": "2018-05-02T00:00:00"
+      }
+    },
+    {
+      "id": 6175,
+      "markingNo": "A1R4B",
+      "block": "BLK 1",
+      "level": "1",
+      "zone": "A",
+      "materialType": "Rebar",
+      "organisationName": "OrganisationOne",
+      "trackerType": null,
+      "trackerTag": null,
+      "trackerLabel": null,
+      "remarks": null,
+      "expectedDeliveryDate": "2018-07-27T16:00:00+00:00",
+      "castingDate": "2018-07-03T00:00:00+08:00",
+      "orderDate": "2018-07-19T04:11:15.68+00:00",
+      "trackingHistory": [
+        {
+          "id": 1,
+          "stageName": "Before Deliver QC",
+          "stageStatus": 1,
+          "createdBy": "brian",
+          "createdDate": "2018-07-19T05:33:50.3946708+00:00",
+          "location": "Organisation 1 Factory",
+          "remarks": null,
+          "isQCStage": false,
+          "openQCCaseId": 0,
+          "countQCCase": 0,
+          "countOpenDefect": 0,
+          "countClosedDefect": 0
+        },
+        {
+          "id": 2,
+          "stageName": "Start Delivery",
+          "stageStatus": 1,
+          "createdBy": "brian",
+          "createdDate": "2018-07-19T05:33:50.4916406+00:00",
+          "location": "Organisation 1 Factory",
+          "remarks": null,
+          "isQCStage": false
+        },
+        {
+          "id": 3,
+          "stageName": "Delivered",
+          "stageStatus": 1,
+          "createdBy": "brian",
+          "createdDate": "2018-07-19T05:35:05.7974825+00:00",
+          "location": "Punggol Storage A",
+          "remarks": null,
+          "isQCStage": false
+        },
+        {
+          "id": 4,
+          "stageName": "After Delivered QC",
+          "stageStatus": 2,
+          "createdBy": "brian",
+          "createdDate": "2018-07-19T05:42:53.5474156+00:00",
+          "location": "Punggol Storage B",
+          "remarks": "A hole on a wall",
+          "isQCStage": true,
+          "openQCCaseId": 2,
+          "countQCCase": 2,
+          "countOpenDefect": 3,
+          "countClosedDefect": 5
+        },
+        {
+          "id": 6,
+          "stageName": "Before Install QC",
+          "stageStatus": 1,
+          "createdBy": "brian",
+          "createdDate": "2018-07-19T06:11:36.1098187+00:00",
+          "location": "Punggol Storage A",
+          "remarks": null,
+          "isQCStage": false,
+          "openQCCaseId": 0,
+          "countQCCase": 0,
+          "countOpenDefect": 0,
+          "countClosedDefect": 0
+        },
+        {
+          "id": 7,
+          "stageName": "Installed",
+          "stageStatus": 1,
+          "createdBy": "brian",
+          "createdDate": "2018-07-19T06:11:51.8425153+00:00",
+          "location": "Blk 430 Construction",
+          "remarks": null,
+          "isQCStage": false
+        }
+      ],
+      "stageName": null,
+      "stageColour": null,
+      "drawing": {
+        "id": 3,
+        "drawingNo": "PFT-K1F-LP-01",
+        "revisionNo": 3,
+        "drawingIssueDate": "2018-07-19T01:57:26.1416134+00:00"
+      },
+      "qcStatus": false,
+      "qcRemarks": null,
+      "mrfNo": null,
+      "sn": 0
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "organisationID": 1,
+      "markingNo": "K1F1",
+      "sn": 1,
+      "castingDate": "2018-04-08",
+      "trackerLabel": "R1001"
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "organisationID": 1,
+      "markingNo": "K1F2",
+      "sn": 2,
+      "castingDate": "2018-04-08",
+      "trackerLabel": "R1002"
+    },
+    {
+      "id": 3,
+      "projectId": 1,
+      "organisationID": 2,
+      "markingNo": "K1F1",
+      "sn": 1,
+      "castingDate": "2018-04-08",
+      "trackerLabel": "R1003"
+    },
+    {
+      "id": 4,
+      "projectId": 1,
+      "organisationID": 2,
+      "markingNo": "K2F1",
+      "sn": 2,
+      "castingDate": "2018-04-10",
+      "trackerLabel": "R1004"
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 5
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 6
+    },
+    {
+      "markingNo": "K1S2",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 7
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 8
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 9
+    },
+    {
+      "markingNo": "K1S2",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 10
+    },
+    {
+      "markingNo": "K1S2",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 11
+    },
+    {
+      "markingNo": "K1S2",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 12
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 13
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 14
+    },
+    {
+      "markingNo": "K1S2",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 15
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-19T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 16
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 17
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 18
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 19
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 20
+    },
+    {
+      "markingNo": "K1S2",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 21
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 22
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 23
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 24
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 25
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 26
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 27
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 28
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 29
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 30
+    },
+    {
+      "test": 1,
+      "projectId": "1",
+      "id": 31
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 2,
+      "projectId": "1",
+      "id": 32
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 33
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 2,
+      "projectId": "1",
+      "id": 34
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 2,
+      "projectId": "1",
+      "id": 35
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 2,
+      "projectId": "1",
+      "id": 36
+    },
+    {
+      "markingNo": "K1B1",
+      "sn": 73,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 37
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 38
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 39
+    },
+    {
+      "markingNo": "K1S2",
+      "sn": 166,
+      "castingDate": "2018-04-21T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 40
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-23T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 41
+    },
+    {
+      "markingNo": "K1S1",
+      "sn": 166,
+      "castingDate": "2018-04-23T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 42
+    },
+    {
+      "markingNo": "K1B2",
+      "sn": 73,
+      "castingDate": "2018-04-23T00:00:00+08:00",
+      "trackerId": 1,
+      "projectId": "1",
+      "id": 43
+    }
+  ],
+  "trackers": [
+    {
+      "id": 1,
+      "tag": "065A",
+      "trackerLabel": "R1001",
+      "material": {
+        "id": 1,
+        "markingNo": "K1R14",
+        "block": "BLK 1",
+        "level": "12",
+        "zone": "D",
+        "materialType": "Rebar",
+        "stageName": "Delivered",
+        "stageColour": "#FFFF0000",
+        "qcStatus": true,
+        "qcRemarks": null
+      },
+      "inventory": null
+    },
+    {
+      "id": 2,
+      "tag": "065D",
+      "trackerLabel": "R1002",
+      "material": null,
+      "inventory": {
+        "id": 2,
+        "markingNo": "K1F1",
+        "lotNo": 1,
+        "castingDate": "2018-04-08",
+        "trackerLabel": "R1002"
+      }
+    },
+    {
+      "id": 3,
+      "tag": "2812",
+      "trackerLabel": "R1003",
+      "material": {
+        "id": 2,
+        "markingNo": "K1R32",
+        "block": "BLK 1",
+        "level": "12",
+        "zone": "D",
+        "materialType": "Rebar",
+        "stageName": "Produced",
+        "stageColour": "#FFFFFF00",
+        "qcStatus": false,
+        "qcRemarks": "There is a crack"
+      },
+      "inventory": null
+    }
+  ],
+  "materialNextStage": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "materialId": 1,
+      "nextStageName": "Delivered",
+      "nextStageColour": "#FFEEEE00",
+      "nextStageQC": false
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "materialId": 2,
+      "nextStageName": "After Delivery QC",
+      "nextStageColour": "#FFFFFF00",
+      "nextStageQC": true
+    }
+  ],
+  "inventory_pre_create": [
+    {
+      "projectId": 1,
+      "organisationID": 2,
+      "materialType": "Slab",
+      "maxSN": 165,
+      "markingNos": [
+        "K1S1",
+        "K1S2"
+      ]
+    },
+    {
+      "projectId": 1,
+      "organisationID": 2,
+      "materialType": "Façade",
+      "maxSN": 1050,
+      "markingNos": [
+        "K1F1",
+        "K1F2",
+        "K1F3",
+        "K1F4"
+      ]
+    },
+    {
+      "projectId": 1,
+      "organisationID": 2,
+      "materialType": "Beam",
+      "maxSN": 72,
+      "markingNos": [
+        "K1B1",
+        "K1B2",
+        "K1B3"
+      ]
+    }
+  ],
+  "materialStageAuditStats": {
+    "projectId": 1,
+    "installedMaterialsCount": 50,
+    "totalMaterialsCount": 100,
+    "installedMaterialsProgress": 50,
+    "deliveredMaterialsCount": 60,
+    "requestedMaterialsCount": 100,
+    "deliveredMaterialsProgress": 60,
+    "completedMRFCount": 2,
+    "totalMRFCount": 10,
+    "completedMRFProgress": 20,
+    "qCFailedCount": 35
+  },
+  "materialsProgress": {
+    "projectId": 1,
+    "block": "BLK 1",
+    "overallProgress": [
+      {
+        "date": "2018-05-01T00:00:00+00:00",
+        "progress": 0.08760402978537013
+      },
+      {
+        "date": "2018-05-03T00:00:00+00:00",
+        "progress": 0.0657030223390276
+      },
+      {
+        "date": "2018-05-04T00:00:00+00:00",
+        "progress": 0.0657030223390276
+      },
+      {
+        "date": "2018-05-05T00:00:00+00:00",
+        "progress": 0.1314060446780552
+      },
+      {
+        "date": "2018-05-06T00:00:00+00:00",
+        "progress": 0.1314060446780552
+      },
+      {
+        "date": "2018-05-07T00:00:00+00:00",
+        "progress": 0.10950503723171265
+      },
+      {
+        "date": "2018-05-08T00:00:00+00:00",
+        "progress": 0.08760402978537013
+      },
+      {
+        "date": "2018-05-09T00:00:00+00:00",
+        "progress": 0.15330705212439774
+      },
+      {
+        "date": "2018-05-10T00:00:00+00:00",
+        "progress": 0.08760402978537013
+      },
+      {
+        "date": "2018-05-11T00:00:00+00:00",
+        "progress": 0.0657030223390276
+      },
+      {
+        "date": "2018-05-12T00:00:00+00:00",
+        "progress": 0.1314060446780552
+      },
+      {
+        "date": "2018-05-13T00:00:00+00:00",
+        "progress": 0.043802014892685065
+      },
+      {
+        "date": "2018-05-14T00:00:00+00:00",
+        "progress": 0.08760402978537013
+      },
+      {
+        "date": "2018-05-15T00:00:00+00:00",
+        "progress": 0.043802014892685065
+      },
+      {
+        "date": "2018-05-16T00:00:00+00:00",
+        "progress": 0.021901007446342532
+      },
+      {
+        "date": "2018-05-17T00:00:00+00:00",
+        "progress": 0.043802014892685065
+      },
+      {
+        "date": "2018-05-18T00:00:00+00:00",
+        "progress": 0.0657030223390276
+      },
+      {
+        "date": "2018-05-19T00:00:00+00:00",
+        "progress": 0.043802014892685065
+      },
+      {
+        "date": "2018-05-20T00:00:00+00:00",
+        "progress": 0.021901007446342532
+      },
+      {
+        "date": "2018-05-21T00:00:00+00:00",
+        "progress": 0.08760402978537013
+      },
+      {
+        "date": "2018-05-22T00:00:00+00:00",
+        "progress": 0.043802014892685065
+      },
+      {
+        "date": "2018-05-23T00:00:00+00:00",
+        "progress": 0.021901007446342532
+      }
+    ],
+    "inProgress": [
+      {
+        "block": "BLK 1",
+        "level": "1",
+        "installedMaterialCount": 1,
+        "totalMaterialCount": 24,
+        "progress": 4.17
+      },
+      {
+        "block": "BLK 1",
+        "level": "2",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 18,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "3",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 6,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "4",
+        "installedMaterialCount": 1,
+        "totalMaterialCount": 12,
+        "progress": 8.33
+      },
+      {
+        "block": "BLK 1",
+        "level": "5",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 12,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "6",
+        "installedMaterialCount": 2,
+        "totalMaterialCount": 12,
+        "progress": 16.67
+      },
+      {
+        "block": "BLK 1",
+        "level": "7",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 12,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "8",
+        "installedMaterialCount": 3,
+        "totalMaterialCount": 12,
+        "progress": 25
+      },
+      {
+        "block": "BLK 1",
+        "level": "9",
+        "installedMaterialCount": 1,
+        "totalMaterialCount": 18,
+        "progress": 5.56
+      },
+      {
+        "block": "BLK 1",
+        "level": "10",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 6,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "11",
+        "installedMaterialCount": 1,
+        "totalMaterialCount": 12,
+        "progress": 8.33
+      },
+      {
+        "block": "BLK 1",
+        "level": "12",
+        "installedMaterialCount": 2,
+        "totalMaterialCount": 18,
+        "progress": 11.11
+      },
+      {
+        "block": "BLK 1",
+        "level": "13",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 18,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "14",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 6,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "15",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 12,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "16",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 24,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "17",
+        "installedMaterialCount": 1,
+        "totalMaterialCount": 24,
+        "progress": 4.17
+      },
+      {
+        "block": "BLK 1",
+        "level": "18",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 18,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "19",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 24,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "20",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 18,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "21",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 6,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "22",
+        "installedMaterialCount": 1,
+        "totalMaterialCount": 24,
+        "progress": 4.17
+      },
+      {
+        "block": "BLK 1",
+        "level": "23",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 6,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "24",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 24,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "25",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 24,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "26",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 12,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "27",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 6,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "28",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 24,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "29",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 18,
+        "progress": 0
+      },
+      {
+        "block": "BLK 1",
+        "level": "30",
+        "installedMaterialCount": 0,
+        "totalMaterialCount": 24,
+        "progress": 0
+      }
+    ],
+    "bimVideoUrl": "https://astorwork.blob.core.windows.net/bim/cc5cb005-c27a-5e67-9a14-440e403ee564.mp4?sv=2017-07-29&sr=b&sig=dCVGKFZSiwG0NgUc%2FGg49khlWHxPjlhS2jOwKxJVsHQ%3D&se=2018-05-26T03%3A35%3A23Z&sp=r"
+  },
+  "materialStageAuditQcOpenAndDailyStatus": {
+    "id": 1,
+    "qcOpenMaterialsList": [
+      {
+        "markingNo": "K1F1",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "test failed."
+      },
+      {
+        "markingNo": "K1F1X",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "material damaged."
+      },
+      {
+        "markingNo": "K1F8",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "material size bigger then the ordered."
+      },
+      {
+        "markingNo": "K1F7",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "material damaged"
+      },
+      {
+        "markingNo": "K1F7X",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "test failed"
+      },
+      {
+        "markingNo": "K1F9",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "material damaged"
+      },
+      {
+        "markingNo": "K1F8X",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "test failed"
+      },
+      {
+        "markingNo": "K1F10",
+        "materialDescription": "BPN6C12-BLK 641A-LVL 12-ZoneA",
+        "createdOn": "21/01/2018",
+        "remarks": "material damaged"
+      }
+    ],
+    "dailyMaterialStatusCount": {
+      "startDeliveryCount": 50,
+      "deliveredCount": 60,
+      "installedCount": 59
+    }
+  },
+  "role": [
+    {
+      "id": "1",
+      "name": "admin",
+      "defaultPage": "dashboard"
+    },
+    {
+      "id": "2",
+      "name": "supervisor",
+      "defaultPage": "dashboard"
+    },
+    {
+      "id": "3",
+      "name": "Organisation",
+      "defaultPage": "dashboard"
+    },
+    {
+      "id": "4",
+      "name": "administrator",
+      "defaultPage": "dashboard"
+    },
+    {
+      "id": "5",
+      "name": "Pradhan",
+      "defaultPage": "dashboard"
+    },
+    {
+      "id": "6",
+      "name": "Benjamin",
+      "defaultPage": "dashboard"
+    }
+  ],
+  "pages": [
+    {
+      "moduleId": "1",
+      "moduleName": "Dashboard",
+      "listofpages": [
+        {
+          "pageId": "101",
+          "pageName": "dashboard",
+          "accessLevel": "0"
+        }
+      ]
+    },
+    {
+      "moduleId": "2",
+      "moduleName": "Materials",
+      "listofpages": [
+        {
+          "pageId": "201",
+          "pageName": "List of materials",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "202",
+          "pageName": "material details",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "203",
+          "pageName": "list of mrf",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "204",
+          "pageName": "QC case details",
+          "accessLevel": 3
+        }
+      ]
+    },
+    {
+      "moduleId": "3",
+      "moduleName": "BIM",
+      "listofpages": [
+        {
+          "pageId": "301",
+          "pageName": "List of BIMs",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "302",
+          "pageName": "BIM Details",
+          "accessLevel": "0"
+        }
+      ]
+    },
+    {
+      "moduleId": "4",
+      "moduleName": "Configuration",
+      "listofpages": [
+        {
+          "pageId": "401",
+          "pageName": "User Master",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "402",
+          "pageName": "User Details",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "403",
+          "pageName": "Role Master",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "404",
+          "pageName": "Role Details",
+          "accessLevel": "0"
+        },
+        {
+          "pageId": "405",
+          "pageName": "Stage Master",
+          "accessLevel": "0"
+        }
+      ]
+    }
+  ],
+  "defaultpages": [
+    {
+      "pageId": 17,
+      "pageName": "List MRFs"
+    },
+    {
+      "pageId": 19,
+      "pageName": "List BIM Sync Sessions"
+    },
+    {
+      "pageId": 21,
+      "pageName": "Dashboard"
+    },
+    {
+      "pageId": 26,
+      "pageName": "List Materials"
+    }
+  ],
+  "material-stages": [
+    {
+      "id": 22,
+      "name": "Before Deliver QC",
+      "colour": "#ffff99",
+      "order": 4,
+      "isQCStage": true,
+      "isEditable": true,
+      "materialTypes": null
+    },
+    {
+      "id": 23,
+      "name": "Start Delivery",
+      "colour": "#ffff66",
+      "order": 5,
+      "isQCStage": true,
+      "isEditable": true,
+      "materialTypes": null
+    },
+    {
+      "id": 1021,
+      "name": "First stage",
+      "colour": "#FFAC00",
+      "order": 6,
+      "isQCStage": false,
+      "isEditable": true,
+      "materialTypes": null
+    },
+    {
+      "id": 24,
+      "name": "Delivered",
+      "colour": "#66ff99",
+      "order": 7,
+      "isQCStage": false,
+      "isEditable": true,
+      "materialTypes": null
+    },
+    {
+      "id": 25,
+      "name": "After Delivered QC",
+      "colour": "#00ff00",
+      "order": 8,
+      "isQCStage": true,
+      "isEditable": true,
+      "materialTypes": [
+        "Beam",
+        "Plank"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Installed",
+      "colour": "#0A1DE9",
+      "order": 11,
+      "isQCStage": true,
+      "isEditable": false,
+      "materialTypes": [
+        "Slab",
+        "Rebar"
+      ]
+    },
+    {
+      "id": 1022,
+      "colour": "#000000",
+      "name": "sccd"
+    }
+  ],
+  "materiaTypes": [
+    "Slab",
+    "Rebar",
+    "Beam",
+    "Plank",
+    "Façade",
+    "Wall Panel"
+  ],
+  "sites": [
+    {
+      "id": 1,
+      "name": "msia-organisation-site1",
+      "description": "",
+      "country": "SG",
+      "timeZone": 480,
+      "organisationName": "Organisation Two",
+      "organisationID": 2
+    },
+    {
+      "id": 2,
+      "name": "msia-organisation-site2",
+      "description": "",
+      "country": "SG",
+      "timeZone": 480,
+      "organisationName": "Organisation One",
+      "organisationID": 1
+    },
+    {
+      "id": 3,
+      "name": "SG-organisation-site1",
+      "description": "",
+      "country": "SG",
+      "timeZone": 480,
+      "organisationName": "Organisation Two",
+      "organisationID": 2
+    },
+    {
+      "id": 4,
+      "name": "SG-organisation-site2",
+      "description": "",
+      "country": "SG",
+      "timeZone": 480,
+      "organisationName": "Organisation Two",
+      "organisationID": 2
+    },
+    {
+      "id": 6,
+      "name": "Singapore-LHL-site1",
+      "description": ""
+    },
+    {
+      "id": 7,
+      "name": "Singapore-LHL-site1",
+      "description": ""
+    },
+    {
+      "id": 8,
+      "name": "Singapore-LHL-site2",
+      "description": ""
+    },
+    {
+      "id": 9,
+      "name": "Singapore-LHL-site3",
+      "description": ""
+    },
+    {
+      "id": 10,
+      "name": "SG-organisation-site3",
+      "description": "",
+      "country": "SG",
+      "timeZone":480,
+      "organisationName": "Organisation One",
+      "organisationID": 1
+    },
+    {
+      "id": 11,
+      "name": "msia-organisation-site3",
+      "description": "",
+      "country": "SG",
+      "timeZone": 480,
+      "organisationName": "Organisation One",
+      "organisationID": 1
+    }
+  ],
+  "list-qc-photo": [
+    {
+      "id": 1,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background1.png",
+      "remarks": "damaged materail"
+    },
+    {
+      "id": 1,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background2.png",
+      "remarks": "damaged materail"
+    },
+    {
+      "id": 1,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background3.png",
+      "remarks": "damaged materail"
+    },
+    {
+      "id": 1,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background4.png",
+      "remarks": "damaged materail"
+    },
+    {
+      "id": 1,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background5.png",
+      "remarks": "damaged materail"
+    }
+  ],
+  "qc-pass-photos": [
+    {
+      "id": 2,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background1.png",
+      "remarks": "materail replaced"
+    },
+    {
+      "id": 2,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background2.png",
+      "remarks": "materail replaced"
+    },
+    {
+      "id": 2,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background3.png",
+      "remarks": "materail replaced"
+    },
+    {
+      "id": 2,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background4.png",
+      "remarks": "materail replaced"
+    },
+    {
+      "id": 2,
+      "url": "https://safesmartqa.blob.core.windows.net/astoria-dev/background5.png",
+      "remarks": "materail replaced"
+    }
+  ],
+  "qcCase": [
+    {
+      "id": 1,
+      "caseName": "QC-2018-00001",
+      "stageAuditId": 1
+    },
+    {
+      "id": 2,
+      "caseName": "QC-2018-00002",
+      "stageAuditId": 1
+    },
+    {
+      "id": 3,
+      "caseName": "QC-2018-00003",
+      "stageAuditId": 2
+    },
+    {
+      "id": 4,
+      "caseName": "QC-2018-00004",
+      "stageAuditId": 2
+    }
+  ],
+  "qcDefect": [
+    {
+      "id": 1,
+      "qcCaseId": 1,
+      "remarks": "test 1",
+      "createdBy": "brian",
+      "createdDate": "2018-07-27T16:00:00+00:00",
+      "updatedBy": "phani",
+      "updatedDate": "2018-07-28T16:00:00+00:00",
+      "isOpen": false,
+      "countPhotos": 3
+    },
+    {
+      "id": 2,
+      "qcCaseId": 1,
+      "remarks": "test 2",
+      "createdBy": "brian",
+      "createdDate": "2018-07-27T16:00:00+00:00",
+      "updatedBy": "phani",
+      "updatedDate": "2018-07-28T16:00:00+00:00",
+      "isOpen": false,
+      "countPhotos": 6
+    },
+    {
+      "id": 3,
+      "qcCaseId": 2,
+      "remarks": "test 3",
+      "createdBy": "brian",
+      "createdDate": "2018-07-27T16:00:00+00:00",
+      "updatedBy": "phani",
+      "updatedDate": "2018-07-28T16:00:00+00:00",
+      "isOpen": true,
+      "countPhotos": 2
+    },
+    {
+      "id": 4,
+      "qcCaseId": 2,
+      "remarks": "test 4",
+      "createdBy": "brian",
+      "createdDate": "2018-07-27T16:00:00+00:00",
+      "updatedBy": "phani",
+      "updatedDate": "2018-07-28T16:00:00+00:00",
+      "isOpen": true,
+      "countPhotos": 0
+    }
+  ],
+  "countries":[
+      {
+        "countryCode": "AF",
+        "countryName": "Afghanistan",
+        "offset": "+04:30",
+        "offsetInMinutes": 270
+      },
+      {
+        "countryCode": "AX",
+        "countryName": "Aland Islands",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "AL",
+        "countryName": "Albania",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "DZ",
+        "countryName": "Algeria",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "AS",
+        "countryName": "American Samoa",
+        "offset": "-11:00",
+        "offsetInMinutes": -660
+      },
+      {
+        "countryCode": "AD",
+        "countryName": "Andorra",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "AO",
+        "countryName": "Angola",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "AI",
+        "countryName": "Anguilla",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+12:00",
+        "offsetInMinutes": 720
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "AQ",
+        "countryName": "Antarctica",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "AG",
+        "countryName": "Antigua and Barbuda",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",        
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AR",
+        "countryName": "Argentina",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "AM",
+        "countryName": "Armenia",
+        "offset": "+04:00",
+        "offsetInMinutes": 240
+      },
+      {
+        "countryCode": "AW",
+        "countryName": "Aruba",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+11:00",
+        "offsetInMinutes": 660
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+09:30",
+        "offsetInMinutes": 570
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+09:30",
+        "offsetInMinutes": 570
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+09:30",
+        "offsetInMinutes": 570
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+08:45"
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+10:30",
+        "offsetInMinutes": 630
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "AU",
+        "countryName": "Australia",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "AT",
+        "countryName": "Austria",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "AZ",
+        "countryName": "Azerbaijan",
+        "offset": "+04:00",
+        "offsetInMinutes": 240
+      },
+      {
+        "countryCode": "BS",
+        "countryName": "Bahamas",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BH",
+        "countryName": "Bahrain",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "BD",
+        "countryName": "Bangladesh",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "BB",
+        "countryName": "Barbados",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BY",
+        "countryName": "Belarus",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "BE",
+        "countryName": "Belgium",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "BZ",
+        "countryName": "Belize",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "BJ",
+        "countryName": "Benin",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "BM",
+        "countryName": "Bermuda",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BT",
+        "countryName": "Bhutan",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "BO",
+        "countryName": "Bolivia",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BQ",
+        "countryName": "Bonaire",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BA",
+        "countryName": "Bosnia and Herzegovina",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "BW",
+        "countryName": "Botswana",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-02:00",
+        "offsetInMinutes": -120
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "BR",
+        "countryName": "Brazil",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "IO",
+        "countryName": "British Indian Ocean Territory",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "VG",
+        "countryName": "British Virgin Islands",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "BN",
+        "countryName": "Brunei",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "BG",
+        "countryName": "Bulgaria",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "BF",
+        "countryName": "Burkina Faso",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "BI",
+        "countryName": "Burundi",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "KH",
+        "countryName": "Cambodia",
+        "offset": "+07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CM",
+        "countryName": "Cameroon",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-02:30",
+        "offsetInMinutes": -150
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "CA",
+        "countryName": "Canada",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "CV",
+        "countryName": "Cape Verde",
+        "offset": "-01:00",
+        "offsetInMinutes": -60
+      },
+      {
+        "countryCode": "KY",
+        "countryName": "Cayman Islands",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "CF",
+        "countryName": "Central African Republic",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "TD",
+        "countryName": "Chad",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "CL",
+        "countryName": "Chile",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "CL",
+        "countryName": "Chile",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "CL",
+        "countryName": "Chile",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "CN",
+        "countryName": "China",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "CN",
+        "countryName": "China",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "CX",
+        "countryName": "Christmas Island",
+        "offset": "+07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "CC",
+        "countryName": "Cocos Islands",
+        "offset": "+06:30",
+        "offsetInMinutes": 390
+      },
+      {
+        "countryCode": "CO",
+        "countryName": "Colombia",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "KM",
+        "countryName": "Comoros",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "CK",
+        "countryName": "Cook Islands",
+        "offset": "-10:00",
+        "offsetInMinutes": -600
+      },
+      {
+        "countryCode": "CR",
+        "countryName": "Costa Rica",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "HR",
+        "countryName": "Croatia",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "CU",
+        "countryName": "Cuba",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CW",
+        "countryName": "Curaçao",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "CY",
+        "countryName": "Cyprus",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "CY",
+        "countryName": "Cyprus",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "CZ",
+        "countryName": "Czech Republic",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "CD",
+        "countryName": "Democratic Republic of the Congo",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "CD",
+        "countryName": "Democratic Republic of the Congo",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "DK",
+        "countryName": "Denmark",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "DJ",
+        "countryName": "Djibouti",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "DM",
+        "countryName": "Dominica",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "DO",
+        "countryName": "Dominican Republic",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "TL",
+        "countryName": "East Timor",
+        "offset": "+09:00",
+        "offsetInMinutes": 540
+      },
+      {
+        "countryCode": "EC",
+        "countryName": "Ecuador",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "EC",
+        "countryName": "Ecuador",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "EG",
+        "countryName": "Egypt",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SV",
+        "countryName": "El Salvador",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "GQ",
+        "countryName": "Equatorial Guinea",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "ER",
+        "countryName": "Eritrea",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "EE",
+        "countryName": "Estonia",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "ET",
+        "countryName": "Ethiopia",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "FK",
+        "countryName": "Falkland Islands",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "FO",
+        "countryName": "Faroe Islands",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "FJ",
+        "countryName": "Fiji",
+        "offset": "+12:00",
+        "offsetInMinutes": 720
+      },
+      {
+        "countryCode": "FI",
+        "countryName": "Finland",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "FR",
+        "countryName": "France",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "GF",
+        "countryName": "French Guiana",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "PF",
+        "countryName": "French Polynesia",
+        "offset": "-09:00",
+        "offsetInMinutes": -540
+      },
+      {
+        "countryCode": "PF",
+        "countryName": "French Polynesia",
+        "offset": "-09:30",
+        "offsetInMinutes": -570
+      },
+      {
+        "countryCode": "PF",
+        "countryName": "French Polynesia",
+        "offset": "-10:00",
+        "offsetInMinutes": -600
+      },
+      {
+        "countryCode": "TF",
+        "countryName": "French Southern Territories",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "GA",
+        "countryName": "Gabon",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "GM",
+        "countryName": "Gambia",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "GE",
+        "countryName": "Georgia",
+        "offset": "+04:00",
+        "offsetInMinutes": 240
+      },
+      {
+        "countryCode": "DE",
+        "countryName": "Germany",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "DE",
+        "countryName": "Germany",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "GH",
+        "countryName": "Ghana",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "GI",
+        "countryName": "Gibraltar",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "GR",
+        "countryName": "Greece",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "GL",
+        "countryName": "Greenland",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "GL",
+        "countryName": "Greenland",
+        "offset": "-02:00",
+        "offsetInMinutes": -120
+      },
+      {
+        "countryCode": "GL",
+        "countryName": "Greenland",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "GL",
+        "countryName": "Greenland",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "GD",
+        "countryName": "Grenada",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "GP",
+        "countryName": "Guadeloupe",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "GU",
+        "countryName": "Guam",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "GT",
+        "countryName": "Guatemala",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "GG",
+        "countryName": "Guernsey",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "GN",
+        "countryName": "Guinea",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "GW",
+        "countryName": "Guinea-Bissau",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "GY",
+        "countryName": "Guyana",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "HT",
+        "countryName": "Haiti",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "HN",
+        "countryName": "Honduras",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "HK",
+        "countryName": "Hong Kong",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "HU",
+        "countryName": "Hungary",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "IS",
+        "countryName": "Iceland",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "IN",
+        "countryName": "India",
+        "offset": "+05:30",
+        "offsetInMinutes": 330
+      },
+      {
+        "countryCode": "ID",
+        "countryName": "Indonesia",
+        "offset": "+07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "ID",
+        "countryName": "Indonesia",
+        "offset": "+09:00",
+        "offsetInMinutes": 540
+      },
+      {
+        "countryCode": "ID",
+        "countryName": "Indonesia",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "ID",
+        "countryName": "Indonesia",
+        "offset": "+07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "IR",
+        "countryName": "Iran",
+        "offset": "+04:30",
+        "offsetInMinutes": 270
+      },
+      {
+        "countryCode": "IQ",
+        "countryName": "Iraq",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "IE",
+        "countryName": "Ireland",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "IM",
+        "countryName": "Isle of Man",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "IL",
+        "countryName": "Israel",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "IT",
+        "countryName": "Italy",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "CI",
+        "countryName": "Ivory Coast",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "JM",
+        "countryName": "Jamaica",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "JP",
+        "countryName": "Japan",
+        "offset": "+09:00",
+        "offsetInMinutes": 540
+      },
+      {
+        "countryCode": "JE",
+        "countryName": "Jersey",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "JO",
+        "countryName": "Jordan",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "KZ",
+        "countryName": "Kazakhstan",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "KZ",
+        "countryName": "Kazakhstan",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "KZ",
+        "countryName": "Kazakhstan",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "KZ",
+        "countryName": "Kazakhstan",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "KZ",
+        "countryName": "Kazakhstan",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "KZ",
+        "countryName": "Kazakhstan",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "KE",
+        "countryName": "Kenya",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "KI",
+        "countryName": "Kiribati",
+        "offset": "+13:00"
+      },
+      {
+        "countryCode": "KI",
+        "countryName": "Kiribati",
+        "offset": "+14:00"
+      },
+      {
+        "countryCode": "KI",
+        "countryName": "Kiribati",
+        "offset": "+12:00",
+        "offsetInMinutes": 720
+      },
+      {
+        "countryCode": "KW",
+        "countryName": "Kuwait",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "KG",
+        "countryName": "Kyrgyzstan",
+        "offset": "+06:00",
+        "offsetInMinutes": 360
+      },
+      {
+        "countryCode": "LA",
+        "countryName": "Laos",
+        "offset": "+07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "LV",
+        "countryName": "Latvia",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "LB",
+        "countryName": "Lebanon",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "LS",
+        "countryName": "Lesotho",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "LR",
+        "countryName": "Liberia",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "LY",
+        "countryName": "Libya",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "LI",
+        "countryName": "Liechtenstein",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "LT",
+        "countryName": "Lithuania",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "LU",
+        "countryName": "Luxembourg",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "MO",
+        "countryName": "Macao",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "MK",
+        "countryName": "Macedonia",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "MG",
+        "countryName": "Madagascar",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "MW",
+        "countryName": "Malawi",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "MY",
+        "countryName": "Malaysia",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "MY",
+        "countryName": "Malaysia",
+        "offset": "+08:00",
+        "offsetInMinutes": 480
+      },
+      {
+        "countryCode": "MV",
+        "countryName": "Maldives",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "ML",
+        "countryName": "Mali",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "MT",
+        "countryName": "Malta",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "MH",
+        "countryName": "Marshall Islands",
+        "offset": "+12:00",
+        "offsetInMinutes": 720
+      },
+      {
+        "countryCode": "MH",
+        "countryName": "Marshall Islands",
+        "offset": "+12:00",
+        "offsetInMinutes": 720
+      },
+      {
+        "countryCode": "MQ",
+        "countryName": "Martinique",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "MR",
+        "countryName": "Mauritania",
+        "offset": "+00:00",
+        "offsetInMinutes": 0
+      },
+      {
+        "countryCode": "MU",
+        "countryName": "Mauritius",
+        "offset": "+04:00",
+        "offsetInMinutes": 240
+      },
+      {
+        "countryCode": "YT",
+        "countryName": "Mayotte",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "MX",
+        "countryName": "Mexico",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "FM",
+        "countryName": "Micronesia",
+        "offset": "+10:00",
+        "offsetInMinutes": 600
+      },
+      {
+        "countryCode": "FM",
+        "countryName": "Micronesia",
+        "offset": "+11:00",
+        "offsetInMinutes": 660
+      },
+      {
+        "countryCode": "FM",
+        "countryName": "Micronesia",
+        "offset": "+11:00",
+        "offsetInMinutes": 660
+      },
+      {
+        "countryCode": "MD",
+        "countryName": "Moldova",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "MC",
+        "countryName": "Monaco",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "MN",
+        "countryName": "Mongolia",
+        "offset": "+08:00","offsetInMinutes": 480
+      },
+      {
+        "countryCode": "MN",
+        "countryName": "Mongolia",
+        "offset": "+07:00","offsetInMinutes": 420
+      },
+      {
+        "countryCode": "MN",
+        "countryName": "Mongolia",
+        "offset": "+08:00","offsetInMinutes": 480
+      },
+      {
+        "countryCode": "ME",
+        "countryName": "Montenegro",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "MS",
+        "countryName": "Montserrat",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "MA",
+        "countryName": "Morocco",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "MZ",
+        "countryName": "Mozambique",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "MM",
+        "countryName": "Myanmar",
+        "offset": "+06:30","offsetInMinutes": 390
+      },
+      {
+        "countryCode": "NA",
+        "countryName": "Namibia",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "NR",
+        "countryName": "Nauru",
+        "offset": "+12:00","offsetInMinutes": 720
+      },
+      {
+        "countryCode": "NP",
+        "countryName": "Nepal",
+        "offset": "+05:45"
+      },
+      {
+        "countryCode": "NL",
+        "countryName": "Netherlands",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "NC",
+        "countryName": "New Caledonia",
+        "offset": "+11:00","offsetInMinutes": 660
+      },
+      {
+        "countryCode": "NZ",
+        "countryName": "New Zealand",
+        "offset": "+12:00","offsetInMinutes": 720
+      },
+      {
+        "countryCode": "NZ",
+        "countryName": "New Zealand",
+        "offset": "+12:45"
+      },
+      {
+        "countryCode": "NI",
+        "countryName": "Nicaragua",
+        "offset": "-06:00","offsetInMinutes": -360
+      },
+      {
+        "countryCode": "NE",
+        "countryName": "Niger",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "NG",
+        "countryName": "Nigeria",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "NU",
+        "countryName": "Niue",
+        "offset": "-11:00","offsetInMinutes": -660
+      },
+      {
+        "countryCode": "NF",
+        "countryName": "Norfolk Island",
+        "offset": "+11:00","offsetInMinutes": 660
+      },
+      {
+        "countryCode": "KP",
+        "countryName": "North Korea",
+        "offset": "+09:00","offsetInMinutes": 540
+      },
+      {
+        "countryCode": "MP",
+        "countryName": "Northern Mariana Islands",
+        "offset": "+10:00","offsetInMinutes": 600
+      },
+      {
+        "countryCode": "NO",
+        "countryName": "Norway",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "OM",
+        "countryName": "Oman",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "PK",
+        "countryName": "Pakistan",
+        "offset": "+05:00","offsetInMinutes": 300
+      },
+      {
+        "countryCode": "PW",
+        "countryName": "Palau",
+        "offset": "+09:00","offsetInMinutes": 540
+      },
+      {
+        "countryCode": "PS",
+        "countryName": "Palestinian Territory",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "PS",
+        "countryName": "Palestinian Territory",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "PA",
+        "countryName": "Panama",
+        "offset": "-05:00","offsetInMinutes": -300
+      },
+      {
+        "countryCode": "PG",
+        "countryName": "Papua New Guinea",
+        "offset": "+11:00","offsetInMinutes": 660
+      },
+      {
+        "countryCode": "PG",
+        "countryName": "Papua New Guinea",
+        "offset": "+10:00","offsetInMinutes": 600
+      },
+      {
+        "countryCode": "PY",
+        "countryName": "Paraguay",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "PE",
+        "countryName": "Peru",
+        "offset": "-05:00","offsetInMinutes": -300
+      },
+      {
+        "countryCode": "PH",
+        "countryName": "Philippines",
+        "offset": "+08:00","offsetInMinutes": 480
+      },
+      {
+        "countryCode": "PN",
+        "countryName": "Pitcairn",
+        "offset": "-08:00","offsetInMinutes": -480
+      },
+      {
+        "countryCode": "PL",
+        "countryName": "Poland",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "offset": "+00:00","offsetInMinutes": 0
+      },
+      {
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "PR",
+        "countryName": "Puerto Rico",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "QA",
+        "countryName": "Qatar",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "CG",
+        "countryName": "Republic of the Congo",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "RE",
+        "countryName": "Reunion",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "RO",
+        "countryName": "Romania",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+12:00","offsetInMinutes": 720
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+07:00","offsetInMinutes": 420
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+09:00","offsetInMinutes": 540
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+08:00","offsetInMinutes": 480
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+12:00","offsetInMinutes": 720
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+09:00","offsetInMinutes": 540
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+07:00","offsetInMinutes": 420
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+11:00","offsetInMinutes": 660
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+07:00","offsetInMinutes": 420
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+07:00","offsetInMinutes": 420
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+06:00","offsetInMinutes": 360
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+11:00","offsetInMinutes": 660
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+11:00","offsetInMinutes": 660
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+07:00","offsetInMinutes": 420
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+10:00","offsetInMinutes": 600
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+10:00","offsetInMinutes": 600
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+09:00","offsetInMinutes": 540
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+05:00","offsetInMinutes": 300
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "RU",
+        "countryName": "Russia",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "RW",
+        "countryName": "Rwanda",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "BL",
+        "countryName": "Saint Barthélemy",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "SH",
+        "countryName": "Saint Helena",
+        "offset": "+00:00","offsetInMinutes": 0
+      },
+      {
+        "countryCode": "KN",
+        "countryName": "Saint Kitts and Nevis",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "LC",
+        "countryName": "Saint Lucia",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "MF",
+        "countryName": "Saint Martin",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "PM",
+        "countryName": "Saint Pierre and Miquelon",
+        "offset": "-02:00","offsetInMinutes": -120
+      },
+      {
+        "countryCode": "VC",
+        "countryName": "Saint Vincent and the Grenadines",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "WS",
+        "countryName": "Samoa",
+        "offset": "+13:00"
+      },
+      {
+        "countryCode": "SM",
+        "countryName": "San Marino",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "ST",
+        "countryName": "Sao Tome and Principe",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "SA",
+        "countryName": "Saudi Arabia",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "SN",
+        "countryName": "Senegal",
+        "offset": "+00:00","offsetInMinutes": 0
+      },
+      {
+        "countryCode": "RS",
+        "countryName": "Serbia",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SC",
+        "countryName": "Seychelles",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "SL",
+        "countryName": "Sierra Leone",
+        "offset": "+00:00","offsetInMinutes": 0
+      },
+      {
+        "countryCode": "SG",
+        "countryName": "Singapore",
+        "offset": "+08:00","offsetInMinutes": 480
+      },
+      {
+        "countryCode": "SX",
+        "countryName": "Sint Maarten",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "SK",
+        "countryName": "Slovakia",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SI",
+        "countryName": "Slovenia",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SB",
+        "countryName": "Solomon Islands",
+        "offset": "+11:00","offsetInMinutes": 660
+      },
+      {
+        "countryCode": "SO",
+        "countryName": "Somalia",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "ZA",
+        "countryName": "South Africa",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "GS",
+        "countryName": "South Georgia and the South Sandwich Islands",
+        "offset": "-02:00","offsetInMinutes": -120
+      },
+      {
+        "countryCode": "KR",
+        "countryName": "South Korea",
+        "offset": "+09:00","offsetInMinutes": 540
+      },
+      {
+        "countryCode": "SS",
+        "countryName": "South Sudan",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "ES",
+        "countryName": "Spain",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "ES",
+        "countryName": "Spain",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "ES",
+        "countryName": "Spain",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "LK",
+        "countryName": "Sri Lanka",
+        "offset": "+05:30","offsetInMinutes": 330
+      },
+      {
+        "countryCode": "SD",
+        "countryName": "Sudan",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SR",
+        "countryName": "Suriname",
+        "offset": "-03:00","offsetInMinutes": -180
+      },
+      {
+        "countryCode": "SJ",
+        "countryName": "Svalbard and Jan Mayen",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SZ",
+        "countryName": "Swaziland",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SE",
+        "countryName": "Sweden",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "CH",
+        "countryName": "Switzerland",
+        "offset": "+02:00","offsetInMinutes": 120
+      },
+      {
+        "countryCode": "SY",
+        "countryName": "Syria",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "TW",
+        "countryName": "Taiwan",
+        "offset": "+08:00","offsetInMinutes": 480
+      },
+      {
+        "countryCode": "TJ",
+        "countryName": "Tajikistan",
+        "offset": "+05:00","offsetInMinutes": 300
+      },
+      {
+        "countryCode": "TZ",
+        "countryName": "Tanzania",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "TH",
+        "countryName": "Thailand",
+        "offset": "+07:00","offsetInMinutes": 420
+      },
+      {
+        "countryCode": "TG",
+        "countryName": "Togo",
+        "offset": "+00:00","offsetInMinutes": 0
+      },
+      {
+        "countryCode": "TK",
+        "countryName": "Tokelau",
+        "offset": "+13:00"
+      },
+      {
+        "countryCode": "TO",
+        "countryName": "Tonga",
+        "offset": "+13:00"
+      },
+      {
+        "countryCode": "TT",
+        "countryName": "Trinidad and Tobago",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "TN",
+        "countryName": "Tunisia",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "TR",
+        "countryName": "Turkey",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "TM",
+        "countryName": "Turkmenistan",
+        "offset": "+05:00","offsetInMinutes": 300
+      },
+      {
+        "countryCode": "TC",
+        "countryName": "Turks and Caicos Islands",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "TV",
+        "countryName": "Tuvalu",
+        "offset": "+12:00","offsetInMinutes": 720
+      },
+      {
+        "countryCode": "VI",
+        "countryName": "U.S. Virgin Islands",
+        "offset": "-04:00","offsetInMinutes": -240
+      },
+      {
+        "countryCode": "UG",
+        "countryName": "Uganda",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "UA",
+        "countryName": "Ukraine",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "UA",
+        "countryName": "Ukraine",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "UA",
+        "countryName": "Ukraine",
+        "offset": "+03:00","offsetInMinutes": 180
+      },
+      {
+        "countryCode": "AE",
+        "countryName": "United Arab Emirates",
+        "offset": "+04:00","offsetInMinutes": 240
+      },
+      {
+        "countryCode": "GB",
+        "countryName": "United Kingdom",
+        "offset": "+01:00","offsetInMinutes": 60
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-09:00","offsetInMinutes": -540
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-08:00","offsetInMinutes": -480
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-06:00",
+        "offsetInMinutes": -360
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-08:00",
+        "offsetInMinutes": -480
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-08:00",
+        "offsetInMinutes": -480
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-08:00",
+        "offsetInMinutes": -480
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-05:00",
+        "offsetInMinutes": -300
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-08:00",
+        "offsetInMinutes": -480
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-08:00",
+        "offsetInMinutes": -480
+      },
+      {
+        "countryCode": "US",
+        "countryName": "United States",
+        "offset": "-10:00",
+        "offsetInMinutes": -600
+      },
+      {
+        "countryCode": "UM",
+        "countryName": "United States Minor Outlying Islands",
+        "offset": "-11:00",
+        "offsetInMinutes": -660
+      },
+      {
+        "countryCode": "UM",
+        "countryName": "United States Minor Outlying Islands",
+        "offset": "+12:00",
+        "offsetInMinutes": 720
+      },
+      {
+        "countryCode": "UY",
+        "countryName": "Uruguay",
+        "offset": "-03:00",
+        "offsetInMinutes": -180
+      },
+      {
+        "countryCode": "UZ",
+        "countryName": "Uzbekistan",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "UZ",
+        "countryName": "Uzbekistan",
+        "offset": "+05:00",
+        "offsetInMinutes": 300
+      },
+      {
+        "countryCode": "VU",
+        "countryName": "Vanuatu",
+        "offset": "+11:00",
+        "offsetInMinutes": 660
+      },
+      {
+        "countryCode": "VA",
+        "countryName": "Vatican",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "VE",
+        "countryName": "Venezuela",
+        "offset": "-04:00",
+        "offsetInMinutes": -240
+      },
+      {
+        "countryCode": "VN",
+        "countryName": "Vietnam",
+        "offset": "+07:00",
+        "offsetInMinutes": 420
+      },
+      {
+        "countryCode": "WF",
+        "countryName": "Wallis and Futuna",
+        "offset": "+12:00",
+        "offsetInMinutes": 720
+      },
+      {
+        "countryCode": "EH",
+        "countryName": "Western Sahara",
+        "offset": "+01:00",
+        "offsetInMinutes": 60
+      },
+      {
+        "countryCode": "YE",
+        "countryName": "Yemen",
+        "offset": "+03:00",
+        "offsetInMinutes": 180
+      },
+      {
+        "countryCode": "ZM",
+        "countryName": "Zambia",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      },
+      {
+        "countryCode": "ZW",
+        "countryName": "Zimbabwe",
+        "offset": "+02:00",
+        "offsetInMinutes": 120
+      }
+    ]
+}

@@ -1,0 +1,9 @@
+tr.example-detail-row {
+    height: 0;
+  }
+  ::ng-deep .mat-tooltip {
+    /* your own custom styles here */ 
+    /* e.g. */
+    background-color:hotpink;
+    color:white;
+}

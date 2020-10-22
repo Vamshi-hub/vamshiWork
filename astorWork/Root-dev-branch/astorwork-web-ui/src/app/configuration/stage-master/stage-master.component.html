@@ -1,0 +1,129 @@
+<div class="page-header-row" fxLayout="row" fxLayoutAlign="space-between center">
+    <h1>Material Tracking Stages</h1>
+    <button mat-fab (click)="createNewStage()" *ngIf="accessRight >= 2">
+        <mat-icon aria-label="create Stage">add</mat-icon>
+    </button>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" *ngIf="!isLoading">
+    <fieldset *ngIf="newStages && newStages.length > 0">
+        <legend>New Stages</legend>
+        <div cdkDropList fxLayout="column" fxLayoutGap="10px" class="example-list" id="newStageList"
+            cdkDropListConnectedTo="stageList" (cdkDropListDropped)="onDrop($event)"
+            [cdkDropListEnterPredicate]="noReturnPredicate">
+            <mat-expansion-panel *ngFor="let item of newStages" cdkDrag [cdkDragData]="item" class="example-box">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                            <div cdkDragHandle>
+                                <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                                    </path>
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                </svg>
+                            </div>
+                            <mat-icon [style.color]=item.colour>check_circle</mat-icon>
+                            <span class="stage-name">{{item.name}}</span>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="column" fxLayoutAlign="space-between left" fxLayoutGap="10px">
+                    <mat-form-field>
+                        <input matInput placeholder="Name" value="{{item.name}}" [(ngModel)]="item.name">
+                    </mat-form-field>
+
+                    <mat-slide-toggle class="button" [checked]=item.canIgnoreQC [(ngModel)]="item.canIgnoreQC">
+                        Proceed with open QC
+                    </mat-slide-toggle>
+                    <div fxLayout="row" fxLayoutGap="10px">
+
+                        <mcc-color-picker fxFlex="15" colorPickerSelectorHeight="100" usedSizeColors="15" hideButtons
+                            class="mcc-cp-small" [hideHexForms]="true" mccConnectedColorPicker
+                            [mccConnectedColorPickerOrigin]="trigger">
+                        </mcc-color-picker>
+                        <input matInput placeholder="Stage Colour" fxFlex="25" style="margin-left: 1px" value="Colour"
+                            readonly>
+                        <input matInput mccColorPickerOrigin #trigger="mccColorPickerOrigin" [(ngModel)]="item.colour"
+                            hidden=true />
+                    </div>
+                    <mat-form-field>
+                        <mat-select matInput placeholder="Material Types" [(value)]="item.materialTypeArray" multiple>
+                            <mat-option (click)="toggleAllSelection(item)" [value]='0'>Select All</mat-option>
+                            <mat-option *ngFor="let type of materialTypes" [value]='type'>
+                                {{ type }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Current Stages</legend>
+        <div cdkDropList fxLayout="column" fxLayoutGap="10px" class="example-list" (cdkDropListDropped)="onDrop($event)"
+            [cdkDropListEnterPredicate]="createNewPredicate" id="stageList" cdkDropListConnectedTo="newStageList">
+            <mat-expansion-panel *ngFor="let item of stages;let i=index" cdkDragLockAxis="y" cdkDrag
+                [cdkDragDisabled]="!item.isEditable" class="example-box" [cdkDragData]="item">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                            <div cdkDragHandle *ngIf="item.isEditable;else noDragHandle">
+                                <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                                    </path>
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                </svg>
+                            </div>
+                            <ng-template #noDragHandle><span style="width: 24px;"></span></ng-template>
+                            <mat-icon [style.color]=item.colour>check_circle</mat-icon>
+                            <span class="stage-name">{{item.name}}</span>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="column" fxLayoutAlign="space-between left" fxLayoutGap="10px">
+                    <mat-form-field>
+                        <input matInput placeholder="Name" value="{{item.name}}" [(ngModel)]="item.name">
+                    </mat-form-field>
+
+                    <mat-slide-toggle class="button" [checked]=item.canIgnoreQC [(ngModel)]="item.canIgnoreQC">
+                        Proceed with open QC
+                    </mat-slide-toggle>
+                    <div fxLayout="row" fxLayoutGap="10px">
+
+                        <mcc-color-picker fxFlex="15" colorPickerSelectorHeight="100" usedSizeColors="15" hideButtons
+                            class="mcc-cp-small" [hideHexForms]="true" mccConnectedColorPicker
+                            [mccConnectedColorPickerOrigin]="trigger">
+                        </mcc-color-picker>
+                        <input matInput placeholder="Stage Colour" fxFlex="25" style="margin-left: 1px" value="Colour"
+                            readonly>
+                        <input matInput mccColorPickerOrigin #trigger="mccColorPickerOrigin" [(ngModel)]="item.colour"
+                            hidden=true />
+                    </div>
+                    <mat-form-field>
+                        <mat-select matInput placeholder="Material Types" [(value)]="item.materialTypeArray" 
+                            multiple>
+                            <mat-option (click)="toggleAllSelection(item)" [value]='0' >Select All</mat-option>
+                            <mat-option *ngFor="let type of materialTypes" [value]='type'>
+                                {{ type }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <!--
+                    <div fxLayout="row" fxLayoutAlign="space-evenly end" style="margin-top: 30px">
+                        <div class="button-row">
+                            <button mat-raised-button color="primary" *ngIf="accessRight >= 2" (click)="onSubmit(item)">Update</button>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </fieldset>
+</div>
+<div style="margin-top: 30px" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"
+    *ngIf="stages && accessRight >= 2 && !isLoading">
+    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+    <button mat-raised-button (click)="onCancel()">Cancel</button>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

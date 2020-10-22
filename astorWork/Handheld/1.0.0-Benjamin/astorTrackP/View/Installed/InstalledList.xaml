@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:astorTrackP;assembly=astorTrackP"	
+	x:Class="astorTrackP.InstalledList"
+  Title="Installed">
+
+    <!--<ContentPage.ToolbarItems>		
+		<ToolbarItem Icon="{Binding scanOperation}" Command="{Binding ScanCommand, Mode=TwoWay}"></ToolbarItem>
+	</ContentPage.ToolbarItems>-->
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="uxItems" ItemsSource="{Binding MRFModel, Mode=TwoWay}" HasUnevenRows="true"   IsGroupingEnabled="True"  
+			SelectedItem="{Binding MaterialMaster, Mode=TwoWay}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+			IsPullToRefreshEnabled="False">
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Location}" FontSize="Medium" TextColor="White" FontAttributes="Bold"></Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                    <MenuItem Text="Delete" Command="{Binding Source={x:Reference uxItems}, Path=BindingContext.DeleteCommand}" Icon="delete.png" CommandParameter="{Binding .}" IsDestructive="true" ></MenuItem>
+                                </ViewCell.ContextActions>
+                            <ViewCell.View>                                
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="5,0,5,0" HeightRequest="90"  Spacing="3" >
+                                    <Image HorizontalOptions="Start" Source="{Binding QAStatus, StringFormat='{0}.png', Mode=TwoWay}" HeightRequest="30" ></Image>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">                                        
+                                        <Label Text="{Binding MarkingNo}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium" TextColor="White"></Label>
+                                        <Label Text="{Binding DrawingNo}" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Silver"></Label>
+                                        <Label Text="{Binding MRFNo, StringFormat='MRF No: {0}'}" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Silver"></Label>
+                                    </StackLayout>                                    
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout  Padding="20,20,20,20">
+                <Button x:Name="uxSave" Text="Save" BackgroundColor="#3498db" Command="{Binding SaveCommand}"/>
+            </StackLayout>
+        </StackLayout>        
+    </ContentPage.Content>
+</ContentPage>

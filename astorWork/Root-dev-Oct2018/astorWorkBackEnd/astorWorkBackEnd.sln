@@ -1,0 +1,162 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkBackEnd", "astorWorkBackEnd\astorWorkBackEnd.csproj", "{CA8F1DD4-9982-4349-973C-DE72BF24AE9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkDAO", "astorWorkDAO\astorWorkDAO.csproj", "{9DFE72DF-424F-4ECA-AC22-47A128603B1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkUserManage", "astorWorkUserManage\astorWorkUserManage.csproj", "{D11CB947-2FCE-43C1-A755-283302B457C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkBackEndUnitTest", "astorWorkBackEndUnitTest\astorWorkBackEndUnitTest.csproj", "{3C6BD711-B00F-4FA6-9A85-33250F18BC86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YamlFiles", "YamlFiles", "{C564DFD7-C435-485A-812B-B913C5C232F5}"
+	ProjectSection(SolutionItems) = preProject
+		configmap.yaml = configmap.yaml
+		YamlFiles\ingress.yaml = YamlFiles\ingress.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prod", "Prod", "{997845B9-E8E6-4B56-91AA-56066C7536D6}"
+	ProjectSection(SolutionItems) = preProject
+		YamlFiles\Prod\apigateway.yaml = YamlFiles\Prod\apigateway.yaml
+		YamlFiles\Prod\astorwork-web.yaml = YamlFiles\Prod\astorwork-web.yaml
+		YamlFiles\Prod\auth-server.yaml = YamlFiles\Prod\auth-server.yaml
+		YamlFiles\Prod\material-tracking.yaml = YamlFiles\Prod\material-tracking.yaml
+		YamlFiles\Prod\secret.yaml = YamlFiles\Prod\secret.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Qa", "Qa", "{D5B0C8B2-F04E-4F7C-913B-769685C2FA83}"
+	ProjectSection(SolutionItems) = preProject
+		YamlFiles\Qa\api-gateway.yaml = YamlFiles\Qa\api-gateway.yaml
+		YamlFiles\Qa\background-service.yaml = YamlFiles\Qa\background-service.yaml
+		YamlFiles\Qa\material-track.yaml = YamlFiles\Qa\material-track.yaml
+		YamlFiles\Qa\secret.yaml = YamlFiles\Qa\secret.yaml
+		YamlFiles\Qa\user-manage.yaml = YamlFiles\Qa\user-manage.yaml
+		YamlFiles\Qa\web-ui.yaml = YamlFiles\Qa\web-ui.yaml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkShared", "astorWorkShared\astorWorkShared.csproj", "{A4AA3B9A-516B-46F2-A3E5-495A8BE5FFED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkGateWay", "astorWorkGateWay\astorWorkGateWay.csproj", "{A5E31BCF-7E02-48E3-BF0C-6688AD668E58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkUserManageUnitTest", "astorWorkUserManageUnitTest\astorWorkUserManageUnitTest.csproj", "{BB82504B-332E-4E6C-90F8-6B084D388E5A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astorWorkBackgroundService", "astorWorkBackgroundService\astorWorkBackgroundService.csproj", "{613E506F-9483-49ED-9EF1-E95AC4A765A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerFiles", "DockerFiles", "{92EECDBD-60C9-4D33-B15E-2056B4B1536C}"
+	ProjectSection(SolutionItems) = preProject
+		DockerFiles\api-gateway.Dockerfile = DockerFiles\api-gateway.Dockerfile
+		DockerFiles\background-service.Dockerfile = DockerFiles\background-service.Dockerfile
+		DockerFiles\material-track.Dockerfile = DockerFiles\material-track.Dockerfile
+		DockerFiles\user-manage.Dockerfile = DockerFiles\user-manage.Dockerfile
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorWorkAdminPortal", "astorWorkAdminPortal\astorWorkAdminPortal.csproj", "{2A154905-2AEA-429E-ACC0-AA46C06F8AEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA8F1DD4-9982-4349-973C-DE72BF24AE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8F1DD4-9982-4349-973C-DE72BF24AE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8F1DD4-9982-4349-973C-DE72BF24AE9C}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{CA8F1DD4-9982-4349-973C-DE72BF24AE9C}.QA|Any CPU.Build.0 = QA|Any CPU
+		{CA8F1DD4-9982-4349-973C-DE72BF24AE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8F1DD4-9982-4349-973C-DE72BF24AE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFE72DF-424F-4ECA-AC22-47A128603B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFE72DF-424F-4ECA-AC22-47A128603B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFE72DF-424F-4ECA-AC22-47A128603B1C}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFE72DF-424F-4ECA-AC22-47A128603B1C}.QA|Any CPU.Build.0 = Release|Any CPU
+		{9DFE72DF-424F-4ECA-AC22-47A128603B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFE72DF-424F-4ECA-AC22-47A128603B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11CB947-2FCE-43C1-A755-283302B457C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11CB947-2FCE-43C1-A755-283302B457C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11CB947-2FCE-43C1-A755-283302B457C7}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{D11CB947-2FCE-43C1-A755-283302B457C7}.QA|Any CPU.Build.0 = QA|Any CPU
+		{D11CB947-2FCE-43C1-A755-283302B457C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11CB947-2FCE-43C1-A755-283302B457C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C6BD711-B00F-4FA6-9A85-33250F18BC86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C6BD711-B00F-4FA6-9A85-33250F18BC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C6BD711-B00F-4FA6-9A85-33250F18BC86}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{3C6BD711-B00F-4FA6-9A85-33250F18BC86}.QA|Any CPU.Build.0 = QA|Any CPU
+		{3C6BD711-B00F-4FA6-9A85-33250F18BC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C6BD711-B00F-4FA6-9A85-33250F18BC86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4AA3B9A-516B-46F2-A3E5-495A8BE5FFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4AA3B9A-516B-46F2-A3E5-495A8BE5FFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4AA3B9A-516B-46F2-A3E5-495A8BE5FFED}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{A4AA3B9A-516B-46F2-A3E5-495A8BE5FFED}.QA|Any CPU.Build.0 = Release|Any CPU
+		{A4AA3B9A-516B-46F2-A3E5-495A8BE5FFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4AA3B9A-516B-46F2-A3E5-495A8BE5FFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E31BCF-7E02-48E3-BF0C-6688AD668E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E31BCF-7E02-48E3-BF0C-6688AD668E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E31BCF-7E02-48E3-BF0C-6688AD668E58}.QA|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E31BCF-7E02-48E3-BF0C-6688AD668E58}.QA|Any CPU.Build.0 = Debug|Any CPU
+		{A5E31BCF-7E02-48E3-BF0C-6688AD668E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E31BCF-7E02-48E3-BF0C-6688AD668E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB82504B-332E-4E6C-90F8-6B084D388E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB82504B-332E-4E6C-90F8-6B084D388E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB82504B-332E-4E6C-90F8-6B084D388E5A}.QA|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB82504B-332E-4E6C-90F8-6B084D388E5A}.QA|Any CPU.Build.0 = Debug|Any CPU
+		{BB82504B-332E-4E6C-90F8-6B084D388E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB82504B-332E-4E6C-90F8-6B084D388E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613E506F-9483-49ED-9EF1-E95AC4A765A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613E506F-9483-49ED-9EF1-E95AC4A765A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613E506F-9483-49ED-9EF1-E95AC4A765A6}.QA|Any CPU.ActiveCfg = Debug|Any CPU
+		{613E506F-9483-49ED-9EF1-E95AC4A765A6}.QA|Any CPU.Build.0 = Debug|Any CPU
+		{613E506F-9483-49ED-9EF1-E95AC4A765A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613E506F-9483-49ED-9EF1-E95AC4A765A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A154905-2AEA-429E-ACC0-AA46C06F8AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A154905-2AEA-429E-ACC0-AA46C06F8AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A154905-2AEA-429E-ACC0-AA46C06F8AEA}.QA|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A154905-2AEA-429E-ACC0-AA46C06F8AEA}.QA|Any CPU.Build.0 = Debug|Any CPU
+		{2A154905-2AEA-429E-ACC0-AA46C06F8AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A154905-2AEA-429E-ACC0-AA46C06F8AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{997845B9-E8E6-4B56-91AA-56066C7536D6} = {C564DFD7-C435-485A-812B-B913C5C232F5}
+		{D5B0C8B2-F04E-4F7C-913B-769685C2FA83} = {C564DFD7-C435-485A-812B-B913C5C232F5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E29410E0-99CD-44A6-9C6E-716CAC4FFE4E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.astoriasolutions.com:40445/tfs/astoria%20main%20collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = astorWorkBackEnd\\astorWorkBackEnd.csproj
+		SccProjectName1 = astorWorkBackEnd
+		SccLocalPath1 = astorWorkBackEnd
+		SccProjectUniqueName2 = astorWorkDAO\\astorWorkDAO.csproj
+		SccProjectName2 = astorWorkDAO
+		SccLocalPath2 = astorWorkDAO
+		SccProjectUniqueName3 = astorWorkBackEndUnitTest\\astorWorkBackEndUnitTest.csproj
+		SccProjectName3 = astorWorkBackEndUnitTest
+		SccLocalPath3 = astorWorkBackEndUnitTest
+		SccProjectUniqueName4 = astorWorkUserManage\\astorWorkUserManage.csproj
+		SccProjectName4 = astorWorkUserManage
+		SccLocalPath4 = astorWorkUserManage
+		SccProjectUniqueName5 = astorWorkShared\\astorWorkShared.csproj
+		SccProjectName5 = astorWorkShared
+		SccLocalPath5 = astorWorkShared
+		SccProjectUniqueName6 = astorWorkGateWay\\astorWorkGateWay.csproj
+		SccProjectName6 = astorWorkGateWay
+		SccLocalPath6 = astorWorkGateWay
+		SccProjectUniqueName7 = astorWorkUserManageUnitTest\\astorWorkUserManageUnitTest.csproj
+		SccProjectName7 = astorWorkUserManageUnitTest
+		SccLocalPath7 = astorWorkUserManageUnitTest
+		SccProjectUniqueName8 = astorWorkBackgroundService\\astorWorkBackgroundService.csproj
+		SccProjectName8 = astorWorkBackgroundService
+		SccLocalPath8 = astorWorkBackgroundService
+		SccProjectUniqueName9 = astorWorkAdminPortal\\astorWorkAdminPortal.csproj
+		SccProjectName9 = astorWorkAdminPortal
+		SccLocalPath9 = astorWorkAdminPortal
+	EndGlobalSection
+EndGlobal

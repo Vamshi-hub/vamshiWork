@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_NoNav.cshtml";
+    var syncDT = ViewBag.SyncSession.LastSyncDate.ToLocalTime();
+}
+
+<h2 class="text-center">BIM Syncronization Session</h2>
+<p>@Html.ActionLink("Back to List", "Index", new { @class = "btn btn-default" })</p>
+<hr />
+
+<div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <h4>Details</h4>
+            <dl class="detail-table">
+                <dt>
+                    Last sync date/time
+                </dt>
+
+                <dd>
+                    @syncDT
+                </dd>
+
+                <dt>
+                    Synced Components
+                </dt>
+
+                <dd>
+                    @if (ViewBag.SyncedMaterials != null)
+                    {
+                        foreach (var material in ViewBag.SyncedMaterials)
+                        {
+                            <p><span>@material.Block</span>-<span>@material.Level</span>-<span>@material.Zone</span>-<span>@material.Block</span>-<span>@material.MarkingNo</span></p>
+                        }
+                    }
+                    else
+                    {
+                        <p>N.A.</p>
+                    }
+                </dd>
+
+                <dt>
+                    Components not found in BIM model
+                </dt>
+
+
+                <dd>
+                    @if (ViewBag.MissingMaterials != null)
+                    {
+                        foreach (var material in ViewBag.MissingMaterials)
+                        {
+                            <p><span>@material.Block</span>-<span>@material.Level</span>-<span>@material.Zone</span>-<span>@material.Block</span>-<span>@material.MarkingNo</span></p>
+                        }
+                    }
+                    else
+                    {
+                        <p>N.A.</p>
+                    }
+                </dd>
+
+                <dt>
+                    User
+                </dt>
+
+                <dd>
+                    @ViewBag.SyncSession.BIMUserInfo.UserName
+                </dd>
+
+            </dl>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <h4>Visiualization</h4>
+            @if (string.IsNullOrEmpty(ViewBag.SyncSession.VisualizeURL))
+            {
+                <p class="text-info">There is no visualization available</p>
+            }
+            else
+            {
+                <video width="640" height="480" controls>
+                    <source src="@ViewBag.SyncSession.VisualizeURL" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            }
+        </div>
+    </div>
+</div>

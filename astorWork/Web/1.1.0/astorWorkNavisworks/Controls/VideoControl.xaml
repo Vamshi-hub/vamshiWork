@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="astorWork_Navisworks.Controls.VideoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:astorWork_Navisworks.Controls"
+             mc:Ignorable="d" Background="White" 
+             d:DesignHeight="540" d:DesignWidth="960" Unloaded="UserControl_Unloaded">
+    <StackPanel Orientation="Vertical">
+        <MediaElement Name="mediaVideo" HorizontalAlignment="Center" Stretch="Uniform" MaxHeight="400"
+                      Source="{Binding UrlVideo}" LoadedBehavior="Play" UnloadedBehavior="Close" Loaded="mediaVideo_Loaded"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="btnSave" Content="Save As" Width="120" Height="32" Margin="5" Click="btnSave_Click" />
+            <Button Name="btnOK" Content="Back" Width="120" Height="32" Margin="5" Click="btnOK_Click"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

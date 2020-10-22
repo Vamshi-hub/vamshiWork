@@ -1,0 +1,16 @@
+<div class="page-header-row">
+    <h1 class="mat-h1 page-header">QC Case</h1>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<mat-accordion style="margin: 10px 0;">
+    <mat-expansion-panel *ngFor="let defect of defects">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Created by {{defect.createdBy}} at {{defect.createdDate}}
+            </mat-panel-title>
+            <mat-panel-description *ngIf="defect.updatedBy">
+                Updated by {{defect.updatedBy}} at {{defect.updatedDate}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>

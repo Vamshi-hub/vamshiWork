@@ -1,0 +1,7 @@
+﻿Hi there,
+
+{0} .
+You can view the Defect through this {1}. 
+
+Regards,
+astorWork Team

@@ -1,0 +1,33 @@
+h3 {
+  margin: 10px;
+  font-size: 0.75cm;
+}
+
+table {
+  margin: 10px;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+}
+
+.table thead th   {
+  vertical-align: top;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+  padding-left: 24px;
+  width: 10%;
+}
+::ng-deep .mat-select-arrow-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 24px;
+}
+::ng-deep .mat-pseudo-checkbox.mat-pseudo-checkbox-indeterminate {
+  border-color: transparent;
+  display: none;
+}
+::ng-deep .mat-option.mat-option-disabled {
+  color:black;
+}

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:light="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light"             
+             x:Class="astorTrackP.App">
+  <Application.Resources>
+    <ResourceDictionary MergedWith="light:LightThemeResources">      
+    </ResourceDictionary>    
+  </Application.Resources>
+</Application>
+
+
+<!--xmlns:theme="clr-namespace:astorTrackP"-->

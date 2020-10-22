@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="space-around stretch" class="full-size">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50px" class="page-header-row">
+    <div fxFlex>
+      <h1 class="mat-h1 page-header">Reports</h1>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around stretch" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap="10px">
+    <mat-card fxFlex="25%">
+      <mat-nav-list *ngIf="power_bi_reports">
+        <a mat-list-item [routerLink]="[report.id]" *ngFor="let report of power_bi_reports">
+          {{ report.name }}
+          <mat-icon matListIcon>assessment</mat-icon></a>
+      </mat-nav-list>
+      <app-common-loading *ngIf="isLoading"></app-common-loading>
+    </mat-card>
+    <div fxFlex="75%">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

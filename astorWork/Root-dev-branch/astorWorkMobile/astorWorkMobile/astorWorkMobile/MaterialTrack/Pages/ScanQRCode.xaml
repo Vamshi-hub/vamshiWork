@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.ScanQRCode"
+             BindingContext="{x:Static utilities:ViewModelLocator.scanTrackerVM}"
+             Title="Scan QR Code"
+             Appearing="ContentPage_Appearing" Disappearing="ContentPage_Disappearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid >
+            <zxing:ZXingScannerView x:Name="scanView" OnScanResult="scanView_OnScanResult"   
+                                    IsScanning="True" IsAnalyzing="{Binding AllowScan}"
+                                    AutomationId="QRCodeScanView"
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <zxing:ZXingScannerView.GestureRecognizers>
+                    <PinchGestureRecognizer PinchUpdated="PinchGestureRecognizer_PinchUpdated" />
+                </zxing:ZXingScannerView.GestureRecognizers>
+            </zxing:ZXingScannerView>
+            <StackLayout  VerticalOptions="EndAndExpand" x:Name="GridQRList"  BackgroundColor="White" >
+                <StackLayout BackgroundColor="#145ca4" Padding="3" x:Name="SwipeHeader">
+                    <Image x:Name="SwipeIcon" Source="ic_double_up.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="Swipe up/down to display/hide scanned items" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <ListView ItemsSource="{Binding ListMaterialItems}" VerticalOptions="FillAndExpand" SelectionMode="None" HasUnevenRows="True"
+                             IsVisible="{Binding ShowSingleMaterial, Converter={StaticResource inverseBool}}" Margin="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <views:MaterialFrameView Margin="0,5"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--<ListView x:Name="listUnKnownTags" VerticalOptions="FillAndExpand" SelectionMode="None" HasUnevenRows="True"
+                             IsVisible="{Binding }" Margin="5">
+                    <ListView.Header>
+                        <Label Text="Un known tags"/>
+                    </ListView.Header>
+                </ListView>-->
+                <Grid IsVisible="{Binding ShowSingleMaterial}"
+                      HorizontalOptions="Fill" VerticalOptions="Center">
+                    <views:MaterialFrameView BindingContext="{Binding MaterialItem}"/>
+                </Grid>
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="SwipeGestureRecognizer_Swiped"/>
+                    <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label StyleClass="Header" TextColor="Red" Text="No camera available"
+                   HorizontalTextAlignment="Center" VerticalOptions="Center"
+                   IsVisible="{Binding CameraReady, Converter={StaticResource inverseBool}}" />
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

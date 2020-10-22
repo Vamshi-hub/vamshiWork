@@ -1,0 +1,19 @@
+<div id="mainContainer">
+  <div id="viewerContainer" *ngIf="!errorMessage">
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" class="viewerControls" fxLayoutGap="10px" *ngIf="!isLoading">
+    <mat-slide-toggle (change)="onToggleIsolate()" checked="true" *ngIf="elementID && model">Isolate</mat-slide-toggle>
+    <mat-slide-toggle (change)="onToggleProgress()" [checked]="showProgress" *ngIf="progress && model">Progress</mat-slide-toggle>
+    <button mat-mini-fab (click)="onZoomInButtonClicked()" *ngIf="elementID && model">
+      <mat-icon aria-label="Zoom In" title="Zoom In">zoom_in</mat-icon>
+    </button>
+    <button mat-mini-fab (click)="onZoomOutButtonClicked()" *ngIf="model">
+      <mat-icon aria-label="Zoom Out" title="Zoom Out">zoom_out</mat-icon>
+    </button>
+    <button mat-button (click)="onBackButtonClicked()" class="mobile-hidden">Back</button>
+  </div>
+  <mat-card *ngIf="errorMessage" fxFlex>
+    <h3>{{errorMessage}}</h3>
+  </mat-card>
+  <app-common-loading *ngIf="isLoading" style="margin-left: -50px; left: 50%; top: 40%; position: absolute;"></app-common-loading>
+</div>

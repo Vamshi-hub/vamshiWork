@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaconAPI", "BeaconAPI\BeaconAPI.csproj", "{B32EA6E2-2838-4F0A-A961-CC3AA231608F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaconDbUpdates", "..\signalrdatabasenotifications-master\signalrdatabasenotifications-master\SignalRDbUpdates\BeaconDbUpdates.csproj", "{9051592F-607A-4EA1-AD38-0BD3E1D81B31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluecatsReceiver", "..\BluecatsReceiver\BluecatsReceiver\BluecatsReceiver.csproj", "{32179BA0-8BFE-4A28-B8FD-0ACDAD13E82C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B32EA6E2-2838-4F0A-A961-CC3AA231608F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B32EA6E2-2838-4F0A-A961-CC3AA231608F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B32EA6E2-2838-4F0A-A961-CC3AA231608F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B32EA6E2-2838-4F0A-A961-CC3AA231608F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9051592F-607A-4EA1-AD38-0BD3E1D81B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9051592F-607A-4EA1-AD38-0BD3E1D81B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9051592F-607A-4EA1-AD38-0BD3E1D81B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9051592F-607A-4EA1-AD38-0BD3E1D81B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32179BA0-8BFE-4A28-B8FD-0ACDAD13E82C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32179BA0-8BFE-4A28-B8FD-0ACDAD13E82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32179BA0-8BFE-4A28-B8FD-0ACDAD13E82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32179BA0-8BFE-4A28-B8FD-0ACDAD13E82C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4AC2C7C8-C691-4B18-869D-B1DE3F30BB0B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.astoriasolutions.com:40445/tfs/astoria%20main%20collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BeaconAPI\\BeaconAPI.csproj
+		SccProjectName1 = BeaconAPI
+		SccLocalPath1 = BeaconAPI
+		SccProjectUniqueName2 = ..\\signalrdatabasenotifications-master\\signalrdatabasenotifications-master\\SignalRDbUpdates\\BeaconDbUpdates.csproj
+		SccProjectName2 = ../signalrdatabasenotifications-master/signalrdatabasenotifications-master/SignalRDbUpdates
+		SccLocalPath2 = ..\\signalrdatabasenotifications-master\\signalrdatabasenotifications-master\\SignalRDbUpdates
+		SccProjectUniqueName3 = ..\\BluecatsReceiver\\BluecatsReceiver\\BluecatsReceiver.csproj
+		SccProjectName3 = ../BluecatsReceiver/BluecatsReceiver
+		SccLocalPath3 = ..\\BluecatsReceiver\\BluecatsReceiver
+	EndGlobalSection
+EndGlobal

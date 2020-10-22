@@ -1,0 +1,67 @@
+example-header-image {
+  background-size: cover;
+}
+.mat-card-image-box{
+  width: 25px;
+  height: 25px;
+  margin-bottom: -44%;
+  margin-left: 27%;
+}
+.mat-card-image-unbox{
+  width: 45px;
+  height: 45px;
+  margin-bottom: -44%;
+  margin-left: 27%;
+}
+.mat-card-avatar{
+  height: 55px;
+  width: 55px;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.top-card-header-image-box{
+  margin-top: -20px;
+}
+.top-card-header-image-unbox{
+margin-top: 0px;
+}
+.text-color{
+  color: white;
+}
+::ng-deep .mat-tab-body-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  transition: height .5s cubic-bezier(.35, 0, .25, 1);
+  z-index: 0;
+}
+
+::ng-deep .mat-tab-header {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  z-index: 0;
+}
+
+.mat-card-class {
+  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  display: block;
+  position: relative;
+  padding: 6px;
+  border-radius: 5px;
+  color: #615e5e;
+}
+.card-pointer{
+  cursor: pointer;
+}
+
+.math3{
+  margin: 0 0 0px;
+}
+.settings{
+  box-sizing: border-box;
+  background: #cac2c2;
+  border-radius: 15px 0px 0px 15px;
+}

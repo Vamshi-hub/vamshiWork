@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.HomePage"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             Title="Home">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary" Text="Clear Cache" x:Name="btnClearCache" Activated="btnClearCache_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Margin="5" VerticalOptions="Center" HorizontalOptions="Center">
+        <Frame OutlineColor="Black" BackgroundColor="WhiteSmoke" x:Name="framePendingTask">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="btnPendingTask" Tapped="btnPendingTask_Tapped"/>
+            </Frame.GestureRecognizers>
+            <Grid>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Label FontSize="32" x:Name="lblCountPendingTask" VerticalTextAlignment="Center">0</Label>
+                    <Label VerticalTextAlignment="Center"> pending tasks</Label>
+                </StackLayout>
+                <iconize:IconImage Icon="md-keyboard-arrow-right" HeightRequest="40" HorizontalOptions="End"/>
+            </Grid>
+        </Frame>
+        <Frame OutlineColor="Black" BackgroundColor="WhiteSmoke">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="btnScan" Tapped="btnScan_Tapped"/>
+            </Frame.GestureRecognizers>
+            <Grid>
+                <Label VerticalOptions="Center">Scan beacons</Label>
+                <iconize:IconImage Icon="md-keyboard-arrow-right" HeightRequest="40" HorizontalOptions="End"/>
+            </Grid>
+        </Frame>
+    </StackLayout>
+</ContentPage>

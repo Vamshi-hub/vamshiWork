@@ -1,0 +1,71 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1 page-header">Notifications</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" fxLayout.xs="column" class="page-header-row" *ngIf="!isLoading">
+  <div>
+    <mat-form-field fxFlex>
+      <mat-select placeholder="Notfication Level" (selectionChange)="onNotificationForChanged($event)" id="delvryFltrSelect"
+        [(ngModel)]="selectedNotificationfor">
+        <mat-option value="project">Main Contractor</mat-option>
+        <mat-option value="site">Organisation</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+    <mat-form-field fxFlex *ngIf="showProject">
+      <mat-select placeholder="Select Project" (selectionChange)="onProjectSelected($event)" id="projectSelect"
+        [(ngModel)]="selectedProject">
+        <mat-option *ngFor="let data of projects" [value]='data.id'>
+          {{ data.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex *ngIf="!showProject">
+      <mat-select placeholder="Select Organisation" (selectionChange)="onOrganisationSelected($event)" id="organisationSelect"
+        [(ngModel)]="selectedOrganisation">
+        <mat-option *ngFor="let data of organisations" [value]='data.id'>
+          {{ data.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex *ngIf="!showProject && selectedOrganisation != 0">
+      <mat-select placeholder="Select Site" (selectionChange)="onSiteSelected($event)" id="siteSelect" [(ngModel)]="selectedSite">
+        <mat-option *ngFor="let data of organisationSites" [value]='data.id'>
+          {{ data.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div *ngIf="VsibleNotification">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <div *ngFor="let notification of lstNotification let last=last;" fxFlex="25%">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{notification.notificationName}}</mat-card-title>
+          <mat-card-subtitle>{{notification.description}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content fxLayout="column" fxLayoutGap="10px">
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+            <span fxFlex="80px">Schedule at:</span>
+            <mat-form-field>
+              <input matInput [ngxTimepicker]="timePicker" [value]="value" [(ngModel)]="notification.timer">
+              <ngx-material-timepicker #timePicker [minutesGap]="5"></ngx-material-timepicker>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <span fxFlex="80px">Enabled:</span>
+            <mat-checkbox fxFlex [checked]="checked" [(ngModel)]="notification.enabled" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center end" fxLayoutGap="10px" style="margin-top: 20px;">
+    <button mat-raised-button color="primary" type="button" (click)="OnSave()" [disabled]="accessRight < 2">Save</button>
+    <button mat-raised-button color="primary" type="reset" (click)="OnReset()" [disabled]="accessRight < 2">Reset</button>
+  </div>
+</div>

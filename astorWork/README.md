@@ -1,0 +1,2 @@
+# Vision
+**To provide a solution that provides real time performance data such as utilisation and KPIs that allow them to make informed decisions quickly on their projects thus avoiding unnecessary costs and improving profit margins.**

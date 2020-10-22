@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:local="clr-namespace:astorWorkMobile.MaterialTrack.Pages"
+             BindingContext="{x:Static utilities:ViewModelLocator.qcDefectVM}"
+             Title="QC Defect Photos"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.ViewQCPhoto">
+    <ContentPage.Content>
+        <!--<Grid>-->
+            <cv:CarouselViewControl x:Name="cvProducts" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"   CurrentPageIndicatorTintColor="Red" ShowIndicators="True" 
+                                    IndicatorsShape="Circle" IndicatorsTintColor="Black" ItemsSource="{Binding QCPhotos}" ShowArrows="True" IsSwipeEnabled="True">
+                <cv:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                    <utilities:PinchToZoomContainer VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <utilities:PinchToZoomContainer.Content>
+                                <StackLayout>
+                                    <ff:CachedImage Source="{Binding Image}" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    </ff:CachedImage>
+                                <Label Text="{Binding Remarks}" StyleClass="Subheader" HorizontalTextAlignment="Center" Margin="10,0,0,20"/>
+                            </StackLayout>
+                            </utilities:PinchToZoomContainer.Content>
+                        </utilities:PinchToZoomContainer>
+                    </DataTemplate>
+                </cv:CarouselViewControl.ItemTemplate>
+            </cv:CarouselViewControl>
+        <!--</Grid>-->
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.ScanRFID"
+             BindingContext="{x:Static utilities:ViewModelLocator.scanTrackerVM}"
+             Title="Scan RFID" Disappearing="OnDisappearing" Appearing="OnAppearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Button StyleClass="Primary" Text="{Binding ToggleScanButtonLabel}" Clicked="OnScanButtonClicked" WidthRequest="100" CornerRadius="20"/>
+                <Image Source="ic_location_base.png" x:Name="icoScan" IsVisible="False"
+                       WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"
+                       Margin="0, 5"/>
+                <Grid IsVisible="{Binding ShowContent}">
+                    <ListView ItemsSource="{Binding ListMaterialItems}" VerticalOptions="FillAndExpand"
+                      SeparatorVisibility="None" IsVisible="{Binding ShowSingleMaterial, Converter={StaticResource inverseBool}}" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <views:MaterialFrameView Margin="0, 5"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Grid IsVisible="{Binding ShowSingleMaterial}"
+                      HorizontalOptions="Fill" VerticalOptions="Center">
+                        <views:MaterialFrameView BindingContext="{Binding MaterialItem}"/>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,6 @@
+<div class="full-size" fxLayout="row" fxLayoutAlign="center center">
+  <h4 style="color: crimson;">
+    <span *ngIf="message;else noMessage">{{message}}</span>
+    <ng-template #noMessage>We are sorry, but an unkown error happened.</ng-template>
+  </h4>
+</div>

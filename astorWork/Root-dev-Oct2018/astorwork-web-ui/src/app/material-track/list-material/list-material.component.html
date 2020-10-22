@@ -1,0 +1,106 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayout.xs="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">Materials</h1>
+  </div>
+  <div fxFlex="25">
+    <mat-form-field>
+      <mat-select placeholder="Delivery Status" (selectionChange)="onDeliveryStatusChanged($event)" id="delvryFltrSelect" [(value)]="selectedDeliveryFilter">
+        <mat-option value="0">All</mat-option>
+        <mat-option value="1">Expected Today</mat-option>
+        <mat-option value="2">Delayed Delivery</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxFlex="25">
+    <mat-form-field>
+      <mat-select placeholder="Block" (selectionChange)="onBlockChanged($event)" id="blkSelect" [(value)]="selectedBlock">
+        <mat-option value='All'>All</mat-option>
+        <mat-option *ngFor="let blk of blocks" [value]='blk'>
+          {{ blk }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxFlex="25">
+    <mat-form-field *ngIf="selectedBlock">
+      <input matInput (keyup)="onFilterKeyIn($event)" placeholder="Filter" [(ngModel)]='filterMRF'>
+      <button mat-button *ngIf="filterMRF" matSuffix mat-icon-button aria-label="Clear" (click)="dataSource.filter = filterMRF = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div fxFlex="10" fxHide.xs="true">
+    <button mat-stroked-button color="primary" [matMenuTriggerFor]="addMaterialMenu">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon aria-label="Add Meterial">add</mat-icon>
+        <span>Add</span>
+      </div>
+    </button>
+    <mat-menu #addMaterialMenu="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item routerLink='/material-tracking/import-material' routerLinkActive="nav-menu-active">Import from
+        template</button>
+    </mat-menu>
+  </div>
+</div>
+<mat-table #table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="markingNo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Marking No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="block">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Block </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="level">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Level </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="zone">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Zone </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="materialType">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.materialType}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mrfNo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"> MRF No. </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.mrfNo}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="expectedDeliveryDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"> Expected Delivery </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.expectedDeliveryDate | date:'M/d/yyyy'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="stageName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-chip-list>
+        <mat-chip [style.background-color]="element.stageColour">
+          {{element.stageName}}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"></mat-header-cell>
+    <mat-cell *matCellDef="let element" class="mobile-hidden"> 
+      <button mat-mini-fab *ngIf="element.modelUrn" (click)="$event.stopPropagation();onViewBIMClicked(element);">
+          <mat-icon aria-label="Show in BIM" title="Show in BIM">3d_rotation</mat-icon>
+      </button> 
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.id}}"></mat-row>
+</mat-table>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+</mat-paginator>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

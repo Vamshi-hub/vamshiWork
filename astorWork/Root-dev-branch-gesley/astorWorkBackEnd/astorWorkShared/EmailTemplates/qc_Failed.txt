@@ -1,0 +1,9 @@
+﻿Dear Sir/Madam,
+
+A new defect has been raised. Please view below details.
+
+{0}
+Click {1} to view the defect. 
+
+Regards,
+astorWork Team

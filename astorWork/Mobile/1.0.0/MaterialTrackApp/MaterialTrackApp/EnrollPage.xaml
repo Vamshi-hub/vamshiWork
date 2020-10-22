@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.EnrollPage"
+             xmlns:localClass="clr-namespace:MaterialTrackApp.Class;assembly=MaterialTrackApp"
+             xmlns:utility="clr-namespace:MaterialTrackApp.Utility;assembly=MaterialTrackApp"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             BindingContext="{x:Static utility:ViewModelLocator.EnrollPageVM}"
+             Title="Enroll Materials">
+    <ContentPage>
+        <ContentPage.Content>
+            <StackLayout Margin="5" VerticalOptions="FillAndExpand">
+                <Label StyleClass="Header" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">1. Filter materials by location</Label>
+                <Grid Margin="0, 10, 0, 10" MinimumHeightRequest="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center">Block</Label>
+                    <Picker x:Name="pickBlock" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"
+                            SelectedIndexChanged="pickBlock_SelectedIndexChanged"
+                            ItemsSource="{Binding Blocks}" Title="Select a block">
+                    </Picker>
+                    <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center">Level</Label>
+                    <Picker x:Name="pickLevel" VerticalOptions="Center" Grid.Row="1" Grid.Column="1"
+                            SelectedIndexChanged="pickLevel_SelectedIndexChanged" ItemsSource="{Binding Levels}"
+                             Title="Select a level">
+                    </Picker>
+                    <Label Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center">Zone</Label>
+                    <Picker x:Name="pickZone" VerticalOptions="Center" Grid.Row="2" Grid.Column="1"
+                            SelectedIndexChanged="pickZone_SelectedIndexChanged" ItemsSource="{Binding Zones}"
+                            Title="Select a zone">
+                    </Picker>
+                </Grid>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage>
+        <ContentPage.Content>
+            <StackLayout Margin="5" VerticalOptions="FillAndExpand">
+                <Label StyleClass="Header" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">2. Link a beacon to a material</Label>
+                <Grid Margin="0, 10, 0, 0">
+                    <ListView x:Name="EnrollList" ItemsSource="{Binding Beacons}" 
+                              CachingStrategy="RecycleElement" HorizontalOptions="Fill">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Label Text="{Binding DisplayName}" VerticalTextAlignment="Center"/>
+                                        <!--
+                                            <iconize:IconImage Icon="md-link" HeightRequest="30" WidthRequest="30" />
+                                            -->
+                                        <Picker VerticalOptions="Center" ItemsSource="{Binding Source={x:Static utility:ViewModelLocator.EnrollPageVM}, Path=Materials}" ItemDisplayBinding="{Binding MarkingNo}" SelectedItem="{Binding Path=Material, Mode=TwoWay}" Title="Select a material"  HorizontalOptions="Fill"  Margin="150, 0, 0, 0" x:Name="pickBindMaterial" SelectedIndexChanged="pickBindMaterial_SelectedIndexChanged"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage>
+        <ContentPage.Content>
+            <StackLayout Margin="5" VerticalOptions="FillAndExpand">
+                <Label StyleClass="Header" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">3. Manual enroll materials</Label>
+                <Grid Margin="0, 10, 0, 0">
+                    <ListView x:Name="PendingList" ItemsSource="{Binding PendingMaterials}" 
+                              CachingStrategy="RecycleElement" HorizontalOptions="Fill">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Switch IsToggled="{Binding Path=IsInUse, Mode=TwoWay}"/>
+                                        <Label Text="{Binding MarkingNo}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage>
+        <ContentPage.Content>
+            <StackLayout Margin="5" VerticalOptions="FillAndExpand">
+                <Label StyleClass="Header" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">4. Select casting date and lot no.</Label>
+                <Grid Margin="0, 10, 0, 0">
+                    <Label Text="Casting Date" VerticalTextAlignment="Center"/>
+                    <DatePicker x:Name="pickCastingDate" Margin="100, 0, 0, 0"/>
+                </Grid>
+                <Grid>
+                    <Label Text="Lot No." VerticalTextAlignment="Center"/>
+                    <Entry Keyboard="Numeric" x:Name="entryLotNo" Margin="100, 0, 0, 0">
+                        <Entry.Behaviors>
+                            <localClass:NumericBehavior />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Grid>
+                <Button x:Name="btnSubmit" StyleClass="Primary" Clicked="btnSubmit_Clicked"
+                    HorizontalOptions="Center" Text="Submit" MinimumWidthRequest="160" MinimumHeightRequest="60"/>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</CarouselPage>

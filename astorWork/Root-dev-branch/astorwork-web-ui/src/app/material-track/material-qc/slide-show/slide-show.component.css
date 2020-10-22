@@ -1,0 +1,55 @@
+:host{
+    display: block;
+    width: 100%;
+}
+
+::ng-deep.ui-carousel-item{
+    height: 100% !important;
+    background: transparent !important;
+}
+
+/*
+::ng-deep.ui-carousel-item{
+    background: white !important;
+  }
+
+  ::ng-deep.arrow::before, ::ng-deep.arrow::after{
+    background: orange !important;
+  }
+  */
+
+.carousel-single{
+    width: 480px;
+    height: 80vh;
+}
+
+.carousel-dual{
+    width: 970px;
+    height: 80vh;
+}
+
+ui-carousel{
+    height: 100% !important;
+}
+
+.carousel-content{
+   width: 100%;
+   height: 100%;
+}
+
+
+.carousel img {
+   /* position: absolute; */
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 100%;
+    max-width: none;
+  }
+
+.photo-info {
+    width: 94%;
+    margin: 11px auto;
+    margin-top: -59px;
+    /* height: 59%; */
+}

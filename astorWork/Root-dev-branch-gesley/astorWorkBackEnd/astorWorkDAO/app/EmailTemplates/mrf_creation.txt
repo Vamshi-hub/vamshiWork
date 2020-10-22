@@ -1,0 +1,8 @@
+﻿Hi there,
+
+A new MRF {0} has been created with {1} materials. 
+You can view the MRF through this {2}. 
+
+
+Regards,
+astorWork Team

@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="astorWorkMobile.JobTrack.Pages.SubconHome"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             BindingContext="{x:Static utilities:ViewModelLocator.subconHomeVM}"
+            Title="Home" Appearing="TabbedPage_Appearing" Disappearing="TabbedPage_Disappearing"
+            BarBackgroundColor="#145ca4">
+    <TabbedPage.Children>
+        <ContentPage Title="QC Notifications" Appearing="QCNotifications_Appearing">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+        </ContentPage.ToolbarItems>
+        <Grid Padding="5">
+                <StackLayout>
+            <Frame VerticalOptions="Start">
+                <StackLayout>
+                    <Label Text="Project: "/>
+                    <Picker Title="Select a project"
+                            ItemsSource="{Binding Projects}"
+                            ItemDisplayBinding="{Binding name}"
+                            SelectedItem="{Binding SelectedProject}"/>
+                </StackLayout>
+            </Frame>
+            <!--<ScrollView Margin="0,110,0,0">-->
+                <ListView ItemsSource="{Binding QCNotifications}" VerticalOptions="FillAndExpand" HasUnevenRows="True"
+                          SelectionMode="None" CachingStrategy="RecycleElement" SeparatorColor="Transparent" SeparatorVisibility="None"> 
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout  BackgroundColor="Transparent" Margin="0,0,0,5">
+                                        <Frame Padding="3">
+                                            <StackLayout  Padding="5">
+                                                <!--#region Header-->
+                                                <StackLayout Orientation="Horizontal" >
+                                                    <BoxView BackgroundColor="{Binding StatusColor}"  WidthRequest="6"></BoxView>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding TradeName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                                        <Label Text="{Binding ModuleName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                                        <Label Text="{Binding Status}" StyleClass="Heading" TextColor="{Binding StatusColor}"/>
+                                                    </StackLayout>
+                                                    <Image Source="{Binding ExpansionIcon}" HeightRequest="20" WidthRequest="20"
+                                               HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ExpandCommand}" />
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                                <!--#endregion-->
+
+                                                <!--#region Sub Header-->
+                                                <StackLayout Orientation="Vertical" IsVisible="{Binding IsExpanded}">
+                                                    <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Module:</Label>
+                                                <Label StyleClass="Subheader" Text="{Binding ModuleName}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            </StackLayout>-->
+                                                    <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Sub-Con.:</Label>
+                                                <Label StyleClass="Subheader" Text="{Binding SubConName}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding ShowSubcon}"/>
+                                            </StackLayout>-->
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                        <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned Start:</Label>
+                                                        <Label  StyleClass="Subheader" Text="{Binding Start, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                    HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                        <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned End:</Label>
+                                                        <Label StyleClass="Subheader" Text="{Binding End, StringFormat='{0:MM/dd/yyyy}'}"
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualStartDate}">
+                                                        <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">StartDate:</Label>
+                                                        <Label  StyleClass="Subheader" Text="{Binding ActualStartDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                    HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualEndDate}">
+                                                        <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">EndDate:</Label>
+                                                        <Label StyleClass="Subheader" Text="{Binding ActualEndDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                    </StackLayout>
+                                                    <ImageButton  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" WidthRequest="60" HeightRequest="40" CornerRadius="20"  Source="ic_list.png" 
+                                                Command="{Binding ChecklistCommand}"
+                                                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
+                                                <!--#endregion-->
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            <!--</ScrollView>-->
+                </StackLayout>
+                <StackLayout VerticalOptions="End" HorizontalOptions="End" >
+                        <ImageButton x:Name="btnQRScan_QCNotify"  Source="ic_qr_code_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanQRFABCommand}"/>
+                        <!--<ImageButton x:Name="btnRFIDScan_QCNotify"  Source="ic_rfid_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanRFIDFABCommand}"/>-->
+                        <ImageButton x:Name="btnScan_QCNotify" Source="ic_scan_base.png" BackgroundColor="Transparent" HeightRequest="60" WidthRequest="60" Clicked="BtnScan_QCNotify_Clicked" />
+                    </StackLayout>
+                    <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Job Summary" Appearing="JobSummary_Appearing">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+        </ContentPage.ToolbarItems>
+        <Grid Padding="5" >
+            <Frame VerticalOptions="Start">
+                <StackLayout>
+                    <Label Text="Project: "/>
+                    <Picker Title="Select a project"
+                            ItemsSource="{Binding Projects}"
+                            ItemDisplayBinding="{Binding name}"
+                            SelectedItem="{Binding SelectedProject}"/>
+                </StackLayout>
+            </Frame>
+            <ScrollView Margin="0,110,0,0">
+                <StackLayout BindableLayout.ItemsSource="{Binding JobNotifications}" VerticalOptions="FillAndExpand">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <!--<Frame Margin="0, 5" BackgroundColor="Transparent">
+                                <StackLayout>
+                                    <FlexLayout Direction="Column">
+                                        <Label Text="Module: "/>
+                                        <Label Text="{Binding ModuleName}" StyleClass="Subheader" />
+                                    </FlexLayout>
+                                    <FlexLayout Direction="Column">
+                                        <Label Text="Job: "/>
+                                        <Label Text="{Binding TradeName}" StyleClass="Subheader"/>
+                                    </FlexLayout>
+                                    <BoxView Color="Silver" HeightRequest="1"/>
+                                    <FlexLayout Direction="Column">
+                                        <Label Text="Planned Start Date: "/>
+                                        <Label Text="{Binding Start, StringFormat='{0:MM/dd/yyyy}'}}" StyleClass="Subheader" />
+                                    </FlexLayout>
+                                    <FlexLayout Direction="Column">
+                                        <Label Text="Planned End Date: "/>
+                                        <Label Text="{Binding End, StringFormat='{0:MM/dd/yyyy}'}}" StyleClass="Subheader" />
+                                    </FlexLayout>
+                                    <BoxView Color="Silver" HeightRequest="1"/>
+                                    <Label Text="{Binding Status}" 
+                                           TextColor="{Binding StatusColor}" 
+                                           StyleClass="Subheader"
+                                           HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </Frame>-->
+                            <Frame Padding="3">
+                                <StackLayout  Padding="5">
+                                    <!--#region Header-->
+                                    <StackLayout Orientation="Horizontal">
+                                        <BoxView BackgroundColor="{Binding StatusColor}"  WidthRequest="6"></BoxView>
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <Label Text="{Binding TradeName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                            <Label Text="{Binding ModuleName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                            <Label Text="{Binding Status}" StyleClass="Heading" TextColor="{Binding StatusColor}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <!--<Image Source="ic_warning.png"
+                                                       HeightRequest="20" WidthRequest="20"
+                                                       IsVisible="{Binding ShowWarning}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,20,0"/>-->
+                                            <Image Source="{Binding ExpansionIcon}" HeightRequest="20" WidthRequest="20"
+                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ExpandCommand}" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <!--#endregion-->
+
+                                    <!--#region Sub Header-->
+                                    <StackLayout Orientation="Vertical" IsVisible="{Binding IsExpanded}">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowSubcon}">
+                                            <Label  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Sub-Con.:</Label>
+                                            <Label StyleClass="Subheader" Text="{Binding SubConName}"
+                             HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <!--<Grid IsVisible="{Binding ShowSubconSelection}">
+                                            <Label VerticalTextAlignment="Center">Sub-Con.:</Label>
+                                            <Picker Title="Select a Subcon" Margin="110,0,0,0" StyleClass="Subheader"
+                                  ItemsSource="{Binding BindingContext.ListSubcons, Source={x:Reference jobSchedulePage}}"
+                                  ItemDisplayBinding="{Binding Name}"
+                                  SelectedItem="{Binding SelectedSubcon}"/>
+                                        </Grid>-->
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowStartDate}">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned Start:</Label>
+                                            <Label  StyleClass="Subheader" Text="{Binding Start, StringFormat='{0:MM/dd/yyyy}'}"
+                              HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <Grid IsVisible="{Binding ShowAssignButton}">
+                                            <Label VerticalTextAlignment="Center">Planned Start:</Label>
+                                            <DatePicker MinimumDate="{Binding Today}" Date="{Binding PlannedSD}" Margin="110,0,0,0"/>
+                                        </Grid>
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  IsVisible="{Binding ShowEndDate}">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned End:</Label>
+                                            <Label StyleClass="Subheader" Text="{Binding End, StringFormat='{0:MM/dd/yyyy}'}"
+                             HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <Grid  IsVisible="{Binding ShowAssignButton}">
+                                            <Label VerticalTextAlignment="Center">Planned End:</Label>
+                                            <DatePicker MinimumDate="{Binding PlannedSD}" Date="{Binding PlannedED}" Margin="110,0,0,0"/>
+                                        </Grid>
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualStartDate}">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">StartDate:</Label>
+                                            <Label  StyleClass="Subheader" Text="{Binding ActualStartDate, StringFormat='{0:MM/dd/yyyy}'}"
+                              HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualEndDate}">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">EndDate:</Label>
+                                            <Label StyleClass="Subheader" Text="{Binding ActualEndDate, StringFormat='{0:MM/dd/yyyy}'}"
+                             HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding Status}" 
+                                           TextColor="{Binding StatusColor}" 
+                                           StyleClass="Subheader"
+                                           HorizontalTextAlignment="Center"/>
+                                        <StackLayout>
+                                                <Button StyleClass="Primary" Text="Start" HeightRequest="40" CornerRadius="20" WidthRequest="100" HorizontalOptions="Center" IsVisible="{Binding ShowStartJobButton}" Command="{Binding StartJobCommand}"/>
+                                                <Button StyleClass="Primary" Text="Complete" HeightRequest="40" CornerRadius="20" WidthRequest="100" HorizontalOptions="Center" IsVisible="{Binding ShowCompleteJobButton}" Command="{Binding CompleteJobCommand}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <!--#endregion-->
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End" HorizontalOptions="End" >
+                <ImageButton x:Name="btnQRScan_JobSummary"  Source="ic_qr_code_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanQRFABCommand}"/>
+                <!--<ImageButton x:Name="btnRFIDScan_JobSummary"  Source="ic_rfid_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanRFIDFABCommand}"/>-->
+                <ImageButton x:Name="btnScan_JobSummary" IsVisible="{Binding ShowScanButton}" Source="ic_scan_base.png" BackgroundColor="Transparent" HeightRequest="60" WidthRequest="60" Clicked="BtnScan_JobSummary_Clicked" />
+            </StackLayout>
+
+            <!--<Button WidthRequest="60" HeightRequest="60" BorderRadius="30" Margin="5"
+                VerticalOptions="End" HorizontalOptions="End" IsVisible="{Binding ShowScanButton}"
+                Image="ic_qr_code_base.png" Command="{Binding AssociateQRCommand}"/>-->
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

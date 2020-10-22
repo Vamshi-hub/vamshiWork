@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:effect="clr-namespace:astorWorkMobile.Shared.Effect"
+             x:Class="astorWorkMobile.MainContentPageMaster"
+             BindingContext="{x:Static utilities:ViewModelLocator.mainContentPageVM}">
+    <StackLayout>
+        <Grid HeightRequest="45" BackgroundColor="#1769bb" Padding="5">
+            <Label Text="astorWork" TextColor="White" FontSize="Large" VerticalOptions="End"/>
+            <ContentView.Effects>
+                <effect:SafeAreaPaddingEffect />
+            </ContentView.Effects>
+        </Grid>
+        <Label StyleClass="Subheader" Margin="16" Text="{Binding WelcomeMessage}"/>
+        <StackLayout BindableLayout.ItemsSource="{Binding MasterPageItems}" x:Name="menuItems">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Frame Style="{StaticResource frameButtonStyle}" 
+                           StyleClass="ButtonStyle" Margin="16"
+                           HeightRequest="70" Padding="5" IsVisible="{Binding ShowItem}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding TargetCommand}" />
+                        </Frame.GestureRecognizers>
+                        <FlexLayout Direction="Row" JustifyContent="Start"
+                                    AlignItems="Center">
+                            <Image Source="{Binding Icon}" WidthRequest="32"
+                                   Margin="0,0,5,0"/>
+                            <Label FontSize="Medium" Text="{Binding Title}" />
+                        </FlexLayout>
+                    </Frame>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

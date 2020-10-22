@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utility="clr-namespace:MaterialTrackApp.Utility;assembly=MaterialTrackApp"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             BindingContext="{x:Static utility:ViewModelLocator.ReportPageVM}"
+             x:Class="MaterialTrackApp.ReportPage">
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <Grid x:Name="layoutNoData" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label TextColor="OrangeRed" Text="No dashboard found" StyleClass="Header"/>
+            </Grid>
+            <ListView x:Name="listDashboards" GroupDisplayBinding="{Binding Key}" IsGroupingEnabled="true"
+                      ItemsSource="{Binding Groups}" ItemSelected="listDashboards_ItemSelected"
+                      IsPullToRefreshEnabled="True" Refreshing="listDashboards_Refreshing">
+                <ListView.Header>
+                    <Label StyleClass="Header" Text="List of dashboards" HorizontalTextAlignment="Center"/>
+                </ListView.Header>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Key}" StyleClass="Subheader" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="WhiteSmoke">
+                                <Label Text="{Binding DisplayName}" VerticalTextAlignment="Center" />
+                                <iconize:IconImage Icon="md-keyboard-arrow-right" HeightRequest="40" HorizontalOptions="End"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

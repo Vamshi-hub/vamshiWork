@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="astorTrackP.ProducedRFID"
+  xmlns:local="clr-namespace:astorTrackP;assembly=astorTrackP"
+	Title="Produced" BackgroundColor="Black">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="{Binding scanOperation, Mode=TwoWay}" Command="{Binding ScanCommand, Mode=TwoWay}"></ToolbarItem>
+        <ToolbarItem Icon="pending.png" Command="{Binding NavigatePendingCommand, Mode=TwoWay}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <Grid x:Name="uxMenu" Padding="0" RowSpacing="5" Margin="20,30,20,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="{Binding ScanText}" FontSize="Large" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Label Grid.Row="1" Grid.Column="0" Text="Place reader near RFID Tag" TextColor="Silver" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Image Grid.Row="2" Grid.Column="0" x:Name="uxScan" Source="{Binding scanOperation}" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ScanCommand, Mode=TwoWay}" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Grid.Row="2" Grid.Column="0" x:Name="uxProgress" Source="progress.png" IsVisible="{Binding isScanning}" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+            <Label   Grid.Row="3" Grid.Column="0"  Text="{Binding RFIDCount1, StringFormat='Count: {0}', Mode=TwoWay}" FontSize="Small" TextColor="White" VerticalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="End"></Label>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

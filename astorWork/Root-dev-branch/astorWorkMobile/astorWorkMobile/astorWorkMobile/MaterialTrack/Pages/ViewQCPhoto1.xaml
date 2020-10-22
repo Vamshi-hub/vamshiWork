@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage  xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="astorWorkMobile.MaterialTrack.Pages.ViewQCPhoto"
+               xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+               xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+               BindingContext="{x:Static utilities:ViewModelLocator.qcDefectVM}"   
+               ItemsSource="{Binding QCPhotos}" Title="QC Defect Photos"
+               SelectedItem="{Binding SelectedPhoto}">
+    <CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage>
+                <Grid Padding="5">
+                    <StackLayout VerticalOptions="FillAndExpand">
+                        <!--<Image Source="{Binding Image}" BackgroundColor="Red" Aspect="AspectFill" 
+                        VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,60" />-->
+                        <ff:CachedImage Source="{Binding Image}" Aspect="AspectFill" 
+                        VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,60">
+                            
+                        </ff:CachedImage>
+                        <Label Text="{Binding Remarks}" StyleClass="Subheader" HorizontalTextAlignment="Center"/>
+                        <!--<StackLayout VerticalOptions="End">-->
+                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" AlignItems="End"
+                                HeightRequest="50" VerticalOptions="End" Margin="5">
+                            <Grid WidthRequest="50" HeightRequest="50">
+                                <Button BorderRadius="25" 
+                                    Image="ic_keyboard_arrow_left.png" IsVisible="{Binding HasPrev}"
+                                    Command="{Binding PrevPhotoCommand}"/>
+                            </Grid>
+                            <Grid>
+                                <Label Text="{Binding IndexLabel}" StyleClass="Subheader"/>
+                            </Grid>
+                            <Grid WidthRequest="50" HeightRequest="50">
+                                <Button BorderRadius="25"
+                                    Command="{Binding NextPhotoCommand}"
+                                    Image="ic_keyboard_arrow_right.png" IsVisible="{Binding HasNext}"/>
+                            </Grid>
+                        </FlexLayout>
+                        <!--</StackLayout>-->
+                    </StackLayout>
+                </Grid>
+            </ContentPage>
+        </DataTemplate>
+    </CarouselPage.ItemTemplate>
+
+</CarouselPage>

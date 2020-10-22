@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.BeaconInfoPage"
+             xmlns:utility="clr-namespace:MaterialTrackApp.Utility;assembly=MaterialTrackApp"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             BindingContext="{x:Static utility:ViewModelLocator.EnrollPageVM}">
+    <ContentPage.Content>
+        <Grid Padding="5" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical">
+                <ListView x:Name="listBeaconsNotInUse" VerticalOptions="FillAndExpand" ItemsSource="{Binding Beacons}" >
+                    <ListView.Header>
+                        <Label StyleClass="Header" Text="List of Beacons" HorizontalTextAlignment="Center"/>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Label Text="{Binding DisplayName}" VerticalTextAlignment="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="listBeaconsInUse" VerticalOptions="FillAndExpand" Margin="0, 20, 0, 0">
+                    <ListView.Header>
+                        <Label StyleClass="Header" Text="List of Beacons In Use" HorizontalTextAlignment="Center"/>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Label Text="{Binding DisplayName}" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Material.Block}" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Material.Level}" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Material.Zone}" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Material.Status}" VerticalTextAlignment="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button x:Name="btnNext" Text="Next" HorizontalOptions="Center" Margin="0, 20, 0, 0"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

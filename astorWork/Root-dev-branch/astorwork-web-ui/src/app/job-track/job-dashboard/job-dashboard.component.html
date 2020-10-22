@@ -1,0 +1,304 @@
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" style="margin: 10px;">
+<div fxLayout="row" fxLayoutAlign="start center" class="page-header-row" >
+    <div fxFlex  [style.display]="isLoading ? 'none' : 'block'" >
+      <h1 class="mat-h1">Job Dashboard</h1>
+    </div>
+    <div fxFlex="24%">
+      <mat-label class="mat-h3">Project StartDate :</mat-label>
+      <mat-label class="mat-h3" style="padding-left: 2%;">{{startDate | date: 'dd/MM/yyyy'}}</mat-label>
+    </div>
+    <div  fxFlex="23%" >
+      <mat-label class="mat-h3" >Project EndDate :</mat-label>
+      <mat-label class="mat-h3" style="padding-left: 2%;">{{endDate | date: 'dd/MM/yyyy'}}</mat-label>
+    </div>
+    <div  fxFlex="23%"  >
+      <mat-label class="mat-h3">ProjectManager :</mat-label>
+      <mat-label class="mat-h3" style="padding-left: 2%;">{{projectManagerName}}</mat-label>
+    </div>
+    <div class="settings" fxHide.xs="true"  [style.display]="isLoading ? 'none' : 'block'">
+      <button mat-icon-button (click)="toggleDesign()">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" style="margin: 10px;" [style.display]="isLoading ? 'none' : 'block'">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" fxLayoutGap.xs="15px">
+      
+      <mat-card fxFlex="25%" (click)='OnNotstartedJobsclick(target)' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? '#cea051':'white','color':ToggleView?'white':''}">
+          <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+            <div mat-card-avatar style="background:#cea051" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+              <img src="assets/Icons/delayed-jobs.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+            </div>
+            <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+              <h4 class="math3">Delayed/Scheduled</h4>
+              <h3 mat-h3>
+                {{JobStatus?.delayedJobsCount}}/{{JobStatus?.scheduledJobsCount}}
+                </h3>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+              <mat-progress-bar mode="determinate" value="{{delayedJobsProgress}}" disabled="true"></mat-progress-bar>
+              <span style="margin-left: -8px;">{{delayedJobsProgress}}%</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card fxFlex="25%" (click)='OnstartedClick(target)' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? 'rgb(255, 155, 6)':'white','color':ToggleView?'white':''}">
+          <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+            <div mat-card-avatar style="background:rgb(255, 155, 6);" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+              <img src="assets/Icons/started-jobs.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+            </div>
+            <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+              <h4 class="math3">Ongoing/Scheduled</h4>
+              <h3 mat-h3>
+                {{JobStatus?.startedJobsCount}}/{{JobStatus?.scheduledJobsCount}}
+              </h3>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+              <mat-progress-bar mode="determinate" value="{{startedJobsProgress}}" disabled="true"></mat-progress-bar>
+              <span style="margin-left: -8px;">{{startedJobsProgress}}%</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        
+          <mat-card fxFlex="25%" (click)='OnCompletedClick(target)' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? '#3399ff':'white','color':ToggleView?'white':''}">
+            <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+              <div mat-card-avatar style="background :#3399ff;" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+                <img src="assets/Icons/completed-jobs.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+              </div>
+              <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+                <h4 class="math3">Completed/Scheduled</h4>
+                <h3 mat-h3>
+                  {{JobStatus?.completedJobsCount}}/{{JobStatus?.scheduledJobsCount}}
+                </h3>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+                <mat-progress-bar mode="determinate" value="{{compltedJobsProgress}}"></mat-progress-bar>
+                <span style="margin-left: -8px;">{{compltedJobsProgress}}%</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <mat-card fxFlex="25%" (click)='OnQCFailedClick(target)' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? 'rgb(251, 74, 70)':'white','color':ToggleView?'white':''}">
+            <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+              <div mat-card-avatar style="background: rgb(251, 74, 70);" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+                <img src="assets/Icons/QC-failed-jobs.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" style="color: white" />
+              </div>
+              <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+                <h4 class="math3">QCFailed/TotalQC</h4>
+                <h3 mat-h3 [style.display]="isLoading ? 'none' : 'block'">
+                  {{QCFailedJobsCount}}/{{TotalQccount}}
+                </h3>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+                <mat-progress-bar mode="determinate" value="{{qcFailedJobsProgress}}"></mat-progress-bar>
+                <span style="margin-left: -8px;" [style.display]="isLoading ? 'none' : 'block'">{{qcFailedJobsProgress}}%</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-header style="margin-top: -15px;margin-left: -10px">
+        <mat-card-title>
+          <h2 class="mat-h2">Daily Progress</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding: 20px">
+        <div *ngIf="doughnutChart">
+          <canvas *ngIf="!noData" id="canDoughnutChart" width="30" height="30">{{chart}}</canvas>
+          <h1 *ngIf="noData" style="padding: 30%;text-align: center;">No Progress Today</h1>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="50%" class="mat-card-class">
+      <mat-card-header style="margin-top: -15px;margin-left: -10px">
+        <mat-card-title>
+          <h2 class="mat-h2">Overall Progress</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <canvas id="linechart" width="320" height="155" style="margin-left: -15px">{{ Linechart }}</canvas>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-header style="margin-top: -15px;margin-left: -10px">
+        <mat-card-title>
+          <h2 class="mat-h2">Job Status</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <canvas id="barchart" width="30" height="30" style="margin-left: -18px">{{ BarChart }}</canvas>
+      </mat-card-content>
+    </mat-card> 
+  </div> 
+  <div #target fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+    <mat-card fxFlex class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+              <div *ngIf="cardClicked=='NotStartedJob'">
+                <h2 class="mat-h2" style="color: rgb(217, 83, 80);">Delayed Jobs <small>(latest 10 records)</small>
+                  <a [routerLink]="['/job-tracking', 'job-scheduling',{filter:'Job_delayed'}]" *ngIf="DelayedJobsDatasource.data.length"
+                    class="material-count" style="padding-left: 13px;font-size: small;">View all</a>
+                </h2>
+              </div>
+
+          <div *ngIf="cardClicked=='Started'">
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">Ongoing Jobs  <small>(latest 10 records)</small>
+              <a [routerLink]="['/job-tracking', 'job-scheduling',{filter: 'Job_started'}]" *ngIf="StartedJobsDatasource.data.length"
+                    class="material-count" style="padding-left: 13px;font-size: small;">View all</a>
+            </h2>
+          </div>
+          
+          <div *ngIf="cardClicked=='Completed'">
+          <h2 class="mat-h2" style="color: rgb(217, 83, 80);">Completed Jobs <small>(latest 10 records)</small>
+            <a [routerLink]="['/job-tracking', 'job-scheduling',{filter: 'Job_completed'}]" *ngIf="CompletedJobsDatasource.data.length"
+                    class="material-count" style="padding-left: 13px;font-size: small;">View all</a>
+        </h2>
+      </div>
+          <div *ngIf="cardClicked=='QcFailed'">
+              <h2 class="mat-h2" style="color: rgb(217, 83, 80);">QC Failed Jobs <small>(latest 10 records)</small>
+                <a [routerLink]="['/job-tracking/job-qc', {filter: 'QC failed by Maincon'}]" *ngIf="QCFailedJobsDatasource.data.length"
+                style="padding-left: 13px;font-size: small;">View all</a></h2>
+
+            </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-table #table *ngIf="cardClicked=='NotStartedJob'" [dataSource]="DelayedJobsDatasource" style="width: 100% !important;height: 90% !important;" matSort>
+              <ng-container matColumnDef="tradeName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Job </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.tradeName}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Module  </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="subConName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Assigned To </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.subConName}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="plannedStartDate">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header> Scheduled Date </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.plannedStartDate | date: 'dd/MM/yyyy'}}
+            
+            </mat-cell>
+          </ng-container>
+            <mat-header-row *matHeaderRowDef="DelayedDisplayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: DelayedDisplayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+              </mat-table>
+        <mat-table #table *ngIf="cardClicked=='Started'" [dataSource]="StartedJobsDatasource" style="width: 100% !important;height: 90% !important;" matSort>
+          <ng-container matColumnDef="tradeName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Job </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.tradeName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="markingNo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Module  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="subConName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Assigned To </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.subConName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="plannedStartDate">
+      <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header> Scheduled Date </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.plannedStartDate | date: 'dd/MM/yyyy'}}
+        
+      </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="actualStartDate">
+      <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header> Start Date </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.actualStartDate| date: 'dd/MM/yyyy'}}
+        
+      </mat-cell>
+    </ng-container>
+    
+          <mat-header-row *matHeaderRowDef="StartedDispalyedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: StartedDispalyedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+        </mat-table>
+        <mat-table #table *ngIf="cardClicked=='Completed'" [dataSource]="CompletedJobsDatasource" style="width: 100% !important;height: 90% !important;" matSort>
+            <ng-container matColumnDef="tradeName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Job  </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tradeName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="markingNo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Module </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="subConName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Assigned To </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.subConName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actualStartDate">
+          <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header>  StartDate </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.actualStartDate | date: 'dd/MM/yyyy'}}
+          
+          </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="actualEndDate">
+          <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header> CompletedDate </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.actualEndDate | date: 'dd/MM/yyyy'}}
+          
+          </mat-cell>
+        </ng-container>
+      
+              <mat-header-row *matHeaderRowDef="CompletdDisplayedcolumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: CompletdDisplayedcolumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+            </mat-table>
+        <mat-table #table *ngIf="cardClicked=='QcFailed'" [dataSource]="QCFailedJobsDatasource" style="width: 100% !important;height: 90% !important;" matSort >
+            <ng-container matColumnDef="tradeName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Job  </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.tradeName}} </mat-cell>
+              </ng-container>
+      
+              <ng-container matColumnDef="markingNo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Module  </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="checkListName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Checklist  </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.checkListName}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="subConName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden">Assigned To </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.subConName}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="qcFailedBy">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header>QCFailed By </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qcFailedBy}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="qcStartDate">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden" mat-sort-header> LastModified Date </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qcStartDate | date: 'dd/MM/yyyy'}}
+                  
+                </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="QCFailedDisplayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: QCFailedDisplayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+              <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+            </mat-paginator>
+            </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

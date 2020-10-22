@@ -1,0 +1,56 @@
+﻿@model IEnumerable<astorWorkShared.Models.ForgeObject>
+
+@{
+    ViewData["Title"] = "BIM Management";
+}
+
+<h2> Forge Objects in [@ViewBag.BucketKey] </h2>
+<hr />
+<p>
+    <a asp-action="Create" asp-route-bucketKey="@ViewBag.BucketKey">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Object Id
+            </th>
+            <th>
+                Object Name
+            </th>
+            <th>
+                Object Size
+            </th>
+            <th>
+                Operations
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.ObjectId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObjectKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                <a asp-action="Delete"
+                   asp-route-bucketKey="@item.BucketKey"
+                   asp-route-objectKey="@item.ObjectKey">Delete</a>
+                <a asp-action="Translate"
+                   asp-route-bucketKey="@item.BucketKey"
+                   asp-route-objectId="@item.ObjectId">Translate</a>
+                <a asp-action="Details"
+                   asp-route-objectId="@item.ObjectId">Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

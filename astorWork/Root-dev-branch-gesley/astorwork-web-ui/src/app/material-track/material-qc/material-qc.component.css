@@ -1,0 +1,24 @@
+tr.example-detail-row {
+    height: 0;
+  }
+  ::ng-deep .mat-tooltip {
+    /* your own custom styles here */ 
+    /* e.g. */
+    background-color:hotpink;
+    color:white;
+}
+.jobQcPending{
+  color: blue;
+}
+.jobQcFailed{
+  color:#dc3545;
+}
+.pass{
+  color: #28a745;
+  
+}
+.pending{
+  color: #e3bc08;
+
+}
+

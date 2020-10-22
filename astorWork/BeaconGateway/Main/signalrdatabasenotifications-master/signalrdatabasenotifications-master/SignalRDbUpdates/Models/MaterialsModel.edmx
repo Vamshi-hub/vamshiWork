@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="astorTrack_GEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'astorTrack_GE.dbo.Beacons' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Beacons">
+          <Key>
+            <PropertyRef Name="BeaconID" />
+          </Key>
+          <Property Name="BeaconID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LocationID" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ConfigurationMaster">
+          <Key>
+            <PropertyRef Name="Configuration" />
+          </Key>
+          <Property Name="Configuration" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Setting" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialDetail">
+          <Key>
+            <PropertyRef Name="MaterialDetailID" />
+          </Key>
+          <Property Name="MaterialDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialNo" Type="varchar" MaxLength="100" />
+          <Property Name="MarkingNo" Type="varchar" MaxLength="50" />
+          <Property Name="Stage" Type="varchar" MaxLength="30" />
+          <Property Name="IsQC" Type="bit" />
+          <Property Name="QCStatus" Type="varchar" MaxLength="30" />
+          <Property Name="QCBy" Type="varchar" MaxLength="30" />
+          <Property Name="QCDate" Type="datetime" />
+          <Property Name="LocationID" Type="bigint" />
+          <Property Name="Location" Type="varchar" MaxLength="1000" />
+          <Property Name="RFIDTagID" Type="varchar" MaxLength="30" />
+          <Property Name="BeaconID" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MaterialMaster">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialNo" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="MarkingNo" Type="varchar" MaxLength="50" />
+          <Property Name="Project" Type="varchar" MaxLength="30" />
+          <Property Name="Block" Type="varchar" MaxLength="30" />
+          <Property Name="Level" Type="varchar" MaxLength="30" />
+          <Property Name="Zone" Type="varchar" MaxLength="30" />
+          <Property Name="MaterialType" Type="varchar" MaxLength="50" />
+          <Property Name="MaterialSize" Type="varchar" MaxLength="30" />
+          <Property Name="DrawingNo" Type="varchar" MaxLength="50" />
+          <Property Name="DrawingRevisionNo" Type="varchar" MaxLength="10" />
+          <Property Name="DrawingIssueDate" Type="datetime" />
+          <Property Name="LocationID" Type="bigint" />
+          <Property Name="Contractor" Type="bigint" />
+          <Property Name="Officer" Type="varchar" MaxLength="30" />
+          <Property Name="EstimatedLength" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ActualLength" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MRFNo" Type="varchar" MaxLength="20" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="DeliveryRemarks" Type="varchar" MaxLength="200" />
+          <Property Name="CastingDate" Type="datetime" />
+          <Property Name="LotNo" Type="int" />
+          <Property Name="RFIDTagID" Type="varchar" MaxLength="100" />
+          <Property Name="BeaconID" Type="varchar" MaxLength="100" />
+          <Property Name="Remarks" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="astorTrack_GEModelStoreContainer">
+          <EntitySet Name="ConfigurationMaster" EntityType="Self.ConfigurationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialDetail" EntityType="Self.MaterialDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialMaster" EntityType="Self.MaterialMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Beacons" EntityType="Self.Beacons" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Beacons].[BeaconID] AS [BeaconID], 
+    [Beacons].[LocationID] AS [LocationID], 
+    [Beacons].[CreatedDate] AS [CreatedDate], 
+    [Beacons].[CreatedBy] AS [CreatedBy]
+    FROM [dbo].[Beacons] AS [Beacons]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="astorTrack_GEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ConfigurationMaster">
+          <Key>
+            <PropertyRef Name="Configuration" />
+          </Key>
+          <Property Name="Configuration" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Setting" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="MaterialDetail">
+          <Key>
+            <PropertyRef Name="MaterialDetailID" />
+          </Key>
+          <Property Name="MaterialDetailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MarkingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Stage" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsQC" Type="Boolean" />
+          <Property Name="QCStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="QCBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="QCDate" Type="DateTime" Precision="3" />
+          <Property Name="LocationID" Type="Int64" />
+          <Property Name="Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="RFIDTagID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BeaconID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MaterialMaster">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MarkingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Block" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialSize" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DrawingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DrawingRevisionNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DrawingIssueDate" Type="DateTime" Precision="3" />
+          <Property Name="LocationID" Type="Int64" />
+          <Property Name="Contractor" Type="Int64" />
+          <Property Name="Officer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EstimatedLength" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ActualLength" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MRFNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryRemarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CastingDate" Type="DateTime" Precision="3" />
+          <Property Name="LotNo" Type="Int32" />
+          <Property Name="RFIDTagID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BeaconID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Beacon">
+          <Key>
+            <PropertyRef Name="BeaconID" />
+          </Key>
+          <Property Name="BeaconID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="astorTrack_GEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConfigurationMasters" EntityType="Self.ConfigurationMaster" />
+          <EntitySet Name="MaterialDetails" EntityType="Self.MaterialDetail" />
+          <EntitySet Name="MaterialMaster" EntityType="Self.MaterialMaster" />
+          <EntitySet Name="Beacons" EntityType="Self.Beacon" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="astorTrack_GEModelStoreContainer" CdmEntityContainer="astorTrack_GEEntities">
+          <EntitySetMapping Name="ConfigurationMasters">
+            <EntityTypeMapping TypeName="astorTrack_GEModel.ConfigurationMaster">
+              <MappingFragment StoreEntitySet="ConfigurationMaster">
+                <ScalarProperty Name="Configuration" ColumnName="Configuration" />
+                <ScalarProperty Name="Setting" ColumnName="Setting" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialDetails">
+            <EntityTypeMapping TypeName="astorTrack_GEModel.MaterialDetail">
+              <MappingFragment StoreEntitySet="MaterialDetail">
+                <ScalarProperty Name="MaterialDetailID" ColumnName="MaterialDetailID" />
+                <ScalarProperty Name="MaterialNo" ColumnName="MaterialNo" />
+                <ScalarProperty Name="MarkingNo" ColumnName="MarkingNo" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="IsQC" ColumnName="IsQC" />
+                <ScalarProperty Name="QCStatus" ColumnName="QCStatus" />
+                <ScalarProperty Name="QCBy" ColumnName="QCBy" />
+                <ScalarProperty Name="QCDate" ColumnName="QCDate" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="RFIDTagID" ColumnName="RFIDTagID" />
+                <ScalarProperty Name="BeaconID" ColumnName="BeaconID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialMaster">
+            <EntityTypeMapping TypeName="astorTrack_GEModel.MaterialMaster">
+              <MappingFragment StoreEntitySet="MaterialMaster">
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="MaterialNo" ColumnName="MaterialNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MarkingNo" ColumnName="MarkingNo" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+                <ScalarProperty Name="MaterialSize" ColumnName="MaterialSize" />
+                <ScalarProperty Name="DrawingNo" ColumnName="DrawingNo" />
+                <ScalarProperty Name="DrawingRevisionNo" ColumnName="DrawingRevisionNo" />
+                <ScalarProperty Name="DrawingIssueDate" ColumnName="DrawingIssueDate" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Contractor" ColumnName="Contractor" />
+                <ScalarProperty Name="Officer" ColumnName="Officer" />
+                <ScalarProperty Name="EstimatedLength" ColumnName="EstimatedLength" />
+                <ScalarProperty Name="ActualLength" ColumnName="ActualLength" />
+                <ScalarProperty Name="MRFNo" ColumnName="MRFNo" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="DeliveryRemarks" ColumnName="DeliveryRemarks" />
+                <ScalarProperty Name="CastingDate" ColumnName="CastingDate" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="RFIDTagID" ColumnName="RFIDTagID" />
+                <ScalarProperty Name="BeaconID" ColumnName="BeaconID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Beacons">
+            <EntityTypeMapping TypeName="astorTrack_GEModel.Beacon">
+              <MappingFragment StoreEntitySet="Beacons">
+                <ScalarProperty Name="BeaconID" ColumnName="BeaconID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

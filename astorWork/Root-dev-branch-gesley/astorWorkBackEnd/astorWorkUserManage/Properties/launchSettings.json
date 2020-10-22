@@ -1,0 +1,35 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:50752/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "astorWorkUserManage": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "SENDGRID_KEY": "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",
+        "AW_REDIS_CACHE_CONNECTION": "astorwork-dev.redis.cache.windows.net:6379,password=0EJ/NfXOQuCua+UgT8IXDTcGI5kz8MoDoUb05LcRifc=,ssl=False,abortConnect=False",
+        "POWERBI_USER_PASSWORD": "P@werbi@dmin123#",
+        "POWERBI_CLIENT_SECRET": "8qpSgFNpj/YFd4viPXqEzdklEuH8v6/mRl3VkP0nvfM=",
+        "POWERBI_CLIENT_ID": "1d67d1a2-09ba-4994-b019-a926d4150004",
+        "POWERBI_TENANT_ID": "3156e991-a773-429e-a59a-df6faa02e474",
+        "IMAGE_CONTAINER": "dev-image-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoDev",
+        "POWERBI_USER_NAME": "powerbiadmin@astoriasolutions.com"
+      },
+      "applicationUrl": "http://localhost:9001"
+    }
+  }
+}

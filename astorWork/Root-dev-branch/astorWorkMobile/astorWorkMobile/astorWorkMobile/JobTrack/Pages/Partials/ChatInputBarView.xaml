@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.JobTrack.Pages.Partials.ChatInputBarView" BackgroundColor="White">
+    <Grid RowSpacing="0" 
+           ColumnSpacing="0" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Editor x:Name="chatTextInput" 
+                 Text="{Binding TextToSend}" 
+                 Margin="1"  
+                 TextColor="Black" 
+                 Keyboard="Chat"  
+                 HorizontalOptions="FillAndExpand" 
+                 PlaceholderColor="LightGray"
+                 Placeholder="Type your message here"
+                 Grid.Row="0" 
+                 Grid.Column="0"
+                Completed="UnFocusEntry"/>
+        <Grid
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="White"
+            HorizontalOptions="End">
+            <ImageButton
+               Grid.Row="0"
+               Grid.Column="0"
+                WidthRequest="30"
+                HeightRequest="30"
+                Padding="3"
+                BackgroundColor="White"
+            HorizontalOptions="Start"
+                Source="ic_cam.png"
+            Command="{Binding AddPhotoCommand}"
+            IsVisible="{Binding DisplayButton}"/>
+            <Image
+               Grid.Row="0"
+               Grid.Column="1"
+                WidthRequest="30"
+                HeightRequest="30"
+                BackgroundColor="White"
+                Source="ic_send.png"
+                IsVisible="{Binding DisplayButton}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                      Command="{Binding SendMessageCommand}"
+                      Tapped="Handle_Completed"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </Grid>
+</ContentView>

@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-qa
+  namespace: qa
+spec:
+  backend:
+    serviceName: astorwork-web
+    servicePort: 80
+  rules:
+  - host: '*.astorworkqa.com'
+    http:
+      paths: 
+      - path: /
+        backend:
+          serviceName: astorwork-web 
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: apigateway
+          servicePort: 80
+      - path: /signalrhub
+        backend:
+          serviceName: signalrhub
+          servicePort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-prod
+  namespace: prod
+spec:
+  backend:
+    serviceName: astorwork-web
+    servicePort: 80
+  rules:
+  - host: '*.astorwork.com'
+    http:
+      paths: 
+      - path: /
+        backend:
+          serviceName: astorwork-web 
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: apigateway
+          servicePort: 80
+      - path: /signalrhub
+        backend:
+          serviceName: signalrhub
+          servicePort: 80
+  

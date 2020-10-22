@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:Lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="astorWorkMobile.Shared.Views.MaterialFrameView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid>
+            <Frame HasShadow="False">
+                <StackLayout>
+                    <!--#region Header-->
+                    <StackLayout Orientation="Horizontal">
+                        <BoxView BackgroundColor="{Binding StatusColor}"  WidthRequest="6"></BoxView>
+                        <StackLayout>
+                            <Label Text="{Binding QRTracker.label}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                            <Label Text="{Binding StageName}" StyleClass="Heading" TextColor="{Binding StageColor}"/>
+                        </StackLayout>
+                        <StackLayout Padding="0" HorizontalOptions="EndAndExpand"
+                                     VerticalOptions="CenterAndExpand"  Orientation="Horizontal" >
+                            <Image Source="{Binding Material.CheckBoxIcon}" WidthRequest="25" HeightRequest="25" IsVisible="{Binding Material.IsCheckBoxVisible}"
+                                               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CheckBoxCommand}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image Source="{Binding ExpansionIcon}" HeightRequest="20" WidthRequest="20"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ExpandCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <!--#endregion-->
+
+                    <!--#region Detail-->
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding IsExpanded}" >
+                        <Grid IsVisible="{Binding ShowUnknownTag}">
+                            <Label VerticalTextAlignment="Center">Unkown tag:</Label>
+                            <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding Tracker.tag}" VerticalTextAlignment="Center"/>
+                        </Grid>
+                        <Grid IsVisible="{Binding ShowRFIDTracker}">
+                            <Label VerticalTextAlignment="Center">RFID Tracker:</Label>
+                            <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding RFIDTracker.label}" VerticalTextAlignment="Center"/>
+                        </Grid>
+                        <Grid Margin="0, 2">
+                            <Label VerticalTextAlignment="Center">Module Type.:</Label>
+                            <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.materialType}" VerticalTextAlignment="Center"/>
+                        </Grid>
+                        <!--<Grid IsVisible="{Binding ShowQRTracker}">
+                            <Label VerticalTextAlignment="Center">QR Tracker:</Label>
+                            <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding QRTracker.label}" VerticalTextAlignment="Center"/>
+                        </Grid>-->
+                        <StackLayout Orientation="Vertical" IsVisible="{Binding ShowMaterial}">
+                            <!--<Grid>
+                                <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.markingNo}" VerticalTextAlignment="Center"/>
+                            </Grid>-->
+                            <Grid IsVisible="{Binding IsExpectedDeliveryDate}">
+                                <Label VerticalTextAlignment="Center">Exp. Delivery:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.ExpectedDeliveryDate, StringFormat='{0:MM/dd/yyyy}'}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0, 2">
+                                <Label VerticalTextAlignment="Center">MRF No:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.mrfNo}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleDrawingNo}">
+                                <Label VerticalTextAlignment="Center">Drawing No:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.DrawingNo}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            
+                            <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleLength}">
+                                <Label VerticalTextAlignment="Center">Length:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Length}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleArea}">
+                                <Label VerticalTextAlignment="Center">Area:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Area}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0, 2" IsVisible="{Binding Material.IsChecklist}">
+                                <Label VerticalTextAlignment="Center">QC Status:</Label>
+                                <Label StyleClass="Subheader" Text="{Binding Material.QCStatus}" TextColor="{Binding StatusColor}" Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                            </Grid>
+                            <Grid Margin="0, 2">
+                                <Label VerticalTextAlignment="Center">Destination:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.destination}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </StackLayout>
+                        <Label StyleClass="Subheader" Text="Please scan first" TextColor="Red"
+                           IsVisible="{Binding ShowNonAssociateAlert}" HorizontalOptions="Center"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <!--<ImageButton WidthRequest="60" HeightRequest="40" CornerRadius="20" 
+                                    Source="ic_rfid_base.png"  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent"
+                                    Command="{Binding AssociateRFIDCommand}" IsVisible="{Binding ShowRFIDScanButton}"/>-->
+                            <ImageButton WidthRequest="60" HeightRequest="40"   BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" CornerRadius="20" Source="ic_attachment_base.png" IsVisible="{Binding ShowAttachButton}"
+                                Command="{Binding AttachButtonCommand}"/>
+                            <ImageButton WidthRequest="60" HeightRequest="40"  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" CornerRadius="20" Source="ic_edit_base.png" IsVisible="{Binding ShowUpdateButton}"
+                                Command="{Binding UpdateCommand}"/>
+                            <!--IsVisible="{Binding ShowQCButton}"-->
+                            <ImageButton WidthRequest="60" HeightRequest="40" CornerRadius="20"  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" Source="ic_3d_base.png" IsVisible="{Binding ShowBIMButton}"
+                                Command="{Binding BIMCommand}"/>
+                            <ImageButton WidthRequest="60" HeightRequest="40" CornerRadius="20"  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" Source="ic_list.png" 
+                                                Command="{Binding ChecklistButtonCommand}" CommandParameter="{Binding Material}" IsVisible="{Binding ShowChecklistButton}"
+                                                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Button WidthRequest="100" HeightRequest="40" CornerRadius="20" BorderWidth="1"  BorderColor="#373b99"  BackgroundColor="Transparent" Text="Defect"  FontAttributes="Bold" IsVisible="{Binding ShowQCButton}"
+                                Command="{Binding QCCommand}" />
+                            <Button IsVisible="False" WidthRequest="100" HeightRequest="40" CornerRadius="20" Text="Job"
+                                Command="{Binding JOBCommand}"/>
+                            <!--IsVisible="{Binding ShowJOBButton}"-->
+                        </StackLayout>
+                    </StackLayout>
+                    <!--#endregion-->
+                </StackLayout>
+            </Frame>
+            <!--<views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>-->
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

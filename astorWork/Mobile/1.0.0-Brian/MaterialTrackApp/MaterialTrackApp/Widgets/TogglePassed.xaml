@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="MaterialTrackApp.Widgets.TogglePassed">
+  <ContentView.Content>
+        <iconize:IconImage x:Name="btnToggleChecked" WidthRequest="40" HeightRequest="40"
+                           Icon="md-indeterminate-check-box" IconColor="Red">
+            <iconize:IconImage.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnToggleChecked_Clicked"/>
+            </iconize:IconImage.GestureRecognizers>
+        </iconize:IconImage>
+    </ContentView.Content>
+</ContentView>

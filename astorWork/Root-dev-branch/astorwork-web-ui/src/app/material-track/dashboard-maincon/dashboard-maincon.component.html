@@ -1,0 +1,122 @@
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="row" fxLayoutAlign="start center" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">Maincon Dashboard</h1>
+  </div>
+  <div class="settings" fxHide.xs="true">
+    <button mat-icon-button (click)="toggleDesign()">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" style="margin: 10px;" [style.display]="isLoading ? 'none' : 'block'">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" fxLayoutGap.xs="15px">
+    <mat-card fxFlex="100%" [ngStyle]="{'background':ToggleView? 'white':'white','color':ToggleView?'':''}" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Overall</h2>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between stretch"> 
+        <div width="33%">
+          <div style="font-weight: bold">Fabrication Yard</div>
+          <canvas id="canDoughnutChart"></canvas>
+        </div>
+        <div width="33%">
+          <div style="font-weight: bold">Fit-Out Yard</div>
+          <canvas id="canDoughnutChart2"></canvas>
+        </div>
+        <div width="33%">
+          <div style="font-weight: bold">Project Site</div>
+          <canvas id="canDoughnutChart3"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" fxLayoutGap.xs="15px">
+    <mat-card fxFlex="100%" (click)='onBlkAClick(target)' [ngStyle]="{'background':ToggleView? 'white':'white','color':ToggleView?'':''}" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Block A</h2>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between stretch"> 
+        <div width="33%">
+          <div style="font-weight: bold">Fabrication Yard</div>
+          <canvas id="canDoughnutChart4"></canvas>
+        </div>
+        <div width="33%">
+          <div style="font-weight: bold">Fit-Out Yard</div>
+          <canvas id="canDoughnutChart5"></canvas>
+        </div>
+        <div width="33%">
+          <div style="font-weight: bold">Project Site</div>
+          <canvas id="canDoughnutChart6"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" fxLayoutGap.xs="15px">
+    <mat-card fxFlex="100%" (click)='onBlkBClick(target)' [ngStyle]="{'background':ToggleView? 'white':'white','color':ToggleView?'':''}" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Block B</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between stretch"> 
+        <div width="33%">
+          <div style="font-weight: bold">Fabrication Yard</div>
+          <canvas id="canDoughnutChart7"></canvas>
+        </div>
+        <div width="33%">
+          <div style="font-weight: bold">Fit-Out Yard</div>
+          <canvas id="canDoughnutChart8"></canvas>
+        </div>
+        <div width="33%">
+          <div style="font-weight: bold">Project Site</div>
+          <canvas id="canDoughnutChart9"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+    <mat-card fxFlex class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <div *ngIf="cardClicked=='BlkA'">
+            <h2 class="mat-h2" >Blk A</h2>
+          </div>
+          <div *ngIf="cardClicked=='BlkB'">
+            <h2 class="mat-h2" >Blk B</h2>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list cols="1" rowHeight="3:1" style="font-weight:bold">Overall Progress</mat-grid-list>
+        <mat-grid-list cols="32" rowHeight="3:1" *ngIf="cardClicked=='BlkA'">
+          <mat-grid-tile *ngFor="let tile of tiles" [style.background]="tile.color" [style.fontWeight]="tile.fontWeight" (click)="onTileClick(tile, accessRight)">{{((tile.text > 0 && accessRight < 2) || tile.color == '#FFFFFF')?tile.text:''}}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="28" rowHeight="3:1" *ngIf="cardClicked=='BlkB'">
+          <mat-grid-tile *ngFor="let tile of tiles" [style.background]="tile.color" [style.fontWeight]="tile.fontWeight"(click)="onTileClick(tile, accessRight)">{{((tile.text > 0 && accessRight < 2) || tile.color == '#FFFFFF')?tile.text:''}}</mat-grid-tile>
+        </mat-grid-list>
+        <div></div>
+        <mat-card class="form-card" style="padding: 0px 15px; max-width: 720px; box-shadow: none">
+          <mat-card-content fxLayout="center">
+            <div>
+              <div style="margin:10px; float: left; width:100px"><div style="background-color: #ffff66;height: 10px;width: 30px; float: left; margin-top:5px;"></div><div style="margin-left:20px">1 Casted</div></div>
+              <div style="margin:10px; float: left; width:150px"><div style="background-color: #66ff99;height: 10px;width: 30px; float: left; margin-top:5px;"></div><div style="margin-left:20px">2 Fit-out Complete</div></div>
+              <div style="margin:10px; float: left; width:100px"><div style="background-color: #00dbff;height: 10px;width: 30px; float: left; margin-top:5px;"></div><div style="margin-left:20px">3 Installed</div></div>
+              <div style="margin:10px; float: left; width:120px"><div style="background-color: #b0b0b0;height: 10px;width: 30px; float: left; margin-top:5px;"></div><div style="margin-left:20px">Outstanding</div></div>
+              <div style="margin:10px; float: left; width:130px"><div style="background-color: #000000;height: 10px;width: 30px; float: left; margin-top:5px;"></div><div style="margin-left:20px">Building Void</div></div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-card-content>
+      
+    </mat-card>
+    <div #target></div>
+  </div>
+</div>

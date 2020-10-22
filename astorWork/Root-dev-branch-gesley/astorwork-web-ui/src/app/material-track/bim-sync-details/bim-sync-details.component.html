@@ -1,0 +1,115 @@
+<div class="page-header-row">
+  <h1 class="mat-h1">BIM Sync Session Details</h1>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="column" fxLayoutAlign="start stretch" [style.display]="isLoading ? 'none' : 'block'">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" *ngIf="bimSyncDetail">
+    <mat-card class="info-card" fxFlex>
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Information</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="space-around stretch">
+          <mat-form-field>
+            <input matInput placeholder="BIM Model" value="{{bimSyncDetail.bimModelId}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Synced By" value="{{bimSyncDetail.personName}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Synced At" value="{{bimSyncDetail.syncTime | date:'M/d/yyyy, h:mm:ss a'}}" readonly="true">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="info-card" fxFlex>
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Video</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <video width="640" height="480" controls *ngIf="bimSyncDetail?.videoURL; else bimVideoNA">
+          <source [src]="bimSyncDetail?.videoURL" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+        <ng-template #bimVideoNA>
+          <p>Video not available for this sync session</p>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+    <mat-card class="info-card" fxFlex>
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Synced Materials</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-table [dataSource]="dataSourceSynced">
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectMaterialRow(row)" class="row_clicable"></mat-row>
+        </mat-table>
+        <mat-paginator #paginatorSynced [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="info-card" fxFlex>
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Unsynced Materials</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-table [dataSource]="dataSourceUnsynced">
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectMaterialRow(row)" class="row_clicable"></mat-row>
+        </mat-table>
+        <mat-paginator #paginatorUnsynced [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

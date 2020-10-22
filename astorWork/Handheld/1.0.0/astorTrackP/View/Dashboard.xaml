@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorTrackP.Dashboard"             
+             BackgroundColor="#e6e6e6"
+             Title="Dashboard">
+    <ContentPage.Content>
+        <StackLayout x:Name="uxLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5,5,5,5" BackgroundColor="White" >
+            <!--<Grid x:Name="uxGrid" Padding="0" RowSpacing="5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

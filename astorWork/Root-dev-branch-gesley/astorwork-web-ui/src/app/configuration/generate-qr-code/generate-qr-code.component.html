@@ -1,0 +1,125 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row no-print">
+  <h1 class="mat-h1">Generate/Import Tags</h1>
+</div>
+<div class="no-print">
+  <mat-card class="info-card">
+    <mat-card-content>
+      <mat-tab-group (selectedTabChange)="tabChagne();">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <mat-icon class="material-icons">
+                import_export
+              </mat-icon>
+              Import Tag
+            </div>
+          </ng-template>
+          <form (ngSubmit)="uploadFile()" [formGroup]="importForm">
+            <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="15px">
+              <div class="important-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                <h5 mat-line style="color: red"> &nbsp; !Important:</h5> 
+                <p>Please upload file with csv format only. And it is mandatory to follow the 
+                  <a href="assets/template/Tag_Template.csv" download="Tag_Template.csv" matTooltip="Download Tag Template">template</a> structure.</p>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+
+                <mat-form-field>
+                  <mat-select matInput placeholder="Tag Type" formControlName="tagType" required>
+                    <!-- <mat-option value="QR Code">QR Code</mat-option> -->
+                    <mat-option value="RFID">RFID</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <input type="file" id="importFile" accept=".csv" #fileInput (change)="onFileChange($event)" hidden="false" />
+                  <mat-form-field flex class="mat-block">
+                    <input matInput type="text" formControlName="fileName" placeholder="Choose your .csv file" pattern=".*\.([c][s][v])$" matTooltip={{fileName}}
+                      (click)="attach();" readonly>
+                  </mat-form-field>
+                  <button mat-mini-fab id="attach" type="button" (click)="attach();">
+                    <mat-icon class="material-icons">attach_file</mat-icon>
+                  </button>
+                </div>
+                <button mat-raised-button color="primary" [disabled]="importForm.status=='INVALID' || accessRight < 2">
+                  <mat-icon class="material-icons">
+                      cloud_upload
+                  </mat-icon>
+                  Upload</button>
+              </div>
+            </div>
+          </form>
+        </mat-tab>
+        <!-- <mat-tab>
+          <ng-template mat-tab-label>
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <mat-icon class="material-icons">
+                <img src="assets/Icons/qr-code.png" style="padding-bottom: 2px; width: 20px;height: 20px">
+              </mat-icon>
+              Generate QR Code
+            </div>
+          </ng-template>
+          <form (ngSubmit)="generate()" [formGroup]="generateForm">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" style="padding-top: 15px">
+              <mat-form-field>
+                <input matInput type="number" placeholder="Quantity (between 1 and 100)" value="" min="1" max="100" formControlName="quantity" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="QR Label" value="" formControlName="label">
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit" [disabled]="generateForm.status=='INVALID' || accessRight < 2 || !toggle">
+                Generate
+              </button>
+              <button mat-raised-button color="primary" type="button" (click)="print()" [disabled]="toggle">
+                <mat-icon class="material-icons"> print
+                </mat-icon>
+                Print
+              </button>
+            </div>
+          </form>
+        </mat-tab> -->
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div class="info-card" *ngIf="toggleImpExp && dataSource" [ngStyle]="{'display':isLoading ? 'none' : 'block' }">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <ng-container matColumnDef="label">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Label </th>
+      <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tag">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tag </th>
+      <td mat-cell *matCellDef="let element"> {{element.tag}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="message">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Error Message </th>
+      <td mat-cell *matCellDef="let element">
+        <div fxLayoutAlign="start center">
+          <mat-icon style="color: red">
+            error
+          </mat-icon>
+          <p>{{element.message}} </p>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.id}}"></tr>
+  </table>
+</div>
+<!-- <div *ngIf="!toggleImpExp" [ngStyle]="{'display':isLoading ? 'none' : 'block' }" style="padding-top: 5px" class="info-card">
+  <div *ngFor="let qrcode of qrCodes; let i = index" [ngClass]="i % 25 == 11 ? 'page-break': null" style="display: inline-block; margin: 20px;text-align: center">
+    <ngx-qrcode qrc-element-type=" canvas " [qrc-value]="qrcode.tag">abcd</ngx-qrcode>
+    <h3 class="mat-h3">{{qrcode.label}}</h3>
+  </div>
+</div> -->

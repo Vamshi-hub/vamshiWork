@@ -1,0 +1,71 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:64755",
+      "sslPort": 44335
+    }
+  },
+  "profiles": {
+    "IIS Express Prod": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "SENDGRID_KEY": "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",
+        "AW_REDIS_CACHE_CONNECTION": "astorworkProd.redis.cache.windows.net:6380,password=IQJRK3MrIWzsQkDtDqr43BY2QTv5NpcJKW4bTfSERzc=,ssl=True,abortConnect=False",
+        "FORGE_CLIENT_SECRET": "4d0ba5cav1AuU9sk",
+        "SQL_SERVER_PASSWORD": "aspla5t0rWork",
+        "BLOB_STORAGE_HOST": "https://astorwork.blob.core.windows.net",
+        "SQL_SERVER_USER": "astoria",
+        "FORGE_CLIENT_ID": "8sVrLSRk4HEJ5dmG0uXQcCVU5LvfuH0G",
+        "IMAGE_CONTAINER": "prod-image-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoProd",
+        "VIDEO_CONTAINER": "prod-video-repo"
+      }
+    },
+    "IIS Express QA": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "SENDGRID_KEY": "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",
+        "AW_REDIS_CACHE_CONNECTION": "astorworkQA.redis.cache.windows.net:6380,password=IQJRK3MrIWzsQkDtDqr43BY2QTv5NpcJKW4bTfSERzc=,ssl=True,abortConnect=False",
+        "FORGE_CLIENT_SECRET": "4d0ba5cav1AuU9sk",
+        "SQL_SERVER_PASSWORD": "aspla5t0rWork",
+        "BLOB_STORAGE_HOST": "https://astorwork.blob.core.windows.net",
+        "SQL_SERVER_USER": "astoria",
+        "FORGE_CLIENT_ID": "8sVrLSRk4HEJ5dmG0uXQcCVU5LvfuH0G",
+        "IMAGE_CONTAINER": "qa-image-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoQA",
+        "VIDEO_CONTAINER": "qa-video-repo"
+      }
+    },
+    "IIS Express Dev": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "SENDGRID_KEY": "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",
+        "AW_REDIS_CACHE_CONNECTION": "astorwork-dev.redis.cache.windows.net:6380,password=0EJ/NfXOQuCua+UgT8IXDTcGI5kz8MoDoUb05LcRifc=,ssl=True,abortConnect=False",
+        "FORGE_CLIENT_SECRET": "zVqsakG4x46EpD8V",
+        "SQL_SERVER_PASSWORD": "acpl5QLSA",
+        "BLOB_STORAGE_HOST": "https://astorwork.blob.core.windows.net",
+        "SQL_SERVER_USER": "sa",
+        "FORGE_CLIENT_ID": "6AumZPf6sBW6pOvwpQkfXlq86I8l9JGl",
+        "IMAGE_CONTAINER": "dev-image-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoDev",
+        "VIDEO_CONTAINER": "dev-video-repo"
+      }
+    },
+    "astorWorkAdminPortal": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+  }
+}

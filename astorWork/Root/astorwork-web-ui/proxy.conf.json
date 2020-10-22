@@ -1,0 +1,18 @@
+{
+    "/dev": {
+      "target": "http://localhost:55895",
+      "secure": false,
+      "pathRewrite": {
+        "^/dev": ""
+      }
+    },
+    "/api-autodesk": {
+      "target": "https://developer.api.autodesk.com",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api-autodesk": ""
+      }
+    }
+}

@@ -1,0 +1,15 @@
+﻿Dear Sir/Madam,
+
+{0} has been completed with {1} materials.
+
+MRF Duration: {3}.
+
+Ordered Date: {4}
+
+Installed Date:{5}
+
+Click {2} to view MRF. 
+
+
+Regards,
+astorWork Team

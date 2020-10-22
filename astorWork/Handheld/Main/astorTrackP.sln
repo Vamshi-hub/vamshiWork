@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorTrackP", "astorTrackP\astorTrackP.csproj", "{75DA8A05-5F32-4B7E-B175-CC1D5FFD2A50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainwaySDK", "ChainwaySDK\ChainwaySDK.csproj", "{9BDAF741-37E1-410E-96EF-45C6B90B8661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorTrackP.Droid", "Droid\astorTrackP.Droid.csproj", "{822F0A90-7593-499B-873F-2576BA602405}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75DA8A05-5F32-4B7E-B175-CC1D5FFD2A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75DA8A05-5F32-4B7E-B175-CC1D5FFD2A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75DA8A05-5F32-4B7E-B175-CC1D5FFD2A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75DA8A05-5F32-4B7E-B175-CC1D5FFD2A50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BDAF741-37E1-410E-96EF-45C6B90B8661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BDAF741-37E1-410E-96EF-45C6B90B8661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BDAF741-37E1-410E-96EF-45C6B90B8661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BDAF741-37E1-410E-96EF-45C6B90B8661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822F0A90-7593-499B-873F-2576BA602405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822F0A90-7593-499B-873F-2576BA602405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822F0A90-7593-499B-873F-2576BA602405}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{822F0A90-7593-499B-873F-2576BA602405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822F0A90-7593-499B-873F-2576BA602405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822F0A90-7593-499B-873F-2576BA602405}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7A0DE95-0C30-43F1-9A4F-AE595F8647A3}
+	EndGlobalSection
+EndGlobal

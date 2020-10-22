@@ -1,0 +1,450 @@
+﻿body {
+}
+
+.layout
+{
+    margin: 10px;    
+}
+
+.layout1
+{
+    margin: 10px; 
+    height:100%;   
+}
+
+
+.pageLayout
+{
+    margin-top: 5px;
+}
+
+.collapsePanelHeader
+{
+    width: 100%;
+    height: 10px;
+    background-repeat: repeat-x;
+    color: black;
+    font-weight: normal;
+}
+.collapsePanelHeaderDB
+{
+    width: 100%;
+    height: 10px;
+    border: 1px solid #2F4F4F;
+    color: white;
+    background-color: #2E4d7B;
+    font-family: Arial, Sans-Serif;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.collapsePanel
+{
+    background-color: #D3DEEF;
+    overflow: hidden;
+}
+
+.collapsePanelHeaderInv
+{
+    width: 100%;
+    height: 30px;
+    background-color: #2E4d7B;
+    background-repeat: repeat-x;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.modalBackground
+{
+    background-color: Gray;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+.modalPopup
+{
+    background-color: #eeeeee;
+    border-width: 3px;
+    border-style: solid;
+    border-color: Gray;
+    padding: 0px;
+    width: 400px;
+    height: 100px;
+}
+
+.modalPopupTitleBar {
+    color: white;
+    border-collapse: collapse;
+    background-image: url('./Images/accordionBar.png');
+    background-repeat: repeat-x;
+    border: 0;
+}
+
+.accordionHeader
+{
+    border: 1px solid #FFFFFF;
+    color: white;
+    background-image: url('./Images/accordionBar.png');
+    background-repeat: repeat-x;
+    font-family: Arial, Sans-Serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1px;
+    margin-top: 2px;
+    cursor: pointer;
+    height: 16px;
+}
+
+.accordionHeaderSelected
+{
+    border: 1px solid #FFFFFF;
+    color: white;
+    background-image: url('./Images/accordionBar.png');
+    background-repeat: repeat-x;
+    font-family: Arial, Sans-Serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1px;
+    margin-top: 2px;
+    cursor: pointer;
+    height: 16px;
+}
+
+.accordionContent
+{
+    background-color: white;
+    border: 2px #2F4F4F;
+    border-top: none;
+    padding: -1px;
+}
+
+.accordionLink
+{
+    color: White;
+    text-decoration: none;
+    outline-style: none;
+}
+
+.table
+{
+    background-color: transparent;
+    border-spacing: 2px;
+    border-collapse: collapse;
+    padding:2px;
+    border-top: 1px solid #dae2e8;
+    border-bottom: 1px solid #dae2e8;
+}
+
+.tdHeader
+{
+    background-color: #3399FF;
+    font-weight: bold;
+    text-align: left;
+    color: #ffffff;
+    padding-left: 5px;
+    padding-bottom: 3px;
+    padding-top: 4px;
+}
+
+.tdField
+{
+    vertical-align: middle;
+    background-color: #DFECF9;
+    padding-left: 5px;
+    padding-bottom: 3px;
+    padding-top: 4px;
+}
+
+
+.RadLabelCSS {
+    color: #333 !important;
+    font-family: "Segoe UI",Arial,Helvetica,sans-serif !important;
+    display: inline-block !important;
+    line-height: 1.4285 !important;
+    padding-right: 5px !important;
+}
+
+
+.tdLabel
+{
+    height: 17px;
+    font-weight: bold;
+    vertical-align: middle;
+    background-color: #DFECF9;
+    padding-left: 5px;
+    padding-bottom: 3px;
+    padding-top: 4px;
+}
+
+.tdControl
+{
+    text-align: center;
+    padding: 8px;
+}
+
+.formTable
+{
+    /*background-color:#DDDDDD;*/
+    width: 100%;
+}
+
+.filterTable
+{
+    width: 100%;
+    padding: 2px;
+}
+
+body
+{
+    font-family: segoe ui, Arial,sans-serif;
+    font-size: 9pt;
+    color: #333333;
+    line-height: 1.166;
+    margin: 0px;
+    padding: 0px;
+    background: #FFFFFF;
+}
+
+.hlink
+{
+}
+
+#pageTitle
+{
+    padding: 4px 10px 4px 4px;
+    background-color: #3399FF;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: #CCCCCC;
+    text-align: right;
+    height: 25px;
+}
+
+/***** Form Elements *****/
+input
+{
+    font-family: segoe ui, Arial,sans-serif;
+    font-size: 9pt;
+    color: #333333;
+    border-color: #999999;
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px;
+}
+
+select
+{
+    font-family: segoe ui, Arial,sans-serif;
+    font-size: 9pt;
+    color: #333333;
+    border-color: #999999;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px;
+}
+
+.ListSearchExtenderPrompt
+{
+    font-style: italic;
+    color: Gray; /*background-color:white;*/
+    border: solid 1px;
+    border-color:transparent;
+}
+.updateProgress
+{
+    position: absolute;
+    background-color: #fff;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    padding: 0px;
+    margin: 0px;
+}
+
+.gvHeader table th
+{
+    text-align: center;
+    font-weight: bold;
+}
+
+.bannerPage
+{
+    background-color:black;
+}
+
+.treeViewPage
+{
+    background-color: #ffffff;
+}
+
+.treeView
+{
+    background-color: transparent;
+}
+
+.gvHeaderBar
+{
+    background-image: url('../Outlook/Images/gvheaderbar.png');
+    background-repeat: repeat-x;
+    font-size: 8;
+}
+
+/* For custom gridview pager */
+div.pagination
+{
+    padding: 3px;
+    margin: 3px;
+}
+div.pagination a
+{
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #E5E5E5;
+    text-decoration: none; /* no underline */
+    color: #000000;
+}
+div.pagination a:hover, div.pagination a:active
+{
+    border: 1px solid #E5E5E5;
+    color: #000;
+}
+div.pagination span.current
+{
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #E5E5E5;
+    font-weight: bold;
+    background-color: #25A0DA;
+    color: #FFF;
+}
+div.pagination span.disabled
+{
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 0px solid #EEE;
+    color: #000;
+}
+
+/* ---------------------------- */
+.button_disable
+{
+    color:#C8C8C8;
+}
+
+.legend
+{
+    text-decoration-color : black;
+    font-weight: bold;
+}
+
+.RadGrid_MetroTouch .rgCommandRow {
+    background-color: #cdcdcd !important;}
+
+.RadGrid_MetroTouch .rgCommandRow,
+  .RadGrid_MetroTouch .rgCommandRow a {
+    color: #000000 !important;
+}
+
+.RadGrid_MetroTouch input.rgAdd:hover, .RadGrid_MetroTouch input.rgAdd:active,
+.RadGrid_MetroTouch input.rgRefresh:hover,
+.RadGrid_MetroTouch input.rgRefresh:active{
+    border: 1px solid #25a0da !important; }
+
+.RadGrid_MetroTouch input.rgAdd,
+.RadGrid_MetroTouch input.rgRefresh  {
+border: 1px solid #ffffff !important;
+}
+
+.input {
+    height: 29px !important;
+}
+
+.RadGrid .rgFilterBox {
+    width: 80% !important; 
+}
+
+.rbToggleButton.yesNo {
+    padding: 0 !important;
+    padding-left: 0px !important;
+}
+ 
+.yesNoHovered .rbText {
+    color: White !important;
+    padding-left: 0px !important;
+}
+
+.yesNoHovered{
+    border: 0 !important;
+    background-color: transparent !important;
+    
+}
+
+.rbNo{
+    padding-left: 0px !important;
+    color: White !important;
+}
+
+.paneltemplate
+{
+     padding:10px 5px 5px 5px; 
+     background-color:#25a0da;
+}
+
+.divtemplate
+{
+    margin:5px; padding:15px 5px 5px 5px; 
+    border: 1px solid #dae2e8; 
+    background-color:white;
+}
+
+.fieldsettemplate
+{
+    padding:10px 5px 5px 5px;
+    margin:5px; 
+    background-color:white;
+}
+
+.MultiColumnRadComboBox.RadComboBoxDropDown .rcbHeader {
+    padding: 5px 27px 4px 7px;
+     background-color: silver !important;
+}
+
+.col1,
+.col2,
+.col3 {
+    margin: 0px;
+    padding: 0 5px 0 0;
+    width: 30%;
+    line-height: 14px;
+    float: left;
+}
+
+.RadComboBoxDropDown .rcbFooter {
+margin-top: 1px;
+    border-top-width: 1px;
+    background-color: silver !important;
+
+}
+
+.rcbHeader ul,
+.rcbFooter ul,
+.rcbItem ul,
+.rcbHovered ul,
+.rcbDisabled ul {
+    margin: 4px;
+    padding: 0;
+    width: 100%;
+    display: inline-block;
+    list-style-type: none;
+}
+
+.rbCancel:before {
+    content:"" !important;
+}
+
+.rwzStep
+        {
+            height: 100% !important;
+        }

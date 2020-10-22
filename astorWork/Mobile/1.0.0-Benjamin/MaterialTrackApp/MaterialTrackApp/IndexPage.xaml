@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.IndexPage" Appearing="ContentPage_Appearing"
+             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid x:Name="containerMaster" Padding="5">
+            <StackLayout VerticalOptions="Center" x:Name="containerChooseType" IsEnabled="False" Scale="0">
+                <Label Text="Please choose your role" StyleClass="Header" Margin="0, 0, 0, 20" HorizontalTextAlignment="Center"/>
+                <Button Text="Vendor" StyleClass="Large" Margin="10" x:Name="btnVendor" Clicked="btnVendor_Clicked"/>
+                <Button Text="Site Supervisor" StyleClass="Large" Margin="10" x:Name="btnSupervisor" Clicked="btnSupervisor_Clicked"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center" x:Name="containerSignIn">
+                <Label Text="Please sign in" StyleClass="Header" Margin="0, 0, 0, 20"
+                       HorizontalOptions="Center"/>
+                <Entry Placeholder="Username" Margin="5" x:Name="entryUserName" TextChanged="entryUserName_TextChanged"/>
+                <Entry Placeholder="Password" IsPassword="true" Margin="5" x:Name="entryPassword" TextChanged="entryUserName_TextChanged"/>
+                <Button Text="Sign In" StyleClass="Primary" Margin="5" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" IsEnabled="False"/>
+                <!--<Button Text="Cancel" Margin="5" x:Name="btnCancel" Clicked="btnCancel_Clicked"/>-->
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

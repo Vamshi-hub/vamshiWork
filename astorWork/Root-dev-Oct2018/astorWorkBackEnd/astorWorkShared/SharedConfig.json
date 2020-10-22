@@ -1,0 +1,7 @@
+﻿{
+  "ConnectionStrings": {
+    "CloudStorageAccount": "DefaultEndpointsProtocol=https;AccountName=astorwork;AccountKey=k0CI7TQHVcEeVBSpIYGWQwh0I8CQyUEVv5EvGMXCU0easFQ8NO3EDPXyE6YpvdSQowMHnhDxLmaRNai2lMpzDA==;EndpointSuffix=core.windows.net",
+    "DevSQLConnectionstring": "Server=db.astoriasolutions.com;Database=aW_Dev;User Id=sa;Password=acpl5QLSA"
+    //"DevSQLConnectionstring": "Server=astorwork-qa.database.windows.net;Database=tenant1;User Id=astoria;Password=aspla5t0rWork"
+  }  
+}

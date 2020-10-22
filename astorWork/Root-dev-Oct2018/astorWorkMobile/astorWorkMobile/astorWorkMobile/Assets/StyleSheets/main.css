@@ -1,0 +1,46 @@
+﻿^contentpage {
+    background-color: #eee;
+}
+
+frame {
+    background-color: white;
+}
+
+.Header, .Subheader {
+    color: black;
+}
+
+.Header {
+    font-size: 22;
+}
+
+.Subheader {
+    font-size: 18;
+}
+
+button {
+    font-size: 16;
+    background-color: white;
+    color: #373b99;
+    border-color: #373b99;
+    border-width: 1;
+}
+
+button.Link {
+    color: #464bbd;
+    text-decoration: underline;
+    background-color: transparent;
+    border-width: initial;
+}
+
+button.Primary {
+    background-color: #373b99;
+    color: white;
+    font-size: 16;
+}
+
+button.Accent {
+    background-color: #373b99;
+    color: white;
+    font-size: 16;
+}

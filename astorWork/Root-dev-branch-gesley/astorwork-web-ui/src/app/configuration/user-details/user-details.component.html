@@ -1,0 +1,74 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">{{title}}</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<form (ngSubmit)="onSubmit()" [formGroup]="theForm" [hidden]="isLoading">
+  <mat-card class="form-card">
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
+      <mat-form-field>
+        <input matInput placeholder="User Name" formControlName="userName" id="userName" required>
+        <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="warn-text">
+          <small *ngIf="userName.errors.normalChar">* {{userName.errors.normalChar}}</small>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Person Name" value="" formControlName="personName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" value="" formControlName="email" required>
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="10px" style="width: 100%;">
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <mat-form-field>
+            <mat-select matInput placeholder="Role" formControlName="role" required [disabled]="editSelf">
+              <mat-option *ngFor="let roledata of allroles" [value]='roledata.id'>
+                {{ roledata.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field *ngIf="showProjectSelection">
+          <mat-select matInput placeholder="Project" formControlName="project" required [disabled]="editSelf">
+            <mat-option *ngFor="let projectdata of allProjects" [value]='projectdata.id'>
+              {{ projectdata.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="10px" style="width: 100%;">
+        <mat-form-field *ngIf="showSiteSelection">
+          <mat-select matInput placeholder="Site" formControlName="site" required>
+            <mat-option *ngFor="let sitedata of allSites" [value]='sitedata.id'>
+              {{ sitedata.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="showOrganisationSelection">
+            <mat-select matInput placeholder="Organisation" formControlName="organisation" required>
+                <mat-option *ngFor="let organisationData of roleOrganisations" [value]='organisationData.id'>
+                  {{ organisationData.name }}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-checkbox [checked]="checked" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}" [disabled]="!editing || editSelf">Active</mat-checkbox>
+      <div fxLayout="row" fxLayoutAlign="space-evenly end" fxLayoutGap="20px" fxHide.xs="true">
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="theForm.status=='INVALID' || accessRight < 2">{{submit}}</button>
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="button" (click)="OnCancel()">Cancel</button>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-evenly end">
+        <div class="button-row" *ngIf="errorMsg!=''" style="color: red">
+          {{ errorMsg }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

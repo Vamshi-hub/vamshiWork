@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.VendorScanQRCode"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             BindingContext="{x:Static utilities:ViewModelLocator.singleScanTrackerVM}"
+             Title="Scan QR Code" Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <Grid>
+            <zxing:ZXingScannerView x:Name="scanView" OnScanResult="scanView_OnScanResult"
+                                    IsScanning="True" IsAnalyzing="{Binding AllowScan}"
+                                    AutomationId="QRCodeScanView"/>
+            <Frame BackgroundColor="{Binding FrameBGColor}" Margin="5"
+                   HorizontalOptions="Fill" MinimumWidthRequest="400" VerticalOptions="End">
+                <Grid>
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding ShowDetails}">
+                        <Label StyleClass="Header" Text="Attach to material" />
+                        <BoxView Color="Gray" HeightRequest="1"/>
+                        <Grid Margin="0, 5">
+                            <Label VerticalTextAlignment="Center">Tracker:</Label>
+                            <Label Margin="100,0,0,0"  VerticalTextAlignment="Center"
+                                       StyleClass="Header"
+                                               Text="{Binding TrackerLabel}" />
+                        </Grid>
+                        <Grid Margin="0, 5">
+                            <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                            <Label Margin="100,0,0,0"  VerticalTextAlignment="Center"
+                                       StyleClass="Subheader"
+                                               Text="{Binding MarkingNo}" />
+                        </Grid>
+                        <Grid Margin="0, 5">
+                            <Label VerticalTextAlignment="Center">Status:</Label>
+                            <Frame Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"
+                                   Padding="10,0" BackgroundColor="{Binding StageColor}">
+                                <Label StyleClass="Subheader"
+                                       Text="{Binding StageName}" VerticalTextAlignment="Center"/>
+                            </Frame>
+                        </Grid>
+                        <Grid IsVisible="{Binding ShowQCStatus}" Margin="0, 5">
+                            <Label Text="QC Status: " VerticalOptions="Center" HorizontalOptions="Start"/>
+                            <Label Margin="100,0,0,0" StyleClass="Subheader" VerticalTextAlignment="Center"
+                                                       TextColor="Black" Text="{Binding QCRemarks}" />
+                        </Grid>
+                        <Button StyleClass="Primary" Text="Attach" IsVisible="{Binding ShowAttachButton}"
+                                HorizontalOptions="Center"    Command="{Binding AttachCommand}"/>
+                        <Button StyleClass="Primary" Text="Deliver" IsVisible="{Binding ShowDeliverButton}"
+                                HorizontalOptions="Center" Command="{Binding DeliverCommand}"/>
+                    </StackLayout>
+                    <Grid IsVisible="{Binding IsLoading}">
+                        <ActivityIndicator Color="SkyBlue" IsRunning="{Binding IsLoading}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

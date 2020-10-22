@@ -1,0 +1,53 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">Create Stage</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<form (ngSubmit)="OnSave()" [formGroup]="theForm" [hidden]="isLoading">
+  <div fxLayout="column" fxLayoutAlign="space-between center" [hidden]="isLoading">
+    <mat-card class="form-card">
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap='15px'>
+        <mat-form-field>
+          <input matInput placeholder="Name" formControlName="name" maxlength="30"  required>
+        </mat-form-field>
+
+        <mat-slide-toggle class="button" [checked]=stage.canIgnoreQC [(ngModel)]="stage.canIgnoreQC" [ngModelOptions]="{standalone: true}">
+          Proceed with open QC
+      </mat-slide-toggle>
+        <div fxLayout="row" fxLayoutGap="10px">
+          <mcc-color-picker fxFlex="15" colorPickerSelectorHeight="100" usedSizeColors="15" hideButtons class="mcc-cp-small" [hideHexForms]="true"
+            mccConnectedColorPicker [mccConnectedColorPickerOrigin]="trigger">
+          </mcc-color-picker>
+          <input matInput placeholder="Stage Colour" fxFlex="25" style="margin-left: 1px" value="Colour" readonly>
+          <input matInput mccColorPickerOrigin #trigger="mccColorPickerOrigin" [ngModelOptions]="{standalone: true}" [(ngModel)]="stage.colour"
+            required hidden=true/>
+        </div>
+        <mat-form-field>
+          <mat-select matInput placeholder="Next Stage" formControlName="nextStageId" [(value)]="stage.nextStageId" required >
+            <mat-option *ngFor="let stage of Stages" [value]='stage.id'>
+              {{ stage.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select matInput placeholder="Material Types"  formControlName="materialTypes" [(value)]="stage.materialTypes" multiple>
+            <mat-option *ngFor="let type of materialTypes" [value]='type'>
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <div fxLayout="row" fxLayoutAlign="space-evenly end">
+          <div class="button-row">
+            <button mat-raised-button color="primary" [disabled]="theForm.status=='INVALID' || accessRight < 2" type="submit">Save</button>
+          </div>
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="button" (click)="OnCancel()">Cancel</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</form>

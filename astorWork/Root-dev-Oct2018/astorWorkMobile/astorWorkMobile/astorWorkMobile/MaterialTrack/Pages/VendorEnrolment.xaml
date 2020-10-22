@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.VendorEnrolment"
+             BindingContext="{x:Static utilities:ViewModelLocator.vendorEnrolmentVM}"
+             Title="Enroll Material"
+             Disappearing="OnPageDisappearing">
+    <ContentPage.Content>
+        <Grid>
+            <Frame OutlineColor="Silver" VerticalOptions="Fill" Margin="0,0,0,80">
+                <FlexLayout VerticalOptions="Fill" Direction="Column" JustifyContent="Start">
+                    <Label Text="{Binding Project.name}" StyleClass="Header"/>
+                    <BoxView Color="Gray" HeightRequest="1"/>
+                    <Grid FlexLayout.Basis="50">
+                        <Label VerticalTextAlignment="Center">Material Type:</Label>
+                        <Picker Title="Select a material type" Margin="100,0,0,0"
+                    ItemsSource="{Binding Project.materialTypes}"
+                    SelectedItem="{Binding SelectedMaterialType}"/>
+                    </Grid>
+                    <FlexLayout Direction="Column" IsVisible="{Binding ShowContent}" FlexLayout.Grow="1"
+                                Wrap="NoWrap">
+                        <Grid FlexLayout.Basis="50" FlexLayout.Shrink="0">
+                            <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                            <Entry Margin="100,0,0,0" TextColor="Black" StyleClass="Subheader"
+                                       Text="{Binding MarkingNo}"/>
+                        </Grid>
+                        <ListView ItemsSource="{Binding ListMarkingNo}" Margin="100,5,0,5"
+                                  ItemTapped="OnMarkingNoTapped" FlexLayout.Shrink="1" FlexLayout.Basis="{Binding ListMarkingNoHeight}"/>
+                        <Grid FlexLayout.Basis="50" FlexLayout.Shrink="0">
+                            <Label VerticalTextAlignment="Center">Lot No.:</Label>
+                            <Entry Margin="100,0,0,0" TextColor="Black" StyleClass="Subheader" 
+                           Text="{Binding SN}" Keyboard="Numeric" />
+                        </Grid>
+                        <Grid FlexLayout.Basis="50" FlexLayout.Shrink="0">
+                            <Label VerticalTextAlignment="Center">CastingDate:</Label>
+                            <DatePicker Margin="100,0,0,0" TextColor="Black"
+                                Date="{Binding CastingDate}" MaximumDate="{x:Static sys:DateTime.Today}" />
+                        </Grid>
+                    </FlexLayout>
+                </FlexLayout>
+            </Frame>
+                <Button Style="{StaticResource btnPrimaryStyle}" Text="Enroll" IsEnabled="{Binding EnrolButtonEnabled}" 
+                    HorizontalOptions="Center" Clicked="OnEnrolButtonClicked" VerticalOptions="End" Margin="0,0,0,10"/>
+            <views:LoadingView/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

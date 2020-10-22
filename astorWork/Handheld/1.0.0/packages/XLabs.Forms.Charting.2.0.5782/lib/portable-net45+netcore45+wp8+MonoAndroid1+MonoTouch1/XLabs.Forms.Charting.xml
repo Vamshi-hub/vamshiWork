@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XLabs.Forms.Charting</name>
+    </assembly>
+    <members>
+        <member name="T:XLabs.Forms.Charting.Events.DoubleDrawingData">
+            <summary>
+            Class DoubleDrawingData. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Events.DoubleDrawingData.#ctor(System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Events.DoubleDrawingData"/> class.
+            </summary>
+            <param name="xFrom">The x from.</param>
+            <param name="yFrom">The y from.</param>
+            <param name="xTo">The x to.</param>
+            <param name="yTo">The y to.</param>
+            <param name="seriesNo">The series no.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.DoubleDrawingData.SeriesNo">
+            <summary>
+            Gets or sets the series no.
+            </summary>
+            <value>The series no.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.DoubleDrawingData.XFrom">
+            <summary>
+            Gets or sets the x from.
+            </summary>
+            <value>The x from.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.DoubleDrawingData.YFrom">
+            <summary>
+            Gets or sets the y from.
+            </summary>
+            <value>The y from.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.DoubleDrawingData.XTo">
+            <summary>
+            Gets or sets the x to.
+            </summary>
+            <value>The x to.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.DoubleDrawingData.YTo">
+            <summary>
+            Gets or sets the y to.
+            </summary>
+            <value>The y to.</value>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.Chart">
+            <summary>
+            Contains charting algorithms and is able to draw and render a chart.
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Chart.DataSourceProperty">
+            <summary>
+            The data source property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Chart.ColorProperty">
+            <summary>
+            The color property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Chart.SeriesProperty">
+            <summary>
+            The series property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Chart.SpacingProperty">
+            <summary>
+            The spacing property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Chart.GridProperty">
+            <summary>
+            The grid property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Chart.XPathProperty">
+            <summary>
+            The x path property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Chart.YPathProperty">
+            <summary>
+            The y path property
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Chart.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Controls.Chart"/> class.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Chart.DrawChart">
+            <summary>
+            Draw the chart using the specified handlers.
+            </summary>
+            <remarks>
+            Set the events before calling DrawChart.
+            </remarks>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Chart.DrawGrid(System.Double)">
+            <summary>
+            Draw the horizontal grid lines and Y-axis labels.
+            </summary>
+            <param name="highestValue">Highest Y-value within the series.</param>
+            <returns>New highest value.</returns>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Chart.DrawBarChart(System.Double,System.Double,System.Int32,XLabs.Forms.Charting.Controls.DataPointCollection)">
+            <summary>
+            Draw a bar.
+            </summary>
+            <param name="highestValue">Highest Y-value possible after drawing the grid.</param>
+            <param name="widthPerBar">Width of a single bar.</param>
+            <param name="barNo">The number of the series</param>
+            <param name="points">Specified points in the series.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Chart.DrawLineChart(System.Double,System.Double,System.Int32,XLabs.Forms.Charting.Controls.DataPointCollection)">
+            <summary>
+            Draw a line.
+            </summary>
+            <param name="highestValue">Highest Y-value possible after drawing the grid.</param>
+            <param name="widthPerBar">Width of a single bar.</param>
+            <param name="lineNo">The number of the series</param>
+            <param name="points">Specified points in the series.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Chart.DrawPieChart(XLabs.Forms.Charting.Controls.DataPointCollection,System.Int32)">
+            <summary>
+            Draw a pie chart.
+            </summary>
+            <param name="points">Specified points in the series.</param>
+            <param name="pieNo">The pie no.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Chart.DrawLabels(System.Double,System.Double,XLabs.Forms.Charting.Controls.DataPointCollection)">
+            <summary>
+            Draw text.
+            </summary>
+            <param name="highestValue">Highest Y-value possible after drawing the grid.</param>
+            <param name="widthPerBar">Width of a single bar.</param>
+            <param name="points">Specified points in the series.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.DataSource">
+            <summary>
+            Gets or sets the datasource of the chart's data to display.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.Color">
+            <summary>
+            Gets or sets the color of the grid and border of the chart element.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.Series">
+            <summary>
+            Gets or sets the series which should be displayed inside the chart element.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.Spacing">
+            <summary>
+            Gets or sets the desired spacing between series inside chart element.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.Grid">
+            <summary>
+            Gets or sets a value indicating whether this element contains horizontal grid lines.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.XPath">
+            <summary>
+            Determines the property on the object that contains the X-values of the chart.
+            </summary>
+            <remarks>
+            Will be used if the DataSource property is set.
+            </remarks>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.YPath">
+            <summary>
+            Determines the property on the object that contains the Y-values of the chart.
+            </summary>
+            <remarks>
+            Will be used if the DataSource property is set.
+            </remarks>
+        </member>
+        <member name="E:XLabs.Forms.Charting.Controls.Chart.OnDrawText">
+            <summary>
+            Fires when canvas needs to draw text
+            </summary>
+        </member>
+        <member name="E:XLabs.Forms.Charting.Controls.Chart.OnDrawGridLine">
+            <summary>
+            Fires when canvas needs to draw a grid line
+            </summary>
+        </member>
+        <member name="E:XLabs.Forms.Charting.Controls.Chart.OnDrawBar">
+            <summary>
+            Fires when canvas needs to draw a bar
+            </summary>
+        </member>
+        <member name="E:XLabs.Forms.Charting.Controls.Chart.OnDrawLine">
+            <summary>
+            Fires when canvas needs to draw a line
+            </summary>
+        </member>
+        <member name="E:XLabs.Forms.Charting.Controls.Chart.OnDrawCircle">
+            <summary>
+            Fires when canvas needs to draw a circle
+            </summary>
+        </member>
+        <member name="E:XLabs.Forms.Charting.Controls.Chart.OnDrawPie">
+            <summary>
+            Fires when canvas needs to draw a pie
+            </summary>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.Chart.DrawEventArgs`1">
+            <summary>
+            Event args for the Chart events.
+            </summary>
+            <typeparam name="T">A DrawingData class, which is put into the Data property.</typeparam>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Chart.DrawEventArgs`1.Data">
+            <summary>
+            The event coming from the Chart
+            </summary>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.ChartType">
+            <summary>
+            Possible charting types
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.ChartType.Bar">
+            <summary>
+            The bar
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.ChartType.Line">
+            <summary>
+            The line
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.ChartType.Pie">
+            <summary>
+            The pie
+            </summary>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.DataPoint">
+            <summary>
+            Contains the logic for drawing a point.
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.DataPoint.LabelProperty">
+            <summary>
+            The label property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.DataPoint.ValueProperty">
+            <summary>
+            The value property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.DataPoint.ColorProperty">
+            <summary>
+            The color property
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.DataPoint.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Controls.DataPoint"/> class.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.DataPoint.#ctor(System.String,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Controls.DataPoint"/> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.DataPoint.Label">
+            <summary>
+            X-axis label. Only the labels of the first series will be rendered.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.DataPoint.Value">
+            <summary>
+            Value of the point, used to be drawn.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.DataPoint.Color">
+            <summary>
+            Color of the point, used to be drawn as pie-chart slice.
+            </summary>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.DataPointCollection">
+            <summary>
+            Collection of DataPoints. The collection represents all data necessary to draw a single series.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.DataPointCollection.Add(XLabs.Forms.Charting.Controls.DataPoint)">
+            <summary>
+            Add a DataPoint to the collection.
+            </summary>
+            <param name="dataPoint">DataPoint to add.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.DataPointCollection.Remove(XLabs.Forms.Charting.Controls.DataPoint)">
+            <summary>
+            Remove a DataPoint from the collection.
+            </summary>
+            <param name="dataPoint">DataPoint to be removed.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.DataPointCollection.Remove(System.Int32)">
+            <summary>
+            Remove a DataPoint from the collection.
+            </summary>
+            <param name="index">Index of collection to remove DataPoint at.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.DataPointCollection.Item(System.Int32)">
+            <summary>
+            Retrieve or put a DataPoint at the index in the collection.
+            </summary>
+            <param name="index">Index to look for in the collection.</param>
+            <returns>DataPoint found at the specified index.</returns>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.Series">
+            <summary>
+            Represents a single series to be drawn in a chart.
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Series.PointsProperty">
+            <summary>
+            The points property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Series.ColorProperty">
+            <summary>
+            The color property
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.Series.TypeProperty">
+            <summary>
+            The type property
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.Series.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Controls.Series"/> class.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Series.Color">
+            <summary>
+            Color of the Series.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Series.Points">
+            <summary>
+            DataPoints containing Y-axis values and X-axis labels.
+            </summary>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.Series.Type">
+            <summary>
+            Type of the series. Possible values: Bar or Line.
+            </summary>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.SeriesCollection">
+            <summary>
+            Collection of Series. The collection represents all data necessary to draw a single chart.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.SeriesCollection.Add(XLabs.Forms.Charting.Controls.Series)">
+            <summary>
+            Add a Series to the collection.
+            </summary>
+            <param name="series">Series to add.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.SeriesCollection.Remove(XLabs.Forms.Charting.Controls.Series)">
+            <summary>
+            Remove a Series from the collection.
+            </summary>
+            <param name="series">Series to be removed.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.SeriesCollection.Remove(System.Int32)">
+            <summary>
+            Remove a Series from the collection.
+            </summary>
+            <param name="index">Index of collection to remove Series at.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Controls.SeriesCollection.Item(System.Int32)">
+            <summary>
+            Retrieve or put a Series at the index in the collection.
+            </summary>
+            <param name="index">Index to look for in the collection.</param>
+            <returns>Series found at the specified index.</returns>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Events.PieDrawingData">
+            <summary>
+            Class PieDrawingData. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Events.PieDrawingData.#ctor(System.Double,System.Double,System.Int32,System.Double,System.Double[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Events.PieDrawingData"/> class.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="seriesNo">The series no.</param>
+            <param name="size">The size.</param>
+            <param name="percentages">The percentages.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.PieDrawingData.SeriesNo">
+            <summary>
+            Gets or sets the series no.
+            </summary>
+            <value>The series no.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.PieDrawingData.X">
+            <summary>
+            Gets or sets the x.
+            </summary>
+            <value>The x.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.PieDrawingData.Y">
+            <summary>
+            Gets or sets the y.
+            </summary>
+            <value>The y.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.PieDrawingData.Size">
+            <summary>
+            Gets or sets the size.
+            </summary>
+            <value>The size.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.PieDrawingData.Percentages">
+            <summary>
+            Gets or sets the percentages.
+            </summary>
+            <value>The percentages.</value>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Events.SingleDrawingData">
+            <summary>
+            Class SingleDrawingData. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Events.SingleDrawingData.#ctor(System.Double,System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Events.SingleDrawingData"/> class.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="seriesNo">The series no.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Events.SingleDrawingData.#ctor(System.Single,System.Single,System.Int32,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Events.SingleDrawingData"/> class.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="seriesNo">The series no.</param>
+            <param name="size">The size.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.SingleDrawingData.SeriesNo">
+            <summary>
+            Gets or sets the series no.
+            </summary>
+            <value>The series no.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.SingleDrawingData.X">
+            <summary>
+            Gets or sets the x.
+            </summary>
+            <value>The x.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.SingleDrawingData.Y">
+            <summary>
+            Gets or sets the y.
+            </summary>
+            <value>The y.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.SingleDrawingData.Size">
+            <summary>
+            Gets or sets the size.
+            </summary>
+            <value>The size.</value>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Events.TextDrawingData">
+            <summary>
+            Class TextDrawingData.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Events.TextDrawingData.#ctor(System.String,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Events.TextDrawingData"/> class.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.TextDrawingData.X">
+            <summary>
+            Gets or sets the x.
+            </summary>
+            <value>The x.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.TextDrawingData.Y">
+            <summary>
+            Gets or sets the y.
+            </summary>
+            <value>The y.</value>
+        </member>
+        <member name="P:XLabs.Forms.Charting.Events.TextDrawingData.Text">
+            <summary>
+            Gets or sets the text.
+            </summary>
+            <value>The text.</value>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             x:Class="astorWorkMobile.JobTrack.Pages.JobScanQR"
+             BindingContext="{x:Static utilities:ViewModelLocator.jobScanVM}"
+             Title="Scan QR Code" Disappearing="ContentPage_Disappearing" Appearing="ContentPage_Appearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid >
+            <zxing:ZXingScannerView x:Name="scanView" OnScanResult="scanView_OnScanResult"   
+                                    IsScanning="True" IsAnalyzing="{Binding AllowScan}"
+                                    AutomationId="QRCodeScanView" 
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <StackLayout VerticalOptions="EndAndExpand" x:Name="GridQRList" BackgroundColor="White" >
+                <StackLayout BackgroundColor="#145ca4" Padding="3" x:Name="SwipeHeader">
+                    <Image x:Name="SwipeIcon" Source="ic_double_up.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="Swipe up/down to display/hide scanned items" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout BindableLayout.ItemsSource="{Binding Jobs}" VerticalOptions="FillAndExpand" Margin="5" IsVisible="{Binding ShowJobsList}" >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout  BackgroundColor="Transparent" Margin="0,0,0,5">
+                                    <Frame Padding="3">
+                                        <StackLayout  Padding="5">
+                                            <!--#region Header-->
+                                            <StackLayout Orientation="Horizontal">
+                                                <BoxView BackgroundColor="{Binding StatusColor}"  WidthRequest="6"></BoxView>
+                                                <StackLayout>
+                                                    <Label Text="{Binding TradeName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                                    <Label Text="{Binding ModuleName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                                    <Label Text="{Binding Status}" StyleClass="Heading" TextColor="{Binding StatusColor}"/>
+                                                </StackLayout>
+                                                <Image Source="{Binding ExpansionIcon}" HeightRequest="20" WidthRequest="20"
+                                               HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ExpandCommand}" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                            <!--#endregion-->
+
+                                            <!--#region Sub Header-->
+                                            <StackLayout Orientation="Vertical" IsVisible="{Binding IsExpanded}">
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                    <Label  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Sub-Con.:</Label>
+                                                    <Label StyleClass="Subheader" Text="{Binding SubConName}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding ShowSubcon}"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                    <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned Start:</Label>
+                                                    <Label  StyleClass="Subheader" Text="{Binding Start, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                    HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                    <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned End:</Label>
+                                                    <Label StyleClass="Subheader" Text="{Binding End, StringFormat='{0:MM/dd/yyyy}'}"
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualStartDate}">
+                                                    <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">StartDate:</Label>
+                                                    <Label  StyleClass="Subheader" Text="{Binding ActualStartDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                    HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualEndDate}">
+                                                    <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">EndDate:</Label>
+                                                    <Label StyleClass="Subheader" Text="{Binding ActualEndDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                                    <ImageButton  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" WidthRequest="60" HeightRequest="40" CornerRadius="20"  Source="ic_list.png" 
+                                                Command="{Binding ChecklistCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" IsVisible="{Binding ShowChecklistButton}"/>
+                                                    <Button Text="Start" HeightRequest="40" WidthRequest="90" CornerRadius="20" IsVisible="{Binding ShowStartJobButton}" Command="{Binding StartJobCommand}"/>
+                                                    <Button Text="Complete" HeightRequest="40" WidthRequest="90" CornerRadius="20" IsVisible="{Binding ShowCompleteJobButton}" Command="{Binding CompleteJobCommand}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <!--#endregion-->
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                                <!--</ViewCell>-->
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="SwipeGestureRecognizer_Swiped"/>
+                    <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label StyleClass="Header" TextColor="Red" Text="No camera available" IsVisible="False"
+                   HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <!--IsVisible="{Binding CameraReady, Converter={StaticResource inverseBool}}" -->
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

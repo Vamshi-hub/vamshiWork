@@ -1,0 +1,50 @@
+<div class="mat-typography">
+    <h3 mat-dialog-title fxLayout="row" fxLayoutAlign="space-between center">
+        <span>QR Code</span>
+        <button mat-mini-fab mat-dialog-close>
+            <mat-icon>clear</mat-icon>
+        </button>
+    </h3>
+    <app-common-loading *ngIf="!data.material"></app-common-loading>
+    <div *ngIf="data.material">
+        <div fxLayout="row" fxLayoutAlign="space-evenly stretch">
+            <div fxLayout="column" fxLayoutGap="5px">
+                <div fxLayoutGap="10px" fxLayout="row">
+                    <!-- <h2>Project Details</h2> -->
+                    <div fxLayoutGap="10px" fxLayout="column" style="margin-top: 17px" >
+                        <span>Project : {{data.project.name}}</span>
+                        <span>Block: {{data.material.block}}</span>
+                        <span>Level: {{data.material.level}}</span>
+                        <span>Unit: {{data.material.zone}}</span>
+                        <span>Type: {{data.material.materialType}}</span>
+                        <span>Assembly Location: {{data.material.assemblyLocation}}</span>
+                    </div>
+                   
+
+                    <!-- <span>Manager : {{data.project.projectManagerName}}</span> -->
+                <!-- </div> -->
+
+                <!-- <div fxLayoutGap="10px" fxLayout="column">
+                    <h2> Vendor Details</h2>
+                    <span>Name: {{data.material.vendorName}}</span>
+                   
+                </div> -->
+                <!-- <span>Production Officer:Amelia Taylor</span> -->
+                <!-- <div fxLayout="column" fxLayoutGap="10px"> -->
+                    <!-- <h2> Material Details</h2> -->
+                    <!-- <span>Marking No: {{data.material.markingNo}}</span> -->
+                   
+                  
+                <!-- </div> -->
+                <div fxLayout="column" fxLayoutGap="5px">
+                        <h3 mat-h3>{{data.material.trackerLabel}}</h3>
+                    <ngx-qrcode [qrc-element-type]="'img'" [qrc-value]="data.material.trackerTag"
+                        qrc-class="test-class">abcd</ngx-qrcode>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+</div>

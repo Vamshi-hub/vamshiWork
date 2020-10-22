@@ -1,0 +1,84 @@
+﻿contentpage {
+    background-color: white;
+}
+
+    contentpage.DarkPageStyle {
+        background-color: #2a2d73;
+        color: white;
+    }
+
+frame {
+    background-color: white;
+    border-color: #cccccc;
+}
+
+frame.ButtonStyle {
+    border-color: #373b99;
+    background-color: white;
+
+}
+
+frame.ButtonStyle label {
+    color: #373b99;
+}
+
+imagebutton.imgBtnStyle {
+    border-color: #373b99;
+    border-width: 1px;
+    background-color: transparent;
+}
+button {
+    font-size: 16;
+    background-color: white;
+    color: #373b99;
+    border-color: #373b99;
+    border-width: 1;
+}
+
+    button.Link {
+        color: #464bbd;
+        text-decoration: underline;
+        background-color: transparent;
+        border-width: initial;
+    }
+
+    button.Primary {
+        background-color: #373b99;
+        color: white;
+        font-size: 16;
+    }
+
+    button.Accent {
+        background-color: #373b99;
+        color: white;
+        font-size: 16;
+    }
+
+label {
+    vertical-align: middle;
+}
+
+    label.Link {
+        color: #464bbd;
+        background-color: transparent;
+        font-size: 16;
+    }
+
+.Header, .Subheader, Heading {
+    color: black;
+    vertical-align: middle;
+}
+
+.Header {
+    font-size: 19;
+    font-style: bold;
+}
+
+.Subheader {
+    font-size: 15;
+}
+
+.Heading {
+    font-size: 12;
+    font-style: bold;
+}

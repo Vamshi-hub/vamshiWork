@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:astorTrackP;assembly=astorTrackP"	
+	x:Class="astorTrackP.EnrollPending"
+  Title="Pending Request"
+  BackgroundColor="#e6e6e6">
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Icon="rfidsetup.png" Command="{Binding NavigateProducedCommand, Mode=TwoWay}"></ToolbarItem>
+	</ContentPage.ToolbarItems>-->
+
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Search Marking No or MRF No" Text="{Binding SearchDocument, Mode=TwoWay}" SearchCommand ="{Binding SearchCommand}" BackgroundColor="White" ></SearchBar>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5,0,5,5">
+                <ListView x:Name="uxItems" ItemsSource="{Binding MRFModel, Mode=TwoWay}"  HasUnevenRows="True" IsGroupingEnabled="True"  BackgroundColor="White" 
+			SelectedItem="{Binding MaterialMaster, Mode=TwoWay}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  SeparatorColor="Gray" SeparatorVisibility="Default"
+			IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="5,0,5,0" HeightRequest="40"  Spacing="0" BackgroundColor="#002ec6" >
+                                    <Label Text="{Binding MRFNo}" FontSize="Large" TextColor="White" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="5,0,5,0" HeightRequest="100"  Spacing="0"  >
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                                            <!--<StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">-->
+                                                <Label Text="{Binding MarkingNo}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Large" TextColor="#002ec6"></Label>
+                                                <!--<Label Text="{Binding MaterialType}" HorizontalOptions="End" VerticalOptions="Center" TextColor="Black" FontSize="Small"></Label>
+                                            </StackLayout>-->
+                                            <Label Text="{Binding Location}" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#4f4f4f" FontSize="Medium"></Label>
+                                    </StackLayout>
+                                    <Image HorizontalOptions="End" Source="next.png" HeightRequest="15" WidthRequest="15"></Image>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

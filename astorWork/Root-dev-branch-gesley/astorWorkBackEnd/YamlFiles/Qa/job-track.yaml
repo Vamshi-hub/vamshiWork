@@ -1,0 +1,61 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: job-tracking
+  namespace: qa
+  labels:
+    app: job-tracking
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: job-tracking
+  template:
+    metadata:
+      labels:
+        app: job-tracking
+    spec:
+      containers:
+      - name: astorwork
+        image: astorwork.azurecr.io/job-track-2019:1082
+        env:
+        - name: TENANT_INFO_TBL
+          value: TenantInfoQA
+
+        - name: SENDGRID_KEY
+          value: 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
+
+        - name: IMAGE_CONTAINER
+          value: qa-image-repo
+
+        - name: VIDEO_CONTAINER
+          value: qa-video-repo
+
+        - name: AW_REDIS_CACHE_CONNECTION
+          value: astorworkQA.redis.cache.windows.net:6380,password=IQJRK3MrIWzsQkDtDqr43BY2QTv5NpcJKW4bTfSERzc=,ssl=True,abortConnect=False
+        
+        - name: FORGE_CLIENT_ID
+          value: 8sVrLSRk4HEJ5dmG0uXQcCVU5LvfuH0G
+        
+        - name: FORGE_CLIENT_SECRET
+          value: 4d0ba5cav1AuU9sk
+
+      imagePullSecrets:
+      - name: acr-auth
+---
+apiVersion: extensions/v1beta1
+kind: Service
+apiVersion: v1
+metadata:
+  name: job-tracking
+  namespace: qa
+spec:
+  selector:
+    app: job-tracking
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+  - name: https
+    protocol: TCP
+    port: 443

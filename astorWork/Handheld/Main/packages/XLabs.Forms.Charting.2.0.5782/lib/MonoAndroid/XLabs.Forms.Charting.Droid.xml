@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XLabs.Forms.Charting.Droid</name>
+    </assembly>
+    <members>
+        <member name="T:XLabs.Forms.Charting.Controls.ChartRenderer">
+            <summary>
+            Class ChartRenderer.
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartRenderer.OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs{XLabs.Forms.Charting.Controls.Chart})">
+            <summary>
+            Called when [element changed].
+            </summary>
+            <param name="e">The e.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartRenderer.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Handles the <see cref="E:ElementPropertyChanged"/> event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:XLabs.Forms.Charting.Controls.ChartSurface">
+            <summary>
+            Class ChartSurface.
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.ChartSurface.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.ChartSurface.Paint">
+            <summary>
+            The paint
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.ChartSurface.Colors">
+            <summary>
+            The colors
+            </summary>
+        </member>
+        <member name="F:XLabs.Forms.Charting.Controls.ChartSurface.Canvas">
+            <summary>
+            The canvas
+            </summary>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface.#ctor(Android.Content.Context,XLabs.Forms.Charting.Controls.Chart,Android.Graphics.Color,Android.Graphics.Color[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Forms.Charting.Controls.ChartSurface"/> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="chart">The chart.</param>
+            <param name="color">The color.</param>
+            <param name="colors">The colors.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface.OnDraw(Android.Graphics.Canvas)">
+            <summary>
+            Called when [draw].
+            </summary>
+            <param name="canvas">The canvas.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface._chart_OnDrawBar(System.Object,XLabs.Forms.Charting.Controls.Chart.DrawEventArgs{XLabs.Forms.Charting.Events.DoubleDrawingData})">
+            <summary>
+            _chart_s the on draw bar.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The e.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface._chart_OnDrawCircle(System.Object,XLabs.Forms.Charting.Controls.Chart.DrawEventArgs{XLabs.Forms.Charting.Events.SingleDrawingData})">
+            <summary>
+            _chart_s the on draw circle.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The e.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface._chart_OnDrawGridLine(System.Object,XLabs.Forms.Charting.Controls.Chart.DrawEventArgs{XLabs.Forms.Charting.Events.DoubleDrawingData})">
+            <summary>
+            _chart_s the on draw grid line.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The e.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface._chart_OnDrawLine(System.Object,XLabs.Forms.Charting.Controls.Chart.DrawEventArgs{XLabs.Forms.Charting.Events.DoubleDrawingData})">
+            <summary>
+            _chart_s the on draw line.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The e.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface._chart_OnDrawText(System.Object,XLabs.Forms.Charting.Controls.Chart.DrawEventArgs{XLabs.Forms.Charting.Events.TextDrawingData})">
+            <summary>
+            _chart_s the on draw text.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The e.</param>
+        </member>
+        <member name="M:XLabs.Forms.Charting.Controls.ChartSurface._chart_OnDrawPie(System.Object,XLabs.Forms.Charting.Controls.Chart.DrawEventArgs{XLabs.Forms.Charting.Events.PieDrawingData})">
+            <summary>
+            _chart_s the on draw pie.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The e.</param>
+        </member>
+    </members>
+</doc>

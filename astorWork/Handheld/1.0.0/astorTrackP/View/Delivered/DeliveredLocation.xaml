@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="astorTrackP.DeliveredLocation"
+  Title ="Location" 
+  BackgroundColor="#e6e6e6">
+
+    <!--<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="barcodeon.png" Command="{Binding NavigateCommand, Mode=TwoWay}" />
+	</ContentPage.ToolbarItems>-->
+
+
+    <ContentPage.ToolbarItems>
+        <!--		<ToolbarItem Icon="rfidsensor.png"  Command="{Binding RFIDSetupCommand, Mode=TwoWay}" />-->
+        <!--<ToolbarItem Icon="upload.png"  Command="{Binding PostCommand, Mode=TwoWay}" />-->
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Search Location" Text="{Binding SearchDocument, Mode=TwoWay}" SearchCommand ="{Binding SearchCommand}" BackgroundColor="White"></SearchBar>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Padding="5,0,5,0" BackgroundColor="White">
+                <ListView x:Name="uxLocationList" ItemsSource="{Binding LocationMasters, Mode=TwoWay}" RowHeight="100" MinimumHeightRequest="50" BackgroundColor="White"
+			            SelectedItem="{Binding LocationMaster, Mode=TwoWay}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SeparatorColor="Gray" SeparatorVisibility="Default"
+			            IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <!--<Grid Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>-->
+
+                                    <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Padding="5,0,5,0" HeightRequest="100"  Spacing="0" BackgroundColor="Blue" >-->
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0" Padding="5,0,5,0">
+                                            <Label Text="{Binding ChildDescription}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Large" TextColor="#002ec6"></Label>
+                                            <Label Text="{Binding Parents}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Medium" TextColor="#4f4f4f"></Label>
+                                        </StackLayout>
+                                        <!--<StackLayout Spacing="1" Orientation="Horizontal" Padding="0,0,10,0">
+                                        <Image HorizontalOptions="Start" Source="location.png" Scale="1" HeightRequest="20"></Image>
+                                        <Label Text="{Binding Parents}" HorizontalOptions="StartAndExpand" VerticalOptions="Start" FontSize="Medium" TextColor="#4f4f4f"></Label>
+                                    </StackLayout>-->
+                                    <!--</StackLayout>-->
+                                    <!--</Grid>-->
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

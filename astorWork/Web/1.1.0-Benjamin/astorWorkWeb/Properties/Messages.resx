@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CertificatesNameExists" xml:space="preserve">
+    <value>Certificate Name Already Exists</value>
+  </data>
+  <data name="CompanyNameExists" xml:space="preserve">
+    <value>Company Name Already Exists</value>
+  </data>
+  <data name="ConnectingCSExists" xml:space="preserve">
+    <value>Selected CS is already linked with this CS.</value>
+  </data>
+  <data name="ConnectingLocationExists" xml:space="preserve">
+    <value>Selected location is already linked with this location.</value>
+  </data>
+  <data name="ConnectingYardExists" xml:space="preserve">
+    <value>Selected yard is already linked with this yard.</value>
+  </data>
+  <data name="DepartmentNameExists" xml:space="preserve">
+    <value>Department Name Already Exists</value>
+  </data>
+  <data name="DeviceAllocated" xml:space="preserve">
+    <value>Selected device is already allocated.</value>
+  </data>
+  <data name="DeviceConnected" xml:space="preserve">
+    <value>Please remove any devices allocated to gangway before changing location</value>
+  </data>
+  <data name="DeviceIPAddressExists" xml:space="preserve">
+    <value>Device IP Address Already Exists</value>
+  </data>
+  <data name="DeviceMACAddressExists" xml:space="preserve">
+    <value>Device MAC Address Already Exists</value>
+  </data>
+  <data name="DeviceNameExists" xml:space="preserve">
+    <value>Device Name Already Exists</value>
+  </data>
+  <data name="DeviceSerialNoExists" xml:space="preserve">
+    <value>Device Serial No Already Exists</value>
+  </data>
+  <data name="EmpCertificationDetailsExists" xml:space="preserve">
+    <value>Certificate Already Exists</value>
+  </data>
+  <data name="EmpHasActiveRFIDTag" xml:space="preserve">
+    <value>Employee already has an active Tag, cannot add another one</value>
+  </data>
+  <data name="GangwayNameExists" xml:space="preserve">
+    <value>Gangway Name Already Exists</value>
+  </data>
+  <data name="ImportFailed" xml:space="preserve">
+    <value>Import Failed</value>
+  </data>
+  <data name="IsEmployeeFINNRICNoExists" xml:space="preserve">
+    <value>Employee FIN/NRIC No  Already Exists</value>
+  </data>
+  <data name="IsEmployeeIDExists" xml:space="preserve">
+    <value>Employee ID Already Exists</value>
+  </data>
+  <data name="JobNumberExists" xml:space="preserve">
+    <value>Job Number Already Exists</value>
+  </data>
+  <data name="LoadingError" xml:space="preserve">
+    <value>Error loading records</value>
+  </data>
+  <data name="LocationCodeExists" xml:space="preserve">
+    <value>Code Already Exists</value>
+  </data>
+  <data name="MaterialCodeExists" xml:space="preserve">
+    <value>Material Code Already Exists</value>
+  </data>
+  <data name="Materials" xml:space="preserve">
+    <value>Select Material</value>
+  </data>
+  <data name="MSOCreated" xml:space="preserve">
+    <value>Material Sheet Order Saved Successfully</value>
+  </data>
+  <data name="MSOApproved" xml:space="preserve">
+    <value>Material Sheet Order Approved Successfully</value>
+  </data>
+  <data name="NoModules" xml:space="preserve">
+    <value>Please select at least one web module</value>
+  </data>
+  <data name="NoRecordsFound" xml:space="preserve">
+    <value>No Records Found</value>
+  </data>
+  <data name="PageIDExists" xml:space="preserve">
+    <value>PageID Already Exists</value>
+  </data>
+  <data name="PermitNumberExists" xml:space="preserve">
+    <value>Permit Number Already Exists</value>
+  </data>
+  <data name="RectifyFail" xml:space="preserve">
+    <value>Rectification Failed</value>
+  </data>
+  <data name="RectifySuccess" xml:space="preserve">
+    <value>Rectified Successfully</value>
+  </data>
+  <data name="RoleNameExists" xml:space="preserve">
+    <value>Role Name Already Exists</value>
+  </data>
+  <data name="UserCreated" xml:space="preserve">
+    <value>User Created Successfully</value>
+  </data>
+  <data name="UserIDExists" xml:space="preserve">
+    <value>User ID Already Exists</value>
+  </data>
+  <data name="UserUpdated" xml:space="preserve">
+    <value>User Updated Successfully</value>
+  </data>
+  <data name="MaterialsAdded" xml:space="preserve">
+    <value>Material added Succesfully</value>
+  </data>
+  <data name="MaterialsUpdated" xml:space="preserve">
+    <value>Material updated Succesfully</value>
+  </data>
+  <data name="PONumberExists" xml:space="preserve">
+    <value>PO Number Already Exists</value>
+  </data>
+  <data name="POAdded" xml:space="preserve">
+    <value>PO Saved Succesfully</value>
+  </data>
+  <data name="SelectMSODetail" xml:space="preserve">
+    <value>Please select atleast one checkbox</value>
+  </data>
+  <data name="POApproved" xml:space="preserve">
+    <value>PO Approved Successfully</value>
+  </data>
+  <data name="SubmitedMSODetails" xml:space="preserve">
+    <value>Submited and Saved  the MSODetails to Approval </value>
+  </data>
+  <data name="RoleCreated" xml:space="preserve">
+    <value>Role Created Successfully</value>
+  </data>
+  <data name="MSOHeaderUpdated" xml:space="preserve">
+    <value>MSOHeaderUpdated  Successfully</value>
+  </data>
+  <data name="MsoAllocatedtoPO" xml:space="preserve">
+    <value>MSOMaterial Allocated to Po Succesfully</value>
+  </data>
+  <data name="HandheldModule" xml:space="preserve">
+    <value>Please select at least one mobile app module</value>
+  </data>
+  <data name="ModuleCreated" xml:space="preserve">
+    <value>Module Created Successfully</value>
+  </data>
+  <data name="PageCreated" xml:space="preserve">
+    <value>Page Created Successfully</value>
+  </data>
+  <data name="LocationCreated" xml:space="preserve">
+    <value>Location Created Sucessfully</value>
+  </data>
+  <data name="LocationUpdated" xml:space="preserve">
+    <value>Location Updated Sucessfully</value>
+  </data>
+  <data name="ObjectCreated" xml:space="preserve">
+    <value>Object Created Successfully</value>
+  </data>
+  <data name="ObjectUpdated" xml:space="preserve">
+    <value>Object Updated Successfully</value>
+  </data>
+  <data name="JobNoCreated" xml:space="preserve">
+    <value>JobNo Created Successfully</value>
+  </data>
+  <data name="JobNoUpdated" xml:space="preserve">
+    <value>JobNo Updated Successfully</value>
+  </data>
+  <data name="ObjectAssocCreated" xml:space="preserve">
+    <value>Object Association Created Successfully</value>
+  </data>
+  <data name="ObjectAssocUpdated" xml:space="preserve">
+    <value>Object Association Updated Successfully</value>
+  </data>
+  <data name="WorkCreated" xml:space="preserve">
+    <value>Work Order Created Successfully</value>
+  </data>
+  <data name="WorkUpdated" xml:space="preserve">
+    <value>Work Order Updated Successfully</value>
+  </data>
+  <data name="POSubmitted" xml:space="preserve">
+    <value>POSubmitted Successfully</value>
+  </data>
+  <data name="AddMaterials" xml:space="preserve">
+    <value>Please Add Materials</value>
+  </data>
+  <data name="PORejected" xml:space="preserve">
+    <value>PO Rejected Successfully</value>
+  </data>
+  <data name="BOMCreated" xml:space="preserve">
+    <value>BOM Material Created Successfully</value>
+  </data>
+  <data name="BOMMaterialDeleted" xml:space="preserve">
+    <value>BOM Material Deleted Successfully</value>
+  </data>
+  <data name="BOMUpdated" xml:space="preserve">
+    <value>BOM Material Updated Successfully</value>
+  </data>
+  <data name="MaterialCreated" xml:space="preserve">
+    <value>Material Created Successfully</value>
+  </data>
+  <data name="MaterialUpdated" xml:space="preserve">
+    <value>Material Updated Successfully</value>
+  </data>
+  <data name="GRNCreated" xml:space="preserve">
+    <value>GRN Created Sucessfully</value>
+  </data>
+  <data name="ReleasedMaterials" xml:space="preserve">
+    <value>Releasign Materials Succesfully</value>
+  </data>
+  <data name="ModuleExists" xml:space="preserve">
+    <value>Module Name Already Exists</value>
+  </data>
+  <data name="ModuleUpdated" xml:space="preserve">
+    <value>Module Updated Successfully</value>
+  </data>
+  <data name="PageUpdated" xml:space="preserve">
+    <value>Page Updated Successfully</value>
+  </data>
+  <data name="RoleUpdated" xml:space="preserve">
+    <value>Role Updated Succefully</value>
+  </data>
+  <data name="MaterialMasterBatchUpdated" xml:space="preserve">
+    <value>MaterialMaster Updated Successfully</value>
+  </data>
+  <data name="JobCreated" xml:space="preserve">
+    <value>Job Created Successfully</value>
+  </data>
+  <data name="JobUpdated" xml:space="preserve">
+    <value>Job Updated Successfully</value>
+  </data>
+  <data name="LocationAssocCreated" xml:space="preserve">
+    <value>Location Association Created Successfully</value>
+  </data>
+  <data name="LocationAssocUpdated" xml:space="preserve">
+    <value>Location Association Updated Successfully</value>
+  </data>
+</root>

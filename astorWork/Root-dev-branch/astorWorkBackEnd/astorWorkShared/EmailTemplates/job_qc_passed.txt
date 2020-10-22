@@ -1,0 +1,8 @@
+﻿Dear Sir/Madam,
+
+QC Inspection is passed by MainCon QC for Material {1} under {0} job.
+
+Please login into astorWork mobile app to view the details.
+
+Regards,
+astorWork Team

@@ -1,0 +1,9 @@
+﻿Dear Sir/Madam,
+
+A new MRF has been created with {1} materials with {0} number.
+
+Click {2} to view MRF. 
+
+
+Regards,
+astorWork Team

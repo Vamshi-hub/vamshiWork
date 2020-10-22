@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="Hackfest.Controls.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hackfest.Controls"
+             mc:Ignorable="d" xmlns:properties="clr-namespace:Hackfest.Properties"
+             d:DesignHeight="300" d:DesignWidth="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Custom Vision" Grid.Row="0" Grid.Column="0" Margin="5">
+            <StackPanel Orientation="Vertical" Margin="0, 10, 0, 0">
+                <Grid>
+                    <Label>Training Key:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=CUSTOM_VISION_TRAINING_KEY,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>Prediction Key:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=CUSTOM_VISION_PREDICTION_KEY,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>Project Id:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=CUSTOM_VISION_PROJECT_ID,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>Safe Threshold:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=CUSTOM_VISION_SAFE_THRESHOLD,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>Unsafe Threshold:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=CUSTOM_VISION_UNSAFE_THRESHOLD,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Face API" Grid.Row="0" Grid.Column="1" Margin="5">
+            <StackPanel Orientation="Vertical" Margin="0, 10, 0, 0">
+                <Grid>
+                    <Label>Primary Key:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=FACE_API_PRIMARY_KEY,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>Secondary Key:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=FACE_API_SECONDARY_KEY,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>Person Group Id:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=FACE_API_PROJECT_ID,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>Confidence Threshold:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=FACE_API_THRESHHOLD,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+                <Grid>
+                    <Label>API Host:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=FACE_API_ENDPOINT,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Others" Grid.Row="0" Grid.Column="2" Margin="5">
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Label>Camera:</Label>
+                    <ComboBox Name="selectCamera" Margin="150, 0, 0, 0" SelectionChanged="selectCamera_SelectionChanged"/>
+                </Grid>
+                <Grid>
+                    <Label>Resolution:</Label>
+                    <ComboBox Name="selectResolution" Margin="150, 0, 0, 0" SelectionChanged="selectResolution_SelectionChanged"/>
+                </Grid>
+                <Grid>
+                    <Label>Safety Check Interval:</Label>
+                    <TextBox Text="{Binding Source={x:Static properties:Settings.Default},Path=SAFETY_CHECK_INTERVAL,Mode=TwoWay}" Margin="150,0,0,0"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+            <Button Content="Apply" Name="btnApply" Margin="5" Click="btnApply_Click"/>
+            <Button Content="Cancel" Name="btnCancel" Margin="5" 
+                    Style="{StaticResource MaterialDesignFlatButton}" Click="btnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

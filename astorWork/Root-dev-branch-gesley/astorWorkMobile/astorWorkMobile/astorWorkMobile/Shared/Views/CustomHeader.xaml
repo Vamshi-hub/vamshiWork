@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d"
+             x:Class="astorWorkMobile.Shared.Views.CustomHeader">
+    
+    <Grid x:Name="headerGrid" BackgroundColor="#012850" ff:VisualElement.Elevation="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Source="Backarrow_N.png"/>
+        <Button Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent"/>
+        <Label Grid.Row="0" Grid.Column="1" Text="Insert Workforce Time"  TextColor="White" FontSize="20"  VerticalOptions="Center"/>
+        <Image Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" Source="logout_N.png"/>
+        <Button Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent"/>
+    </Grid>
+
+</ContentPage>

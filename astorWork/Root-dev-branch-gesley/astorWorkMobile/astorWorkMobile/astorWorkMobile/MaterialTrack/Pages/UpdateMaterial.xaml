@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.UpdateMaterial"
+             BindingContext="{x:Static utilities:ViewModelLocator.siteUpdateStageVM}"
+             Title="Update Stage" Disappearing="OnPageDisappearing" Appearing="ContentPage_Appearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <ScrollView>
+                <StackLayout IsVisible="{Binding ShowContent}">
+                    <Frame>
+                        <StackLayout>
+                            <Picker ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedLocation}" ItemDisplayBinding="{Binding Name}" Title="Select a location"/>
+                            <StackLayout IsVisible="{Binding ShowUpdateForm}">
+                                <Grid>
+                                    <Label VerticalTextAlignment="Center">Material Type:</Label>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding Material.materialType}"
+                               StyleClass="Subheader" TextColor="Black" Margin="100,0,0,0"/>
+                                </Grid>
+                                <Grid>
+                                    <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding Material.markingNo}"
+                               StyleClass="Subheader"  TextColor="Black" Margin="100,0,0,0"/>
+                                </Grid>
+                                <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleDrawingNo}">
+                                    <Label VerticalTextAlignment="Center">Drawing No.:</Label>
+                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.DrawingNo}" VerticalTextAlignment="Center"/>
+                                </Grid>
+                                <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleLength}">
+                                    <Label VerticalTextAlignment="Center">Length:</Label>
+                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Length}" VerticalTextAlignment="Center"/>
+                                </Grid>
+                                <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleArea}">
+                                    <Label VerticalTextAlignment="Center">Area:</Label>
+                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Area}" VerticalTextAlignment="Center"/>
+                                </Grid>
+                                <Grid>
+                                    <Label VerticalTextAlignment="Center">Destination:</Label>
+                                    <Label VerticalTextAlignment="Center" Text="{Binding Material.destination}"
+                               StyleClass="Subheader" TextColor="Black" Margin="100,0,0,0"/>
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <!--<Frame Padding="0,5" IsVisible="{Binding ShowVendorOptions, Converter={StaticResource inverseBool}}">
+                    <FlexLayout Direction="Row" JustifyContent="Center" AlignItems="Center">
+                        <Label StyleClass="Subheader" Text="Update Stage" />
+                        -->
+                    <!--<Switch IsToggled="{Binding UpdateLocationOnly}"/>
+                        <Label StyleClass="Subheader" Text="Update Location" />-->
+                    <!--
+                    </FlexLayout>
+                </Frame>-->
+                    <Grid  IsVisible="{Binding ShowUpdateForm}">
+                        <!--<StackLayout IsVisible="{Binding UpdateLocationOnly}">
+                        <Frame Padding="0,5">
+                            <FlexLayout Direction="Column" JustifyContent="SpaceEvenly" AlignItems="Center">
+                                <Frame BackgroundColor="White" Padding="10,5">
+                                    <Label StyleClass="Subheader" 
+                                           Text="{Binding CurrLocation.Name}"/>
+                                </Frame>
+                                <Image Source="ic_arrow_downward1.png" HeightRequest="40" />
+                                <Frame BackgroundColor="White" Padding="10,5">
+                                    <Label StyleClass="Subheader" Text="{Binding SelectedLocation.Name}"/>
+                                </Frame>
+                            </FlexLayout>
+                        </Frame>
+                        <Button StyleClass="Primary" Text="Submit" Margin="0,10,0,0" HorizontalOptions="Center" Command="{Binding UpdateLocationCommand}"/>
+                    </StackLayout>-->
+                        <StackLayout IsVisible="{Binding UpdateLocationOnly, Converter={StaticResource inverseBool}}">
+                            <Frame Padding="0,5">
+                                <StackLayout>
+                                    <Frame  HorizontalOptions="Center" Padding="10,5">
+                                        <Label StyleClass="Subheader" Text="{Binding CurrStage.Name}" TextColor="{Binding CurrStage.Colour}"
+                                            HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                    <Image Source="ic_arrow_downward1.png" HeightRequest="40" />
+                                    <Frame  HorizontalOptions="Center" Padding="10,5">
+                                        <Label StyleClass="Subheader" Text="{Binding NextStage.Name}" TextColor="{Binding NextStage.Colour}"
+                                           HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+                            <Frame IsVisible="{Binding ShowCastingDate}">
+                                <Grid>
+                                    <Label VerticalTextAlignment="Center">CastingDate:</Label>
+                                    <DatePicker Margin="100,0,0,0" TextColor="Black"
+                                Date="{Binding CastingDate}" MaximumDate="{x:Static sys:DateTime.Today}" />
+                                </Grid>
+                            </Frame>
+                            <Button StyleClass="Primary" Text="Submit" HeightRequest="40" CornerRadius="20" Margin="0,10,0,0" WidthRequest="100" BorderColor="#373b99"
+                                HorizontalOptions="Center" Command="{Binding UpdateStageCommand}" IsVisible="{Binding DisplayButton}"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <views:LoadingView HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

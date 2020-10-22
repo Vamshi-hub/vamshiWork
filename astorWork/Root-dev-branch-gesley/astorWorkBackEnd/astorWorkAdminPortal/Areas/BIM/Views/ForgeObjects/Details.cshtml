@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+<fieldset>
+    <legend>Manifest</legend>
+    <code style="width: 100%; height: 120px; white-space: pre-wrap;">@Html.Raw(ViewBag.Manifest)</code>
+</fieldset>
+
+<fieldset>
+    <legend>Metadata</legend>
+    <code style="width: 100%; height: 120px; white-space: pre-wrap;">@Html.Raw(ViewBag.Metadata)</code>
+</fieldset>
+
+<fieldset>
+    <legend>Viewdata</legend>
+    <code style="width: 100%; height: 300px; white-space: pre-wrap;">@Html.Raw(ViewBag.Viewdata)</code>
+</fieldset>

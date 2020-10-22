@@ -1,0 +1,389 @@
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="row" fxLayoutAlign="start center" class="page-header-row">
+    <div fxFlex>
+        <h1 class="mat-h1">Dashboard</h1>
+      </div>
+  <div class="settings" fxHide.xs="true">
+    <button mat-icon-button (click)="toggleDesign()">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
+</div>
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" style="margin: 10px;" [style.display]="isLoading ? 'none' : 'block'">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" fxLayoutGap.xs="15px">
+    <mat-card fxFlex="25%" (click)='onDeliveredClick()' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? 'rgb(90, 226, 136)':'white','color':ToggleView?'white':''}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar style="background:rgb(90, 226, 136);" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+          <img src="assets/Icons/delivery.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3">Delivered/Requested</h4>
+          <h3 mat-h3>
+            {{projectStats?.deliveredMaterialsCount}}/{{projectStats?.requestedMaterialsCount}}
+          </h3>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="5px" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{projectStats?.deliveredMaterialsProgress}}" disabled="true"></mat-progress-bar>
+          <span>{{projectStats?.deliveredMaterialsProgress}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="25%" (click)='onQCOpenClick()' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? 'rgb(251, 74, 70)':'white','color':ToggleView?'white':''}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar style="background: rgb(251, 74, 70)" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+          <img src="assets/Icons/QC-open.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3">Open/Total QC</h4>
+          <h3 mat-h3>
+            {{projectStats?.qcFailedCount}}/{{projectStats?.qcTotalCount}}
+          </h3>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{projectStats?.qcFailedProgress}}" disabled="true"></mat-progress-bar>
+          <span>{{projectStats?.qcFailedProgress}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex="25%" (click)='onInstalledClick()' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? '#3399ff':'white','color':ToggleView?'white':''}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar style="background: #3399ff;" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+          <img src="assets/Icons/installed.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3">Installed/Total</h4>
+          <h3 mat-h3>
+            {{projectStats?.installedMaterialsCount}}/{{projectStats?.totalMaterialsCount}}
+          </h3>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{projectStats?.installedMaterialsProgress}}"></mat-progress-bar>
+          <span>{{projectStats?.installedMaterialsProgress}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex="25%" (click)='onCompletedMRFClick()' class="mat-card-class card-pointer" [ngStyle]="{'background':ToggleView? 'rgb(255, 155, 6)':'white','color':ToggleView?'white':''}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div mat-card-avatar style="background: rgb(255, 155, 6);" [ngClass]="ToggleView? 'top-card-header-image-unbox':'top-card-header-image-box'">
+          <img src="assets/Icons/request-icon.png" [ngClass]="ToggleView?'mat-card-image-unbox':'mat-card-image-box'" />
+        </div>
+        <mat-card-title fxLayout='column' fxLayoutAlign="start end">
+          <h4 class="math3">Completed/Requested MRF</h4>
+          <h3 mat-h3>
+            {{projectStats?.completedMRFCount}}/{{projectStats?.totalMRFCount}}
+          </h3>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <mat-progress-bar mode="determinate" value="{{projectStats?.completedMRFProgress}}"></mat-progress-bar>
+          <span>{{projectStats?.completedMRFProgress}}%</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Daily Status</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding: 20px">
+        <div *ngIf="doughnutChart">
+          <canvas *ngIf="!noData" id="canDoughnutChart" width="30" height="30">{{chart}}</canvas>
+          <h1 *ngIf="noData" style="padding: 30%;text-align: center;">No Progress Today</h1>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="50%" class="mat-card-class">
+      <mat-card-content>
+        <h2 class="mat-h2">Overall Progress Chart</h2>
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="mat-icon">show_chart</mat-icon>
+              Overall Progress
+            </ng-template>
+            <div *ngIf="lineChart" style="margin-top: 10px;">
+              <canvas id="canLineChart" width="320" height="120">{{chart}}</canvas>
+            </div>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="mat-icon">hourglass_empty</mat-icon>
+              In Progress
+            </ng-template>
+            <div fxLayout="column" fxLayoutAlign="space-around center" style="margin-top: 10px;" fxLayoutGap="10px">
+              <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+                <mat-form-field fxFlex>
+                  <mat-select placeholder="Block" [(value)]="selectedBlock">
+                    <mat-option *ngFor="let blk of blocks" [value]='blk'>
+                      {{ blk }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <p>(Latest 3 levels)</p>
+              </div>
+              <mat-card fxFlex *ngFor="let ip of filterAndOrderInProgress()">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutGap="5px">
+                  <mat-form-field>
+                    <input matInput placeholder="Level" value="{{ip.level}}" readonly="true">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Installed / Total" value="{{ip.installedMaterialCount}}/{{ip.totalMaterialCount}}"
+                      readonly="true">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Progress" value="{{ip.progress}}%" readonly="true">
+                  </mat-form-field>
+                </div>
+              </mat-card>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="mat-h2">Latest BIM Update</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="bimVideoUrl; else bimVideoNA">
+          <video controls width="100%" height="auto">
+            <source [src]="bimVideoUrl"  type="video/mp4"> Your browser does not support the video tag.
+          </video>
+        </div>
+        <ng-template #bimVideoNA>
+          <h1 style="padding: 30%;text-align: center;">BIM sync video not available</h1>
+        </ng-template>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button color="primary" *ngIf="bimVideoUrl" routerLink='/material-tracking/bim-syncs'>more BIM updates</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+    <mat-card fxFlex="50%" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <div>
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">
+              Delayed Delivery <small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking/materials', {selectedDeliveryFilter: '2'}]" *ngIf="materialDataSource.data.length"
+                class="material-count" style="padding-left: 13px;font-size: small;">View all
+              </a>
+            </h2>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-table #table [dataSource]="materialDataSource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.materialType}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="mrfNo">
+            <mat-header-cell *matHeaderCellDef> MRF No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mrfNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="expectedDelivery">
+            <mat-header-cell *matHeaderCellDef> Expected Delivery </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.expectedDeliveryDate | date:'M/d/yyyy'}}
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="delayedDeliveryDisplayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: delayedDeliveryDisplayedColumns;" (click)="selectDelayedRow(row)"
+            class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="50%" class="mat-card-class">
+      <mat-card-header>
+        <mat-card-title>
+          <div *ngIf="cardClicked=='QCOpen'">
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">QC Open <small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking/qc-defects', '0', {caseName: 'open'}]" *ngIf="qcDataSource.data.length"
+                class="material-count" style="padding-left: 13px;font-size: small;">View all</a></h2>
+          </div>
+          <div *ngIf="cardClicked=='DeliveredMaterials'">
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">Delivered Materials <small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking', 'materials', {mrfNo: 'delivered'}]" *ngIf="deliveredDataSource.data.length"
+                class="material-count" style="padding-left: 13px;font-size: small;">View all</a></h2>
+          </div>
+          <div *ngIf="cardClicked=='InstalledMaterials'">
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">Installed Materials <small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking', 'materials', {mrfNo: 'installed'}]" *ngIf="installedDataSource.data.length"
+                class="material-count" style="padding-left: 13px;font-size: small;">View all</a></h2>
+          </div>
+          <div *ngIf="cardClicked=='CompletedMRF'">
+            <h2 class="mat-h2" style="color: rgb(217, 83, 80);">Completed MRFs <small>(latest 10 records)</small>
+              <a [routerLink]="['/material-tracking', 'mrfs', {filter: '100'}]" *ngIf="mrfDataSource.data.length" style="padding-left: 13px;font-size: small;">View
+                all</a></h2>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-table #table *ngIf="cardClicked=='QCOpen'" [dataSource]="qcDataSource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="caseName">
+            <mat-header-cell *matHeaderCellDef> Case Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.caseName}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="materialDescription">
+            <mat-header-cell *matHeaderCellDef> Material Description </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.materialDescription}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="createdOn">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Created On </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.createdOn | date:'M/d/yyyy hh:mm:ss
+              a'}}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="remarks">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Remarks </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.remarks}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+        </mat-table>
+        <mat-table #table *ngIf="cardClicked=='DeliveredMaterials'" [dataSource]="deliveredDataSource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.type}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mrfNo">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> MRF No. </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.mrfNo}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+        </mat-table>
+        <mat-table #table *ngIf="cardClicked=='InstalledMaterials'" [dataSource]="installedDataSource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="markingNo">
+            <mat-header-cell *matHeaderCellDef> Marking No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.markingNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.type}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mrfNo">
+            <mat-header-cell *matHeaderCellDef class="mobile-hidden"> MRF No. </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.mrfNo}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+        </mat-table>
+        <mat-table #table *ngIf="cardClicked=='CompletedMRF'" [dataSource]="mrfDataSource" style="width: 100% !important;height: 90% !important;">
+          <ng-container matColumnDef="mrfNo">
+            <mat-header-cell *matHeaderCellDef> MRF No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mrfNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef> Block </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.block}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="level">
+            <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zone">
+            <mat-header-cell *matHeaderCellDef> Zone </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zone}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> Type(s) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.materialTypes.join(', ')}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable" id="row_{{row.stageID}}"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

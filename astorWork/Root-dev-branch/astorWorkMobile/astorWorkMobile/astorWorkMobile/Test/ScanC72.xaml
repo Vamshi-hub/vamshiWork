@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.Test.ScanC72">
+  <ContentView.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <ListView ItemsSource="{Binding Tags}" />
+            <Label Text="{Binding Status}" FontSize="Large" />
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

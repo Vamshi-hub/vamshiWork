@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:astorTrackP;assembly=astorTrackP"	
+	x:Class="astorTrackP.InformationView"
+  Title="Information">
+
+    <!--<ContentPage.ToolbarItems>		
+		<ToolbarItem Icon="{Binding scanOperation}" Command="{Binding ScanCommand, Mode=TwoWay}"></ToolbarItem>
+	</ContentPage.ToolbarItems>-->
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Padding="20,10,10,0">
+            <ListView x:Name="uxProgress"  HasUnevenRows="true" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" ItemsSource="{Binding MaterialDetails}" HeightRequest="170">
+                <!--RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=OneWay} IsPullToRefreshEnabled="true""-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" HeightRequest="50">
+                                    <Label Text="{Binding Stage}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium"></Label>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Spacing="0">
+                                        <Label Text="{Binding CreatedBy}" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                                        <Label Text="{Binding CreatedDate}"  HorizontalOptions="End" VerticalOptions="Center" TextColor="Gray"></Label>
+                                    </StackLayout>
+                                    <Image HorizontalOptions="End" Source="{Binding Status, StringFormat='{0}.png'}" Scale="0.75" ></Image>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+            <TableView x:Name="uxInformation" Intent="Form" HasUnevenRows="true" BindingContext="{Binding MaterialMaster}" VerticalOptions="StartAndExpand">
+                <TableRoot>
+                    <TableSection Title="Details">
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="20,10,10,0" Spacing="3" >
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Marking No"  VerticalOptions="FillAndExpand" FontSize="Micro"></Label>
+                                    <Label Text="{Binding MarkingNo}" VerticalOptions="FillAndExpand" FontSize="Large" TextColor="#3498db"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Component"  VerticalOptions="FillAndExpand" FontSize="Micro"></Label>
+                                    <Label Text="{Binding MaterialType}" VerticalOptions="FillAndExpand" TextColor="White" FontSize="Small"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Project"  VerticalOptions="FillAndExpand" FontSize="Micro"></Label>
+                                    <Label Text="{Binding Project}"  VerticalOptions="FillAndExpand" TextColor="White" FontSize="Small"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Drawing No" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Micro"></Label>
+                                    <Label Text="{Binding DrawingNo}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" FontSize="Small" ></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="RFID Tag" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Micro"></Label>
+                                    <Label Text="{Binding RFIDTagID}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" FontSize="Small" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                    <TableSection Title="Location">
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="20,10,10,10"  Spacing="3" >
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Block"  VerticalOptions="FillAndExpand" FontSize="Micro"></Label>
+                                    <Label Text="{Binding Block}" VerticalOptions="FillAndExpand" TextColor="White" FontSize="Small"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Level"  VerticalOptions="FillAndExpand" FontSize="Micro"></Label>
+                                    <Label Text="{Binding Level}" VerticalOptions="FillAndExpand" TextColor="White" FontSize="Small"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Zone"  VerticalOptions="FillAndExpand" FontSize="Micro"></Label>
+                                    <Label Text="{Binding Zone}"  VerticalOptions="FillAndExpand" TextColor="White" FontSize="Small"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="MRF No" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Micro"></Label>
+                                    <Label Text="{Binding MRFNo}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" FontSize="Small" ></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Lot No" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Micro"></Label>
+                                    <Label Text="{Binding LotNo}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" FontSize="Small" ></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="40"  Spacing="0">
+                                    <Label Text="Casting Date" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="Silver" FontSize="Micro"></Label>
+                                    <Label Text="{Binding CastingDate}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" FontSize="Small" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>                                       
+                </TableRoot>
+            </TableView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,8 @@
+﻿Hi there,
+
+There has been a BIM update at {0}, total {1} components are updated, {2} are not found in the model.
+
+Please go to {3} -> BIM to check.
+
+Regards,
+astorWork Team

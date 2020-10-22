@@ -1,0 +1,67 @@
+﻿@model IEnumerable<astorWorkShared.MultiTenancy.TenantInfo>
+
+@{
+    ViewData["Title"] = "Tenant Management";
+}
+
+<h2>List of tenants</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                DB Server
+            </th>
+            <th>
+                DB Name
+            </th>
+            <th>
+                DB User
+            </th>
+            <th>
+                Power BI Work Space GUID
+            </th>
+            <th>
+                Last Accessed
+            </th>
+            <th>
+                Enabled
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RowKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DBServer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DBName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DBUserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PowerBIWorkSpaceGUID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timestamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enabled)
+                </td>
+                <td>
+                    <a asp-action="Operations" asp-route-id="@item.RowKey">Operations</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

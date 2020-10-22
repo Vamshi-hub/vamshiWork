@@ -1,0 +1,254 @@
+<div fxLayout="column" fxLayoutAlign="start streach" fxLayoutGap="10px" style="padding: 20px" class="mat-typography">
+  <div fxLayout="row" fxLayoutAlign="space-between streach" fxLayout.xs="column" fxLayoutGap="10px">
+    <mat-card fxFlex="24.5%" fxLayout="column" fxLayoutAlign="space-around streach" class="mat-card-class" fxLayoutGap="10px">
+      <div fxFlex="33%" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+        <div fxFlex fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+            <span class="smalltext" style="font-size: 10px">PROJECT COMPLETION TIME</span>
+          <div id="clockdiv">
+            <div>
+              <span class="years">{{projectCompTime.years}}</span>
+              <div class="smalltext">Years</div>
+            </div>
+            <div>
+              <span class="months">{{projectCompTime.months}}</span>
+              <div class="smalltext">Months</div>
+            </div>
+            <div>
+              <span class="days">{{projectCompTime.days}}</span>
+              <div class="smalltext">Days</div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <span class="smalltext" style="font-weight: bold;color: rgb(15, 15, 66);font-size: 14px">TOTAL HEADCOUNT</span>
+          <span class="smalltext" style="font-weight: bold;color: rgb(112, 29, 47);font-size: 30px">{{projectCompTime.actualHeadCount}}</span>
+        </div>
+      </div>
+      <div>
+        <mat-divider></mat-divider>
+      </div>
+      <div fxFlex="33%" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <div fxFlex fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <span style="color: rgb(103, 103, 104);">PLANNED</span>
+          <span style="font-weight: bold;color: rgb(103, 103, 104);">{{projectCompTime.plannedHeadCount}}</span>
+        </div>
+        <div class="vertical-line"></div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <span style="color: rgb(103, 103, 104);">ACTUAL</span>
+          <span style="font-weight: bold;color: rgb(103, 103, 104);">{{projectCompTime.actualHeadCount}}</span>
+        </div>
+      </div>
+      <div>
+        <mat-divider></mat-divider>
+      </div>
+      <div fxFlex="33%" fxLayout="row" fxLayoutAlign="space-between streach" fxLayoutGap="10px">
+        <div fxLayout="column" fxFlex fxLayoutAlign="center center" fxLayoutGap="15px" class="curvedBorder">
+          <span style="color: rgb(75, 91, 121);font-weight: bold;font-size: 14px">Productive Area</span>
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div fxLayout="column" fxLayoutAlign="start center">
+              <span class="smalltext" style="color: rgb(103, 103, 104);font-size: 12px">Headcount</span>
+              <span class="smalltext" style="font-weight: bold;color: rgb(103, 103, 104);font-size: 14px">{{projectCompTime.plannedHeadCount}}</span>
+            </div>
+            <div class="vertical-line"></div>
+            <div fxLayout="column" fxLayoutAlign="start center">
+              <span class="smalltext" style="color: rgb(103, 103, 104);font-size: 12px">Time Spent</span>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2px">
+                <span class="smalltext" style="font-weight: bold;color: rgb(103, 103, 104); font-size: 14px">{{projectCompTime.actualHeadCount}}</span>
+                <span style="color:#c0bdbd;font-size: 12px">hrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" fxFlex fxLayoutAlign="center center" fxLayoutGap="15px" class="curvedBorder">
+          <span style="color: rgb(75, 91, 121);font-weight: bold;font-size: 14px">Non-Productive Area</span>
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div fxLayout="column" fxLayoutAlign="start center">
+              <span class="smalltext" style="color: rgb(103, 103, 104);font-size: 12px">Headcount</span>
+              <span class="smalltext" style="font-weight: bold;color: rgb(103, 103, 104);font-size: 14px">{{projectCompTime.plannedHeadCount}}</span>
+            </div>
+            <div class="vertical-line"></div>
+            <div fxLayout="column" fxLayoutAlign="start center">
+              <span class="smalltext" style="color: rgb(103, 103, 104);font-size: 12px">Time Spent</span>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2px">
+                <span class="smalltext" style="font-weight: bold;color: rgb(103, 103, 104); font-size: 14px">{{projectCompTime.actualHeadCount}}</span>
+                <span style="color:#c0bdbd;font-size: 12px">hrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-content>
+        <div>
+          <canvas id="bar-chart-grouped" width="400" height="400"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-content>
+        <div>
+          <canvas id="polar-chart" width="400" height="400"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-content>
+        <div>
+          <canvas id="line-chart" width="400" height="400"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-between streach" fxLayoutGap="10px" fxLayout.xs="column">
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-content>
+        <div>
+          <canvas id="stacked-bar-chart" width="400" height="400"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex="50%" fxLayout="row" fxLayoutAlign="space-evenly streach" fxLayoutGap="2px" fxLayout.xs="column" class="mat-card-class">
+      <div fxFlex="33%" fxLayout="column" fxLayoutAlign="space-evenly streach" fxLayoutGap="10px" class="curvedBorder" style="background: rgba(8, 8, 8, 0.842);color: whitesmoke;font-size: 12px;padding: 28px 8px">
+        <div>
+          <h4>Workforce Non-Compliance</h4>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Long Day Breach</span>
+          </div>
+          <div style="width: 20px">
+            <span>60</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon style="transform: rotate(270deg);color: orange;">play_arrow</mat-icon>
+          </div>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Rest Day Violations</span>
+          </div>
+          <div style="width: 20px">
+            <span>0</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon style="transform: rotate(270deg);color: greenyellow;">play_arrow</mat-icon>
+          </div>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Consecutive Days Worked</span>
+          </div>
+          <div style="width: 20px">
+            <span>120</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon color="warn" style="transform: rotate(90deg);">play_arrow</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="33%" fxLayout="column" fxLayoutAlign="space-evenly streach" fxLayoutGap="10px" class="curvedBorder" style="background: rgba(8, 8, 8, 0.842);color: whitesmoke;font-size: 12px;padding: 28px 8px">
+        <div>
+          <h4>Zone Non-Compliance</h4>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Un-Authorized Trade</span>
+          </div>
+          <div style="width: 20px">
+            <span>1</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon style="transform: rotate(90deg);color: orange;">play_arrow</mat-icon>
+          </div>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Un-Authorized Contractor</span>
+          </div>
+          <div style="width: 20px">
+            <span>2</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon style="transform: rotate(90deg);color: orange;">play_arrow</mat-icon>
+          </div>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Un-Authorized Workforce</span>
+          </div>
+          <div style="width: 20px">
+            <span>210</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon color="warn" style="transform: rotate(90deg);">play_arrow</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="33%" fxLayout="column" fxLayoutAlign="space-evenly streach" fxLayoutGap="10px" class="curvedBorder" style="background: rgba(8, 8, 8, 0.842);color: whitesmoke;font-size: 12px;padding: 28px 8px">
+        <div>
+          <h4>Certificate Non-Compliance</h4>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Expired</span>
+          </div>
+          <div style="width: 20px">
+            <span>59</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon color="warn" style="transform: rotate(90deg);">play_arrow</mat-icon>
+          </div>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Expiring in 30 days</span>
+          </div>
+          <div style="width: 20px">
+            <span>45</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon style="transform: rotate(90deg);color: orange;">play_arrow</mat-icon>
+          </div>
+        </div>
+        <div class="innerBorder" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+          <div style="width: 100px">
+            <span>Not Expired</span>
+          </div>
+          <div style="width: 20px">
+            <span>500</span>
+          </div>
+          <div class="vertical-white-line"></div>
+          <div style="width: 20px">
+            <mat-icon style="transform: rotate(270deg);color: greenyellow">play_arrow</mat-icon>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card fxFlex="24.5%" class="mat-card-class">
+      <mat-card-content>
+        <div>
+          <canvas id="stacked-bar-chart-grouped" width="400" height="400"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-between strech" fxLayoutGap="10px" fxLayout.xs="column">
+    <div id='myMap' style='width: 100vw; height: 50vh;'></div>
+  </div>
+</div>

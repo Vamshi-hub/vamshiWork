@@ -1,0 +1,253 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Brian Yang</Authors>
+    <Company>Astoria Solutions Pte Ltd</Company>
+    <Configurations>Debug;Release;Debug-Localhost;Localhost;QA;QA-Debug;QA_DEBUG;phani;QA_RELEASE;Brian_DEBUG;Ben_DEBUG;BRIAN_DEBUG_HOME;PRAD_DEBUG</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Localhost|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;DEBUG_LOCALHOST;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Localhost|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='phani|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE;PHANI;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QA_DEBUG|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG;QA_DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Brian_DEBUG|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIAN_DEBUG_HOME|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QA_RELEASE|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DefineConstants>QA_RELEASE;NETSTANDARD;NETSTANDARD2_0;QA_RELEASE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QA-Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MaterialTrack\Pages\ViewQCPhoto1.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="MaterialTrack\Pages\ViewQCPhoto1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="JobTrack\Pages\JobScanQR.xaml~RF14e89b9.TMP" />
+    <None Remove="Shared\material.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
+    <PackageReference Include="Xamarin.Forms.Extended.InfiniteScrolling" Version="1.0.0-preview2" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="JobTrack\Pages\CapturePhoto.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="JobTrack\Pages\Cells\SystemViewCell.xaml.cs">
+      <DependentUpon>SystemViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="JobTrack\Pages\JobChecklist.xaml.cs">
+      <DependentUpon>JobChecklist.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="JobTrack\Pages\JobQCDefect.xaml.cs">
+      <DependentUpon>JobQCDefect.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="JobTrack\Pages\JobQCCase.xaml.cs">
+      <DependentUpon>JobQCCase.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="JobTrack\Pages\JobScanQR.xaml.cs">
+      <DependentUpon>JobScanQR.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="JobTrack\Pages\MainconHome.xaml.cs">
+      <DependentUpon>MainconHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaincontentPage.xaml.cs">
+      <DependentUpon>MainContentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaincontentPageMaster.xaml.cs">
+      <DependentUpon>MainContentPageMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\ListDefects.xaml.cs">
+      <DependentUpon>ListDefects.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\ScanRFID.xaml.cs">
+      <DependentUpon>ScanRFID.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\ScanQRCode.xaml.cs">
+      <DependentUpon>ScanQRCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\CapturePhoto.xaml.cs">
+      <DependentUpon>CapturePhoto.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\MainconHome.xaml.cs">
+      <DependentUpon>MainconHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\SiteScanRFIDDemo1.xaml.cs">
+      <DependentUpon>SiteScanRFIDDemo1.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\UpdateMaterial.xaml.cs">
+      <DependentUpon>UpdateMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\Pages\VendorHome.xaml.cs">
+      <DependentUpon>VendorHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MaterialTrack\ViewModels\MaincontentPageMenuItem.cs" />
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="DummyMainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobTrack\Pages\JobChecklist.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobTrack\Pages\JobChecklistItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobTrack\Pages\JobChecklistItems.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobTrack\Pages\JobSchedule.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobTrack\Pages\MainconHome.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobTrack\Pages\RTOHome.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobTrack\Pages\SubconHome.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainContentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainContentPageMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\BIMViewer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\DefectDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\CapturePhoto.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\MainconHome.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\ListDefects.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\MaterialInspection.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\MTRTOHome.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\ScanQRCode.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\ScanRFID.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\UpdateMaterial.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\VendorHome.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MaterialTrack\Pages\ViewQCPhoto.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Views\BulkUpdate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Views\CustomHeader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Views\LoadingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Views\MaterialFrameView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Views\SignatureView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Views\ToggleQC.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Test\RouteView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Test\ScanC72.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

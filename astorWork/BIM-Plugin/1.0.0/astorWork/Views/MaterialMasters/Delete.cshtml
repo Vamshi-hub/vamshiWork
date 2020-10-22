@@ -1,0 +1,248 @@
+﻿@model astorWork.Models.MaterialMaster
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MaterialMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MarkingNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarkingNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrawingNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrawingNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstimatedLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstimatedLength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contractor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contractor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualLength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrawingRevisionNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrawingRevisionNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Officer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Officer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RFIDTagID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RFIDTagID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeaconID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeaconID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MRFNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MRFNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrawingIssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrawingIssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Block)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Block)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryRemarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryRemarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CastingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CastingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LotNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LotNo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

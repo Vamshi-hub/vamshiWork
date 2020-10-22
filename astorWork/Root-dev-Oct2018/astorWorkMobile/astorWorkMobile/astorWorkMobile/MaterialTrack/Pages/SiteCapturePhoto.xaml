@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.SiteCapturePhoto"
+             Title="QC Photo"
+             BindingContext="{x:Static utilities:ViewModelLocator.takePhotoVM}">
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <FlexLayout Direction="Column" AlignItems="Center" AlignContent="SpaceAround">
+                <Image Source="{Binding Photo}" />
+                <Entry Text="{Binding Remarks}" HeightRequest="80" WidthRequest="300"/>
+                <StackLayout Orientation="Horizontal" HeightRequest="80">
+                    <Button Text="Confirm" StyleClass="Primary" Margin="0, 0, 10, 0" WidthRequest="120"
+                            IsVisible="{Binding ShowConfirmButton}" Clicked="OnConfirmClicked"/>
+                    <Button Text="Cancel" WidthRequest="120" Clicked="OnCancelClicked"/>
+                </StackLayout>
+            </FlexLayout>
+            <views:LoadingView HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="White"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

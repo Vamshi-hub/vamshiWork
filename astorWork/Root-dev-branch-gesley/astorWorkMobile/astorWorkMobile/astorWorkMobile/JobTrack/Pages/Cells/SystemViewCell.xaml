@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.JobTrack.Pages.Cells.SystemViewCell" IsEnabled="False">
+    <!--<Frame BackgroundColor="#d3ebf5" Padding="2" HorizontalOptions="CenterAndExpand" Margin="10,5" HasShadow="False">
+        <StackLayout>
+            <Label Text="{Binding Message}" TextColor="Black" HorizontalOptions="Center" FontSize="Micro"/>
+            <FlexLayout JustifyContent="Center" AlignItems="Center">
+                <Label Text="by " FontSize="Micro"/>
+                <Label Text="{Binding UserName}" TextColor="Black" FontSize="Micro"/>
+                <Label Text=" at " FontSize="Micro"/>
+                <Label x:Name="Timestamp" Text="{Binding Timestamp,StringFormat='{0:MM/dd/yyyy HH:mm}'}" TextColor="Black" FontSize="Micro"/>
+            </FlexLayout>
+        </StackLayout>
+    </Frame>-->
+    <Frame BackgroundColor="#d3ebf5" Padding="5" HorizontalOptions="CenterAndExpand" Margin="10,5" HasShadow="False">
+        <StackLayout >
+            <Label Text="{Binding Message}" TextColor="Black" HorizontalOptions="Center" FontSize="Micro"/>
+            <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
+                <Label Text="by " FontSize="Micro"/>
+                <Label Text="{Binding UserName}" TextColor="Black" FontSize="Micro"/>
+                <Label Text=" at " FontSize="Micro"/>
+                <Label x:Name="Timestamp" Text="{Binding Timestamp,StringFormat='{0:dd-MMM-yyyy HH:mm}'}" TextColor="Black" FontSize="Micro"/>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</ViewCell>

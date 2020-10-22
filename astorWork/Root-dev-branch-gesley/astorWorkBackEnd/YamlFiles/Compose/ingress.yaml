@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: astorwork-ingress
+spec:
+  backend:
+    serviceName: web-ui
+    servicePort: 80
+  rules:
+  - host: 'localhost'
+    http:
+      paths: 
+      - path: /
+        backend:
+          serviceName: web-ui
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: api-gateway
+          servicePort: 80
+  - host: '*.aw-dev.com'
+    http:
+      paths: 
+      - path: /
+        backend:
+          serviceName: web-ui
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: api-gateway
+          servicePort: 80

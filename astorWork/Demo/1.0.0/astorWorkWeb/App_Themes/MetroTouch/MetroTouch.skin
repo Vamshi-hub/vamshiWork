@@ -1,0 +1,155 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<%--
+//*************************************************************************//
+//                   PAGE HISTORY
+//*************************************************************************//
+//     Project Name     : Astoryard
+//     File Name        : AstorYardSkin
+//     Author           : Kiran Kumar G.
+//     Role             : Team member
+//     Company          : Astoria Consulting
+//     Start Date 		: 03.03.2008
+//     End Date			: 03.03.2008
+//*****************  MODIFICATION  ******************************************// 
+//     Name             : 
+//     Date        		: 
+//     Remarks      	: 
+
+//***************************************************************************//
+--%>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+
+<telerik:RadGrid runat="server"  AutoGenerateColumns="false" GroupingEnabled="False" AllowPaging="true" AllowSorting="true"
+     ShowStatusBar="true" PagerStyle-AlwaysVisible="true" AllowFilteringByColumn="true" HeaderStyle-Font-Bold="true" 
+     PagerStyle-Mode="NextPrevAndNumeric" Skin="MetroTouch"  
+     SkinId="RadGridSkin"
+    AllowAutomaticInserts="false" AllowMultiRowSelection="True" >
+    <GroupingSettings CaseSensitive="false" />
+    <ClientSettings EnableRowHoverStyle="true"></ClientSettings>
+</telerik:RadGrid>
+
+<telerik:RadFormDecorator runat="server" DecoratedControls="all" DecorationZoneID="decorationZone" SkinID="RadFormDecoratorSkin" Skin="MetroTouch"></telerik:RadFormDecorator>
+<telerik:RadProgressBar runat="server" BarType="Percent" ShowLabel="true" Skin="MetroTouch" SkinID="RadProgressBarSkin"/> 
+
+<telerik:RadListView  runat="server" Skin="MetroTouch" ></telerik:RadListView>
+<telerik:RadWindow runat="server" Modal="true" ShowContentDuringLoad="false" SkinId="RadWindowSkin"
+VisibleTitlebar="true" VisibleStatusbar="false" Behaviors="Close,Maximize" AutoSizeBehaviors="Width, Height" Skin="MetroTouch">
+</telerik:RadWindow>
+<telerik:RadAjaxLoadingPanel runat="server" Skin="MetroTouch" SkinID="RadAjaxLoadingPanelSkin"></telerik:RadAjaxLoadingPanel>
+<telerik:RadNotification runat="server" SkinId="RadNotificationSkin" Animation="Slide" ForeColor="Red" Skin="MetroTouch" ContentIcon="None" Position="BottomCenter" Width="100%" Height="50px"/>
+
+<telerik:RadLabel  runat="server" Skin="MetroTouch" Width="120px" />
+<telerik:RadLabel  runat="server" Skin="MetroTouch" Font-Bold="true" SkinID="RadLabelSkinReadOnly" />
+<telerik:RadButton   runat="server" Skin="MetroTouch" SkinID="RadButtonSkin"></telerik:RadButton>
+<telerik:RadComboBox runat="server"   MaxHeight="200" Skin="MetroTouch" SkinID="RadComboBoxSkin" />
+<telerik:RadComboBox runat="server" Skin="MetroTouch" SkinID="RadMultiComboBoxSkin"
+MarkFirstMatch="true" HighlightTemplatedItems="true"/>
+
+<telerik:RadSearchBox runat="server" ShowSearchButton="true" SkinId="RadSearchBoxSkin" Skin="MetroTouch" />
+<telerik:RadWizard  runat="server" SkinId="RadWizardSkin" Skin="MetroTouch" />
+<telerik:RadListBox  runat="server" Skin="MetroTouch" />
+<telerik:RadMonthYearPicker  runat="server" Skin="MetroTouch"/>
+<telerik:RadDatePicker  SkinId="RadDatePickerSkin" runat="server" Skin="MetroTouch"></telerik:RadDatePicker>
+<telerik:RadDateTimePicker  runat="server" Skin="MetroTouch"></telerik:RadDateTimePicker>
+<telerik:RadCalendar  runat="server" Skin="MetroTouch"></telerik:RadCalendar>
+<telerik:RadTextBox SkinId="RadTextBoxSkin"  runat="server" Skin="MetroTouch" ></telerik:RadTextBox>
+<telerik:RadMaskedTextBox  runat="server" Skin="MetroTouch" ></telerik:RadMaskedTextBox>
+<telerik:RadTimePicker   runat="server"  Skin="MetroTouch" ></telerik:RadTimePicker>
+<telerik:RadNumericTextBox  runat="server" Skin="MetroTouch" > </telerik:RadNumericTextBox>
+<telerik:RadDropDownList  runat="server" Skin="MetroTouch"  />
+<telerik:RadTabStrip runat="server" ScrollChildren="true" Skin="MetroTouch" ShowBaseLine="false" Height="100%" SkinId="RadTabStripSkin"/>
+<telerik:RadNavigation runat="server" Skin="MetroTouch" SkinId="RadNavigationSkin" />
+<telerik:RadDropDownTree runat="server" Skin="MetroTouch" SkinID="RadDropDownTreeSkin" >
+    <DropDownSettings CloseDropDownOnSelection="true" />
+</telerik:RadDropDownTree>
+<telerik:GridTableView runat="server" Skin="MetroTouch"  />
+
+<telerik:RadImageAndTextTile runat="server" Shape="Wide" Skin="MetroTouch" SkinID="RadImageAndTextTileSkin" >
+    <PeekTemplateSettings Animation="Slide" AnimationDuration="800" Easing="easeInOutBack"
+        ShowInterval="5000" CloseDelay="5000" ShowPeekTemplateOnMouseOver="true" HidePeekTemplateOnMouseOut="true" />
+</telerik:RadImageAndTextTile>
+
+<telerik:RadAjaxLoadingPanel runat="server" Skin="MetroTouch"  
+    IsSticky="true" Style="position: absolute; top: 0; left: 0; height: 100%; width: 100%" >
+</telerik:RadAjaxLoadingPanel>
+
+<telerik:RadSearchBox runat="server" SkinID="RadSearchBox"/>
+
+<telerik:RadPanelBar runat="server" Skin="MetroTouch" SkinId="Accordian">
+</telerik:RadPanelBar>
+
+<telerik:RadTreeView runat="server" Skin="MetroTouch" SkinID="RadTreeViewSkin" />
+
+<ext:ResourceManager SkinId="parentModule" runat="server" Theme="Default" />
+
+<ext:ResourceManager SkinId="pageTab" runat="server" Theme="Default" />
+
+<ext:ResourceManager SkinId="treeView" runat="server" Theme="Default" />
+
+<asp:GridView runat="server" BackColor="#666666" ForeColor="#333333" Width="100%" GridLines="Both" Cellpadding="3" Font-size="8" >
+   <FooterStyle BackColor="#CCCC99" Height="10px" />
+   <RowStyle BackColor="#EFEFEF" Height="18px" Wrap="false" />                   
+   <EmptyDataRowStyle BackColor="Info" ForeColor="Red" />
+   <PagerStyle BackColor="#EFEFEF" ForeColor="333333" HorizontalAlign="Left" />
+   <HeaderStyle BackColor="#666666" Font-Bold="True" ForeColor="White" Height="20px" HorizontalAlign="Left" />
+   <AlternatingRowStyle BackColor="#CCCCCC" />
+</asp:GridView>
+
+<asp:GridView runat="server" SkinId="gvNestedLevel1" BackColor="Transparent" GridLines="None">
+    <RowStyle BackColor="Transparent" />
+    <AlternatingRowStyle BackColor="Transparent" />
+</asp:GridView>    
+
+<asp:GridView runat="server" SkinId="InnerGridSkin" BackColor="Transparent" GridLines="None">
+    <RowStyle BackColor="Transparent" />
+    <AlternatingRowStyle BackColor="Transparent" />
+</asp:GridView>    
+<asp:GridView runat="server" SkinId="gvNestedLevel2" BackColor="Transparent" GridLines="None">
+    <RowStyle BackColor="Transparent" />
+    <AlternatingRowStyle BackColor="Transparent" />
+</asp:GridView>   
+ 
+ 
+
+<asp:Label runat="server" SkinId="lblHeader" ForeColor="#FFFFFF" Width="100%" Font-Bold="true" Font-Size="14" Font-family="Arial, Sans-Serif"></asp:Label>
+<asp:Label runat="server" SkinId="lblNoOfrecords" ForeColor="#FFFFFF" Width="100%" BackColor="#666666" Height="25px"></asp:Label>
+<asp:Label runat="server" SkinId="lblError" ForeColor="Red"></asp:Label>
+
+<asp:TextBox runat="server"  BackColor=""></asp:TextBox>
+<asp:TextBox runat="server" SkinId="ChildTextBox"></asp:TextBox>
+<asp:TextBox runat="server" SkinId="tbMandatory" BackColor="lemonchiffon"></asp:TextBox>
+
+<asp:Button Runat="server"  />
+
+<asp:DropDownList runat="server" BackColor="lemonchiffon" SkinId="ddlMandatory" />
+
+<%----Gridview Control Skin's ----%>
+<asp:Label runat="server" SkinId="gvLabel" Font-Bold="false" />
+<asp:TextBox runat="server" SkinId="gvTextBox" />
+<asp:LinkButton runat="server" SkinId="gvlinkButton" Backcolor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1" Font-Underline="false" Forecolor="#333333" />
+
+ <cc1:Accordion runat="server" HeaderCssClass="accordionHeader"
+    HeaderSelectedCssClass="accordionHeaderSelected" ContentCssClass="accordionContent"
+    FadeTransitions="true" FramesPerSecond="40" TransitionDuration="250" AutoSize="None"
+    RequireOpenedPane="false" />
+<cc1:ModalPopupExtender runat="server" BackgroundCssClass="modalBackground" />                                
+<asp:Panel SkinId="pnlInv" runat="server" CssClass="collapsePanelHeaderInv" />
+ <telerik:RadPanelBar runat="server" Skin="MetroTouch" SkinID="customrpnl"  ExpandMode="FullExpandedItem"></telerik:RadPanelBar>

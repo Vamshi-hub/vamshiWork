@@ -1,0 +1,132 @@
+services:
+  api-gateway:
+    build:
+      context: E:\Source\Workspaces\astorWork\Root-dev\astorWorkBackEnd
+      dockerfile: DockerFiles/api-gateway.Dockerfile
+    depends_on:
+    - redis
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+      update_config:
+        delay: 10s
+        parallelism: 2
+    environment:
+      ASPNETCORE_ENVIRONMENT: Staging
+      AW_REDIS_CACHE_CONNECTION: redis:6379,ssl=False,abortConnect=False
+      TENANT_INFO_TBL: TenantInfoDev
+    image: astorwork.azurecr.io/api-gateway-2019:1002
+    ports:
+    - 80/tcp
+    - 443/tcp
+  background-service:
+    build:
+      context: E:\Source\Workspaces\astorWork\Root-dev\astorWorkBackEnd
+      dockerfile: DockerFiles/background-service.Dockerfile
+    depends_on:
+    - redis
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+    environment:
+      ASPNETCORE_ENVIRONMENT: Staging
+      AW_REDIS_CACHE_CONNECTION: redis:6379,ssl=False,abortConnect=False
+      IMAGE_CONTAINER: dev-image-repo
+      SENDGRID_KEY: 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
+      TENANT_INFO_TBL: TenantInfoDev
+      VIDEO_CONTAINER: dev-video-repo
+    image: astorwork.azurecr.io/background-service-2019:1001
+  material-track:
+    build:
+      context: E:\Source\Workspaces\astorWork\Root-dev\astorWorkBackEnd
+      dockerfile: DockerFiles/material-track.Dockerfile
+    depends_on:
+    - redis
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+    environment:
+      ASPNETCORE_ENVIRONMENT: Staging
+      AW_REDIS_CACHE_CONNECTION: redis:6379,ssl=False,abortConnect=False
+      FORGE_CLIENT_ID: 6AumZPf6sBW6pOvwpQkfXlq86I8l9JGl
+      FORGE_CLIENT_SECRET: zVqsakG4x46EpD8V
+      IMAGE_CONTAINER: dev-image-repo
+      SENDGRID_KEY: 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
+      TENANT_INFO_TBL: TenantInfoDev
+      VIDEO_CONTAINER: dev-video-repo
+    image: astorwork.azurecr.io/material-track-2019:1001
+    ports:
+    - 80/tcp
+    - 443/tcp
+  redis:
+    deploy:
+      replicas: 2
+      resources:
+        reservations:
+          memory: 128M
+      restart_policy:
+        condition: on-failure
+        delay: 3s
+        max_attempts: 10
+      update_config:
+        delay: 10s
+        parallelism: 2
+    image: redis
+    ports:
+    - 6379/tcp
+  user-manage:
+    build:
+      context: E:\Source\Workspaces\astorWork\Root-dev\astorWorkBackEnd
+      dockerfile: DockerFiles/user-manage.Dockerfile
+    depends_on:
+    - redis
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+    environment:
+      ASPNETCORE_ENVIRONMENT: Staging
+      AW_REDIS_CACHE_CONNECTION: redis:6379,ssl=False,abortConnect=False
+      IMAGE_CONTAINER: dev-image-repo
+      POWERBI_CLIENT_ID: 1d67d1a2-09ba-4994-b019-a926d4150004
+      POWERBI_CLIENT_SECRET: 8qpSgFNpj/YFd4viPXqEzdklEuH8v6/mRl3VkP0nvfM=
+      POWERBI_TENANT_ID: 3156e991-a773-429e-a59a-df6faa02e474
+      POWERBI_USER_NAME: powerbiadmin@astoriasolutions.com
+      POWERBI_USER_PASSWORD: P@werbi@dmin123#
+      SENDGRID_KEY: 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
+      VIDEO_CONTAINER: dev-video-repo
+    image: astorwork.azurecr.io/user-manage-2019:1001
+    ports:
+    - 80/tcp
+    - 443/tcp
+  web-ui:
+    build:
+      context: E:\Source\Workspaces\astorWork\Root-dev\astorwork-web-ui
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+      update_config:
+        parallelism: 2
+    image: astorwork.azurecr.io/web-ui-2019:1001
+    ports:
+    - 80/tcp
+    - 443/tcp
+version: '3'
+

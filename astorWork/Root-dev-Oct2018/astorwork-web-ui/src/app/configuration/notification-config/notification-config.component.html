@@ -1,0 +1,82 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1 page-header">Notifications</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" fxLayout.xs="column" class="page-header-row" *ngIf="!isLoading">
+  <div>
+    <mat-form-field fxFlex>
+      <mat-select placeholder="Notfication Level" (selectionChange)="onNotificationForChanged($event)" id="delvryFltrSelect"
+        [(ngModel)]="selectedNotificationfor">
+        <mat-option value="project">Main Contractor</mat-option>
+        <mat-option value="site">Vendor</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+    <mat-form-field fxFlex *ngIf="showProject">
+      <mat-select placeholder="Select Project" (selectionChange)="onProjectSelected($event)" id="projectSelect"
+        [(ngModel)]="selectedProject">
+        <mat-option *ngFor="let data of projects" [value]='data.id'>
+          {{ data.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex *ngIf="!showProject">
+      <mat-select placeholder="Select Vendor" (selectionChange)="onVendorSelected($event)" id="vendorSelect"
+        [(ngModel)]="selectedVendor">
+        <mat-option *ngFor="let data of vendors" [value]='data.id'>
+          {{ data.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex *ngIf="!showProject && selectedVendor != 0">
+      <mat-select placeholder="Select Site" (selectionChange)="onSiteSelected($event)" id="siteSelect" [(ngModel)]="selectedSite">
+        <mat-option *ngFor="let data of vendorSites" [value]='data.id'>
+          {{ data.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<mat-card *ngIf="VsibleNotification">
+  <mat-card-content>
+    <div fxlayout="row" fxLayoutAlign="start start">
+      <div fxlayout="row" fxLayoutAlign="start center" style="width: 25%">
+        <h2 mat-h2 style="margin-bottom: 0;"> Name</h2>
+      </div>
+      <div fxlayout="row" fxLayoutAlign="start center" style="width: 35%" fxHide.xs="true">
+        <h2 mat-h2 style="margin-bottom: 0;"> Description</h2>
+      </div>
+      <div fxlayout="row" fxLayoutAlign="start center" style="width: 25%">
+        <h2 mat-h2 style="margin-bottom: 0;"> Schedule</h2>
+      </div>
+      <div style="width: 15%">
+        <h2 mat-h2>Enable</h2>
+      </div>
+    </div>
+    <div fxLayoyt="column" *ngFor="let notification of lstNotification let last=last;">
+      <mat-divider></mat-divider>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div style="width: 25%">
+          <h3 mat-h3>{{notification.notificationName}}</h3>
+        </div>
+        <div style="width: 35%" fxHide.xs="true">
+          <h3 mat-h3>{{notification.description}}</h3>
+        </div>
+        <div style="width: 25%">
+          <kendo-timepicker [steps]="steps" [value]="value" formatPlaceholder="short" [(ngModel)]="notification.timer"></kendo-timepicker>
+        </div>
+        <div style="width: 15%">
+          <mat-checkbox [checked]="checked" [(ngModel)]="notification.enabled" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+        </div>
+      </div>
+
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <button mat-raised-button color="primary" type="button" (click)="OnSave()" [disabled]="accessRight < 2">Save</button>
+      <button mat-raised-button color="primary" type="reset" (click)="OnReset()" [disabled]="accessRight < 2">Reset</button>
+    </div>
+  </mat-card-content>
+</mat-card>

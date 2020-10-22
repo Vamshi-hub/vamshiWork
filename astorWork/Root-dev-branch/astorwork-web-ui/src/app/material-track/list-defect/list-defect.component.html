@@ -1,0 +1,156 @@
+<div [hidden]="isLoading">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" class="page-header-row" fxLayoutGap="40px" fxLayoutGap.xs="10px">
+    <div fxFlex>
+      <h1 class="mat-h1">{{title}}</h1>
+    </div>
+
+   <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center start" fxLayoutGap="10px">
+      <mat-form-field style="width: 200px;">
+        <input matInput [matDatepicker]="pickQCStartDate" placeholder="From date" [(ngModel)]="startDate" (dateChange)="onStartDateChanged($event)"
+          [readonly]="true">
+        <mat-datepicker-toggle matSuffix [for]="pickQCStartDate"></mat-datepicker-toggle>
+        <mat-datepicker #pickQCStartDate touchUi="true"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field style="width: 200px;">
+        <input matInput [matDatepicker]="pickQCEndDate" placeholder="To date" [(ngModel)]="endDate" (dateChange)="onEndDateChanged($event)"
+          [readonly]="true" [min]="startDate!=null?startDate:minDate">
+        <mat-datepicker-toggle matSuffix [for]="pickQCEndDate"></mat-datepicker-toggle>
+        <mat-datepicker #pickQCEndDate touchUi="true"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayoutGap="10px"> 
+      <mat-form-field>
+        <input matInput (keyup)="onFilterKeyIn($event)" placeholder="Filter" [(ngModel)]='filterValue' autocomplete="off">
+        <button mat-button *ngIf="filterValue" matSuffix mat-icon-button aria-label="Clear" (click)="caseDataSource.filter = filterValue = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-button *ngIf="displayShowAll" mat-raised-button color="primary" (click)="showAllCases()">Show All</button>
+    </div>
+  </div>
+
+  <div>
+    <table mat-table [dataSource]="caseDataSource" multiTemplateDataRows class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="{'mobile-hidden' : (column==='createdDate' || column==='createdBy' || column==='updatedDate' || column==='updatedBy' || column==='progress')}">
+          {{column==="isOpen" ? "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status"
+          : column === "caseName" ? "Case Name" : column==="markingNo" ? "Marking
+          No.":
+          column==="createdDate" ? "Created Date" : column==="createdBy" ? "Created By": column==="updatedDate" ?
+          "Updated
+          Date" : column==="updatedBy" ? "Updated By": column==="duration" ? "Duration" : "Progress"}} </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'mobile-hidden' :  (column==='createdDate' || column==='createdBy' || column==='updatedDate' || column==='updatedBy' || column==='progress')}">
+          {{column==="createdDate" ? (element[column] | date:'M/d/yyyy hh:mm:ss a') :column==="updatedDate" ?
+          (element[column] | date:'M/d/yyyy
+          hh:mm:ss a') : column==="isOpen" ?"" : column==="progress" ?"" :element[column]}}
+          <div *ngIf="column==='isOpen'">
+            <div [ngSwitch]="element[column]">
+              <div *ngSwitchCase="0">
+                <mat-icon>expand_more</mat-icon>
+                <mat-icon style="color:blue;" matTooltip="Closed">check_circle</mat-icon>
+              </div>
+              <div *ngSwitchCase="1">
+                <mat-icon>expand_more</mat-icon>
+                <mat-icon style="color: red;" matTooltip="Open">error</mat-icon>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="column==='progress'">
+            <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+              <span>{{this.Math.round(element[column])}}%</span>
+              <mat-progress-bar mode="determinate" [value]="element[column]"></mat-progress-bar>
+            </div>
+          </div>
+
+        </td>
+      </ng-container>
+
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns  -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+          <div style="border: outset" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <div fxLayout="row" fxLayoutGap="50px">
+              <h3 mat-h3>Defects</h3>
+              <h3 mat-h3 *ngIf="isDefectLoading">Loading ....</h3>
+            </div>
+            <mat-table #table *ngIf="dataSource" [dataSource]="dataSource">
+              <ng-container matColumnDef="statusCode">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+
+                <mat-cell *matCellDef="let element">
+                  <div [ngSwitch]="element.statusCode">
+                      <mat-icon *ngSwitchCase="1" style="color: red;" matTooltip="Open">error</mat-icon>
+                      <mat-icon *ngSwitchCase="2" style="color:rgb(72, 177, 72);" matTooltip="Rectified">check_circle</mat-icon>
+                    <mat-icon *ngSwitchCase="3" style="color: blue" matTooltip="Closed">check_circle</mat-icon>
+                  </div>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="remarks">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Remarks </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.remarks}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="createdDate">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Created Date </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.createdDate | date:'M/d/yyyy
+                  hh:mm:ss a'}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="createdBy">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Created By</mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.createdBy }} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="updatedDate">
+                <mat-header-cell *matHeaderCellDef> Updated Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.updatedDate | date:'M/d/yyyy hh:mm:ss a'}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="updatedBy">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden"> Updated By</mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.updatedBy}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Photo">
+                <mat-header-cell *matHeaderCellDef> Photo(s) </mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.countPhotos}} </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable"
+                id="row_{{row.id}}"></mat-row>
+            </mat-table>
+            <!-- <mat-spinner *ngIf="isDefectLoading"></mat-spinner> -->
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" (click)="expandedElement = selectCaseRow(element)"
+        id="row_{{element.id}}" class="row_clicable">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" (click)="selectCaseRow(row)"
+        id="row_{{row.id}}"></tr>
+    </table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+  </div>
+
+  <!-- <kendo-grid
+          [data]="view | async"
+          [loading]="view.loading"
+          [pageSize]="pageSize"
+          [skip]="skip"
+          [sortable]="true"
+          [sort]="sort"
+          [pageable]="true"
+          [height]="550"
+          (dataStateChange)="dataStateChange($event)"
+        >
+        <kendo-grid-column field="CategoryID" width="100"></kendo-grid-column>
+        <kendo-grid-column field="CategoryName" width="200" title="Category Name"></kendo-grid-column>
+        <kendo-grid-column field="Description" [sortable]="false">
+        </kendo-grid-column>
+        <div *kendoGridDetailTemplate="let dataItem">
+            <category-details [category]="dataItem"></category-details>
+        </div>
+      </kendo-grid> -->
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

@@ -1,0 +1,83 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">{{title}}</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<form (ngSubmit)="onSubmit()" [formGroup]="theForm" [hidden]="isLoading">
+    <mat-card class="info-card">
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-evenly stretch" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput placeholder="Role Name" value="" formControlName=roleName [readonly]="!editing" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select matInput placeholder="Default Page" formControlName="defaultpage" required>
+            <mat-option *ngFor="let defaultPage of allDefaultPages" [value]='defaultPage.id'>
+              {{ defaultPage.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-radio-group fxLayout="row" fxLayoutAlign="space-evenly center" formControlName="accesslevel">
+          <mat-radio-button value='0'>Forbidden</mat-radio-button>
+          <mat-radio-button value='1'>Read</mat-radio-button>
+          <mat-radio-button value='2'>Write</mat-radio-button>
+          <mat-radio-button value='3'>Full</mat-radio-button>
+        </mat-radio-group>
+        <mat-accordion fxLayout="row" style="height: 150px;z-index: 1;" fxLayoutAlign="space-around center" [multi]="true">
+          <mat-expansion-panel *ngFor="let module of modules let last=last;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3 mat-line><p class="stage-name"> {{module.name}}</p></h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <table>
+              <tr align="center">
+                <td width="30%" align="left"><h4 mat-line>Page Name</h4></td>
+                <td width="18%"><h4 mat-line>Forbidden</h4></td>
+                <td><h4 mat-line>Read</h4></td>
+                <td><h4 mat-line>Write</h4></td>
+                <td  width="19%"><h4 mat-line>Full</h4></td>
+              </tr>
+              <tr *ngFor="let page of module?.pages">
+                <!-- <div fxLayout="row" fxLayoutAlign="space-between center"> -->
+                <td width="30%">
+                 {{page.name}}
+                </td>
+                <td colspan="5">
+                  <mat-radio-group fxLayout="row" fxLayoutAlign="space-between start" [value]="page.accessLevel" [(ngModel)]="page.accessLevel"
+                    [ngModelOptions]="{standalone: true}">
+                    <table>
+                      <tr align="center">
+                        <td>
+                          <mat-radio-button value="0"></mat-radio-button>
+                        </td>
+                        <td>
+                          <mat-radio-button value="1"></mat-radio-button>
+                        </td>
+                        <td>
+                          <mat-radio-button value="2"></mat-radio-button>
+                        </td>
+                        <td>
+                          <mat-radio-button value="3"></mat-radio-button>
+                        </td>
+                      </tr>
+                    </table>
+                  </mat-radio-group>
+                  <!-- </div> -->
+                </td>
+              </tr>
+            </table>
+            <!-- </div> -->
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+            <div class="button-row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+              <button mat-raised-button color="primary" type="submit" [disabled]="theForm.status=='INVALID' || accessRight < 2">{{submit}}</button>
+              <button mat-raised-button color="primary" type="button" (click)="OnReset()">Reset</button>
+              <button mat-raised-button color="primary" type="button" (click)="OnCancel()">Cancel</button>
+            </div>
+          </div>
+      </mat-card-content>
+    </mat-card>
+</form>

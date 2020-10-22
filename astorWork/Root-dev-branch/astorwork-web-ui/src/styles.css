@@ -1,0 +1,184 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* angular-cli file: src/styles.css */
+
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #efefef!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.full-size {
+    width: 100%;
+    height: 100%;
+}
+
+.show-bg-image {
+    background-size: auto 100%;
+    background: url(/assets/Icons/bg-img.jpg);
+}
+
+.b4-login-container {
+    min-height: 90vh;
+}
+
+.b4-login-container>mat-card {
+    min-width: 250px;
+}
+
+.page-header-row {
+    min-height: 40px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+.row_clicable:hover {
+    background-color: lightcyan;
+    cursor: pointer;
+}
+
+.info-card {
+    margin: 10px;
+}
+
+.info-card mat-card-title h2 {
+    display: inline;
+    vertical-align: middle;
+}
+
+.full-height-content {
+    height: 100vh !important;
+    margin-bottom: -60px !important;
+}
+
+table {
+    width: 100%;
+}
+
+.form-card {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-card mat-card-header {
+    width: 100%;
+    background: blueviolet;
+}
+
+.form-card mat-card-title {
+    color: white;
+}
+
+.nav-menu-important {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu-active {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #333;
+}
+
+.mat-subheader {
+    padding: 0px !important;
+}
+
+.warn-text {
+    color: red;
+}
+
+.link-button {
+    color: rgb(6, 154, 247);
+    /* text-shadow: 1px 1px 5px black; */
+}
+
+.auto-fit-table {
+    width: 100%;
+}
+
+.auto-fit-table td {
+    text-align: center;
+}
+
+.logo-text {
+    font-size: 1.5em;
+}
+
+.important-row {
+    background: powderblue;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.download-template {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
+    .page-break {
+        page-break-inside: always;
+    }
+}
+
+.top-right-fab-button {
+    z-index: 100;
+    float: right;
+}
+
+.photo-info {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 599px) {
+    .mobile-hidden {
+        display: none !important;
+    }
+    .b4-login-container {
+        height: 100%;
+    }
+    .top-right-fab-button {
+        position: fixed !important;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .desktop-hidden {
+        display: none;
+    }
+}
+
+video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.horizional-line {
+    height: 1px;
+    background-color: #333;
+    width: 100%;
+}
+
+.vertical-line {
+    width: 2px;
+    background-color: #333;
+    height: 100%;
+}
+
+.button {
+    z-index: 0;
+}

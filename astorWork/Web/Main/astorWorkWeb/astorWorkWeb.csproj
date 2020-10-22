@@ -1,0 +1,923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E72BD8B2-8B52-496D-B7CE-66857B0B5BA1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>astorWork</RootNamespace>
+    <AssemblyName>astorWork</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.20820.30605, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="astorTrackPAPIDataModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\astorTrackPAPIDataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="astorTrackPAPIHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\astorTrackPAPIHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="astorTrackPLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\astorTrackPLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel.4.5, Version=2.1.2.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Excel.4.5.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.2.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.2.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net, Version=4.4.1.0, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ext.NET.4.4.1\lib\net45\Ext.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ext.Net.Utilities, Version=2.5.0.0, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ext.NET.Utilities.2.5.0\lib\Ext.Net.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.17.1.30601, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.17.1\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.PowerBI.Api, Version=2.0.6.17290, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerBI.Api.2.0.6\lib\portable45-net45+win8+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Microsoft.ReportViewer.DataVisualization.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.0.1\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.8.0.1\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Design, Version=2016.1.225.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2016.1.225.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Telerik.Web.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2016.1.225.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Telerik.Web.UI.Skins.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Transformer.NET, Version=2.1.1.22883, Culture=neutral, PublicKeyToken=e274d618e7c603a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Transformer.NET.2.1.1\lib\net35\Transformer.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Ext.NET.Utilities\BREAKING_CHANGES.txt" />
+    <Content Include="App_Readme\Ext.NET.Utilities\LICENSE.txt" />
+    <Content Include="App_Readme\Ext.NET.Utilities\README.txt" />
+    <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
+    <Content Include="App_Readme\Transformer.NET\README.txt" />
+    <Content Include="App_Themes\MetroTouch\MetroTouch.css" />
+    <Content Include="App_Themes\Metro\Images\MetroTouch.gif" />
+    <Content Include="App_Themes\Metro\Metro.css" />
+    <Content Include="aspx\Configuration\AddUser.aspx" />
+    <Content Include="aspx\Configuration\AddYardMaster.aspx" />
+    <Content Include="aspx\Configuration\ViewUsers.aspx" />
+    <Content Include="aspx\Configuration\AddViewYardMaster.aspx" />
+    <Content Include="aspx\Configuration\ViewZoneMaster.aspx" />
+    <Content Include="aspx\Configuration\AddZoneMaster.aspx" />
+    <Content Include="aspx\Incident\assets\assets\dummy-images\loader.html" />
+    <Content Include="aspx\Incident\assets\elements\badges.css" />
+    <Content Include="aspx\Incident\assets\elements\buttons.css" />
+    <Content Include="aspx\Incident\assets\elements\content-box.css" />
+    <Content Include="aspx\Incident\assets\elements\dashboard-box.css" />
+    <Content Include="aspx\Incident\assets\elements\forms.css" />
+    <Content Include="aspx\Incident\assets\elements\images.css" />
+    <Content Include="aspx\Incident\assets\elements\info-box.css" />
+    <Content Include="aspx\Incident\assets\elements\invoice.css" />
+    <Content Include="aspx\Incident\assets\elements\loading-indicators.css" />
+    <Content Include="aspx\Incident\assets\elements\menus.css" />
+    <Content Include="aspx\Incident\assets\elements\panel-box.css" />
+    <Content Include="aspx\Incident\assets\elements\response-messages.css" />
+    <Content Include="aspx\Incident\assets\elements\responsive-tables.css" />
+    <Content Include="aspx\Incident\assets\elements\ribbon.css" />
+    <Content Include="aspx\Incident\assets\elements\social-box.css" />
+    <Content Include="aspx\Incident\assets\elements\tables.css" />
+    <Content Include="aspx\Incident\assets\elements\tile-box.css" />
+    <Content Include="aspx\Incident\assets\elements\timeline.css" />
+    <Content Include="aspx\Incident\assets\frontend-elements\blog.css" />
+    <Content Include="aspx\Incident\assets\frontend-elements\portfolio-navigation.css" />
+    <Content Include="aspx\Incident\assets\frontend-elements\pricing-table.css" />
+    <Content Include="aspx\Incident\assets\helpers\admin-responsive.css" />
+    <Content Include="aspx\Incident\assets\helpers\animate.css" />
+    <Content Include="aspx\Incident\assets\helpers\backgrounds.css" />
+    <Content Include="aspx\Incident\assets\helpers\boilerplate.css" />
+    <Content Include="aspx\Incident\assets\helpers\border-radius.css" />
+    <Content Include="aspx\Incident\assets\helpers\colors.css" />
+    <Content Include="aspx\Incident\assets\helpers\grid.css" />
+    <Content Include="aspx\Incident\assets\helpers\page-transitions.css" />
+    <Content Include="aspx\Incident\assets\helpers\responsive-elements.css" />
+    <Content Include="aspx\Incident\assets\helpers\spacing.css" />
+    <Content Include="aspx\Incident\assets\helpers\typography.css" />
+    <Content Include="aspx\Incident\assets\helpers\utils.css" />
+    <Content Include="aspx\Incident\assets\snippets\chat.css" />
+    <Content Include="aspx\Incident\assets\snippets\files-box.css" />
+    <Content Include="aspx\Incident\assets\snippets\login-box.css" />
+    <Content Include="aspx\Incident\assets\snippets\mobile-navigation.css" />
+    <Content Include="aspx\Incident\assets\snippets\notification-box.css" />
+    <Content Include="aspx\Incident\assets\snippets\progress-box.css" />
+    <Content Include="aspx\Incident\assets\snippets\todo.css" />
+    <Content Include="aspx\Incident\assets\snippets\user-profile.css" />
+    <Content Include="aspx\Incident\assets\widgets\accordion-ui\accordion.css" />
+    <Content Include="aspx\Incident\assets\widgets\accordion-ui\accordion.js" />
+    <Content Include="aspx\Incident\assets\widgets\autocomplete\autocomplete-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\autocomplete\autocomplete.js" />
+    <Content Include="aspx\Incident\assets\widgets\autocomplete\menu.js" />
+    <Content Include="aspx\Incident\assets\widgets\calendar\calendar-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\calendar\calendar.css" />
+    <Content Include="aspx\Incident\assets\widgets\calendar\calendar.js" />
+    <Content Include="aspx\Incident\assets\widgets\carousel\carousel.css" />
+    <Content Include="aspx\Incident\assets\widgets\charts\chart-js\chart-bar.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\chart-js\chart-core.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\chart-js\chart-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\chart-js\chart-doughnut.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\chart-js\chart-line.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\chart-js\chart-polar.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\chart-js\chart-radar.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\flot\flot-demo-1.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\flot\flot-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\flot\flot-pie.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\flot\flot-resize.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\flot\flot-stack.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\flot\flot-tooltip.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\flot\flot.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\justgage\justgage-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\justgage\justgage.css" />
+    <Content Include="aspx\Incident\assets\widgets\charts\justgage\justgage.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\morris\morris-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\morris\morris.css" />
+    <Content Include="aspx\Incident\assets\widgets\charts\morris\morris.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\piegage\piegage-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\piegage\piegage.css" />
+    <Content Include="aspx\Incident\assets\widgets\charts\piegage\piegage.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\sparklines\sparklines-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\sparklines\sparklines.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\xcharts\xcharts-demo-1.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\xcharts\xcharts-demo-2.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\xcharts\xcharts-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\charts\xcharts\xcharts.css" />
+    <Content Include="aspx\Incident\assets\widgets\charts\xcharts\xcharts.js" />
+    <Content Include="aspx\Incident\assets\widgets\chosen\chosen-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\chosen\chosen.css" />
+    <Content Include="aspx\Incident\assets\widgets\chosen\chosen.js" />
+    <Content Include="aspx\Incident\assets\widgets\ckeditor\ckeditor.js" />
+    <Content Include="aspx\Incident\assets\widgets\colorpicker\colorpicker-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\colorpicker\colorpicker.css" />
+    <Content Include="aspx\Incident\assets\widgets\colorpicker\colorpicker.js" />
+    <Content Include="aspx\Incident\assets\widgets\content-box\contentbox.js" />
+    <Content Include="aspx\Incident\assets\widgets\datatable\datatable-bootstrap.js" />
+    <Content Include="aspx\Incident\assets\widgets\datatable\datatable-fixedcolumns.js" />
+    <Content Include="aspx\Incident\assets\widgets\datatable\datatable-reorder.js" />
+    <Content Include="aspx\Incident\assets\widgets\datatable\datatable-responsive.js" />
+    <Content Include="aspx\Incident\assets\widgets\datatable\datatable-tabletools.js" />
+    <Content Include="aspx\Incident\assets\widgets\datatable\datatable.css" />
+    <Content Include="aspx\Incident\assets\widgets\datatable\datatable.js" />
+    <Content Include="aspx\Incident\assets\widgets\datepicker-ui\datepicker-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\datepicker-ui\datepicker.css" />
+    <Content Include="aspx\Incident\assets\widgets\datepicker-ui\datepicker.js" />
+    <Content Include="aspx\Incident\assets\widgets\datepicker\datepicker.css" />
+    <Content Include="aspx\Incident\assets\widgets\datepicker\datepicker.js" />
+    <Content Include="aspx\Incident\assets\widgets\daterangepicker\daterangepicker-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\daterangepicker\daterangepicker.css" />
+    <Content Include="aspx\Incident\assets\widgets\daterangepicker\daterangepicker.js" />
+    <Content Include="aspx\Incident\assets\widgets\daterangepicker\moment.js" />
+    <Content Include="aspx\Incident\assets\widgets\dialog\dialog-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\dialog\dialog.css" />
+    <Content Include="aspx\Incident\assets\widgets\dialog\dialog.js" />
+    <Content Include="aspx\Incident\assets\widgets\dropdown\dropdown.css" />
+    <Content Include="aspx\Incident\assets\widgets\dropzone\dropzone.css" />
+    <Content Include="aspx\Incident\assets\widgets\dropzone\dropzone.js" />
+    <Content Include="aspx\Incident\assets\widgets\file-input\fileinput.css" />
+    <Content Include="aspx\Incident\assets\widgets\images\animated-overlay.html" />
+    <Content Include="aspx\Incident\assets\widgets\images\loader-dark.html" />
+    <Content Include="aspx\Incident\assets\widgets\img\clear.html" />
+    <Content Include="aspx\Incident\assets\widgets\img\error.html" />
+    <Content Include="aspx\Incident\assets\widgets\img\loading.html" />
+    <Content Include="aspx\Incident\assets\widgets\img\play-pause.html" />
+    <Content Include="aspx\Incident\assets\widgets\img\video-play.html" />
+    <Content Include="aspx\Incident\assets\widgets\input-mask\inputmask.js" />
+    <Content Include="aspx\Incident\assets\widgets\input-switch\inputswitch-alt.css" />
+    <Content Include="aspx\Incident\assets\widgets\input-switch\inputswitch-alt.js" />
+    <Content Include="aspx\Incident\assets\widgets\input-switch\inputswitch.css" />
+    <Content Include="aspx\Incident\assets\widgets\input-switch\inputswitch.js" />
+    <Content Include="aspx\Incident\assets\widgets\interactions-ui\draggable.js" />
+    <Content Include="aspx\Incident\assets\widgets\interactions-ui\resizable.js" />
+    <Content Include="aspx\Incident\assets\widgets\interactions-ui\selectable.js" />
+    <Content Include="aspx\Incident\assets\widgets\interactions-ui\sortable.js" />
+    <Content Include="aspx\Incident\assets\widgets\ionrangeslider\ionrangeslider-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\ionrangeslider\ionrangeslider.css" />
+    <Content Include="aspx\Incident\assets\widgets\ionrangeslider\ionrangeslider.js" />
+    <Content Include="aspx\Incident\assets\widgets\jcrop\jcrop-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\jcrop\jcrop.css" />
+    <Content Include="aspx\Incident\assets\widgets\jcrop\jcrop.js" />
+    <Content Include="aspx\Incident\assets\widgets\jgrowl-notifications\jgrowl-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\jgrowl-notifications\jgrowl.css" />
+    <Content Include="aspx\Incident\assets\widgets\jgrowl-notifications\jgrowl.js" />
+    <Content Include="aspx\Incident\assets\widgets\knobs\knob.js" />
+    <Content Include="aspx\Incident\assets\widgets\lazyload\lazyload.js" />
+    <Content Include="aspx\Incident\assets\widgets\loading-bar\loadingbar-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\loading-bar\loadingbar.css" />
+    <Content Include="aspx\Incident\assets\widgets\loading-bar\loadingbar.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\gmaps\gmaps-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\gmaps\gmaps.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\mapael\mapael-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\mapael\mapael.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\mapael\maps\france_departments.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\mapael\maps\usa_states.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\mapael\maps\world_countries.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\vector-maps\de_merc_en.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\vector-maps\mall_map.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\vector-maps\vectormaps-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\vector-maps\vectormaps.css" />
+    <Content Include="aspx\Incident\assets\widgets\maps\vector-maps\vectormaps.js" />
+    <Content Include="aspx\Incident\assets\widgets\maps\vector-maps\world_map.js" />
+    <Content Include="aspx\Incident\assets\widgets\markdown\markdown.css" />
+    <Content Include="aspx\Incident\assets\widgets\markdown\markdown.js" />
+    <Content Include="aspx\Incident\assets\widgets\mixitup\images-loaded.js" />
+    <Content Include="aspx\Incident\assets\widgets\mixitup\isotope.js" />
+    <Content Include="aspx\Incident\assets\widgets\mixitup\mixitup.js" />
+    <Content Include="aspx\Incident\assets\widgets\mixitup\portfolio-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\modal\modal.css" />
+    <Content Include="aspx\Incident\assets\widgets\multi-select\multiselect.css" />
+    <Content Include="aspx\Incident\assets\widgets\multi-select\multiselect.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\fileupload.css" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.fileupload-audio.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.fileupload-image.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.fileupload-process.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.fileupload-ui.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.fileupload-validate.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.fileupload-video.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.fileupload.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\jquery.iframe-transport.js" />
+    <Content Include="aspx\Incident\assets\widgets\multi-upload\main.js" />
+    <Content Include="aspx\Incident\assets\widgets\nestable\nestable-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\nestable\nestable.css" />
+    <Content Include="aspx\Incident\assets\widgets\nestable\nestable.js" />
+    <Content Include="aspx\Incident\assets\widgets\nicescroll\nicescroll-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\nicescroll\nicescroll.js" />
+    <Content Include="aspx\Incident\assets\widgets\noty-notifications\noty-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\noty-notifications\noty.css" />
+    <Content Include="aspx\Incident\assets\widgets\noty-notifications\noty.js" />
+    <Content Include="aspx\Incident\assets\widgets\overlay\overlay.js" />
+    <Content Include="aspx\Incident\assets\widgets\owlcarousel\owlcarousel-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\owlcarousel\owlcarousel.css" />
+    <Content Include="aspx\Incident\assets\widgets\owlcarousel\owlcarousel.js" />
+    <Content Include="aspx\Incident\assets\widgets\parsley\parsley.js" />
+    <Content Include="aspx\Incident\assets\widgets\popover\popover.css" />
+    <Content Include="aspx\Incident\assets\widgets\popover\popover.js" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\default\default_thumb.png" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\default\loader.gif" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\default\sprite.png" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\default\sprite_next.png" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\default\sprite_prev.png" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\default\sprite_x.png" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\default\sprite_y.png" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\images\facebook\default_thumbnail.html" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\prettyphoto.css" />
+    <Content Include="aspx\Incident\assets\widgets\pretty-photo\prettyphoto.js" />
+    <Content Include="aspx\Incident\assets\widgets\progressbar\progressbar.css" />
+    <Content Include="aspx\Incident\assets\widgets\progressbar\progressbar.js" />
+    <Content Include="aspx\Incident\assets\widgets\range-slider\rangeslider-core.js" />
+    <Content Include="aspx\Incident\assets\widgets\range-slider\rangeslider-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\range-slider\rangeslider.css" />
+    <Content Include="aspx\Incident\assets\widgets\screenfull\screenfull.js" />
+    <Content Include="aspx\Incident\assets\widgets\skycons\skycons.js" />
+    <Content Include="aspx\Incident\assets\widgets\slidebars\slidebars-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\slidebars\slidebars.css" />
+    <Content Include="aspx\Incident\assets\widgets\slidebars\slidebars.js" />
+    <Content Include="aspx\Incident\assets\widgets\slider-ui\slider-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\slider-ui\slider.css" />
+    <Content Include="aspx\Incident\assets\widgets\slider-ui\slider.js" />
+    <Content Include="aspx\Incident\assets\widgets\slimscroll\slimscroll.js" />
+    <Content Include="aspx\Incident\assets\widgets\spinner\spinner.js" />
+    <Content Include="aspx\Incident\assets\widgets\sticky\sticky.js" />
+    <Content Include="aspx\Incident\assets\widgets\summernote-wysiwyg\summernote-wysiwyg.css" />
+    <Content Include="aspx\Incident\assets\widgets\summernote-wysiwyg\summernote-wysiwyg.js" />
+    <Content Include="aspx\Incident\assets\widgets\superclick\superclick.js" />
+    <Content Include="aspx\Incident\assets\widgets\tabs-ui\tabs.css" />
+    <Content Include="aspx\Incident\assets\widgets\tabs-ui\tabs.js" />
+    <Content Include="aspx\Incident\assets\widgets\tabs\tabs-responsive.js" />
+    <Content Include="aspx\Incident\assets\widgets\tabs\tabs.js" />
+    <Content Include="aspx\Incident\assets\widgets\textarea\textarea.js" />
+    <Content Include="aspx\Incident\assets\widgets\theme-switcher\themeswitcher.css" />
+    <Content Include="aspx\Incident\assets\widgets\theme-switcher\themeswitcher.js" />
+    <Content Include="aspx\Incident\assets\widgets\timepicker\timepicker.css" />
+    <Content Include="aspx\Incident\assets\widgets\timepicker\timepicker.js" />
+    <Content Include="aspx\Incident\assets\widgets\tocify\tocify.css" />
+    <Content Include="aspx\Incident\assets\widgets\tocify\tocify.js" />
+    <Content Include="aspx\Incident\assets\widgets\tooltip\tooltip.css" />
+    <Content Include="aspx\Incident\assets\widgets\tooltip\tooltip.js" />
+    <Content Include="aspx\Incident\assets\widgets\touchspin\touchspin-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\touchspin\touchspin.css" />
+    <Content Include="aspx\Incident\assets\widgets\touchspin\touchspin.js" />
+    <Content Include="aspx\Incident\assets\widgets\uniform\uniform-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\uniform\uniform.css" />
+    <Content Include="aspx\Incident\assets\widgets\uniform\uniform.js" />
+    <Content Include="aspx\Incident\assets\widgets\wizard\wizard-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\wizard\wizard.css" />
+    <Content Include="aspx\Incident\assets\widgets\wizard\wizard.js" />
+    <Content Include="aspx\Incident\assets\widgets\wow\wow.js" />
+    <Content Include="aspx\Incident\assets\widgets\xeditable\xeditable-demo.js" />
+    <Content Include="aspx\Incident\assets\widgets\xeditable\xeditable.css" />
+    <Content Include="aspx\Incident\assets\widgets\xeditable\xeditable.js" />
+    <Content Include="aspx\Incident\DashBoard.aspx" />
+    <Content Include="aspx\Incident\LiveView.aspx" />
+    <Content Include="aspx\Material\MaterialDetail.aspx" />
+    <Content Include="aspx\Material\MaterialMaster.aspx" />
+    <Content Include="aspx\Material\MRFDetail.aspx" />
+    <Content Include="aspx\Material\MRFDetail_Edit.aspx" />
+    <Content Include="aspx\Material\MRFMaster.aspx" />
+    <Content Include="aspx\Reports\JobAllocation\Dashboard.aspx" />
+    <Content Include="aspx\Reports\JobAllocation\JobDeploymentDetailRpt.aspx" />
+    <Content Include="aspx\Reports\MaterialTracking\Dashboard.aspx" />
+    <Content Include="aspx\TimeAttendance\ImportRawClockTime.aspx" />
+    <Content Include="aspx\Yard\ActiveYardEmployees.aspx" />
+    <Content Include="aspx\Yard\LiveView.aspx" />
+    <Content Include="aspx\Yard\Pivot.aspx" />
+    <Content Include="aspx\Yard\ZoneEmployees.aspx" />
+    <Content Include="aspx\Yard\ZoneMaterial.aspx" />
+    <Content Include="css\main.css" />
+    <Content Include="Dll\AjaxControlToolkit.dll" />
+    <Content Include="Dll\astorTrackPAPIDataModel.dll" />
+    <Content Include="Dll\astorTrackPAPIHelper.dll" />
+    <Content Include="Dll\astorTrackPLibrary.dll" />
+    <Content Include="Dll\Excel.4.5.dll" />
+    <Content Include="Dll\Excel.4.5.pdb" />
+    <Content Include="Dll\Ext.Net.dll" />
+    <Content Include="Dll\Ext.Net.Utilities.dll" />
+    <Content Include="Dll\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Dll\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="Dll\Microsoft.ReportViewer.DataVisualization.DLL" />
+    <Content Include="Dll\Microsoft.ReportViewer.ProcessingObjectModel.DLL" />
+    <Content Include="Dll\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="Dll\Telerik.Web.Design.dll" />
+    <Content Include="Dll\Telerik.Web.UI.dll" />
+    <Content Include="Dll\Telerik.Web.UI.Skins.dll" />
+    <Content Include="astorWork.Master" />
+    <Content Include="Controls\ImageHandler.ashx" />
+    <Content Include="App_Themes\Metro\Metro.skin" />
+    <Content Include="images\535106-user_512x512.png" />
+    <Content Include="images\addrow.png" />
+    <Content Include="images\Astoria-Logo.ico" />
+    <Content Include="images\back-icon.png" />
+    <Content Include="images\btnrefresh.png" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\CCTV.png" />
+    <Content Include="images\CCTV1.png" />
+    <Content Include="images\Chart.png" />
+    <Content Include="images\CheckMark.png" />
+    <Content Include="images\Circle\Empty_Blue.png" />
+    <Content Include="images\Circle\Empty_Green.png" />
+    <Content Include="images\Circle\Full_Blue.png" />
+    <Content Include="images\Circle\Full_Green.png" />
+    <Content Include="images\Circle\Full_Red.png" />
+    <Content Include="images\Circle\Partial_Blue.png" />
+    <Content Include="images\Circle\Partial_Green.png" />
+    <Content Include="images\Coordinate.png" />
+    <Content Include="images\danger.png" />
+    <Content Include="images\dashboard.png" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\fail.png" />
+    <Content Include="images\filter.png" />
+    <Content Include="images\greatearth_logo.png" />
+    <Content Include="images\green-circle-icon.png" />
+    <Content Include="images\grey-circle.png" />
+    <Content Include="images\import.png" />
+    <Content Include="images\ImportExcel.png" />
+    <Content Include="images\information.png" />
+    <Content Include="images\legend.PNG" />
+    <Content Include="images\liveview.png" />
+    <Content Include="images\material.png" />
+    <Content Include="images\materialrequest.png" />
+    <Content Include="images\material_management.png" />
+    <Content Include="images\moreiconarrow.png" />
+    <Content Include="images\info.png" />
+    <Content Include="images\Page_Icon.png" />
+    <Content Include="images\pass.png" />
+    <Content Include="images\Project_Costing.png" />
+    <Content Include="images\report.png" />
+    <Content Include="images\sample.png" />
+    <Content Include="images\internet-research.png" />
+    <Content Include="images\Preview.gif" />
+    <Content Include="images\red-circle-icon.png" />
+    <Content Include="images\savebtn.png" />
+    <Content Include="images\shutterstock_128214722.jpg" />
+    <Content Include="images\siteview.png" />
+    <Content Include="images\SnipImage.JPG" />
+    <Content Include="images\Time_Management.png" />
+    <Content Include="images\warn.png" />
+    <Content Include="images\yard.png" />
+    <Content Include="images\yardlayout.png" />
+    <Content Include="images\yardlayout1.png" />
+    <Content Include="images\yardmaster.png" />
+    <Content Include="images\Zone.png" />
+    <Content Include="JScript\jquery.rwdImageMaps.min.js" />
+    <Content Include="JScript\jquery1.8.3.min.js" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Controls\ZoneImage.ashx" />
+    <Content Include="Controls\TelerikImagePreviewHandler.ashx" />
+    <Content Include="App_Readme\Ext.NET\README.md" />
+    <Content Include="App_Readme\Ext.NET\LICENSE" />
+    <Content Include="App_Readme\Ext.NET\CHANGELOG.md" />
+    <Content Include="App_Themes\MetroTouch\MetroTouch.skin" />
+    <Content Include="scripts\jquery-3.2.1.min.map" />
+    <Content Include="scripts\jquery-3.2.1.slim.min.map" />
+    <None Include="packages.config" />
+    <Content Include="scripts\powerbi.js" />
+    <Content Include="scripts\powerbi.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aspx\Main\AccessDenied.aspx" />
+    <Content Include="aspx\Main\Banner.aspx" />
+    <Content Include="aspx\Main\ContentPage.aspx" />
+    <Content Include="aspx\Main\SessionExpired.htm" />
+    <Content Include="aspx\Main\SessionExpiredRedirect.aspx" />
+    <Content Include="aspx\Main\TreeViewPage.aspx" />
+    <Content Include="aspx\Main\UserManual.aspx" />
+    <Content Include="bin\Telerik.Web.UI.dll" />
+    <Content Include="images\add.png" />
+    <Content Include="images\AstoriaLogo.jpg" />
+    <Content Include="images\bluedot.png" />
+    <Content Include="images\close.gif" />
+    <Content Include="images\Collapse.png" />
+    <Content Include="images\config.png" />
+    <Content Include="images\error.png" />
+    <Content Include="images\Expand.png" />
+    <Content Include="images\help.png" />
+    <Content Include="images\helpdisable.jpg" />
+    <Content Include="images\HelpDocument.png" />
+    <Content Include="images\HelpTab.png" />
+    <Content Include="images\hexpand.gif" />
+    <Content Include="images\History.png" />
+    <Content Include="images\indicator.gif" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\Login_bg.png" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\Notification.png" />
+    <Content Include="images\ProgressBar.gif" />
+    <Content Include="images\Progress_Bar.gif" />
+    <Content Include="images\RefreshTab.bmp" />
+    <Content Include="images\Reload.png" />
+    <Content Include="images\ReloadTab.png" />
+    <Content Include="images\RemoveTab.png" />
+    <Content Include="images\user.gif" />
+    <Content Include="images\User.png" />
+    <Content Include="images\yard.jpg" />
+    <Content Include="JScript\CommonMethods.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="MainFrame.htm" />
+    <None Include="scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="scripts\jquery-3.2.1.js" />
+    <Content Include="scripts\jquery-3.2.1.min.js" />
+    <Content Include="scripts\jquery-3.2.1.slim.js" />
+    <Content Include="scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="scripts\powerbi.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aspx\Configuration\AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Configuration\AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Configuration\AddYardMaster.aspx.cs">
+      <DependentUpon>AddYardMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Configuration\AddYardMaster.aspx.designer.cs">
+      <DependentUpon>AddYardMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Configuration\ViewUsers.aspx.cs">
+      <DependentUpon>ViewUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Configuration\ViewUsers.aspx.designer.cs">
+      <DependentUpon>ViewUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Configuration\AddViewYardMaster.aspx.cs">
+      <DependentUpon>AddViewYardMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Configuration\AddViewYardMaster.aspx.designer.cs">
+      <DependentUpon>AddViewYardMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Configuration\ViewZoneMaster.aspx.cs">
+      <DependentUpon>ViewZoneMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Configuration\ViewZoneMaster.aspx.designer.cs">
+      <DependentUpon>ViewZoneMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Configuration\AddZoneMaster.aspx.cs">
+      <DependentUpon>AddZoneMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Configuration\AddZoneMaster.aspx.designer.cs">
+      <DependentUpon>AddZoneMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Incident\DashBoard.aspx.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Incident\DashBoard.aspx.designer.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Incident\LiveView.aspx.cs">
+      <DependentUpon>LiveView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Incident\LiveView.aspx.designer.cs">
+      <DependentUpon>LiveView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Material\MaterialDetail.aspx.cs">
+      <DependentUpon>MaterialDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Material\MaterialDetail.aspx.designer.cs">
+      <DependentUpon>MaterialDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Material\MaterialMaster.aspx.cs">
+      <DependentUpon>MaterialMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Material\MaterialMaster.aspx.designer.cs">
+      <DependentUpon>MaterialMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Material\MRFDetail.aspx.cs">
+      <DependentUpon>MRFDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Material\MRFDetail.aspx.designer.cs">
+      <DependentUpon>MRFDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Material\MRFDetail_Edit.aspx.cs">
+      <DependentUpon>MRFDetail_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Material\MRFDetail_Edit.aspx.designer.cs">
+      <DependentUpon>MRFDetail_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Material\MRFMaster.aspx.cs">
+      <DependentUpon>MRFMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Material\MRFMaster.aspx.designer.cs">
+      <DependentUpon>MRFMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Reports\JobAllocation\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Reports\JobAllocation\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Reports\JobAllocation\JobDeploymentDetailRpt.aspx.cs">
+      <DependentUpon>JobDeploymentDetailRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Reports\JobAllocation\JobDeploymentDetailRpt.aspx.designer.cs">
+      <DependentUpon>JobDeploymentDetailRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Reports\MaterialTracking\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Reports\MaterialTracking\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\TimeAttendance\ImportRawClockTime.aspx.cs">
+      <DependentUpon>ImportRawClockTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\TimeAttendance\ImportRawClockTime.aspx.designer.cs">
+      <DependentUpon>ImportRawClockTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Yard\ActiveYardEmployees.aspx.cs">
+      <DependentUpon>ActiveYardEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Yard\ActiveYardEmployees.aspx.designer.cs">
+      <DependentUpon>ActiveYardEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Yard\LiveView.aspx.cs">
+      <DependentUpon>LiveView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Yard\LiveView.aspx.designer.cs">
+      <DependentUpon>LiveView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Yard\Pivot.aspx.cs">
+      <DependentUpon>Pivot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Yard\Pivot.aspx.designer.cs">
+      <DependentUpon>Pivot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Main\AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Main\AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Main\Banner.aspx.cs">
+      <DependentUpon>Banner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Main\Banner.aspx.designer.cs">
+      <DependentUpon>Banner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Main\ContentPage.aspx.cs">
+      <DependentUpon>ContentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Main\ContentPage.aspx.designer.cs">
+      <DependentUpon>ContentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Main\SessionExpiredRedirect.aspx.cs">
+      <DependentUpon>SessionExpiredRedirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Main\SessionExpiredRedirect.aspx.designer.cs">
+      <DependentUpon>SessionExpiredRedirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Main\TreeViewPage.aspx.cs">
+      <DependentUpon>TreeViewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Main\TreeViewPage.aspx.designer.cs">
+      <DependentUpon>TreeViewPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Main\UserManual.aspx.cs">
+      <DependentUpon>UserManual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Main\UserManual.aspx.designer.cs">
+      <DependentUpon>UserManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Yard\ZoneEmployees.aspx.cs">
+      <DependentUpon>ZoneEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Yard\ZoneEmployees.aspx.designer.cs">
+      <DependentUpon>ZoneEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Yard\ZoneMaterial.aspx.cs">
+      <DependentUpon>ZoneMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Yard\ZoneMaterial.aspx.designer.cs">
+      <DependentUpon>ZoneMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TelerikImagePreviewHandler.ashx.cs">
+      <DependentUpon>TelerikImagePreviewHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZoneImage.ashx.cs">
+      <DependentUpon>ZoneImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Constants.cs" />
+    <Compile Include="Helper\Coordinates.cs" />
+    <Compile Include="Helper\EmbedConfig.cs" />
+    <Compile Include="Helper\Enums.cs" />
+    <Compile Include="astorWork.Master.cs">
+      <DependentUpon>astorWork.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="astorWork.Master.designer.cs">
+      <DependentUpon>astorWork.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageHandler.ashx.cs">
+      <DependentUpon>ImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\MicrosoftAccessToken.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Messages.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <Content Include="Reports\JobAllocation\JobDeploymentDetailReport.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\JobAllocation\JobDeploymentDetailSummaryReport.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Properties\Messages.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\astorWorkDAO\astorWorkDAO.csproj">
+      <Project>{8bd3e02a-d235-4277-a571-9cba2b13aeea}</Project>
+      <Name>astorWorkDAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54961</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/astorWork</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

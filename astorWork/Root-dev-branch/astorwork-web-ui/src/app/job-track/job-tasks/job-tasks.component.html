@@ -1,0 +1,370 @@
+<link href="https://unpkg.com/bootstrap-css-only@4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<h3>
+  Job Tasks
+</h3>
+
+<mat-card class="info-card" style="margin:20px">
+    <mat-card-title>
+      <h2>Information</h2>
+    </mat-card-title>
+    
+    <br>
+
+    <mat-card-content>
+      <div fxLayout="row" >
+        <div fxLayout="column" >
+          <mat-form-field style="width:80px">
+            <input matInput placeholder="Block" value="470" readonly="true">
+          </mat-form-field>
+          <mat-form-field style="width:80px">
+            <input matInput placeholder="Level" value="{{level}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field style="width:80px">
+            <input matInput placeholder="Zone" value="1" readonly="true">
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" style="padding-left: 60px">
+          <mat-form-field>
+            <input matInput placeholder="Kimly Staff" value="Albert" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Site Staff" value="Benjamin" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="RTO" value="Brian" readonly="true">
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" style="padding-left: 60px">
+          <mat-form-field>
+            <input matInput placeholder="Marking No." value="2R2LD" readonly="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Job" value="Plastering" readonly="true">
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutAlign="left end">
+            <div class="button-row">
+              <button mat-raised-button color="primary" type="button" (click)="getPhoto()"><mat-icon>image</mat-icon></button>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" style="padding-left: 60px">
+          <mat-form-field>
+            <input matInput placeholder="Start Date" value="01/29/2019, 12:00 AM" readonly="true" >
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="End Date" value="01/30/2019 11:39 AM" readonly="true" >
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" style="padding-left: 60px">
+          <mat-form-field style="width:300px">
+            <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            style="width:320px" 
+            cdkAutosizeMinRows="3"
+            cdkAutosizeMaxRows="5" placeholder="Comments" 
+            value="Surface is not sufficiently roughened to receive final plaster. Curing have not been done properly. Plastered wall needs further smoothening." 
+            readonly="true"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  
+<div style="background-color: white; margin: 20px">
+  <table class="table table-bordered" style="background-color: white">
+    <thead>
+      <tr>
+        <th rowspan="3">No.</th>
+        <th rowspan="3">Description</th>
+        <th rowspan="3">Time Frame</th>
+        <th colspan="6">1st Inspection</th>
+        <th colspan="6">Re-Inspection</th>
+      </tr>
+
+      <tr>
+        <th colspan="3">Site Staff</th>
+        <th colspan="3">RTO</th>
+        <th colspan="3">Site Staff</th>
+        <th colspan="3">RTO</th>
+      </tr>
+
+      <tr>
+        <th>Status</th>
+        <th>Initial</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Initial</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Initial</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Initial</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Ensure bricks are properly aligned</td>
+        <td>On completion</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon>
+        </td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon>
+        </td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Check for squareness for corner</td>
+        <td>On completion</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Check mix consistency</td>
+        <td>Before application</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Check for evenness, hollowness, etc.</td>
+        <td>After curing</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Ensure defects are rectified</td>
+        <td>On completion</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Ensure all penetrations and holes are properly sealed</td>
+        <td>Before plastering</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Ensure wall is properly cleaned</td>
+        <td>Before plastering</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Ensure wire mesh in place over brick/ concrete joints</td>
+        <td>Before plastering</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Brian</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Ensure wall is slightly dampened before plastering</td>
+        <td>Before plastering</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Ensure wire mesh added to areas where plaster is too thick</td>
+        <td>Before plastering</td>
+        <td><mat-icon style="color: green;" *ngIf="status!='Pending'">check_circle</mat-icon></td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Ensure surface is sufficiently roughened to receive final plaster</td>
+        <td>Before plastering</td>
+        <td>
+          <mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon>
+          <mat-icon style="color: red;" *ngIf="status=='Failed'">error</mat-icon>
+        </td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Ensure base plaster is suffiently cured before final plaster proceeds</td>
+        <td>Before plastering</td>
+        <td>
+          <mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon>
+          <mat-icon style="color: red;" *ngIf="status=='Failed'">error</mat-icon>
+        </td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Ensure entire wall is done in one go to avoid cold joints</td>
+        <td>Before plastering</td>
+        <td>
+          <mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon>
+          <mat-icon style="color: red;" *ngIf="status=='Failed'">error</mat-icon>
+        </td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Ensure final plastered wall is flat and smooth</td>
+        <td>Before plastering</td>
+        <td>
+          <mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon>
+          <mat-icon style="color: red;" *ngIf="status=='Failed'">error</mat-icon>
+        </td>
+        <td><div *ngIf="status!='Pending'">Benjamin</div></td>
+        <td><div *ngIf="status!='Pending'">02/12/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/12/2019, 18:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Benjamin</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 12:00 PM</div></td>
+        <td><mat-icon style="color: green;" *ngIf="status=='Passed'">check_circle</mat-icon></td>
+        <td><div *ngIf="status=='Passed'">Brian</div></td>
+        <td><div *ngIf="status=='Passed'">02/13/2019, 18:00 PM</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center end">
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="button" (click)="OnCancel()">Back</button>
+    </div>
+  </div>

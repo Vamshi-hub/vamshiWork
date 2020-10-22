@@ -1,0 +1,1 @@
+﻿Make sure you have Navisworks Manage 2015 installed, and you have the credentials from Astoria Solutions.

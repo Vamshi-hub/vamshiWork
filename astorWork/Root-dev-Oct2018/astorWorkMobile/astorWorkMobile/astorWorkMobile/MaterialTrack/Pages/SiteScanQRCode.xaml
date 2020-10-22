@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.SiteScanQRCode"
+             BindingContext="{x:Static utilities:ViewModelLocator.singleScanTrackerVM}"
+             Title="Scan QR Code" Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <Grid>
+            <zxing:ZXingScannerView x:Name="scanView" OnScanResult="scanView_OnScanResult"
+                                    IsScanning="True" IsAnalyzing="{Binding AllowScan}"
+                                    AutomationId="QRCodeScanView"/>
+            <Frame OutlineColor="Silver" VerticalOptions="End" BackgroundColor="{Binding FrameBGColor}">
+                <Grid>
+                    <StackLayout Orientation="Vertical"  IsVisible="{Binding ShowDetails}">
+                        <Label StyleClass="Header" Text="Attach to material" />
+                        <BoxView Color="Gray" HeightRequest="1"/>
+                        <StackLayout Orientation="Vertical">
+                            <Grid Margin="0, 5">
+                                <Label VerticalTextAlignment="Center">Tracker:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Header" TextColor="Black"
+                                               Text="{Binding Tracker.trackerLabel}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0, 5">
+                                <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding Tracker.markingNo}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0, 5">
+                                <Label VerticalTextAlignment="Center">Status:</Label>
+                                <Frame Margin="100,0,0,0" HorizontalOptions="Start" Padding="10,5"
+                                       BackgroundColor="{Binding Tracker.stageColor}">
+                                    <Label StyleClass="Subheader"
+                                               Text="{Binding Tracker.stageName}" VerticalTextAlignment="Center"/>
+                                </Frame>
+                            </Grid>
+                            <Grid Margin="0, 5" IsVisible="{Binding DisplayInventory}">
+                                <Label VerticalTextAlignment="Center">Lot No.:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding Tracker.sn}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0, 5" IsVisible="{Binding DisplayInventory}">
+                                <Label VerticalTextAlignment="Center">Casting Date:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader" TextColor="Black"
+                                               Text="{Binding Tracker.castingDate, StringFormat='{0:MM/dd/yyyy}'}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="{Binding DisplayMaterial}">
+                            <Grid Margin="0, 5">
+                                <Label VerticalTextAlignment="Center">Target:</Label>
+                                <Label Margin="100,0,0,0" StyleClass="Subheader"
+                                       TextColor="Black" Text="{Binding Tracker.Location}" 
+                                       VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid IsVisible="{Binding Tracker.displayQC}" Margin="0, 5">
+                                <Image Source="ic_warning.png" HeightRequest="40" HorizontalOptions="Start"/>
+                                <Label StyleClass="Subheader" VerticalTextAlignment="Center"
+                                       Margin="100, 0, 0, 0" TextColor="Black"
+                                       Text="{Binding Tracker.qcRemarks}" />
+                            </Grid>
+                            <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                                <Button StyleClass="Primary" Text="Update" IsEnabled="{Binding DisplayMaterial}" Command="{Binding SelectCommand}"/>
+                                <Button Text="BIM" IsEnabled="{Binding DisplayBIM}" Command="{Binding BIMCommand}"/>
+                            </FlexLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <Grid IsVisible="{Binding IsLoading}">
+                        <ActivityIndicator Color="SkyBlue" IsRunning="{Binding IsLoading}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

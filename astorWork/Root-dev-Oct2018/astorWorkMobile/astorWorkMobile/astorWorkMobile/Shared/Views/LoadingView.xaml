@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.Shared.Views.LoadingView"
+              IsVisible="{Binding ShowLoadingView}">
+  <ContentView.Content>
+        <Grid>
+            <ActivityIndicator 
+                Color="#373b99" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"
+                HorizontalOptions="Center" VerticalOptions="Center" 
+                HeightRequest="100" WidthRequest="100"/>
+        </Grid>
+  </ContentView.Content>
+</ContentView>

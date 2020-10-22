@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="astorWorkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ConfigurationMaster">
+          <Key>
+            <PropertyRef Name="Configuration" />
+          </Key>
+          <Property Name="Configuration" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Setting" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeZoneMaster">
+          <Key>
+            <PropertyRef Name="TimeZoneID" />
+          </Key>
+          <Property Name="TimeZoneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UTCOffset" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserPwd" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'astorWork.dbo.YardMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="YardMapping">
+          <Key>
+            <PropertyRef Name="AstorWorkYardID" />
+            <PropertyRef Name="AstorSafeYardID" />
+            <PropertyRef Name="AstorTrackYardID" />
+          </Key>
+          <Property Name="AstorWorkYardID" Type="int" Nullable="false" />
+          <Property Name="AstorSafeYardID" Type="int" Nullable="false" />
+          <Property Name="AstorTrackYardID" Type="int" Nullable="false" />
+          <Property Name="YardName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="YardMaster">
+          <Key>
+            <PropertyRef Name="YardID" />
+          </Key>
+          <Property Name="YardID" Type="int" Nullable="false" />
+          <Property Name="YardName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="YardLayout" Type="image" />
+          <Property Name="UTCOffset" Type="int" Nullable="false" />
+          <Property Name="LayoutDimension" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EnableYardTimeCapture" Type="bit" Nullable="false" />
+          <Property Name="TimeZoneID" Type="int" />
+          <Property Name="GPSCoordinates" Type="varchar" MaxLength="100" />
+          <Property Name="Location" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'astorWork.dbo.ZoneMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ZoneMapping">
+          <Key>
+            <PropertyRef Name="AstorWorkZoneID" />
+            <PropertyRef Name="AstorSafeZoneID" />
+            <PropertyRef Name="AstorTrackZoneID" />
+          </Key>
+          <Property Name="AstorWorkZoneID" Type="int" Nullable="false" />
+          <Property Name="AstorSafeZoneID" Type="int" Nullable="false" />
+          <Property Name="AstorTrackZoneID" Type="int" Nullable="false" />
+          <Property Name="ZoneName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ZoneMaster">
+          <Key>
+            <PropertyRef Name="ZoneID" />
+          </Key>
+          <Property Name="ZoneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZoneDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="ZoneCoordinates" Type="xml" Nullable="false" />
+          <Property Name="ZoneName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ZoneColor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="YardLayout" Type="image" Nullable="false" />
+          <Property Name="YardID" Type="int" />
+        </EntityType>
+        <Association Name="FK__ZoneMaste__YardI__239E4DCF">
+          <End Role="YardMaster" Type="Self.YardMaster" Multiplicity="0..1" />
+          <End Role="ZoneMaster" Type="Self.ZoneMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YardMaster">
+              <PropertyRef Name="YardID" />
+            </Principal>
+            <Dependent Role="ZoneMaster">
+              <PropertyRef Name="YardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TimeZoneMaster_TimeZoneMaster">
+          <End Role="TimeZoneMaster" Type="Self.TimeZoneMaster" Multiplicity="1" />
+          <End Role="TimeZoneMaster1" Type="Self.TimeZoneMaster" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TimeZoneMaster">
+              <PropertyRef Name="TimeZoneID" />
+            </Principal>
+            <Dependent Role="TimeZoneMaster1">
+              <PropertyRef Name="TimeZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YardMaster_TimeZoneMaster">
+          <End Role="TimeZoneMaster" Type="Self.TimeZoneMaster" Multiplicity="0..1" />
+          <End Role="YardMaster" Type="Self.YardMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeZoneMaster">
+              <PropertyRef Name="TimeZoneID" />
+            </Principal>
+            <Dependent Role="YardMaster">
+              <PropertyRef Name="TimeZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_GET_AstorSafeYardSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="YardID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GET_YardSummaryInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="YardID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_INS_Zone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ZoneDescription" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ZoneCoordinates" Type="xml" Mode="In" />
+          <Parameter Name="ZoneName" Type="varchar" Mode="In" />
+          <Parameter Name="ZoneColor" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_SEL_ZoneMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ZoneID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="astorWorkModelStoreContainer">
+          <EntitySet Name="ConfigurationMaster" EntityType="Self.ConfigurationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeZoneMaster" EntityType="Self.TimeZoneMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YardMaster" EntityType="Self.YardMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZoneMaster" EntityType="Self.ZoneMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YardMapping" EntityType="Self.YardMapping" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [YardMapping].[AstorWorkYardID] AS [AstorWorkYardID], 
+    [YardMapping].[AstorSafeYardID] AS [AstorSafeYardID], 
+    [YardMapping].[AstorTrackYardID] AS [AstorTrackYardID], 
+    [YardMapping].[YardName] AS [YardName]
+    FROM [dbo].[YardMapping] AS [YardMapping]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ZoneMapping" EntityType="Self.ZoneMapping" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ZoneMapping].[AstorWorkZoneID] AS [AstorWorkZoneID], 
+    [ZoneMapping].[AstorSafeZoneID] AS [AstorSafeZoneID], 
+    [ZoneMapping].[AstorTrackZoneID] AS [AstorTrackZoneID], 
+    [ZoneMapping].[ZoneName] AS [ZoneName]
+    FROM [dbo].[ZoneMapping] AS [ZoneMapping]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__ZoneMaste__YardI__239E4DCF" Association="Self.FK__ZoneMaste__YardI__239E4DCF">
+            <End Role="YardMaster" EntitySet="YardMaster" />
+            <End Role="ZoneMaster" EntitySet="ZoneMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeZoneMaster_TimeZoneMaster" Association="Self.FK_TimeZoneMaster_TimeZoneMaster">
+            <End Role="TimeZoneMaster" EntitySet="TimeZoneMaster" />
+            <End Role="TimeZoneMaster1" EntitySet="TimeZoneMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YardMaster_TimeZoneMaster" Association="Self.FK_YardMaster_TimeZoneMaster">
+            <End Role="TimeZoneMaster" EntitySet="TimeZoneMaster" />
+            <End Role="YardMaster" EntitySet="YardMaster" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="astorWorkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPwd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZoneMaster">
+          <Key>
+            <PropertyRef Name="ZoneID" />
+          </Key>
+          <Property Name="ZoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZoneDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZoneCoordinates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZoneName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZoneColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="YardID" Type="Int32" />
+          <NavigationProperty Name="YardMaster" Relationship="astorWorkModel.FK__ZoneMaste__YardI__267ABA7A" FromRole="ZoneMaster" ToRole="YardMaster" />
+          <Property Name="YardLayout" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="astorWorkEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
+          <EntitySet Name="ZoneMasters" EntityType="Self.ZoneMaster" />
+          <FunctionImport Name="usp_GET_YardSummaryInfo" ReturnType="Collection(astorWorkModel.usp_GET_YardSummaryInfo_Result)" >
+          <Parameter Name="YardID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_INS_Zone">
+            <Parameter Name="ZoneDescription" Mode="In" Type="String" />
+            <Parameter Name="ZoneCoordinates" Mode="In" Type="String" />
+            <Parameter Name="ZoneName" Mode="In" Type="String" />
+            <Parameter Name="ZoneColor" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SEL_ZoneMaster" ReturnType="Collection(astorWorkModel.usp_SEL_ZoneMaster_Result)">
+          <Parameter Name="ZoneID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UPD_Zone">
+            <Parameter Name="ZoneID" Mode="In" Type="Int32" />
+            <Parameter Name="ZoneDescription" Mode="In" Type="String" />
+            <Parameter Name="ZoneCoordinates" Mode="In" Type="String" />
+            <Parameter Name="ZoneName" Mode="In" Type="String" />
+            <Parameter Name="ZoneColor" Mode="In" Type="String" />
+            <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+            <Parameter Name="ZoneLayOut" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <EntitySet Name="TimeZoneMasters" EntityType="astorWorkModel.TimeZoneMaster" />
+          <EntitySet Name="YardMasters" EntityType="astorWorkModel.YardMaster" />
+          <AssociationSet Name="FK_TimeZoneMaster_TimeZoneMaster" Association="astorWorkModel.FK_TimeZoneMaster_TimeZoneMaster">
+            <End Role="TimeZoneMaster" EntitySet="TimeZoneMasters" />
+            <End Role="TimeZoneMaster1" EntitySet="TimeZoneMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YardMaster_TimeZoneMaster" Association="astorWorkModel.FK_YardMaster_TimeZoneMaster">
+            <End Role="TimeZoneMaster" EntitySet="TimeZoneMasters" />
+            <End Role="YardMaster" EntitySet="YardMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZoneMaste__YardI__267ABA7A" Association="astorWorkModel.FK__ZoneMaste__YardI__267ABA7A">
+            <End Role="YardMaster" EntitySet="YardMasters" />
+            <End Role="ZoneMaster" EntitySet="ZoneMasters" />
+          </AssociationSet>
+          <EntitySet Name="YardMappings" EntityType="astorWorkModel.YardMapping" />
+          <EntitySet Name="ZoneMappings" EntityType="astorWorkModel.ZoneMapping" />
+          <FunctionImport Name="usp_GET_AstorSafeYardSummary" ReturnType="Collection(astorWorkModel.usp_GET_AstorSafeYardSummary_Result)">
+          <Parameter Name="YardID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ConfigurationMasters" EntityType="astorWorkModel.ConfigurationMaster" />
+        </EntityContainer>
+        <ComplexType Name="usp_GET_YardSummaryInfo_Result">
+          <Property Type="Int32" Name="ZoneID" Nullable="false" />
+          <Property Type="String" Name="ZoneDescription" Nullable="false" />
+          <Property Type="String" Name="ZoneCoordinates" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="ZoneName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ZoneColor" Nullable="false" MaxLength="50" />
+          </ComplexType>
+        <ComplexType Name="usp_SEL_ZoneMaster_Result">
+          <Property Type="String" Name="ZoneName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ZoneDescription" Nullable="false" />
+          <Property Type="String" Name="ZoneCoordinates" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="ZoneColor" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="TimeZoneMaster">
+          <Key>
+            <PropertyRef Name="TimeZoneID" />
+          </Key>
+          <Property Name="TimeZoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UTCOffset" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TimeZoneMaster1" Relationship="astorWorkModel.FK_TimeZoneMaster_TimeZoneMaster" FromRole="TimeZoneMaster" ToRole="TimeZoneMaster1" />
+          <NavigationProperty Name="TimeZoneMaster2" Relationship="astorWorkModel.FK_TimeZoneMaster_TimeZoneMaster" FromRole="TimeZoneMaster1" ToRole="TimeZoneMaster" />
+          <NavigationProperty Name="YardMasters" Relationship="astorWorkModel.FK_YardMaster_TimeZoneMaster" FromRole="TimeZoneMaster" ToRole="YardMaster" />
+        </EntityType>
+        <EntityType Name="YardMaster">
+          <Key>
+            <PropertyRef Name="YardID" />
+          </Key>
+          <Property Name="YardID" Type="Int32" Nullable="false" />
+          <Property Name="YardName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <Property Name="YardLayout" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UTCOffset" Type="Int32" Nullable="false" />
+          <Property Name="LayoutDimension" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EnableYardTimeCapture" Type="Boolean" Nullable="false" />
+          <Property Name="TimeZoneID" Type="Int32" />
+          <NavigationProperty Name="TimeZoneMaster" Relationship="astorWorkModel.FK_YardMaster_TimeZoneMaster" FromRole="YardMaster" ToRole="TimeZoneMaster" />
+          <NavigationProperty Name="ZoneMasters" Relationship="astorWorkModel.FK__ZoneMaste__YardI__267ABA7A" FromRole="YardMaster" ToRole="ZoneMaster" />
+          <Property Name="GPSCoordinates" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_TimeZoneMaster_TimeZoneMaster">
+          <End Type="astorWorkModel.TimeZoneMaster" Role="TimeZoneMaster" Multiplicity="1" />
+          <End Type="astorWorkModel.TimeZoneMaster" Role="TimeZoneMaster1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TimeZoneMaster">
+              <PropertyRef Name="TimeZoneID" />
+            </Principal>
+            <Dependent Role="TimeZoneMaster1">
+              <PropertyRef Name="TimeZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YardMaster_TimeZoneMaster">
+          <End Type="astorWorkModel.TimeZoneMaster" Role="TimeZoneMaster" Multiplicity="0..1" />
+          <End Type="astorWorkModel.YardMaster" Role="YardMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeZoneMaster">
+              <PropertyRef Name="TimeZoneID" />
+            </Principal>
+            <Dependent Role="YardMaster">
+              <PropertyRef Name="TimeZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZoneMaste__YardI__267ABA7A">
+          <End Type="astorWorkModel.YardMaster" Role="YardMaster" Multiplicity="0..1" />
+          <End Type="astorWorkModel.ZoneMaster" Role="ZoneMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YardMaster">
+              <PropertyRef Name="YardID" />
+            </Principal>
+            <Dependent Role="ZoneMaster">
+              <PropertyRef Name="YardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="YardMapping">
+          <Key>
+            <PropertyRef Name="AstorWorkYardID" />
+            <PropertyRef Name="AstorSafeYardID" />
+            <PropertyRef Name="AstorTrackYardID" />
+          </Key>
+          <Property Name="AstorWorkYardID" Type="Int32" Nullable="false" />
+          <Property Name="AstorSafeYardID" Type="Int32" Nullable="false" />
+          <Property Name="AstorTrackYardID" Type="Int32" Nullable="false" />
+          <Property Name="YardName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ZoneMapping">
+          <Key>
+            <PropertyRef Name="AstorWorkZoneID" />
+            <PropertyRef Name="AstorSafeZoneID" />
+            <PropertyRef Name="AstorTrackZoneID" />
+          </Key>
+          <Property Name="AstorWorkZoneID" Type="Int32" Nullable="false" />
+          <Property Name="AstorSafeZoneID" Type="Int32" Nullable="false" />
+          <Property Name="AstorTrackZoneID" Type="Int32" Nullable="false" />
+          <Property Name="ZoneName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="usp_GET_AstorSafeYardSummary_Result">
+          <Property Type="Int32" Name="ZoneID" Nullable="false" />
+          <Property Type="String" Name="ZoneDescription" Nullable="false" />
+          <Property Type="String" Name="ZoneCoordinates" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="ZoneName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ZoneColor" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="ConfigurationMaster">
+          <Key>
+            <PropertyRef Name="Configuration" />
+          </Key>
+          <Property Name="Configuration" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Setting" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="astorWorkModelStoreContainer" CdmEntityContainer="astorWorkEntities">
+          <EntitySetMapping Name="UserMasters">
+            <EntityTypeMapping TypeName="astorWorkModel.UserMaster">
+              <MappingFragment StoreEntitySet="UserMaster">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneMasters">
+            <EntityTypeMapping TypeName="astorWorkModel.ZoneMaster">
+              <MappingFragment StoreEntitySet="ZoneMaster">
+                <ScalarProperty Name="YardLayout" ColumnName="YardLayout" />
+                <ScalarProperty Name="YardID" ColumnName="YardID" />
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+                <ScalarProperty Name="ZoneCoordinates" ColumnName="ZoneCoordinates" />
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="ZoneColor" ColumnName="ZoneColor" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GET_YardSummaryInfo" FunctionName="astorWorkModel.Store.usp_GET_YardSummaryInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="astorWorkModel.usp_GET_YardSummaryInfo_Result">
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+                <ScalarProperty Name="ZoneCoordinates" ColumnName="ZoneCoordinates" />
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="ZoneColor" ColumnName="ZoneColor" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_INS_Zone" FunctionName="astorWorkModel.Store.usp_INS_Zone" />
+          <FunctionImportMapping FunctionImportName="usp_SEL_ZoneMaster" FunctionName="astorWorkModel.Store.usp_SEL_ZoneMaster">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="astorWorkModel.usp_SEL_ZoneMaster_Result">
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+                <ScalarProperty Name="ZoneCoordinates" ColumnName="ZoneCoordinates" />
+                <ScalarProperty Name="ZoneColor" ColumnName="ZoneColor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TimeZoneMasters">
+            <EntityTypeMapping TypeName="astorWorkModel.TimeZoneMaster">
+              <MappingFragment StoreEntitySet="TimeZoneMaster">
+                <ScalarProperty Name="UTCOffset" ColumnName="UTCOffset" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="TimeZoneID" ColumnName="TimeZoneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YardMasters">
+            <EntityTypeMapping TypeName="astorWorkModel.YardMaster">
+              <MappingFragment StoreEntitySet="YardMaster">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="GPSCoordinates" ColumnName="GPSCoordinates" />
+                <ScalarProperty Name="TimeZoneID" ColumnName="TimeZoneID" />
+                <ScalarProperty Name="EnableYardTimeCapture" ColumnName="EnableYardTimeCapture" />
+                <ScalarProperty Name="LayoutDimension" ColumnName="LayoutDimension" />
+                <ScalarProperty Name="UTCOffset" ColumnName="UTCOffset" />
+                <ScalarProperty Name="YardLayout" ColumnName="YardLayout" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="YardName" ColumnName="YardName" />
+                <ScalarProperty Name="YardID" ColumnName="YardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YardMappings">
+            <EntityTypeMapping TypeName="astorWorkModel.YardMapping">
+              <MappingFragment StoreEntitySet="YardMapping">
+                <ScalarProperty Name="YardName" ColumnName="YardName" />
+                <ScalarProperty Name="AstorTrackYardID" ColumnName="AstorTrackYardID" />
+                <ScalarProperty Name="AstorSafeYardID" ColumnName="AstorSafeYardID" />
+                <ScalarProperty Name="AstorWorkYardID" ColumnName="AstorWorkYardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneMappings">
+            <EntityTypeMapping TypeName="astorWorkModel.ZoneMapping">
+              <MappingFragment StoreEntitySet="ZoneMapping">
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="AstorTrackZoneID" ColumnName="AstorTrackZoneID" />
+                <ScalarProperty Name="AstorSafeZoneID" ColumnName="AstorSafeZoneID" />
+                <ScalarProperty Name="AstorWorkZoneID" ColumnName="AstorWorkZoneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GET_AstorSafeYardSummary" FunctionName="astorWorkModel.Store.usp_GET_AstorSafeYardSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="astorWorkModel.usp_GET_AstorSafeYardSummary_Result">
+                <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+                <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+                <ScalarProperty Name="ZoneCoordinates" ColumnName="ZoneCoordinates" />
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="ZoneColor" ColumnName="ZoneColor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ConfigurationMasters">
+            <EntityTypeMapping TypeName="astorWorkModel.ConfigurationMaster">
+              <MappingFragment StoreEntitySet="ConfigurationMaster">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Setting" ColumnName="Setting" />
+                <ScalarProperty Name="Configuration" ColumnName="Configuration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

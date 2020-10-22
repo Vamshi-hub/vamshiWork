@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialTrackApp.ScanBeaconPage"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:utility="clr-namespace:MaterialTrackApp.Utility;assembly=MaterialTrackApp"
+             BindingContext="{x:Static utility:ViewModelLocator.scanBeaconPageVM}"
+             Title="Scan Beacons" Appearing="ContentPage_Appearing">
+    <ContentPage.ToolbarItems>
+        <!--
+        <ToolbarItem Order="Primary" Text="Skip" x:Name="btnSkip" Clicked="btnSkip_Clicked"/>
+        -->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid x:Name="layoutMain" Padding="5" VerticalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
+                <iconize:IconImage Icon="md-track-changes" x:Name="icoScan" 
+                                       WidthRequest="80" HeightRequest="80"/>
+                <Label StyleClass="Header" FontSize="32" Text="{Binding CountBeacons}" Margin="50,0,0,0"
+                           VerticalOptions="Center"/>
+                <Label StyleClass="Subheader" VerticalOptions="Center">beacons found</Label>
+            </StackLayout>
+            <ListView ItemsSource="{Binding Beacons}" RowHeight="60" x:Name="listBeacons" Margin="0,120,0,60"
+                      VerticalOptions="Fill">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="{Binding DisplayName}" VerticalTextAlignment="Center" StyleClass="Subheader"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Distance}" TextColor="{Binding DistanceColor}"
+                                       VerticalTextAlignment="Center"/>
+                                    <Label Text=" meters away" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="End">
+                <StackLayout Orientation="Horizontal" IsVisible="{Binding BluetoothEnabled}">
+                    <Button x:Name="btnToggleScan" Text="Start"
+                                Clicked="btnToggleScan_Clicked"/>
+                    <Button x:Name="btnNext" StyleClass="Primary" Text="Next" IsVisible="False"
+                                Clicked="btnNext_Clicked" Margin="10,0,0,0"/>
+                </StackLayout>
+                <Label x:Name="promptBluetooth" Margin="5" IsVisible="{Binding BluetoothDisabled}" TextColor="OrangeRed"
+                   HorizontalOptions="Center">Please enable Bluetooth</Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

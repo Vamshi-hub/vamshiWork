@@ -1,0 +1,53 @@
+<div fxLayout="row-reverse" fxLayoutAlign="start center" fxLayout.sm="column" class="page-header-row">
+  <div fxFlex>
+    <h1 class="mat-h1">{{title}}</h1>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>
+<form (ngSubmit)="onSubmit()" [formGroup]="theForm" [hidden]="isLoading">
+  <mat-card class="form-card">
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-evenly stretch" fxLayoutGap="10px">
+      <mat-form-field>
+        <input matInput placeholder="Project Name" value="" formControlName=projectName [readonly]="!editing" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Description" value="" formControlName="description" required>
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch">
+        <mat-form-field style="width: 50%">
+          <mat-select matInput placeholder="Country" formControlName="country" (selectionChange)="onCountryChanged($event)" [disabled]="hasCountry" required>
+            <mat-option *ngFor="let country of countries" [value]='country.countryCode'>{{country.countryName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field style="width: 30%">
+          <mat-select matInput placeholder="Time Zone" formControlName="timeZone" [disabled]="disabled" required>
+            <mat-option *ngFor="let country of TimeZones" [value]='country.offsetInMinutes'>{{country.offset}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickStartDate" placeholder="Estimated Start Date" formControlName="startDate" [min]="minStartDate"
+          [readonly]="!editing" required>
+        <mat-datepicker-toggle matSuffix [for]="pickStartDate" required></mat-datepicker-toggle>
+        <mat-datepicker #pickStartDate [disabled]="!editing" touchUi="true"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickEndDate" placeholder="Estimated End Date" formControlName="endDate" [min]="minEndDate"
+          required>
+        <mat-datepicker-toggle matSuffix [for]="pickEndDate" required></mat-datepicker-toggle>
+        <mat-datepicker #pickEndDate touchUi="true"></mat-datepicker>
+      </mat-form-field>
+      <div *ngIf="errorMsg!=''" style="color: red;">
+        {{ errorMsg }}
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center stretch" fxLayoutGap="20px">
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="theForm.status=='INVALID' || accessRight < 2">{{submit}}</button>
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="button" (click)="OnCancel()">Cancel</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

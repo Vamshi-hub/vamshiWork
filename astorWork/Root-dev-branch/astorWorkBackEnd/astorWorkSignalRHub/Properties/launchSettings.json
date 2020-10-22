@@ -1,0 +1,31 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5000/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "ChatRoom": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "AW_REDIS_CACHE_CONNECTION": "astorwork-dev.redis.cache.windows.net:6379,password=0EJ/NfXOQuCua+UgT8IXDTcGI5kz8MoDoUb05LcRifc=,ssl=False,abortConnect=False",
+        "IMAGE_CONTAINER": "dev-image-repo",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TENANT_INFO_TBL": "TenantInfoDev",
+        "SIGNALR_END_POINT": "Endpoint=https://astorwork.service.signalr.net;AccessKey=G9U2b4Vsq1ilXZH3jQRcoeBX1X/Ma395SacX7QXzob4=;Version=1.0;"
+      },
+      "applicationUrl": "http://localhost:5000/"
+    }
+  }
+}

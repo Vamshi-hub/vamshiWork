@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="astorWorkMobile.JobTrack.Pages.Cells.IncomingViewCell" IsEnabled="False">
+    <StackLayout Padding="3,0,3,0" Margin="5,5,80,5">
+        <StackLayout>
+            <Frame BackgroundColor= "White" HasShadow="False"  Padding="2" HorizontalOptions="Start">
+                <StackLayout  VerticalOptions="FillAndExpand"  Spacing="0" HorizontalOptions="StartAndExpand" Padding="2,0,2,0">
+                    <Label x:Name="UserName" Text="{Binding UserName}"  HorizontalOptions="Start" TextColor="{Binding UserColor}" />
+                    <ff:CachedImage Source="{Binding Image.Image}" IsVisible="{Binding HasImage}" 
+                            ErrorPlaceholder="ic_warning.png" HeightRequest="300" WidthRequest="500" HorizontalOptions="FillAndExpand" 
+                            Aspect="AspectFill" >
+                        <ff:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowImageCommand}"/>
+                        </ff:CachedImage.GestureRecognizers>
+                    </ff:CachedImage>
+                    <Label Text="{Binding Message}" TextColor="Black" VerticalOptions="End" IsVisible="{Binding ShowMessage}"/>
+                    <Label x:Name="Timestamp" Text="{Binding DisplayTimestamp}" TextColor="Gray"  HorizontalOptions="EndAndExpand" 
+                           FontSize="Micro" WidthRequest="120" HorizontalTextAlignment="End"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+    <!--<StackLayout Padding="3,0,3,0" Margin="5,5,80,5">
+        <Frame BackgroundColor= "White" HasShadow="False" BorderColor="Transparent" Padding="2">
+            <StackLayout  VerticalOptions="FillAndExpand"  Spacing="0" HorizontalOptions="StartAndExpand">
+                --><!--<Grid VerticalOptions="Start" RowSpacing="0"  
+           ColumnSpacing="0">--><!--
+                <Label x:Name="UserName" Text="{Binding UserName}"  HorizontalOptions="Start" TextColor="{Binding UserColor}" />
+                --><!--</Grid>--><!--
+                <ff:CachedImage Source="{Binding Image.Image}" IsVisible="{Binding HasImage}" 
+                            ErrorPlaceholder="ic_warning.png" HeightRequest="300" HorizontalOptions="FillAndExpand" 
+                            Aspect="AspectFill" >
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowImageCommand}"/>
+                    </ff:CachedImage.GestureRecognizers>
+                </ff:CachedImage>
+                <Label Text="{Binding Message}" TextColor="Black" VerticalOptions="End" IsVisible="{Binding ShowMessage}"/>
+                <Label x:Name="Timestamp" Text="{Binding DisplayTimestamp}" TextColor="Gray"  HorizontalOptions="EndAndExpand" FontSize="Micro"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>-->
+    <!--<ViewCell.View>
+      <StackLayout>
+          <Label Text="Hello Xamarin.Forms!" />
+      </StackLayout>
+  </ViewCell.View>-->
+</ViewCell>

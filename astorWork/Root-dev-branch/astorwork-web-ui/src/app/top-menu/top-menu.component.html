@@ -1,0 +1,182 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch" class="full-size white-bg">
+  <div fxLayout="row" class="mat-elevation-z6 top-nav-container no-print" fxLayoutAlign="space-between stretch"
+    fxLayoutGap="10px" (click)="onMenuButtonClicked()" fxFlex="60px">
+    <div fxLayout="row" fxLayoutAlign="start center" style="background: #ffffffa0;">
+      <!-- <img src="assets/Icons/logo-icon.png" alt="astorWork"> -->
+      <img *ngIf="logoImageUrl" src="{{logoImageUrl}}" alt="LHL" style="height: 50px">
+      <!-- <span class="logo-text">astorWork</span> -->
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" fxHide.xs="true">
+      <div *ngIf="showProjects">
+        <button mat-button [matMenuTriggerFor]="projectMenu" class="nav-menu-important">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span *ngIf="selectedProject else elseProject">{{selectedProject.name}}</span>
+            <ng-template #elseProject>
+              <span style="color: lightred;" fxLayout="row" fxLayoutAlign="start center">Select a project</span>
+            </ng-template>
+            <mat-icon>arrow_drop_down</mat-icon>
+          </div>
+        </button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" *ngIf="showMenu">
+          
+        <button mat-button [matMenuTriggerFor]="DashBoard">
+            Dashboards
+        </button>
+        <mat-menu #DashBoard="matMenu"  [overlapTrigger]="false">  
+            <!-- <button mat-menu-item [matMenuTriggerFor]="AlecDashboard">Alec Dashboard</button>    -->
+            <!-- <button mat-menu-item routerLink='/material-tracking/material-dashboard'>
+              Alec Dashboard
+            </button> -->
+            <button mat-menu-item routerLink='/material-tracking/material-dashboard'>
+              Material Dashboard
+            </button>
+          <button mat-menu-item routerLink='/material-tracking/dashboard'>
+            Master Dashboard
+          </button>
+          <button mat-menu-item routerLink='/material-tracking/dashboard-consultant'>
+            Consultant Dashboard
+          </button>
+          <button mat-menu-item routerLink='/material-tracking/dashboard-maincon'>
+            Maincon Dashboard
+          </button>
+         
+          <button mat-menu-item routerLink='/job-tracking/job-dashboard'>Job Dashboard</button>      
+        </mat-menu>
+        <!-- <mat-menu #AlecDashboard="matMenu" [overlapTrigger]="false">
+          
+          <button mat-menu-item routerLink='/material-tracking/dashboard-alec'>
+            Alec Dashboard
+          </button>
+         
+          <button mat-menu-item routerLink='/material-tracking/material-dashboard'>
+            Material Dashboard
+          </button>
+        </mat-menu> -->
+        
+        <button mat-button routerLink='/material-tracking/dashboard-alec' routerLinkActive="nav-menu-active">
+          Reports
+        </button>
+        
+        <button mat-button [matMenuTriggerFor]="material" *ngIf="materialTracking">Material Tracking</button>
+        <mat-menu #material="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item routerLink='/material-tracking/materials'>Material</button>
+          <button mat-menu-item routerLink='/material-tracking/mrfs'>MRF</button>
+          <button mat-menu-item routerLink='/material-tracking/bim-syncs'>BIM</button>
+          <button mat-menu-item routerLink='/material-tracking/qc-defects'>QC</button>
+          <button mat-menu-item routerLink='/material-tracking/material-qc'>Structural QC</button>
+          </mat-menu>
+      
+        <button mat-button [matMenuTriggerFor]="job" *ngIf="jobTracking">Job Tracking</button>
+        <mat-menu #job="matMenu" [overlapTrigger]="false">  
+            <!-- <button mat-menu-item routerLink='/job-tracking/job-dashboard'>Job DashBoard</button>   -->
+          <button mat-menu-item routerLink='/job-tracking/job-scheduling'>Job Scheduling</button>
+          <button mat-menu-item  routerLink='/job-tracking/job-qc'>Architectural QC</button>
+         </mat-menu>
+       
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+        <div class="vertical-line"></div>
+        <button mat-icon-button [matMenuTriggerFor]="configuration">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #configuration="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item routerLink='/configuration/project-master'>Projects</button>      
+          <hr>
+          <button mat-menu-item routerLink='/configuration/user-master'>Users</button>
+          <button mat-menu-item routerLink='/configuration/role-master'>Roles</button>
+          <hr>
+          <button mat-menu-item routerLink='/configuration/import-rfid-tags'>Import Tags</button>
+          <button mat-menu-item routerLink='/job-tracking/import-master'>Import Master</button>
+          <button mat-menu-item routerLink='/material-tracking/notification-config'>Notifications</button>
+          <button mat-menu-item [matMenuTriggerFor]="Configuration">Material Configuration</button>
+          <button mat-menu-item [matMenuTriggerFor]="Config">Job Configuration</button>
+        </mat-menu>
+        <mat-menu #Configuration="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item routerLink='/material-tracking/stage-master'>Stages</button>
+          <button mat-menu-item routerLink='/material-tracking/organisation-master'>Organisations</button>
+          <button mat-menu-item routerLink='/material-tracking/site-master'>Sites</button>
+          <button mat-menu-item routerLink='/material-tracking/location-master'>Locations</button>
+        </mat-menu >
+        <mat-menu #Config="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item routerLink='/job-tracking/job-association'>Trade Association</button>
+        </mat-menu>
+      </div>
+    </div>
+    <div fxHide.xs="true" fxLayoutAlign="center center">
+      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="10px">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+      </button>
+    </div>
+    <div fxHide fxShow.xs="true">
+      <button mat-icon-button [matMenuTriggerFor]="mobileMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #mobileMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="projectMenu">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span *ngIf="selectedProject else elseProject">{{selectedProject.name}}</span>
+            <ng-template #elseProject>
+              <span style="color: lightred;" fxLayout="row" fxLayoutAlign="start center">Select a project</span>
+            </ng-template>
+          </div>
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="mtMenu" *ngIf="showMenu">
+          Material Tracking
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="userMenu">
+          <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="10px">
+            <mat-icon>account_circle</mat-icon>
+            <span> {{personName}}</span>
+          </div>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div fxFlex fxFlexOffset="70px" *ngIf="!errorMessage">
+    <router-outlet
+    (activate)='onRouterActivate($event)'
+    (deactivate)='onRouterDeactivate($event)'></router-outlet>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center" *ngIf="errorMessage" fxFlex>
+    <h2 style="color: red" class="mat-h2">{{errorMessage}}</h2>
+  </div>
+</div>
+<mat-menu #projectMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item *ngFor="let project of projects" (click)="onProjectSelected(project)">{{project.name}}</button>
+</mat-menu>
+
+<mat-menu #mtMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item routerLink='/material-tracking/dashboard' routerLinkActive="nav-menu-active">
+    Dashboard
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/materials' routerLinkActive="nav-menu-active">
+    Material
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/mrfs' routerLinkActive="nav-menu-active">
+    MRF
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/bim-syncs' routerLinkActive="nav-menu-active">
+    BIM
+  </button>
+  <button mat-menu-item routerLink='/material-tracking/qc-defects' routerLinkActive="nav-menu-active">
+    QC
+  </button>
+</mat-menu>
+
+<mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item (click)="onProfileClicked()">
+    <mat-icon>person</mat-icon>
+    <span> {{personName}}</span>
+  </button>
+  <button mat-menu-item routerLink='/user-account/change-password'>
+    <mat-icon>create</mat-icon>
+    <span>Change Password</span>
+  </button>
+  <button mat-menu-item (click)="onLogoutClicked()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

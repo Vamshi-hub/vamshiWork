@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorWork", "astorWork\astorWork.csproj", "{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astorWork_Navisworks", "astorWork_Navisworks\astorWork_Navisworks.csproj", "{F5641120-6F41-4B59-906D-0AE4AEEB3368}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Debug|x64.ActiveCfg = Release|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Debug|x64.Build.0 = Release|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Release|x64.ActiveCfg = Release|Any CPU
+		{8B842EF0-DCD6-4DCB-A14F-5D21C60BF4A2}.Release|x64.Build.0 = Release|Any CPU
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Debug|x64.ActiveCfg = Release|x64
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Debug|x64.Build.0 = Release|x64
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Release|x64.ActiveCfg = Release|x64
+		{F5641120-6F41-4B59-906D-0AE4AEEB3368}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {363A2E5F-299E-4970-A0A6-8808DF29887A}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.astoriasolutions.com:40445/tfs/astoria%20main%20collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = astorWork\\astorWork.csproj
+		SccProjectName1 = astorWork
+		SccLocalPath1 = astorWork
+		SccProjectUniqueName2 = astorWork_Navisworks\\astorWork_Navisworks.csproj
+		SccProjectName2 = astorWork_Navisworks
+		SccLocalPath2 = astorWork_Navisworks
+	EndGlobalSection
+EndGlobal

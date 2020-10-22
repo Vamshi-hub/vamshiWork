@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+            xmlns:Carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="astorWorkMobile.DummyMainPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BindingContext="{x:Static utilities:ViewModelLocator.notificationVM}"
+             Title="Notifications"
+             BarBackgroundColor="#145ca4"
+             x:Name="DummyPage">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+    <!--<TabbedPage.>
+        -->
+    <!--<ToolbarItem Icon="ic_send.png" Text="Send Chat Data" Priority="1" Order="Secondary" Command="{Binding SendChatAuditCommand}"/>-->
+    <!--
+        <ToolbarItem Icon="bell.png" Text="notification" Priority="2" Order="Secondary" Command="{Binding ViewPhotosCommand}"/>
+    </TabbedPage.>-->
+    <TabbedPage.Children>
+        <ContentPage Title="Job" Appearing="JObNotificationPage_Appearing">
+            <!--<ContentPage.ToolbarItems>
+                <ToolbarItem Icon="bell.png" />
+            </ContentPage.ToolbarItems>-->
+            <ContentPage.Content>
+                <Grid>
+                    <StackLayout >
+                        <ListView ItemsSource="{Binding JObNotifications}" HasUnevenRows="True"
+                          VerticalOptions="FillAndExpand" SelectionMode="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="2"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="7,7,7,0" Spacing="0">
+                                            <StackLayout Spacing="3" Orientation="Horizontal">
+                                                <!--<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                <Image Source="icon.png"/>
+                            </StackLayout>-->
+                                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                    <Label Text="{Binding ModuleName}" FontAttributes="{Binding FontAttribute}"
+                                   LineBreakMode="WordWrap" TextColor="{Binding TextColor}" FontSize="Medium"/>
+                                                    <Label Text="{Binding Message}" TextColor="{Binding TextColor}" FontAttributes="{Binding FontAttribute}"
+                                                           FontSize="Small"/>
+                                                    <Label Text="{Binding ProcessDate, StringFormat='{0:MM/dd/yyyy hh:mm}'}" TextColor="{Binding TextColor}" FontSize="Micro" LineBreakMode="NoWrap" HorizontalOptions="End" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1"  Command="{Binding NotifyClickedCommand}" CommandParameter="{Binding .}"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <!--<CollectionView.EmptyView>
+                            <StackLayout Padding="2">
+                                <ff:CachedImage Aspect="Fill" Source="resource://astorWorkMobile.loadinggif.gif" HorizontalOptions="FillAndExpand" HeightRequest="80"/>
+                            </StackLayout>
+                        </CollectionView.EmptyView>-->
+                        </ListView>
+                    </StackLayout>
+                    <views:LoadingView />
+                </Grid>
+            </ContentPage.Content>
+        </ContentPage>
+        <ContentPage Title="Material" Icon="" Appearing="MaterialNotificationPage_Appearing">
+            <!--<ContentPage.ToolbarItems>
+                <ToolbarItem Icon="bell.png"/>
+            </ContentPage.ToolbarItems>-->
+            <ContentPage.Content>
+                <Grid>
+                    <StackLayout >
+                        <ListView ItemsSource="{Binding MaterailNotifications}"
+                          VerticalOptions="FillAndExpand" SelectionMode="None"
+                          HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="2"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="7,7,7,0" Spacing="0">
+                                            <StackLayout Spacing="3" Orientation="Horizontal">
+                                                <!--<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                <Image Source="icon.png"/>
+                            </StackLayout>-->
+                                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                    <Label Text="{Binding ModuleName}" FontAttributes="{Binding FontAttribute}"
+                                   LineBreakMode="WordWrap" TextColor="{Binding TextColor}" FontSize="Medium"/>
+                                                    <Label Text="{Binding Message}" TextColor="{Binding TextColor}" FontAttributes="{Binding FontAttribute}"
+                                                           FontSize="Small"/>
+                                                    <Label Text="{Binding ProcessDate, StringFormat='{0:MM/dd/yyyy hh:mm}'}" TextColor="{Binding TextColor}" FontSize="Micro" LineBreakMode="NoWrap" HorizontalOptions="End" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1"  Command="{Binding NotifyClickedCommand}" CommandParameter="{Binding .}"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <views:LoadingView />
+                </Grid>
+            </ContentPage.Content>
+        </ContentPage>
+    </TabbedPage.Children>
+
+
+
+</TabbedPage>
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:Carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="astorWorkMobile.DummyMainPage"
+             BindingContext="{x:Static utilities:ViewModelLocator.notificationVM}"
+             Title="astorWork"
+             x:Name="DummyPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout Orientation="Horizontal" Spacing="1" BackgroundColor="Gray">
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="0" >
+                    <Button FontSize="Small" Text="Job Notifications" Clicked="Tab1_Clicked" BackgroundColor="White"  HorizontalOptions="Fill" x:Name="btnTab1" BorderWidth="0" CornerRadius="0"/>
+                    <BoxView x:Name="JObTab" HeightRequest="5" BackgroundColor="Red" VerticalOptions="Fill" HorizontalOptions="Fill"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                    <Button FontSize="Small" Text="Material Notifications" Clicked="Tab2_Clicked" BackgroundColor="White" HorizontalOptions="Fill" x:Name="btnTab2" BorderWidth="0" CornerRadius="0"/>
+                    <BoxView x:Name="MaterialTab" HeightRequest="5" BackgroundColor="{Binding SelectedTabColor}" VerticalOptions="Fill" HorizontalOptions="Fill"/>
+                </StackLayout>
+            </StackLayout>
+            <Carousel:CarouselViewControl x:Name="myCarousel" IsSwipeEnabled="False"  VerticalOptions="FillAndExpand" >
+                <Carousel:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <ListView SelectionMode="None" BindingContext="{Binding NotifyTypes}"
+                                  ItemsSource="{Binding Notifications1}" HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="2"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="7,7,7,0" Spacing="0">
+                                            <StackLayout Spacing="3" Orientation="Horizontal">
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                                    <Image Source="icon.png"/>
+                                                </StackLayout>
+                                                <StackLayout  HorizontalOptions="StartAndExpand"  VerticalOptions="Start" >
+                                                    <Label Text="{Binding Name}" 
+                                   LineBreakMode="WordWrap" TextColor="Black" FontSize="Medium"/>
+                                                    <Label Text="{Binding SubName}"
+                                                           FontSize="Small"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Label Text="{Binding Time}"  FontSize="Micro" LineBreakMode="NoWrap" HorizontalOptions="End" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </DataTemplate>
+                </Carousel:CarouselViewControl.ItemTemplate>
+            </Carousel:CarouselViewControl>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>-->
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             x:Class="astorWorkMobile.DummyMainPage"
+             BindingContext="{x:Static utilities:ChatClient.Instance}"
+             Title="astorWork"
+             x:Name="DummyPage">
+    <ContentPage.Content>
+        <Grid>
+            <FlexLayout Direction="Column" JustifyContent="SpaceAround" AlignItems="Center"
+                    HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="250">
+                <Label Text="Welcome to astorWork!"
+                   StyleClass="Header"/>
+                -->
+<!--
+            <Label Text="{Binding ConnectionStatus}" TextColor="{Binding ConnectionStatusColor}" />
+           -->
+<!--
+            </FlexLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>-->
+    

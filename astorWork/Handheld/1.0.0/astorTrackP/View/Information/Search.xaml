@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:astorCable;assembly=astorCable"	
+	x:Class="astorCable.Search"
+  Title="Search Cable Tag No">
+
+	<!--<ContentPage.ToolbarItems>		
+		<ToolbarItem Icon="{Binding scanOperation}" Command="{Binding ScanCommand, Mode=TwoWay}"></ToolbarItem>
+	</ContentPage.ToolbarItems>-->
+
+	<ContentPage.Content>
+	<StackLayout>	
+	<SearchBar Placeholder="Search Cable Tag No" Text="{Binding SearchDocument, Mode=TwoWay}" SearchCommand ="{Binding SearchCommand}" ></SearchBar>
+	<ListView x:Name="uxItems" ItemsSource="{Binding CableMasters, Mode=TwoWay}" HasUnevenRows="true"  
+			SelectedItem="{Binding CableMaster, Mode=TwoWay}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+			IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
+	<ListView.ItemTemplate>
+	<DataTemplate>
+	<ViewCell>		
+		<ViewCell.View>
+		<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,5,5,10" HeightRequest="50"  >
+			<Image HorizontalOptions="Start" Source="list.png" HeightRequest="320" WidthRequest="30"></Image>
+			<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+          <Label Text="{Binding CableTagNo}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Medium" TextColor="#3498DB"></Label>
+          <Label Text="{Binding DrawingNo}" HorizontalOptions="End" VerticalOptions="Center" TextColor="Silver"></Label>					
+				</StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+          <Label Text="{Binding CableSize}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="Silver"></Label>
+          <Label Text="Est. Length" HorizontalOptions="End" VerticalOptions="Center" TextColor="Silver"></Label>
+          <Label Text="{Binding EstimatedLength}" HorizontalOptions="End" VerticalOptions="Center" TextColor="#FFFF80" FontSize="Medium"></Label>
+        </StackLayout>        
+			</StackLayout>
+      <Image HorizontalOptions="End" Source="next.png" HeightRequest="20" WidthRequest="20"></Image>
+		</StackLayout>
+		</ViewCell.View>
+	</ViewCell>
+	</DataTemplate>
+	</ListView.ItemTemplate>
+	</ListView>
+	</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

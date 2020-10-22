@@ -1,0 +1,60 @@
+<mat-card class="info-card" *ngIf="!isLoading">
+  <mat-card-content>
+    <form  class="example-form" [formGroup]="importForm">
+      <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="15px">
+        
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Block" aria-label="Number" matInput formControlName="block" 
+            [matAutocomplete]="autoblock" required>
+            <mat-autocomplete #autoblock="matAutocomplete">
+              <mat-option *ngFor="let option of filteredBlocks | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select matInput placeholder="Level" formControlName="level" required>
+              <mat-option [value]="1" class="option-level">1</mat-option>
+              <mat-option [value]="2" class="option-level">2</mat-option>
+              <mat-option [value]="3" class="option-level">3</mat-option>
+              <mat-option [value]="4" class="option-level">4</mat-option>
+              <mat-option [value]="5" class="option-level">5</mat-option>
+              <mat-option [value]="6" class="option-level">6</mat-option>
+              <mat-option [value]="7" class="option-level">7</mat-option>
+              <mat-option [value]="8" class="option-level">8</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select matInput placeholder="Zone" formControlName="zone" required>
+              <mat-option [value]="A" class="option-level">A</mat-option>
+              <mat-option [value]="B" class="option-level">B</mat-option>
+              <mat-option [value]="C" class="option-level">C</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <input type="file" id="importFile" accept=".csv, text/csv" #fileInput (change)="onFileChange($event)" hidden="false" />
+            <mat-form-field flex class="mat-block">
+              <input matInput type="text" formControlName="fileName" placeholder="Choose your file" pattern=".*\.([c][s][v])$" matTooltip={{fileName}}
+                (click)="attach();" readonly>
+            </mat-form-field>
+            <button mat-mini-fab id="attach" type="button" (click)="attach();">
+              <mat-icon class="material-icons">attach_file</mat-icon>
+            </button>
+          </div>
+          <!--[disabled]="importForm.status=='INVALID' || accessRight < 2" -->
+          <button mat-raised-button color="primary" type="button" (click)="uploadFile();" [disabled]="importForm.status=='INVALID' || accessRight < 2">
+            <mat-icon class="material-icons">
+              cloud_upload
+            </mat-icon>
+            Upload</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

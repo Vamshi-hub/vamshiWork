@@ -1,0 +1,27 @@
+﻿@model Autodesk.Forge.Model.BucketsItems
+
+@{
+    ViewData["Title"] = "Create Bucket";
+}
+
+<h2> BIM Management </h2>
+<div class="row">
+    <h4 class="text-info" style="margin: 0 auto; text-align: center; white-space: pre-line;">
+        @ViewBag.Message
+    </h4>
+</div>
+<hr />
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="BucketKey" class="control-label">Bucket Key</label>
+        <input asp-for="BucketKey" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="PolicyKey" class="control-label">Policy</label>
+        <select asp-for="PolicyKey" asp-items="Html.GetEnumSelectList<Autodesk.Forge.Model.BucketsItems.PolicyKeyEnum>()"></select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</form>

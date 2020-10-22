@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomVisionTraining", "CustomVision\CustomVisionTraining.csproj", "{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|ARM.Build.0 = Debug|ARM
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|ARM.Deploy.0 = Debug|ARM
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|x64.ActiveCfg = Debug|x64
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|x64.Build.0 = Debug|x64
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|x64.Deploy.0 = Debug|x64
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|x86.ActiveCfg = Debug|x86
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|x86.Build.0 = Debug|x86
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Debug|x86.Deploy.0 = Debug|x86
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|ARM.ActiveCfg = Release|ARM
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|ARM.Build.0 = Release|ARM
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|ARM.Deploy.0 = Release|ARM
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|x64.ActiveCfg = Release|x64
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|x64.Build.0 = Release|x64
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|x64.Deploy.0 = Release|x64
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|x86.ActiveCfg = Release|x86
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|x86.Build.0 = Release|x86
+		{A9221CD3-2A3F-4993-8036-B3C99E4D1D94}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BEEAE68-DB37-4776-AD01-DEB9787EBB53}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.astoriasolutions.com:40445/tfs/astoria%20main%20collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CustomVision\\CustomVisionTraining.csproj
+		SccProjectName1 = CustomVision
+		SccLocalPath1 = CustomVision
+	EndGlobalSection
+EndGlobal

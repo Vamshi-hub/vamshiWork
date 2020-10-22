@@ -1,0 +1,47 @@
+<h3 mat-dialog-title fxLayout="row" fxLayoutAlign="space-between center">
+  <span>{{data.remarks}}</span>
+  <button mat-mini-fab mat-dialog-close>
+    <mat-icon>clear</mat-icon>
+  </button>
+</h3>
+<!--
+<div fxLayout="row" fxLayoutAlign="space-evenly center">
+  <button mat-button disabled >Defect</button>
+</div>
+-->
+<div class="mat-typography" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" [ngClass]="{'carousel-single': data.qcClosePhotos.length === 0, 'carousel-dual': data.qcClosePhotos.length > 0}">
+  <ui-carousel [infinite]="false" [autoPlay]='false' [fade]="false" [arrows]="data.qcOpenPhotos.length >1?true:false"
+    [dots]="hide" [speed]="200" *ngIf="data.qcOpenPhotos.length > 0" class="carousel img">
+    <ui-carousel-item *ngFor="let item of data.qcOpenPhotos">
+      <div class="carousel-content" fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="space-between center" style="background-color:lightgrey;">
+        <img src="{{item.url}}" alt="" draggable="false" fxFlex="90%" fxFlex.xs="80%">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5px" class="photo-info" fxFlex="10%"
+          fxFlex.xs="20%" style="color: red;">       
+          <p>{{item.remarks}}</p>
+          <div fxLayout="column" style="color: red;">
+              <p>{{item.createdBy}}</p>
+              <p>{{item.createdDate | date:'M/d/yyyy hh:mm:ss a'}}</p>
+          </div>
+        </div>
+      
+      </div>
+    </ui-carousel-item>
+  </ui-carousel>
+  <ui-carousel [infinite]="false" [autoPlay]='false' [fade]="false" [arrows]="data.qcClosePhotos.length >1?true:false"
+    [dots]="hide" [speed]="200" *ngIf="data.qcClosePhotos.length > 0" class="carousel img">
+    <ui-carousel-item *ngFor="let item of data.qcClosePhotos">
+      <div class="carousel-content" fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="space-between center" style="background-color:lightgrey;">
+        <img src="{{item.url}}" alt="" draggable="false" fxFlex="90%" fxFlex.xs="80%">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5px" class="photo-info" fxFlex="10%"
+          fxFlex.xs="20%" style="color: green;">    
+          <p>{{item.remarks}}</p>
+          <div fxLayout="column" style="color: green;">
+              <p>{{item.createdBy}}</p>
+              <p>{{item.createdDate | date:'M/d/yyyy hh:mm:ss a'}}</p> 
+        </div>
+          
+        </div>
+      </div>
+    </ui-carousel-item>
+  </ui-carousel>
+</div> 

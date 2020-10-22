@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RuntimeFrameworkVersion>2.1.4</RuntimeFrameworkVersion>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NETCOREAPP;NETCOREAPP2_1</DefineConstants>
+    <OutputPath>bin\debug\netcoreapp2.1\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20180403042427_UpdateVendorTbl.cs" />
+    <Compile Remove="Migrations\20180403043344_UpdateLocationMasterTbl.cs" />
+    <Compile Remove="Migrations\20180403100933_test.cs" />
+    <Compile Remove="Migrations\20180405020440_UpdateMaterialAuditCls.cs" />
+    <Compile Remove="Migrations\20180405041538_Insert test data.cs" />
+    <Compile Remove="Migrations\20180405050425_Initialize with test data.cs" />
+    <Compile Remove="Migrations\20180405050739_Initialize with test data.cs" />
+    <Compile Remove="Migrations\20180405055550_Add non-null constraints.cs" />
+    <Compile Remove="Migrations\20180405060922_Add non-null constraints.cs" />
+    <Compile Remove="Migrations\20180405062010_Add one-to-many to audit in material master.cs" />
+    <Compile Remove="Migrations\20180605073023_Add user request table.cs" />
+    <Compile Remove="Migrations\20180627090314_AddedUTrackerType.cs" />
+    <Compile Remove="Migrations\20180705024718_Add unique constraints.cs" />
+    <Compile Remove="Migrations\20180724083029_Add remarks for defect.cs" />
+    <Compile Remove="Migrations\20180829073703_make_updated_date_nullable.cs" />
+    <Compile Remove="Migrations\20181012070023_remove_update_date_inventory.cs" />
+    <Compile Remove="Migrations\20181030085601_UPdatedby_and_date_column_added_QcCaseTable.cs" />
+    <Compile Remove="Migrations\20181030092059_UPdatedbyAndDateColumnAddedToQcCaseTable.cs" />
+    <Compile Remove="Migrations\20181030092228_UPdatedbyAndDateColumnAddedToQcCaseTable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.4" />
+    <PackageReference Include="SaasKit.Multitenancy" Version="1.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\astorWorkShared\astorWorkShared.csproj" />
+  </ItemGroup>
+
+</Project>

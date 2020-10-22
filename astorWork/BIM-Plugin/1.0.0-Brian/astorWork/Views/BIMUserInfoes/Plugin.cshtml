@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Plugin";
+    Layout = "~/Views/Shared/_Layout_NoNav.cshtml";
+}
+<style>
+    img {
+        max-width: 100% !important;
+        border: 1px solid skyblue;
+    }
+</style>
+<h2>Get astorWork for Navisworks</h2>
+<hr />
+<div>
+    <h3>Step 1 - Download the installation file</h3>
+    <p>
+        <a href="~/BIM_Plugin/setup.exe" target="_blank" class="btn btn-primary btn-lg">Download</a>
+    </p>
+</div>
+<hr />
+<div>
+    <h3>Step 2 - Install the plugin</h3>
+    <p>Run the "setup.exe" that is downloaded, and follow its instructions</p>
+    <img src="~/BIM_Plugin/plugin_install.jpg" alt="Plug-in installation" />
+</div>
+<hr />
+<div>
+    <h3>Step 3 - Find settings</h3>
+    <ol>
+        <li>Make sure you have an animation in the project</li>
+        <li>Find the "Simulate" tab in TimeLiner panel</li>
+        <li>Click "Settings" button</li>
+    </ol>
+    <img src="~/BIM_Plugin/Navisworks_location.jpg" alt="Plug-in installation" />
+</div>
+<hr />
+<div>
+    <h3>Step 4 - Change settings</h3>
+    <ol>
+        <li>Set the duration of video you want</li>
+        <li>Change to "Saved Viewpoints Animation"</li>
+        <li>Change to "Actual", because astorWork for Navisworks is using actual dates</li>
+    </ol>
+    <img src="~/BIM_Plugin/Navisworks_settings.jpg" alt="Plug-in installation" />
+</div>
+<hr />
+<div>
+    <h3>Step 5 - Find the plugin</h3>
+    <p>Find the plugin in Navisworks, then click the "Material Sync" button. The location is given below</p>
+    <img src="~/BIM_Plugin/plugin_loc.jpg" alt="Plug-in installation" />
+</div>
+<hr />
+<div>
+    <h3>Step 6 - Log in</h3>
+    <p>Enter the crendentials that are sent via Email</p>
+    <img src="~/BIM_Plugin/plugin_login.jpg" alt="Plug-in installation" />
+</div>
+<hr />
+<div>
+    <h3>Step 7 - Home page</h3>
+    <p>"Start" button is to check whether there are updates of component status</p>
+    <p>"Reset" button is to remove the "Astoria" task in TimeLiner and its task types</p>
+    <img src="~/BIM_Plugin/plugin_home.jpg" alt="Plug-in installation" />
+</div>
+<hr />
+<div>
+    <h3>Step 8 - Sync page</h3>
+    <p>After clicking "Start" button, the plugin will pull the updated components from server</p>
+    <p>Note that elements in "list of unmatched components" don't have the "Mark" property matching database records</p>
+    <img src="~/BIM_Plugin/plugin_sync.jpg" alt="Plug-in installation" />
+</div>
+<hr />
+<div>
+    <h3>Step 9 - Video page</h3>
+    <p>After clicking "Apply" button, the plugin will generate the TimeLiner tasks and export them to video</p>
+    <p>You can click "Save As" to save the video (AVI file) to your disk</p>
+    <img src="~/BIM_Plugin/plugin_export.jpg" alt="Plug-in installation" />
+</div>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            var currentLoadingPanel = $("#AjaxLoadingPanel1", window.parent.document);
+            console.log(currentLoadingPanel);
+            if (currentLoadingPanel != null)
+                currentLoadingPanel.hide("");
+            currentUpdatedControl = null;
+            currentLoadingPanel = null;
+
+        });
+    </script>
+}

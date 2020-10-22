@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  astorworkbackend:
+    image: astorworkbackend
+    build:
+      context: .
+      dockerfile: astorWorkBackEnd/Dockerfile

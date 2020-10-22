@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.SiteHome"
+             Title="Site Operation">
+    <ContentPage.Content>
+        <Grid Padding="16">
+        <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly" AlignContent="Center">
+                <Frame Style="{StaticResource frameButtonStyle}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnScanQRCodeClicked"/>
+                </Frame.GestureRecognizers>
+                <FlexLayout Direction="Row" AlignItems="Center" HeightRequest="40">
+                    <Image Source="ic_qr_code_black.png" HeightRequest="40" WidthRequest="40"/>
+                    <Label Text="QR Code" FontSize="Medium" TextColor="Black"/>
+                </FlexLayout>
+            </Frame>
+                <Frame Style="{StaticResource frameButtonStyle}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnScanRFIDClicked"/>
+                </Frame.GestureRecognizers>
+                <FlexLayout Direction="Row" AlignItems="Center" HeightRequest="40">
+                    <Image Source="ic_rfid_black.png" HeightRequest="40" WidthRequest="40"/>
+                    <Label Text="RFID Tag" FontSize="Medium" TextColor="Black"/>
+                </FlexLayout>
+            </Frame>
+        </FlexLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

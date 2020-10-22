@@ -1,0 +1,37 @@
+﻿@model IEnumerable<astorWorkMVC.Models.BeaconGateWayData>
+
+<h2>Echo Messages</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                HTTP Method
+            </th>
+            <th>
+                Source
+            </th>
+            <th>
+                Receive Time
+            </th>
+            <th>
+                Length
+            </th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Method)</td>
+            <td>@Html.DisplayFor(modelItem => item.Source)</td>
+            <td>@Html.DisplayFor(modelItem => item.ReceiveTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.Message.Length)</td>
+            <td>
+                @Html.ActionLink("View", "EchoDetails", new { id = item.ID }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>

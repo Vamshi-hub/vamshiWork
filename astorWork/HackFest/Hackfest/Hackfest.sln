@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackfest", "Hackfest\Hackfest.csproj", "{EAEB2177-955E-4674-BE36-5F042E7AB6C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectShowLib-2010", "DirectShowLib\DirectShowLib-2010.csproj", "{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camera_NET", "Camera_Net\Camera_NET.csproj", "{E6052609-A070-41D5-85B9-ACABA91170C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAEB2177-955E-4674-BE36-5F042E7AB6C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAEB2177-955E-4674-BE36-5F042E7AB6C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAEB2177-955E-4674-BE36-5F042E7AB6C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAEB2177-955E-4674-BE36-5F042E7AB6C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6052609-A070-41D5-85B9-ACABA91170C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6052609-A070-41D5-85B9-ACABA91170C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6052609-A070-41D5-85B9-ACABA91170C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6052609-A070-41D5-85B9-ACABA91170C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CB5310A-AECA-4D8A-9AA0-6A42321C2BAF}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.astoriasolutions.com:40445/tfs/astoria%20main%20collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Camera_Net\\Camera_NET.csproj
+		SccProjectName1 = Camera_Net
+		SccLocalPath1 = Camera_Net
+		SccProjectUniqueName2 = DirectShowLib\\DirectShowLib-2010.csproj
+		SccProjectName2 = DirectShowLib
+		SccLocalPath2 = DirectShowLib
+		SccProjectUniqueName3 = Hackfest\\Hackfest.csproj
+		SccProjectName3 = Hackfest
+		SccLocalPath3 = Hackfest
+	EndGlobalSection
+EndGlobal

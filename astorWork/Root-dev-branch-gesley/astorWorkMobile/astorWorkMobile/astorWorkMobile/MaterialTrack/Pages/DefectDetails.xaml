@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.DefectDetails"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             BindingContext="{x:Static utilities:ViewModelLocator.qcDefectVM}" 
+             Title="QC Defect"
+             x:Name="QCDefectPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <classes:InverseBoolConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <ScrollView IsVisible="{Binding ShowContent}">
+                <StackLayout>
+                    <!--<Frame OutlineColor="Silver" BackgroundColor="White">
+                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label StyleClass="Header" Text="Photos" />
+                            <Button WidthRequest="60" HeightRequest="60" BorderRadius="30"
+                                HorizontalOptions="Center" Image="ic_photo_base.png"
+                                Clicked="OnViewPhotoClicked" IsVisible="{Binding ShowViewPhotoButton}"/>
+                            <Button WidthRequest="60" HeightRequest="60" BorderRadius="30"
+                                HorizontalOptions="Center" Image="ic_photo_camera_base.png"
+                                Clicked="OnCapturePhotoClicked" IsVisible="{Binding ShowCapturePhotoButton}"/>
+                        </FlexLayout>
+                    </Frame>-->
+                    <Frame OutlineColor="Silver" BackgroundColor="White">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="FillAndExpand">
+                                    <Label StyleClass="Header" Text="Material Information"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="End">
+                                    <ImageButton WidthRequest="35" HeightRequest="25" BorderColor="Transparent"
+                                 Source="ic_photo_library.png" HorizontalOptions="End"
+                                Clicked="OnViewPhotoClicked" IsVisible="{Binding ShowViewPhotoButton}" BackgroundColor="Transparent"/>
+                                    <ImageButton WidthRequest="35" HeightRequest="25" BorderColor="Transparent"
+                                 Source="ic_camera.png" HorizontalOptions="End"
+                                Clicked="AddPhotoClicked" IsVisible="{Binding ShowCapturePhotoButton}" BackgroundColor="Transparent"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <BoxView Color="Gray" HeightRequest="1"/>
+                            <FlexLayout Direction="Row" JustifyContent="Start">
+                                <Label VerticalTextAlignment="Center" FlexLayout.Basis="30%">Marking No.:</Label>
+                                <Label Text="{Binding Material.markingNo}" StyleClass="Subheader" FlexLayout.Basis="70%"/>
+                            </FlexLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start">
+                                <Label VerticalTextAlignment="Center" FlexLayout.Basis="30%">Material Type:</Label>
+                                <Label Text="{Binding Material.materialType}" StyleClass="Subheader" FlexLayout.Basis="70%"/>
+                            </FlexLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start" IsVisible="{Binding VisibleDrawingNo}">
+                                <Label VerticalTextAlignment="Center" FlexLayout.Basis="30%">Drawing No.:</Label>
+                                <Label StyleClass="Subheader" FlexLayout.Basis="70%" Text="{Binding Material.DrawingNo}"/>
+                            </FlexLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start" IsVisible="{Binding VisibleLength}">
+                                <Label VerticalTextAlignment="Center" FlexLayout.Basis="30%">Length:</Label>
+                                <Label StyleClass="Subheader" FlexLayout.Basis="70%" Text="{Binding Material.Length}" />
+                            </FlexLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start" IsVisible="{Binding VisibleArea}">
+                                <Label VerticalTextAlignment="Center" FlexLayout.Basis="30%">Area:</Label>
+                                <Label StyleClass="Subheader" FlexLayout.Basis="70%" Text="{Binding Material.Area}"/>
+                            </FlexLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start">
+                                <Label VerticalTextAlignment="Center" FlexLayout.Basis="30%">Destination:</Label>
+                                <Label Text="{Binding Material.destination}" StyleClass="Subheader" FlexLayout.Basis="70%"/>
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Silver" BackgroundColor="White" IsVisible="{Binding ShowDefectInfo}">
+                        <StackLayout>
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label StyleClass="Header" Text="Defect Information" FlexLayout.Basis="70%"/>
+                                <Label  StyleClass="Subheader"
+                                       TextColor="{Binding QCDefectDetails.StatusColor}" Text="{Binding QCDefectDetails.StatusText}" VerticalTextAlignment="Center" />
+                                <!--<Label IsVisible="{Binding ShowSubmitButton, Converter={StaticResource inverseBool}}" StyleClass="Subheader" Text="Closed" VerticalTextAlignment="Center"/>-->
+                            </FlexLayout>
+                            <BoxView Color="Gray" HeightRequest="1"/>
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Created by:</Label>
+                                <Label Text="{Binding QCDefectDetails.CreatedBy}" StyleClass="Subheader" />
+                            </FlexLayout>
+
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Created Date:</Label>
+                                <Label Text="{Binding QCDefectDetails.CreatedDate, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" StyleClass="Subheader"/>
+                            </FlexLayout>
+
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Updated by:</Label>
+                                <Label Text="{Binding QCDefectDetails.UpdatedBy}" StyleClass="Subheader" />
+                            </FlexLayout>
+
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Updated Date:</Label>
+                                <Label Text="{Binding QCDefectDetails.UpdatedDate, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" StyleClass="Subheader"/>
+                            </FlexLayout>
+
+                            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center" IsVisible="{Binding ShowAssignedTo}">
+                                <Label FlexLayout.Basis="30%">Assigned To:</Label>
+                                <Label Text="{Binding QCDefectDetails.SubconName}" StyleClass="Subheader"/>
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Margin="0,5" HasShadow="False">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0">Remarks:-</Label>
+                            <views:CustomEditor Grid.Row="1" Grid.Column="0" Placeholder="Add remarks" HorizontalOptions="FillAndExpand" 
+                                            VerticalOptions="FillAndExpand" x:Name="remarksEditor"   
+                                            Text="{Binding QCDefectDetails.Remarks}" />
+                        </Grid>
+                    </Frame>
+                    <StackLayout IsVisible="{Binding ShowOrganisations}">
+                        <Frame>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0">Assign To:</Label>
+                                <Picker Grid.Row="1" Grid.Column="0" x:Name="pickerOrganisation" Title="Assign To"
+                            ItemsSource="{Binding ListSubcons}" SelectedIndexChanged="Picker_SelectedIndexChanged"
+                                                        ItemDisplayBinding="{Binding Name}" 
+                                                        SelectedItem="{Binding SelectedSubcon}"/>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button StyleClass="Primary" Text="{Binding UpdateButtonLabel}" Clicked="OnSubmitClickedAsync"
+                                IsVisible="{Binding ShowSubmitButton}" HeightRequest="40" CornerRadius="20" WidthRequest="150" />
+                        <Button StyleClass="Primary" Text="Rectify Defect"  Clicked="RectifyDefect_Clicked" IsVisible="{Binding ShowRectifyButton}" HeightRequest="40" CornerRadius="20" WidthRequest="150"/>
+                        <Button StyleClass="Primary" Text="Close Defect" Clicked="OnCloseClickedAsync"
+                                IsVisible="{Binding ShowCloseButton}" Margin="10,0,0,0" HeightRequest="40" CornerRadius="20" WidthRequest="150"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+            <views:LoadingView HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

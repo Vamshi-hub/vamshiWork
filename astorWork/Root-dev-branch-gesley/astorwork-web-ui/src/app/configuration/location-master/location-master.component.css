@@ -1,0 +1,11 @@
+.organisation-chip{
+    background-color: rgba(255, 255, 0, 0.5);
+}
+
+.storage-chip {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+.install-chip {
+    background-color: rgba(87, 206, 235, 0.5);
+}

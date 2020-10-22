@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.MTRTOHome"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             BindingContext="{x:Static utilities:ViewModelLocator.mtRTOHomeVM}"
+             BarBackgroundColor="#145ca4" Disappearing="TabbedPage_Disappearing"
+            Title="Material Inspection">
+    <TabbedPage.Children>
+        <ContentPage Title="QC Completed" Appearing="QC_CompledtedPage_Appearing" >
+            <ContentPage.ToolbarItems>
+                <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+            </ContentPage.ToolbarItems>
+            <Grid Padding="5">
+                <StackLayout>
+                    <Frame>
+                        <Picker Title="Select a project"
+                            ItemsSource="{Binding Projects}"
+                            ItemDisplayBinding="{Binding name}"
+                            SelectedItem="{Binding SelectedProject}" />
+                    </Frame>
+                    <ListView ItemsSource="{Binding RTOQCCompletedMaterials}"
+                          VerticalOptions="FillAndExpand" SelectionMode="None"
+                          SeparatorVisibility="None" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame HasShadow="True">
+                                        <Grid>
+                                            <StackLayout Orientation="Vertical" IsVisible="{Binding ShowContent}">
+                                                <Grid IsVisible="{Binding ShowUnknownTag}">
+                                                    <Label VerticalTextAlignment="Center">Unkown tag:</Label>
+                                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding Tracker.tag}" VerticalTextAlignment="Center"/>
+                                                </Grid>
+                                                <Grid IsVisible="{Binding ShowRFIDTracker}">
+                                                    <Label VerticalTextAlignment="Center">RFID Tracker:</Label>
+                                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding RFIDTracker.label}" VerticalTextAlignment="Center"/>
+                                                </Grid>
+                                                <Grid IsVisible="{Binding ShowQRTracker}">
+                                                    <Label VerticalTextAlignment="Center">QR Tracker:</Label>
+                                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding QRTracker.label}" VerticalTextAlignment="Center"/>
+                                                </Grid>
+                                                <StackLayout Orientation="Vertical" IsVisible="{Binding ShowMaterial}">
+                                                    <Grid>
+                                                        <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.markingNo}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2">
+                                                        <Label VerticalTextAlignment="Center">MRF No.:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.mrfNo}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleDrawingNo}">
+                                                        <Label VerticalTextAlignment="Center">Drawing No.:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.DrawingNo}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleLength}">
+                                                        <Label VerticalTextAlignment="Center">Length:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Length}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleArea}">
+                                                        <Label VerticalTextAlignment="Center">Area:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Area}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2">
+                                                        <Label VerticalTextAlignment="Center">Status:</Label>
+                                                        <!--<Frame Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"
+                                   BackgroundColor="{Binding StageColor}" Padding="10,0">-->
+                                                        <Label StyleClass="Subheader" Text="{Binding StageName}" TextColor="{Binding StageColor}" Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                                        <!--</Frame>-->
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding ShowHideQCStatus}">
+                                                        <Label VerticalTextAlignment="Center">QC Status:</Label>
+                                                        <!--<Frame Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"
+                                   BackgroundColor="{Binding StageColor}" Padding="10,0">-->
+                                                        <Label StyleClass="Subheader" Text="{Binding Material.QCStatus}" Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                        <!--</Frame>-->
+                                                    </Grid>
+                                                    <Grid Margin="0, 2">
+                                                        <Label VerticalTextAlignment="Center">Destination:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.destination}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                </StackLayout>
+                                                <!--<Label StyleClass="Subheader" Text="Please scan first" TextColor="Red"
+                           IsVisible="{Binding ShowNonAssociateAlert}" HorizontalOptions="Center"/>-->
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                                    <ImageButton  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" WidthRequest="60" HeightRequest="40" CornerRadius="20" Source="ic_list.png" 
+                                Command="{Binding ChecklistButtonCommand}" CommandParameter="{Binding Material}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <views:LoadingView HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <StackLayout VerticalOptions="End" HorizontalOptions="End" >
+                    <ImageButton x:Name="btnQRScan_QCComp"  Source="ic_qr_code_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanQRFABCommand}"/>
+                    <!--<ImageButton x:Name="btnRFIDScan_QCComp"  Source="ic_rfid_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanRFIDFABCommand}"/>-->
+                    <ImageButton x:Name="btnScan_QCComp" Source="ic_scan_base.png" BackgroundColor="Transparent" HeightRequest="60" WidthRequest="60" Clicked="BtnScan_QCComp_Clicked" />
+                </StackLayout>
+            </Grid>
+        </ContentPage>
+        <ContentPage Title="QC Pending" Appearing="QC_PendingPage_Appearing" >
+            <ContentPage.ToolbarItems>
+                <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+            </ContentPage.ToolbarItems>
+            <Grid Padding="5">
+                <StackLayout>
+                    <Frame>
+                        <Picker Title="Select a project"
+                            ItemsSource="{Binding Projects}"
+                            ItemDisplayBinding="{Binding name}"
+                            SelectedItem="{Binding SelectedProject}" />
+                    </Frame>
+                    <ListView ItemsSource="{Binding RTOQCPendingMaterials}"
+                          VerticalOptions="FillAndExpand" SelectionMode="None"
+                          SeparatorVisibility="None" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame HasShadow="True">
+                                        <Grid>
+                                            <StackLayout Orientation="Vertical" IsVisible="{Binding ShowContent}">
+                                                <Grid IsVisible="{Binding ShowUnknownTag}">
+                                                    <Label VerticalTextAlignment="Center">Unkown tag:</Label>
+                                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding Tracker.tag}" VerticalTextAlignment="Center"/>
+                                                </Grid>
+                                                <Grid IsVisible="{Binding ShowRFIDTracker}">
+                                                    <Label VerticalTextAlignment="Center">RFID Tracker:</Label>
+                                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding RFIDTracker.label}" VerticalTextAlignment="Center"/>
+                                                </Grid>
+                                                <Grid IsVisible="{Binding ShowQRTracker}">
+                                                    <Label VerticalTextAlignment="Center">QR Tracker:</Label>
+                                                    <Label Margin="100,0,0,0" StyleClass="Subheader"
+                           Text="{Binding QRTracker.label}" VerticalTextAlignment="Center"/>
+                                                </Grid>
+                                                <StackLayout Orientation="Vertical" IsVisible="{Binding ShowMaterial}">
+                                                    <Grid>
+                                                        <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.markingNo}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2">
+                                                        <Label VerticalTextAlignment="Center">MRF No.:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.mrfNo}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleDrawingNo}">
+                                                        <Label VerticalTextAlignment="Center">Drawing No.:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.DrawingNo}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleLength}">
+                                                        <Label VerticalTextAlignment="Center">Length:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Length}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding Material.VisibleArea}">
+                                                        <Label VerticalTextAlignment="Center">Area:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.Area}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Margin="0, 2">
+                                                        <Label VerticalTextAlignment="Center">Status:</Label>
+                                                        <!--<Frame Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"
+                                   BackgroundColor="{Binding StageColor}" Padding="10,0">-->
+                                                        <Label StyleClass="Subheader" Text="{Binding StageName}" TextColor="{Binding StageColor}" Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                                        <!--</Frame>-->
+                                                    </Grid>
+                                                    <Grid Margin="0, 2" IsVisible="{Binding ShowHideQCStatus}">
+                                                        <Label VerticalTextAlignment="Center">QC Status:</Label>
+                                                        <!--<Frame Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start"
+                                   BackgroundColor="{Binding StageColor}" Padding="10,0">-->
+                                                        <Label StyleClass="Subheader" Text="{Binding Material.QCStatus}" Margin="100,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" />
+                                                        <!--</Frame>-->
+                                                    </Grid>
+                                                    <Grid Margin="0, 2">
+                                                        <Label VerticalTextAlignment="Center">Destination:</Label>
+                                                        <Label Margin="100,0,0,0" StyleClass="Subheader"
+                               Text="{Binding Material.destination}" VerticalTextAlignment="Center"/>
+                                                    </Grid>
+                                                </StackLayout>
+                                                <!--<Label StyleClass="Subheader" Text="Please scan first" TextColor="Red"
+                           IsVisible="{Binding ShowNonAssociateAlert}" HorizontalOptions="Center"/>-->
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                                    <ImageButton  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent"  WidthRequest="60" HeightRequest="40" CornerRadius="20" Source="ic_list.png" 
+                                Command="{Binding ChecklistButtonCommand}" CommandParameter="{Binding Material}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <views:LoadingView HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                <StackLayout VerticalOptions="End" HorizontalOptions="End" >
+                    <ImageButton x:Name="btnQRScan_QCPend"  Source="ic_qr_code_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanQRFABCommand}"/>
+                    <!--<ImageButton x:Name="btnRFIDScan_QCPend"  Source="ic_rfid_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanRFIDFABCommand}"/>-->
+                    <ImageButton x:Name="btnScan_QCPend" Source="ic_scan_base.png" BackgroundColor="Transparent" HeightRequest="60" WidthRequest="60" Clicked="BtnScan_QCPend_Clicked" />
+                </StackLayout>
+            </Grid>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

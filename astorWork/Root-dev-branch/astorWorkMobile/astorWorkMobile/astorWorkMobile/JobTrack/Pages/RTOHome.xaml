@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             xmlns:classes="clr-namespace:astorWorkMobile.Shared.Classes"
+             x:Class="astorWorkMobile.JobTrack.Pages.RTOHome"
+            BindingContext="{x:Static utilities:ViewModelLocator.rtoHomeVM}"
+             Title="Jobs" Appearing="ContentPage_Appearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bell.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView  Padding="5">
+                <StackLayout BindableLayout.ItemsSource="{Binding RTOJobSchedules}" VerticalOptions="StartAndExpand">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="3">
+                                <StackLayout  Padding="5">
+                                    <!--#region Header-->
+                                    <StackLayout Orientation="Horizontal" >
+                                        <BoxView BackgroundColor="{Binding StatusColor}"  WidthRequest="6"></BoxView>
+                                        <StackLayout>
+                                            <Label Text="{Binding TradeName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                            <Label Text="{Binding ModuleName}" StyleClass="Subheader" LineBreakMode="TailTruncation"/>
+                                            <Label Text="{Binding Status}" StyleClass="Heading" TextColor="{Binding StatusColor}"/>
+                                        </StackLayout>
+                                        <Image Source="{Binding ExpansionIcon}" HeightRequest="20" WidthRequest="20"
+                                               HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ExpandCommand}" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <!--#endregion-->
+
+                                    <!--#region Sub Header-->
+                                    <StackLayout Orientation="Vertical" IsVisible="{Binding IsExpanded}">
+                                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Label  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Module:</Label>
+                                            <Label StyleClass="Subheader" Text="{Binding ModuleName}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>-->
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Label  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Sub-Con:</Label>
+                                            <Label StyleClass="Subheader" Text="{Binding SubConName}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding ShowSubcon}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned Start:</Label>
+                                            <Label  StyleClass="Subheader" Text="{Binding Start, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                    HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">Planned End:</Label>
+                                            <Label StyleClass="Subheader" Text="{Binding End, StringFormat='{0:MM/dd/yyyy}'}"
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualStartDate}">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">StartDate:</Label>
+                                            <Label  StyleClass="Subheader" Text="{Binding ActualStartDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                    HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowActualEndDate}">
+                                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">EndDate:</Label>
+                                            <Label StyleClass="Subheader" Text="{Binding ActualEndDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                   HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <ImageButton  BorderColor="#373b99"  BorderWidth="1" BackgroundColor="Transparent" WidthRequest="60" HeightRequest="40" CornerRadius="20"  Source="ic_list.png" 
+                                                Command="{Binding ChecklistCommand}" IsVisible="{Binding ShowChecklistButton}"
+                                                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                    <!--#endregion-->
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            <Grid IsVisible="{Binding IsLoading}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            </Grid>
+            <views:LoadingView />
+            <StackLayout VerticalOptions="End" HorizontalOptions="End" >
+                <ImageButton x:Name="btnQRScan"  Source="ic_qr_code_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanQRFABCommand}"/>
+                <!--<ImageButton x:Name="btnRFIDScan"  Source="ic_rfid_base.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Command="{Binding ScanRFIDFABCommand}"/>-->
+                <ImageButton x:Name="btnScan" Source="ic_scan_base.png" BackgroundColor="Transparent" HeightRequest="60" WidthRequest="60" Clicked="BtnScan_Clicked" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             x:Class="astorWorkMobile.MainPage"
+             BindingContext="{x:Static utilities:ViewModelLocator.loginVM}"
+             Title="astorWork">
+    <Grid>
+        <Frame VerticalOptions="Center" HorizontalOptions="Center"
+                   BackgroundColor="White" OutlineColor="Silver">
+            <Grid>
+                <StackLayout WidthRequest="200">
+                    <Entry Placeholder="Tenant Name" Text="{Binding TenantName}"/>
+                    <Entry Placeholder="User Name" Text="{Binding UserName}"/>
+                    <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True"/>
+                    <Button Text="Log In" IsEnabled="{Binding LoginButtonEnabled}"
+                            Style="{StaticResource btnPrimaryStyle}" Clicked="LoginButton_Clicked"/>
+            </StackLayout>
+            <Grid BackgroundColor="White" IsVisible="{Binding IsLoading}" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label VerticalOptions="Center" HorizontalOptions="Center" StyleClass="Subheader"
+               Text="Logging in, please wait"/>
+                </Grid>
+            </Grid>
+        </Frame>
+            <Button StyleClass="Link" Text="Forgot Password" HorizontalOptions="Center" VerticalOptions="End" FontSize="Small"/>
+    </Grid>
+</ContentPage>

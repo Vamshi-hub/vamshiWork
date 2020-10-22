@@ -1,0 +1,134 @@
+<div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" class="page-header-row" fxLayoutGap="40px" fxLayoutGap.xs="10px">
+    <div fxFlex>
+      <h1 class="mat-h1">Architectural QC</h1>
+    </div>
+
+   <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center start" fxLayoutGap="10px">
+      <mat-form-field style="width: 200px;">
+        <input matInput [matDatepicker]="pickQCStartDate" placeholder="From date" [(ngModel)]="startDate" (dateChange)="onStartDateChanged($event)"
+          [readonly]="true" >
+        <mat-datepicker-toggle matSuffix [for]="pickQCStartDate"></mat-datepicker-toggle>
+        <mat-datepicker #pickQCStartDate touchUi="true"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field style="width: 200px;">
+        <input matInput [matDatepicker]="pickQCEndDate" placeholder="To date" [(ngModel)]="endDate" (dateChange)="onEndDateChanged($event)"
+          [readonly]="true" [min]="startDate!=null?startDate:minDate">
+        <mat-datepicker-toggle matSuffix [for]="pickQCEndDate"></mat-datepicker-toggle>
+        <mat-datepicker #pickQCEndDate touchUi="true"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayoutGap="10px"> 
+      <mat-form-field>
+        <input matInput (keyup)="onFilterKeyIn($event)" placeholder="Filter" [(ngModel)]='filterValue'>
+        <button mat-button *ngIf="filterValue" matSuffix mat-icon-button aria-label="Clear" (click)="caseDataSource.filter = filterValue = ''">
+          <mat-icon (click)="onFilterKeyClose($event)">close</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-button *ngIf="displayShowAll" mat-raised-button color="primary" (click)="showAllCases()">Show All</button>
+    </div>
+  </div>
+
+  <div>
+    <table mat-table [dataSource]="caseDataSource" multiTemplateDataRows class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="{'mobile-hidden' : (column==='createdDate' || column==='createdBy' || column==='updatedDate' || column==='updatedBy' || column==='progress')}"
+       >
+          {{ column==="status" ? "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status":column === "tradeName" ? "Job" : column==="markingNo" ? "Module":
+          column==="plannedStartDate" ? "Job Start Date" : column==="qcStartDate" ? "QC Start Date": column==="plannedEndDate" ?
+          "Job Completed Date" : column==="qcEndDate" ? "Last Updated Date":"Progress"}} </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'mobile-hidden' :  (column==='createdDate' || column==='createdBy' || column==='updatedDate' || column==='updatedBy' || column==='progress')}">
+          {{column==="plannedStartDate" ? (element[column] | date:'M/d/yyyy hh:mm:ss a') :column==="qcStartDate" ?
+          (element[column] | date:'M/d/yyyy
+          hh:mm:ss a') : column==="plannedEndDate" ? (element[column] | date:'M/d/yyyy hh:mm:ss a'):column==="qcEndDate" ? (element[column] | date:'M/d/yyyy hh:mm:ss a'):column==="status" ?"" : column==="progress" ?"" :element[column]}}
+          <div *ngIf="column==='status'">
+            <div *ngIf="element[column]==='QC failed by Maincon'" [ngClass]="{'jobQcFailed':element.status=='QC failed by Maincon' }" >
+              {{element[column]}}
+            </div>
+            <div *ngIf="element[column]==='QC accepted by RTO'" [ngClass]="{'jobQcPending':element.status=='QC accepted by RTO' }" >
+                {{element[column]}}
+              </div>
+              <div *ngIf="element[column]==='QC rectified by Subcon'" [ngClass]="{'pass':element.status=='QC rectified by Subcon' }" >
+                  {{element[column]}}
+                </div>
+                <div *ngIf="element[column]==='QC routed to RTO'" [ngClass]="{'pending':element.status=='QC routed to RTO' }" >
+                    {{element[column]}}
+                  </div>
+                  <div *ngIf="element[column]==='QC rejected by RTO'" [ngClass]="{'jobQcFailed':element.status=='QC rejected by RTO' }" >
+                      {{element[column]}}
+                    </div>
+                    <div *ngIf="element[column]==='QC passed by Maincon'" [ngClass]="{'jobQcPending':element.status=='QC passed by Maincon' }" >
+                      {{element[column]}}
+                    </div>
+                    <div *ngIf="element[column]==='All QC passed'" [ngClass]="{'jobQcPending':element.status=='All QC passed' }" >
+                      {{element[column]}}
+                    </div>
+                    <div *ngIf="element[column]==='Job completed'" [ngClass]="{'jobQcPending':element.status=='Job completed' }" >
+                      {{element[column]}}
+                    </div>
+                    <div *ngIf="element[column]==='Job started'" [ngClass]="{'jobQcPending':element.status=='Job started' }" >
+                      {{element[column]}}
+                    </div>
+                    <div *ngIf="element[column]==='Job delayed'" [ngClass]="{'jobQcPending':element.status=='Job delayed' }" >
+                      {{element[column]}}
+                    </div>
+                    <div *ngIf="element[column]==='Job not started'" [ngClass]="{'jobQcPending':element.status=='Job not started' }" >
+                      {{element[column]}}
+                    </div>
+        </div>
+        </td>
+      </ng-container>
+
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns  -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+          <div style="border: outset" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <div fxLayout="row" fxLayoutGap="50px">
+              <h3 mat-h3>Checklists</h3>
+              <h3 mat-h3 *ngIf="isDefectLoading">Loading ....</h3>
+            </div>
+            <mat-table #table *ngIf="dataSource" [dataSource]="dataSource">
+              <ng-container matColumnDef="checklistStatus">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+
+                <mat-cell *matCellDef="let element" [ngClass]="{'jobQcFailed':element.checklistStatus=='QC failed by Maincon' ||element.checklistStatus=='QC rejected by RTO','jobQcPending':element.checklistStatus=='QC accepted by RTO' || 'QC passed by Maincon', 'pass':element.checklistStatus=='QC rectified by Subcon','pending':element.checklistStatus=='QC routed to RTO'}">{{element.checklistStatus}}
+               
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="countPhotos">
+                <mat-header-cell *matHeaderCellDef> Photo(s) </mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.countPhotos}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="checkListName">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden"> CheckList Name </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.checkListName}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="qcFailedBy">
+                <mat-header-cell *matHeaderCellDef class="mobile-hidden">Last Checklist Updated By </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.qcFailedBy}} </mat-cell>
+              </ng-container>
+             
+             
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable"
+                id="row_{{row.id}}"></mat-row>
+            </mat-table>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" (click)="expandedElement = selectJobRow(element)"
+        id="row_{{element.id}}" class="row_clicable">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" (click)="selectJobRow(row)"
+        id="row_{{row.id}}"></tr>
+    </table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+  </div>
+
+ 
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

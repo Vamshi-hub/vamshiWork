@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             xmlns:views="clr-namespace:astorWorkMobile.Shared.Views"
+             x:Class="astorWorkMobile.MaterialTrack.Pages.SiteListDefects"
+             BindingContext="{x:Static utilities:ViewModelLocator.siteListDefectsVM}"
+             Title="Open QC" Appearing="ContentPage_Appearing" Disappearing="ContentPage_Disappearing">
+    <ContentPage.Content>
+        <Grid>
+            <Grid  IsVisible="{Binding ShowContent}">
+                <StackLayout BindingContext="{Binding OpenCase}">
+                    <Frame OutlineColor="Silver" BackgroundColor="White" >
+                        <StackLayout>
+                            <FlexLayout Direction="Row" JustifyContent="SpaceBetween" AlignItems="Center">
+                                <Label StyleClass="Header" TextColor="Black"
+                                           Text="{Binding CaseName}" VerticalTextAlignment="Center"/>
+                                <Label IsVisible="{Binding IsOpen}" StyleClass="Subheader" Text="Open" 
+                                       TextColor="Red" VerticalTextAlignment="Center"/>
+                            </FlexLayout>
+                            <BoxView HeightRequest="2" BackgroundColor="Gray"/>
+                            <FlexLayout Direction="Row" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Created by:</Label>
+                                <Label StyleClass="Subheader" Text="{Binding CreatedBy}" FlexLayout.Basis="70%"/>
+                            </FlexLayout>
+                            <FlexLayout Direction="Row" AlignItems="Center">
+                                <Label FlexLayout.Basis="30%">Created at:</Label>
+                                <Label StyleClass="Subheader"  FlexLayout.Basis="70%"
+                               Text="{Binding CreatedDate, StringFormat='{0:MM/dd/yyyy}'}"/>
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+                    <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+
+                    <ListView ItemsSource="{Binding ListQCDefect}"
+                      HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None"
+                      ItemTapped="ListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Margin="5" Style="{StaticResource frameButtonStyle}">
+                                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" 
+                                                AlignItems="Center">
+                                            <Label StyleClass="Subheader" TextColor="Black"
+                                                   Text="{Binding CreatedDate, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Label IsVisible="{Binding IsOpen}" TextColor="Red"
+                                                   StyleClass="Subheader" Text="Open" />
+                                            <Label IsVisible="{Binding IsClosed}"
+                                                   StyleClass="Subheader" Text="Closed"  />
+                                            <Image Source="ic_keyboard_arrow_right"/>
+                                        </FlexLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button StyleClass="Primary" HorizontalOptions="End" VerticalOptions="End"
+                        FontSize="Large"  WidthRequest="60" HeightRequest="60" Margin="5"
+                        BorderRadius="30" Image="ic_add.png" Clicked="btnAddDefect_Clicked"/>
+
+                </StackLayout>
+            </Grid>
+            <views:LoadingView VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

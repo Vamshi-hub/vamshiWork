@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utilities="clr-namespace:astorWorkMobile.Shared.Utilities"
+             x:Class="astorWorkMobile.LoginPage"
+             BindingContext="{x:Static utilities:ViewModelLocator.loginVM}"
+             Title="Login"
+             BackgroundImage="bg.png">
+    <Grid>
+        <Grid>
+            <Grid Padding="30" VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="20" Padding="10" BackgroundColor="White"  Opacity="0.8" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BorderColor="#145ca4" Margin="0,0,0,0">
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"  x:Name="loginHeader" Padding="10,0,10,0">
+                        <!--<Frame HeightRequest="56" WidthRequest="56" HorizontalOptions="CenterAndExpand" Padding="10"  BackgroundColor="Transparent" VerticalOptions="StartAndExpand" CornerRadius="100" BorderColor="Black" Margin="0,0,0,0">-->
+                            <Image Source="ic_asSol_logo.png"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                        <!--</Frame>-->
+                        <StackLayout HorizontalOptions="CenterAndExpand" HeightRequest="30" WidthRequest="130" Margin="0,0,0,20">
+                        <Image Source="ic_aW_logo.png" />
+                        </StackLayout>
+                        <StackLayout x:Name="loginContent" Margin="0,10,0,0" Spacing="10">
+                            <StackLayout Orientation="Horizontal" Spacing="3">
+                                <Image x:Name="tenantIcon" HeightRequest="20" WidthRequest="20" Source="ic_user_black.png" HorizontalOptions="Start"/>
+                                <Entry x:Name="tenantName"  FontSize="15" TextColor="Black" HorizontalOptions="FillAndExpand" Text="{Binding TenantName}" Placeholder="Tenant" PlaceholderColor="Gray" Completed="tenantName_Completed"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="3">
+                                <Image x:Name="userNameIcon" HeightRequest="20" WidthRequest="20"  Source="ic_user_black.png" HorizontalOptions="Start"/>
+                                <Entry x:Name="userName" FontSize="15" TextColor="Black" HorizontalOptions="FillAndExpand" Text="{Binding UserName}" Placeholder="User name" PlaceholderColor="Gray" Completed="userName_Completed" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="3">
+                                <Image x:Name="passwordIcon" HeightRequest="20" WidthRequest="20" Source="ic_pwd_black.png" HorizontalOptions="Start"/>
+                                <Entry x:Name="password" FontSize="15" TextColor="Black" HorizontalOptions="FillAndExpand" Text="{Binding Password}" Placeholder="Password" PlaceholderColor="Gray" IsPassword="True" Completed="LoginButton_Clicked" />
+                            </StackLayout>
+                            <Frame x:Name="btnLogin"  IsEnabled="{Binding LoginButtonEnabled}" CornerRadius="5" BackgroundColor="#8196aa" Padding="0" Margin="0,10,0,0">
+                                <StackLayout HeightRequest="50" x:Name="stk"  VerticalOptions="CenterAndExpand">
+                                    <Label Text="Login" FontAttributes="Bold" x:Name="lblLogin" FontSize="Medium" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LoginButton_Clicked"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <!--<Frame HeightRequest="56" WidthRequest="56" HorizontalOptions="CenterAndExpand" Padding="10"  BackgroundColor="Transparent" VerticalOptions="StartAndExpand" CornerRadius="100" BorderColor="Black" Margin="0,0,0,0">
+                    <Image Source="ic_asSol_logo.png"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                </Frame>-->
+            </Grid>
+            <Grid IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+              BackgroundColor="White">
+                <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                    <ActivityIndicator Color="#373b99" IsRunning="{Binding IsLoading}"
+                                   HeightRequest="70" WidthRequest="70" HorizontalOptions="Center"/>
+                    <Label StyleClass="Subheader" Text="Logging in, please wait" HorizontalOptions="Center"/>
+                </StackLayout>
+            </Grid>
+            <!--<Grid x:Name="popupShowProjects" IsVisible="False" VerticalOptions="Fill" >
+                <BoxView HorizontalOptions="Fill" VerticalOptions="Fill" Opacity="0.6" BackgroundColor="Black"/>
+                <Frame BackgroundColor="White" CornerRadius="20" VerticalOptions="CenterAndExpand"  HorizontalOptions="Fill" Padding="10" Margin="10,10"> 
+                    <StackLayout VerticalOptions="Fill"  HorizontalOptions="Fill">
+                        <Picker Title="Select a Project" ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject}" 
+                            ItemDisplayBinding="{Binding name}" x:Name="pickerProjects" SelectedIndexChanged="Picker_SelectedIndexChanged"/>
+                        <Button x:Name="btnSaveProject" Text="Proceed" Clicked="BtnSaveProject_Clicked"
+                            BorderColor="#373b99" BorderWidth="1" BackgroundColor="Transparent" CornerRadius="20" HeightRequest="40" WidthRequest="60"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>-->
+        </Grid>
+    </Grid>
+</ContentPage>

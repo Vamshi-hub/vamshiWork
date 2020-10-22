@@ -1,0 +1,137 @@
+version: "3"
+services:
+
+  redis:
+    image: redis
+    ports:
+    - '6379/tcp'
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 3s
+        max_attempts: 10
+      resources:
+        reservations:
+          memory: 128M
+
+  web-ui:
+    image: ${CONTAINER_REGISTRY}/${REPO_WEB_UI}:${TAG_WEB_UI}
+    ports:
+    - '80/tcp'
+    - '443/tcp'
+    build:
+      context: ../../../astorwork-web-ui/
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+
+  api-gateway:
+    image: ${CONTAINER_REGISTRY}/${REPO_API_GATEWAY}:${TAG_API_GATEWAY}
+    ports:
+    - '80/tcp'
+    - '443/tcp'
+    build: 
+      context: ../../
+      dockerfile: DockerFiles/api-gateway.Dockerfile
+    depends_on:
+      - redis
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - AW_REDIS_CACHE_CONNECTION=${AW_REDIS_CACHE_CONNECTION}
+      - TENANT_INFO_TBL=${TENANT_INFO_TBL}
+
+  material-track:
+    image: ${CONTAINER_REGISTRY}/${REPO_MATERIAL_TRACK}:${TAG_MATERIAL_TRACK}
+    ports:
+    - '80/tcp'
+    - '443/tcp'
+    build: 
+      context: ../../
+      dockerfile: DockerFiles/material-track.Dockerfile
+    depends_on:
+      - redis
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
+      SENDGRID_KEY: ${SENDGRID_KEY}
+      AW_REDIS_CACHE_CONNECTION: ${AW_REDIS_CACHE_CONNECTION}
+      FORGE_CLIENT_ID: ${FORGE_CLIENT_ID}
+      FORGE_CLIENT_SECRET: ${FORGE_CLIENT_SECRET}
+      IMAGE_CONTAINER: ${IMAGE_CONTAINER}
+      VIDEO_CONTAINER: ${VIDEO_CONTAINER}
+      TENANT_INFO_TBL: ${TENANT_INFO_TBL}
+
+  user-manage:
+    image: ${CONTAINER_REGISTRY}/${REPO_USER_MANAGE}:${TAG_USER_MANAGE}
+    ports:
+    - '80/tcp'
+    - '443/tcp'
+    build: 
+      context: ../../
+      dockerfile: DockerFiles/user-manage.Dockerfile
+    depends_on:
+      - redis
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
+      SENDGRID_KEY: ${SENDGRID_KEY}
+      AW_REDIS_CACHE_CONNECTION: ${AW_REDIS_CACHE_CONNECTION}
+      IMAGE_CONTAINER: ${IMAGE_CONTAINER}
+      VIDEO_CONTAINER: ${VIDEO_CONTAINER}
+      POWERBI_TENANT_ID: ${POWERBI_TENANT_ID}
+      POWERBI_USER_NAME: ${POWERBI_USER_NAME}
+      POWERBI_USER_PASSWORD: ${POWERBI_USER_PASSWORD}
+      POWERBI_CLIENT_ID: ${POWERBI_CLIENT_ID}
+      POWERBI_CLIENT_SECRET: ${POWERBI_CLIENT_SECRET}
+
+  background-service:
+    image: ${CONTAINER_REGISTRY}/${REPO_BACKGROUND_SERVICE}:${TAG_BACKGROUND_SERVICE}
+    build:
+      context: ../../
+      dockerfile: DockerFiles/background-service.Dockerfile
+    depends_on:
+      - redis
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 120s
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
+      SENDGRID_KEY: ${SENDGRID_KEY}
+      AW_REDIS_CACHE_CONNECTION: ${AW_REDIS_CACHE_CONNECTION}
+      IMAGE_CONTAINER: ${IMAGE_CONTAINER}
+      VIDEO_CONTAINER: ${VIDEO_CONTAINER}
+      TENANT_INFO_TBL: ${TENANT_INFO_TBL}

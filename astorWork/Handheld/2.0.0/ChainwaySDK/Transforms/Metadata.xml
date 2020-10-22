@@ -1,0 +1,11 @@
+<metadata>
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='a']" name="obfuscated">false</attr>
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='b']" name="obfuscated">false</attr>
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='c']" name="obfuscated">false</attr>
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='a']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='b']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='c']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='Fingerprint']/method[@name='getInstance' and count(parameter)=0]" name="propertyName" />
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='Fingerprint']/method[@name='getImage' and count(parameter)=0]" name="propertyName" />
+  <attr path="/api/package[@name='com.rscja.deviceapi']/class[@name='RFIDWithUHF']/method[@name='getInstance' and count(parameter)=0]" name="propertyName" />
+</metadata>

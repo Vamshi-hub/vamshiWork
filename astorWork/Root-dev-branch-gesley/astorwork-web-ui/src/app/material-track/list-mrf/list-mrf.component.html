@@ -1,0 +1,155 @@
+<div *ngIf="!isLoading">
+  <button mat-fab class="top-right-fab-button button" routerLink='create' *ngIf="accessRight >= 2">
+    <mat-icon aria-label="Crete MRF">add</mat-icon>
+  </button>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayout.xs="column" fxLayout.sm="column" class="page-header-row">
+    <div fxFlex>
+      <h1 class="mat-h1 page-header">Material Request Forms</h1>
+    </div>
+    <div fxFlex="25">
+      <mat-form-field>
+        <mat-select placeholder="Block" (selectionChange)="onBlockChanged($event)" id="blkSelect"
+          [(value)]="selectedBlock">
+          <mat-option value='all'>All</mat-option>
+          <mat-option *ngFor="let blk of blocks" [value]='blk'>
+            {{ blk }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxFlex="25">
+      <mat-form-field>
+        <input matInput (keyup)="onFilterKeyIn($event)" placeholder="Filter" [(ngModel)]='filter'>
+        <button mat-button *ngIf="filter" matSuffix mat-icon-button aria-label="Clear"
+          (click)="dataSource.filter = filter = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+  <link href="https://unpkg.com/bootstrap-css-only@4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.css" rel="stylesheet">
+<link href="https://unpkg.com/angular-calendar@0.26.4/css/angular-calendar.css" rel="stylesheet">
+<link href="https://unpkg.com/flatpickr@4.5.2/dist/flatpickr.css" rel="stylesheet">
+  <ng-template #modalContent let-close="close">
+      <div class="modal-header"><h3>{{this.MrfDetails.mrfNo}}</h3>
+        <button type="button" class="close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="overflow-wrap: break-word; word-wrap: break-word;" fxLayout="column" fxLayoutAlign="start stretch">
+       <div> <b>Block :</b>  {{this.MrfDetails.block}} </div>
+       <div><b> Level :</b>  {{this.MrfDetails.level}}</div>
+       <div> <b>Zone  : </b> {{this.MrfDetails.zone}}</div>
+       <div><b>MaterialTypes : </b>{{this.MrfDetails.materialTypes}}</div>
+       <div><b> Organisation : </b> {{this.MrfDetails.organisationName}}</div>
+       <div> <b>Order Date : </b> {{this.MrfDetails.orderDate | date:'M/d/yyyy'}}</div>
+       <div><b>Expected Delievry Date : </b> {{this.MrfDetails.expectedDeliveryDate | date:'M/d/yyyy'}}</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
+      </div>
+    </ng-template>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <!-- <ng-container matColumnDef="info">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"> Info </th>
+      <td mat-cell *matCellDef="let element" class="mobile-hidden">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear"
+        (click)="showmrfdetails($event, element)">
+        <mat-icon>info</mat-icon>
+      </button> </td>
+    </ng-container> -->
+    <ng-container matColumnDef="mrfNo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"> MRF No. </th>
+      <td mat-cell *matCellDef="let element" class="mobile-hidden">
+           {{element.mrfNo}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="block">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Block </th>
+      <td mat-cell *matCellDef="let element"> {{element.block}} </td>
+    </ng-container>
+    <ng-container matColumnDef="level">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Level </th>
+      <td mat-cell *matCellDef="let element"> {{(element.level).length>3?(element.level|slice:0:3) +'...':(element.level) }} </td>
+    </ng-container>
+    <ng-container matColumnDef="zone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Zone </th>
+      <td mat-cell *matCellDef="let element"> {{(element.zone).length>3?(element.zone|slice:0:3) +'...':(element.zone) }} </td>
+    </ng-container>
+    <ng-container matColumnDef="materialTypes">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type(s) </th>
+      <!-- <td mat-cell *matCellDef="let element"> {{element.materialTypes.join(', ')}} </td> -->
+      <td mat-cell *matCellDef="let element"> {{(element.materialTypes).length>3?(element.materialTypes|slice:0:3) +'...':(element.materialTypes) }} </td>
+    </ng-container>
+    <ng-container matColumnDef="orderDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"> Order Date </th>
+      <td mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.orderDate | date:'M/d/yyyy'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="expectedDeliveryDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="mobile-hidden"> Expected Delievry Date </th>
+      <td mat-cell *matCellDef="let element" class="mobile-hidden"> {{element.expectedDeliveryDate | date:'M/d/yyyy'}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="organisationName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Organisation </th>
+      <td mat-cell *matCellDef="let element"> {{element.organisationName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="progress">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
+      <td mat-cell *matCellDef="let element">
+        <div fxLayout="column" fxLayoutAlign="center stretch" style="width: 100%;">
+          <span>{{this.Math.round(element.progress*100)}}%</span>
+          <mat-progress-bar mode="determinate" [value]="element.progress*100"></mat-progress-bar>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="print">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cel *matCellDef="let element">
+        <button mat-icon-button (click)="onPrintClicked($event, element.id)">
+          <mat-icon aria-label="Print">print</mat-icon>
+        </button>
+        <button mat-button matSuffix mat-icon-button aria-label="Clear"
+        (click)="showmrfdetails($event, element)">
+        <mat-icon>info</mat-icon>
+      </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" class="row_clicable"
+      id="row_{{row.id}}"></tr>
+  </table>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>
+<div id="printContainer">
+  <div *ngFor="let qrCode of qrCodes; let last = last;">
+    <div [ngClass]="{'has-margin': !last}"style="width: 480px;">
+      <table style="height: 250px; padding: 1px;">
+        <tr style="font-size: 2.5em;">
+          <td><b>{{ qrCode.block }}-L{{ qrCode.level }}-{{ qrCode.markingNo }}</b></td>
+          </tr>
+          <tr style="font-size: 1.5em;">
+            <td style=" width: 65%;">
+            <div fxLayout="column" fxLayoutAlign="space-between left">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2px"><span><b>Project:</b></span><span>{{ project.name }}</span></div>
+        <span><b>Block:</b> {{ qrCode.block }}</span>
+        <span><b>Level:</b> {{ qrCode.level }}</span>
+        <span><b>Marking No.:</b> {{ qrCode.markingNo }}</span>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2px"><span><b>Unit Type:</b></span> <span>{{ qrCode.zone }}</span></div>
+      </div>
+      </td>
+      <td>  <ngx-qrcode [qrc-element-type]="'img'" [qrc-value]="qrCode.tag"  fxFlexOffset="4px">
+        </ngx-qrcode>
+      </td>
+    </tr>
+        <tr><td colspan="2" style="font-size: 1.5em;"><b>Fitting out Yard:</b> {{ qrCode.assemblyLocation }}</td></tr>
+        
+      </table>
+     
+    </div>
+  </div>
+</div>
+<app-common-loading *ngIf="isLoading"></app-common-loading>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6309dbe25bfc4462ad668067ed8734c5" Name="Diagram1">
+        <EntityTypeShape EntityType="astorWorkModel.BeaconAppUser" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.BIMSyncCurr" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.BIMSyncHist" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.BIMUserInfo" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.LocationAssociation" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.LocationMaster" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.MaterialDetail" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.MaterialMaster" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="astorWorkModel.UserMaster" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="astorWorkModel.FK_BIMSyncCurr_BIMUserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="astorWorkModel.FK_BIMSyncHist_BIMUserInfo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="astorWorkModel.MaterialMasterMarkingNo" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="astorWorkModel.BeaconGateWayData" Width="1.5" PointX="5.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,31 @@
+﻿@model astorWorkShared.Models.ForgeObject
+
+
+<h2> Create Forge Object </h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BucketKey" class="control-label">Bucket Name</label>
+                <input asp-for="BucketKey" class="form-control" readonly value="@ViewBag.BucketKey"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="ObjectKey" class="control-label">Object Name</label>
+                <input asp-for="ObjectKey" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Select a model file</label>
+                <input type="file" name="file"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

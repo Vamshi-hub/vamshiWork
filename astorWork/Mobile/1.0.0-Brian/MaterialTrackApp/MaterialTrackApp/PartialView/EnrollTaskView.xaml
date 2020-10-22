@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:widgets="clr-namespace:MaterialTrackApp.Widgets;assembly=MaterialTrackApp"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="MaterialTrackApp.PartialView.EnrollTaskView">
+    <ContentView.Content>
+        <Frame OutlineColor="Silver" BackgroundColor="White" HasShadow="True" Margin="10">
+            <StackLayout Orientation="Vertical">
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Beacon Id:</Label>
+                    <Label VerticalTextAlignment="Center" Margin="100,0,0,0" StyleClass="Subheader"
+                           TextColor="Black" Text="{Binding Beacon.DisplayName}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Marking No.:</Label>
+                    <Label VerticalTextAlignment="Center" TextColor="Black" StyleClass="Subheader" Margin="100,0,0,0"
+                           Text="{Binding MarkingNo}" IsVisible="{Binding InTransit}"/>
+                    <Entry Placeholder="Select a marking no." Focused="EntryMarkingNo_Focused"
+                           TextColor="Black" IsVisible="{Binding NotInTransit}"
+                           Margin="100,0,0,0" Text="{Binding MarkingNo}" StyleClass="Subheader">
+                    </Entry>
+                    <iconize:IconImage IconColor="Orange" Icon="md-cancel"
+                                       WidthRequest="25" HeightRequest="25"
+                                       HorizontalOptions="End"
+                                       IsVisible="{Binding CanClearMarkingNo}">
+                        <iconize:IconImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ClearMarkingNo_Tapped"/>
+                        </iconize:IconImage.GestureRecognizers>
+                    </iconize:IconImage>
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">MRF No.:</Label>
+                    <Entry Placeholder="Select a MRF no."
+                                                   TextColor="Black" Focused="EntryMRFNo_Focused"
+                                                   Margin="100,0,0,0" Text="{Binding MRFNo}" StyleClass="Subheader">
+                    </Entry>
+                    <iconize:IconImage IconColor="Orange" Icon="md-cancel"
+                                                                   WidthRequest="25" HeightRequest="25"
+                                                                   HorizontalOptions="End"
+                                                                   IsVisible="{Binding CanClearMRFNo}">
+                        <iconize:IconImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ClearMRFNo_Tapped"/>
+                        </iconize:IconImage.GestureRecognizers>
+                    </iconize:IconImage>
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Lot No.:</Label>
+                    <Label VerticalTextAlignment="Center" TextColor="Black"  Margin="100,0,0,0" Text="{Binding LotNo}" StyleClass="Subheader" IsVisible="{Binding InTransit}"/>
+                    <Entry Margin="100,0,0,0" TextColor="Black" StyleClass="Subheader" Text="{Binding LotNo}"
+                           Keyboard="Numeric" IsVisible="{Binding NotInTransit}" />
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">Casting Date:</Label>
+                    <Label TextColor="Black" Margin="100,0,0,0" VerticalTextAlignment="Center"
+                                                       Text="{Binding CastingDate, StringFormat='{0:MM/dd/yyyy}'}" 
+                                                       StyleClass="Subheader" IsVisible="{Binding InTransit}"/>
+                    <DatePicker Margin="100,0,0,0" TextColor="Black"
+                                                        Date="{Binding CastingDate}" 
+                                                        MaximumDate="{x:Static sys:DateTime.Today}" 
+                                                        IsVisible="{Binding NotInTransit}"/>
+                </Grid>
+                <Grid IsVisible="{Binding CanQC}" HeightRequest="50">
+                    <Label VerticalTextAlignment="Center">QC Status:</Label>
+                    <widgets:TogglePassed Checked="{Binding PassQC}"
+                                          HorizontalOptions="End" VerticalOptions="Center"/>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>
